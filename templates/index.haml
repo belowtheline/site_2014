@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title Below The Line
+  %body
+    %h1 Below The Line
+    %h2 This is the bit where you pick your electorate
+    %ul
+      - states.each do |key, state|
+        %li= state['name']
+        %ul
+          - divisions[key].each do |division|
+            %li
+              %a{:href => "division/#{division['id']}.html"}= division['name']

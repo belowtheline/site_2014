@@ -1,0 +1,10 @@
+{
+    "act": {"name": "Australian Capital Territory", "abbreviation": "ACT"},
+    "nsw": {"name": "New South Wales", "abbreviation": "NSW"},
+    "nt": {"name": "Northern Territory", "abbreviation": "NT"},
+    "qld": {"name": "Queensland", "abbreviation": "QLD"},
+    "sa": {"name": "South Australia", "abbreviation": "SA"},
+    "tas": {"name": "Tasmania", "abbreviation": "TAS"},
+    "vic": {"name": "Victoria", "abbreviation": "VIC"},
+    "wa": {"name": "Western Australia", "abbreviation": "WA"}
+}

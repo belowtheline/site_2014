@@ -1,0 +1,602 @@
+{
+    "adelaide": {
+        "name": "Adelaide",
+        "state": "sa"
+    },
+    "aston": {
+        "name": "Aston",
+        "state": "vic"
+    },
+    "ballarat": {
+        "name": "Ballarat",
+        "state": "vic"
+    },
+    "banks": {
+        "name": "Banks",
+        "state": "nsw"
+    },
+    "barker": {
+        "name": "Barker",
+        "state": "sa"
+    },
+    "barton": {
+        "name": "Barton",
+        "state": "nsw"
+    },
+    "bass": {
+        "name": "Bass",
+        "state": "tas"
+    },
+    "batman": {
+        "name": "Batman",
+        "state": "vic"
+    },
+    "bendigo": {
+        "name": "Bendigo",
+        "state": "vic"
+    },
+    "bennelong": {
+        "name": "Bennelong",
+        "state": "nsw"
+    },
+    "berowra": {
+        "name": "Berowra",
+        "state": "nsw"
+    },
+    "blair": {
+        "name": "Blair",
+        "state": "qld"
+    },
+    "blaxland": {
+        "name": "Blaxland",
+        "state": "nsw"
+    },
+    "bonner": {
+        "name": "Bonner",
+        "state": "qld"
+    },
+    "boothby": {
+        "name": "Boothby",
+        "state": "sa"
+    },
+    "bowman": {
+        "name": "Bowman",
+        "state": "qld"
+    },
+    "braddon": {
+        "name": "Braddon",
+        "state": "tas"
+    },
+    "bradfield": {
+        "name": "Bradfield",
+        "state": "nsw"
+    },
+    "brand": {
+        "name": "Brand",
+        "state": "wa"
+    },
+    "brisbane": {
+        "name": "Brisbane",
+        "state": "qld"
+    },
+    "bruce": {
+        "name": "Bruce",
+        "state": "vic"
+    },
+    "calare": {
+        "name": "Calare",
+        "state": "nsw"
+    },
+    "calwell": {
+        "name": "Calwell",
+        "state": "vic"
+    },
+    "canberra": {
+        "name": "Canberra",
+        "state": "act"
+    },
+    "canning": {
+        "name": "Canning",
+        "state": "wa"
+    },
+    "capricornia": {
+        "name": "Capricornia",
+        "state": "qld"
+    },
+    "casey": {
+        "name": "Casey",
+        "state": "vic"
+    },
+    "charlton": {
+        "name": "Charlton",
+        "state": "nsw"
+    },
+    "chifley": {
+        "name": "Chifley",
+        "state": "nsw"
+    },
+    "chisholm": {
+        "name": "Chisholm",
+        "state": "vic"
+    },
+    "cook": {
+        "name": "Cook",
+        "state": "nsw"
+    },
+    "corangamite": {
+        "name": "Corangamite",
+        "state": "vic"
+    },
+    "corio": {
+        "name": "Corio",
+        "state": "vic"
+    },
+    "cowan": {
+        "name": "Cowan",
+        "state": "wa"
+    },
+    "cowper": {
+        "name": "Cowper",
+        "state": "nsw"
+    },
+    "cunningham": {
+        "name": "Cunningham",
+        "state": "nsw"
+    },
+    "curtin": {
+        "name": "Curtin",
+        "state": "wa"
+    },
+    "dawson": {
+        "name": "Dawson",
+        "state": "qld"
+    },
+    "deakin": {
+        "name": "Deakin",
+        "state": "vic"
+    },
+    "denison": {
+        "name": "Denison",
+        "state": "tas"
+    },
+    "dickson": {
+        "name": "Dickson",
+        "state": "qld"
+    },
+    "dobell": {
+        "name": "Dobell",
+        "state": "nsw"
+    },
+    "dunkley": {
+        "name": "Dunkley",
+        "state": "vic"
+    },
+    "durack": {
+        "name": "Durack",
+        "state": "wa"
+    },
+    "eden-monaro": {
+        "name": "Eden-Monaro",
+        "state": "nsw"
+    },
+    "fadden": {
+        "name": "Fadden",
+        "state": "qld"
+    },
+    "fairfax": {
+        "name": "Fairfax",
+        "state": "qld"
+    },
+    "farrer": {
+        "name": "Farrer",
+        "state": "nsw"
+    },
+    "fisher": {
+        "name": "Fisher",
+        "state": "qld"
+    },
+    "flinders": {
+        "name": "Flinders",
+        "state": "vic"
+    },
+    "flynn": {
+        "name": "Flynn",
+        "state": "qld"
+    },
+    "forde": {
+        "name": "Forde",
+        "state": "qld"
+    },
+    "forrest": {
+        "name": "Forrest",
+        "state": "wa"
+    },
+    "fowler": {
+        "name": "Fowler",
+        "state": "nsw"
+    },
+    "franklin": {
+        "name": "Franklin",
+        "state": "tas"
+    },
+    "fraser": {
+        "name": "Fraser",
+        "state": "act"
+    },
+    "fremantle": {
+        "name": "Fremantle",
+        "state": "wa"
+    },
+    "gellibrand": {
+        "name": "Gellibrand",
+        "state": "vic"
+    },
+    "gilmore": {
+        "name": "Gilmore",
+        "state": "nsw"
+    },
+    "gippsland": {
+        "name": "Gippsland",
+        "state": "vic"
+    },
+    "goldstein": {
+        "name": "Goldstein",
+        "state": "vic"
+    },
+    "gorton": {
+        "name": "Gorton",
+        "state": "vic"
+    },
+    "grayndler": {
+        "name": "Grayndler",
+        "state": "nsw"
+    },
+    "greenway": {
+        "name": "Greenway",
+        "state": "nsw"
+    },
+    "grey": {
+        "name": "Grey",
+        "state": "sa"
+    },
+    "griffith": {
+        "name": "Griffith",
+        "state": "qld"
+    },
+    "groom": {
+        "name": "Groom",
+        "state": "qld"
+    },
+    "hasluck": {
+        "name": "Hasluck",
+        "state": "wa"
+    },
+    "herbert": {
+        "name": "Herbert",
+        "state": "qld"
+    },
+    "higgins": {
+        "name": "Higgins",
+        "state": "vic"
+    },
+    "hindmarsh": {
+        "name": "Hindmarsh",
+        "state": "sa"
+    },
+    "hinkler": {
+        "name": "Hinkler",
+        "state": "qld"
+    },
+    "holt": {
+        "name": "Holt",
+        "state": "vic"
+    },
+    "hotham": {
+        "name": "Hotham",
+        "state": "vic"
+    },
+    "hughes": {
+        "name": "Hughes",
+        "state": "nsw"
+    },
+    "hume": {
+        "name": "Hume",
+        "state": "nsw"
+    },
+    "hunter": {
+        "name": "Hunter",
+        "state": "nsw"
+    },
+    "indi": {
+        "name": "Indi",
+        "state": "vic"
+    },
+    "isaacs": {
+        "name": "Isaacs",
+        "state": "vic"
+    },
+    "jagajaga": {
+        "name": "Jagajaga",
+        "state": "vic"
+    },
+    "kennedy": {
+        "name": "Kennedy",
+        "state": "qld"
+    },
+    "kingsford-smith": {
+        "name": "Kingsford Smith",
+        "state": "nsw"
+    },
+    "kingston": {
+        "name": "Kingston",
+        "state": "sa"
+    },
+    "kooyong": {
+        "name": "Kooyong",
+        "state": "vic"
+    },
+    "la-trobe": {
+        "name": "La Trobe",
+        "state": "vic"
+    },
+    "lalor": {
+        "name": "Lalor",
+        "state": "vic"
+    },
+    "leichhardt": {
+        "name": "Leichhardt",
+        "state": "qld"
+    },
+    "lilley": {
+        "name": "Lilley",
+        "state": "qld"
+    },
+    "lindsay": {
+        "name": "Lindsay",
+        "state": "nsw"
+    },
+    "lingiari": {
+        "name": "Lingiari",
+        "state": "nt"
+    },
+    "longman": {
+        "name": "Longman",
+        "state": "qld"
+    },
+    "lyne": {
+        "name": "Lyne",
+        "state": "nsw"
+    },
+    "lyons": {
+        "name": "Lyons",
+        "state": "tas"
+    },
+    "macarthur": {
+        "name": "Macarthur",
+        "state": "nsw"
+    },
+    "mackellar": {
+        "name": "Mackellar",
+        "state": "nsw"
+    },
+    "macquarie": {
+        "name": "Macquarie",
+        "state": "nsw"
+    },
+    "makin": {
+        "name": "Makin",
+        "state": "sa"
+    },
+    "mallee": {
+        "name": "Mallee",
+        "state": "vic"
+    },
+    "maranoa": {
+        "name": "Maranoa",
+        "state": "qld"
+    },
+    "maribyrnong": {
+        "name": "Maribyrnong",
+        "state": "vic"
+    },
+    "mayo": {
+        "name": "Mayo",
+        "state": "sa"
+    },
+    "mcewen": {
+        "name": "McEwen",
+        "state": "vic"
+    },
+    "mcmahon": {
+        "name": "McMahon",
+        "state": "nsw"
+    },
+    "mcmillan": {
+        "name": "McMillan",
+        "state": "vic"
+    },
+    "mcpherson": {
+        "name": "McPherson",
+        "state": "qld"
+    },
+    "melbourne": {
+        "name": "Melbourne",
+        "state": "vic"
+    },
+    "melbourne-ports": {
+        "name": "Melbourne Ports",
+        "state": "vic"
+    },
+    "menzies": {
+        "name": "Menzies",
+        "state": "vic"
+    },
+    "mitchell": {
+        "name": "Mitchell",
+        "state": "nsw"
+    },
+    "moncrieff": {
+        "name": "Moncrieff",
+        "state": "qld"
+    },
+    "moore": {
+        "name": "Moore",
+        "state": "wa"
+    },
+    "moreton": {
+        "name": "Moreton",
+        "state": "qld"
+    },
+    "murray": {
+        "name": "Murray",
+        "state": "vic"
+    },
+    "new-england": {
+        "name": "New England",
+        "state": "nsw"
+    },
+    "newcastle": {
+        "name": "Newcastle",
+        "state": "nsw"
+    },
+    "north-sydney": {
+        "name": "North Sydney",
+        "state": "nsw"
+    },
+    "oconnor": {
+        "name": "O'Connor",
+        "state": "wa"
+    },
+    "oxley": {
+        "name": "Oxley",
+        "state": "qld"
+    },
+    "page": {
+        "name": "Page",
+        "state": "nsw"
+    },
+    "parkes": {
+        "name": "Parkes",
+        "state": "nsw"
+    },
+    "parramatta": {
+        "name": "Parramatta",
+        "state": "nsw"
+    },
+    "paterson": {
+        "name": "Paterson",
+        "state": "nsw"
+    },
+    "pearce": {
+        "name": "Pearce",
+        "state": "wa"
+    },
+    "perth": {
+        "name": "Perth",
+        "state": "wa"
+    },
+    "petrie": {
+        "name": "Petrie",
+        "state": "qld"
+    },
+    "port-adelaide": {
+        "name": "Port Adelaide",
+        "state": "sa"
+    },
+    "rankin": {
+        "name": "Rankin",
+        "state": "qld"
+    },
+    "reid": {
+        "name": "Reid",
+        "state": "nsw"
+    },
+    "richmond": {
+        "name": "Richmond",
+        "state": "nsw"
+    },
+    "riverina": {
+        "name": "Riverina",
+        "state": "nsw"
+    },
+    "robertson": {
+        "name": "Robertson",
+        "state": "nsw"
+    },
+    "ryan": {
+        "name": "Ryan",
+        "state": "qld"
+    },
+    "scullin": {
+        "name": "Scullin",
+        "state": "vic"
+    },
+    "shortland": {
+        "name": "Shortland",
+        "state": "nsw"
+    },
+    "solomon": {
+        "name": "Solomon",
+        "state": "nt"
+    },
+    "stirling": {
+        "name": "Stirling",
+        "state": "wa"
+    },
+    "sturt": {
+        "name": "Sturt",
+        "state": "sa"
+    },
+    "swan": {
+        "name": "Swan",
+        "state": "wa"
+    },
+    "sydney": {
+        "name": "Sydney",
+        "state": "nsw"
+    },
+    "tangney": {
+        "name": "Tangney",
+        "state": "wa"
+    },
+    "throsby": {
+        "name": "Throsby",
+        "state": "nsw"
+    },
+    "wakefield": {
+        "name": "Wakefield",
+        "state": "sa"
+    },
+    "wannon": {
+        "name": "Wannon",
+        "state": "vic"
+    },
+    "warringah": {
+        "name": "Warringah",
+        "state": "nsw"
+    },
+    "watson": {
+        "name": "Watson",
+        "state": "nsw"
+    },
+    "wentworth": {
+        "name": "Wentworth",
+        "state": "nsw"
+    },
+    "werriwa": {
+        "name": "Werriwa",
+        "state": "nsw"
+    },
+    "wide-bay": {
+        "name": "Wide Bay",
+        "state": "qld"
+    },
+    "wills": {
+        "name": "Wills",
+        "state": "vic"
+    },
+    "wright": {
+        "name": "Wright",
+        "state": "qld"
+    }
+}

@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %title Below The Line - #{name} (#{states[state]['abbreviation']})
+  %body
+    %h1= name
+    %h2= states[state]['name']
+    %p
+      Your local member in the House of Representatives is #{rep['first_name']}
+      #{rep['last_name']} (#{rep['party']}).
+    %p
+      Your Senators are:
+      %ul
+        - senators.each do |senator|
+          %li
+            #{senator['first_name']} #{senator['last_name']} (#{senator['party']})
+            - if senator['expires'] <= 2014
+              (term expiring)

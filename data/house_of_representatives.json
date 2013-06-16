@@ -1,0 +1,752 @@
+{
+    "adelaide": {
+        "first_name": "Kate",
+        "last_name": "Ellis",
+        "party": "Labor"
+    },
+    "aston": {
+        "first_name": "Alan",
+        "last_name": "Tudge",
+        "party": "Liberal"
+    },
+    "ballarat": {
+        "first_name": "Catherine",
+        "last_name": "King",
+        "party": "Labor"
+    },
+    "banks": {
+        "first_name": "Daryl",
+        "last_name": "Melham",
+        "party": "Labor"
+    },
+    "barker": {
+        "first_name": "Patrick",
+        "last_name": "Secker",
+        "party": "Liberal"
+    },
+    "barton": {
+        "first_name": "Robert",
+        "last_name": "McClelland",
+        "party": "Labor"
+    },
+    "bass": {
+        "first_name": "Geoff",
+        "last_name": "Lyons",
+        "party": "Labor"
+    },
+    "batman": {
+        "first_name": "Martin",
+        "last_name": "Ferguson",
+        "party": "Labor"
+    },
+    "bendigo": {
+        "first_name": "Steve",
+        "last_name": "Gibbons",
+        "party": "Labor"
+    },
+    "bennelong": {
+        "first_name": "John",
+        "last_name": "Alexander",
+        "party": "Liberal"
+    },
+    "berowra": {
+        "first_name": "Philip",
+        "last_name": "Ruddock",
+        "party": "Liberal"
+    },
+    "blair": {
+        "first_name": "Shayne",
+        "last_name": "Neumann",
+        "party": "Labor"
+    },
+    "blaxland": {
+        "first_name": "Jason",
+        "last_name": "Clare",
+        "party": "Labor"
+    },
+    "bonner": {
+        "first_name": "Ross",
+        "last_name": "Vasta",
+        "party": "LNP"
+    },
+    "boothby": {
+        "first_name": "Andrew",
+        "last_name": "Southcott",
+        "party": "Liberal"
+    },
+    "bowman": {
+        "first_name": "Andrew",
+        "last_name": "Laming",
+        "party": "LNP"
+    },
+    "braddon": {
+        "first_name": "Sid",
+        "last_name": "Sidebottom",
+        "party": "Labor"
+    },
+    "bradfield": {
+        "first_name": "Paul",
+        "last_name": "Fletcher",
+        "party": "Liberal"
+    },
+    "brand": {
+        "first_name": "Gary",
+        "last_name": "Gray",
+        "party": "Labor"
+    },
+    "brisbane": {
+        "first_name": "Teresa",
+        "last_name": "Gambaro",
+        "party": "LNP"
+    },
+    "bruce": {
+        "first_name": "Alan",
+        "last_name": "Griffin",
+        "party": "Labor"
+    },
+    "calare": {
+        "first_name": "John",
+        "last_name": "Cobb",
+        "party": "National"
+    },
+    "calwell": {
+        "first_name": "Maria",
+        "last_name": "Vamvakinou",
+        "party": "Labor"
+    },
+    "canberra": {
+        "first_name": "Gai",
+        "last_name": "Brodtmann",
+        "party": "Labor"
+    },
+    "canning": {
+        "first_name": "Don",
+        "last_name": "Randall",
+        "party": "Liberal"
+    },
+    "capricornia": {
+        "first_name": "Kirsten",
+        "last_name": "Livermore",
+        "party": "Labor"
+    },
+    "casey": {
+        "first_name": "Tony",
+        "last_name": "Smith",
+        "party": "Liberal"
+    },
+    "charlton": {
+        "first_name": "Greg",
+        "last_name": "Combet",
+        "party": "Labor"
+    },
+    "chifley": {
+        "first_name": "Ed",
+        "last_name": "Husic",
+        "party": "Labor"
+    },
+    "chisholm": {
+        "first_name": "Anna",
+        "last_name": "Burke",
+        "party": "Labor"
+    },
+    "cook": {
+        "first_name": "Scott",
+        "last_name": "Morrison",
+        "party": "Liberal"
+    },
+    "corangamite": {
+        "first_name": "Darren",
+        "last_name": "Cheeseman",
+        "party": "Labor"
+    },
+    "corio": {
+        "first_name": "Richard",
+        "last_name": "Marles",
+        "party": "Labor"
+    },
+    "cowan": {
+        "first_name": "Luke",
+        "last_name": "Simpkins",
+        "party": "Liberal"
+    },
+    "cowper": {
+        "first_name": "Luke",
+        "last_name": "Hartsuyker",
+        "party": "National"
+    },
+    "cunningham": {
+        "first_name": "Sharon",
+        "last_name": "Bird",
+        "party": "Labor"
+    },
+    "curtin": {
+        "first_name": "Julie",
+        "last_name": "Bishop",
+        "party": "Liberal"
+    },
+    "dawson": {
+        "first_name": "George",
+        "last_name": "Christensen",
+        "party": "LNP"
+    },
+    "deakin": {
+        "first_name": "Mike",
+        "last_name": "Symon",
+        "party": "Labor"
+    },
+    "denison": {
+        "first_name": "Andrew",
+        "last_name": "Wilkie",
+        "party": "Independent"
+    },
+    "dickson": {
+        "first_name": "Peter",
+        "last_name": "Dutton",
+        "party": "LNP"
+    },
+    "dobell": {
+        "first_name": "Craig",
+        "last_name": "Thomson",
+        "party": "Labor/Independent"
+    },
+    "dunkley": {
+        "first_name": "Bruce",
+        "last_name": "Billson",
+        "party": "Liberal"
+    },
+    "durack": {
+        "first_name": "Barry",
+        "last_name": "Haase",
+        "party": "Liberal"
+    },
+    "eden-monaro": {
+        "first_name": "Mike",
+        "last_name": "Kelly",
+        "party": "Labor"
+    },
+    "fadden": {
+        "first_name": "Stuart",
+        "last_name": "Robert",
+        "party": "LNP"
+    },
+    "fairfax": {
+        "first_name": "Alex",
+        "last_name": "Somlyay",
+        "party": "LNP"
+    },
+    "farrer": {
+        "first_name": "Sussan",
+        "last_name": "Ley",
+        "party": "Liberal"
+    },
+    "fisher": {
+        "first_name": "Peter",
+        "last_name": "Slipper",
+        "party": "LNP/Independent"
+    },
+    "flinders": {
+        "first_name": "Greg",
+        "last_name": "Hunt",
+        "party": "Liberal"
+    },
+    "flynn": {
+        "first_name": "Ken",
+        "last_name": "O'Dowd",
+        "party": "LNP"
+    },
+    "forde": {
+        "first_name": "Bert",
+        "last_name": "Van Manen",
+        "party": "LNP"
+    },
+    "forrest": {
+        "first_name": "Nola",
+        "last_name": "Marino",
+        "party": "Liberal"
+    },
+    "fowler": {
+        "first_name": "Chris",
+        "last_name": "Hayes",
+        "party": "Labor"
+    },
+    "franklin": {
+        "first_name": "Julie",
+        "last_name": "Collins",
+        "party": "Labor"
+    },
+    "fraser": {
+        "first_name": "Andrew",
+        "last_name": "Leigh",
+        "party": "Labor"
+    },
+    "fremantle": {
+        "first_name": "Melissa",
+        "last_name": "Parke",
+        "party": "Labor"
+    },
+    "gellibrand": {
+        "first_name": "Nicola",
+        "last_name": "Roxon",
+        "party": "Labor"
+    },
+    "gilmore": {
+        "first_name": "Joanna",
+        "last_name": "Gash",
+        "party": "Liberal"
+    },
+    "gippsland": {
+        "first_name": "Darren",
+        "last_name": "Chester",
+        "party": "National"
+    },
+    "goldstein": {
+        "first_name": "Andrew",
+        "last_name": "Robb",
+        "party": "Liberal"
+    },
+    "gorton": {
+        "first_name": "Brendan",
+        "last_name": "O'Connor",
+        "party": "Labor"
+    },
+    "grayndler": {
+        "first_name": "Anthony",
+        "last_name": "Albanese",
+        "party": "Labor"
+    },
+    "greenway": {
+        "first_name": "Michelle",
+        "last_name": "Rowland",
+        "party": "Labor"
+    },
+    "grey": {
+        "first_name": "Rowan",
+        "last_name": "Ramsey",
+        "party": "Liberal"
+    },
+    "griffith": {
+        "first_name": "Kevin",
+        "last_name": "Rudd",
+        "party": "Labor"
+    },
+    "groom": {
+        "first_name": "Ian",
+        "last_name": "Macfarlane",
+        "party": "LNP"
+    },
+    "hasluck": {
+        "first_name": "Ken",
+        "last_name": "Wyatt",
+        "party": "Liberal"
+    },
+    "herbert": {
+        "first_name": "Ewen",
+        "last_name": "Jones",
+        "party": "LNP"
+    },
+    "higgins": {
+        "first_name": "Kelly",
+        "last_name": "O'Dwyer",
+        "party": "Liberal"
+    },
+    "hindmarsh": {
+        "first_name": "Steve",
+        "last_name": "Georganas",
+        "party": "Labor"
+    },
+    "hinkler": {
+        "first_name": "Paul",
+        "last_name": "Neville",
+        "party": "LNP"
+    },
+    "holt": {
+        "first_name": "Anthony",
+        "last_name": "Byrne",
+        "party": "Labor"
+    },
+    "hotham": {
+        "first_name": "Simon",
+        "last_name": "Crean",
+        "party": "Labor"
+    },
+    "hughes": {
+        "first_name": "Craig",
+        "last_name": "Kelly",
+        "party": "Liberal"
+    },
+    "hume": {
+        "first_name": "Alby",
+        "last_name": "Schultz",
+        "party": "Liberal"
+    },
+    "hunter": {
+        "first_name": "Joel",
+        "last_name": "Fitzgibbon",
+        "party": "Labor"
+    },
+    "indi": {
+        "first_name": "Sophie",
+        "last_name": "Mirabella",
+        "party": "Liberal"
+    },
+    "isaacs": {
+        "first_name": "Mark",
+        "last_name": "Dreyfus",
+        "party": "Labor"
+    },
+    "jagajaga": {
+        "first_name": "Jenny",
+        "last_name": "Macklin",
+        "party": "Labor"
+    },
+    "kennedy": {
+        "first_name": "Bob",
+        "last_name": "Katter",
+        "party": "Independent/Katter's Australian Party"
+    },
+    "kingsford-smith": {
+        "first_name": "Peter",
+        "last_name": "Garrett",
+        "party": "Labor"
+    },
+    "kingston": {
+        "first_name": "Amanda",
+        "last_name": "Rishworth",
+        "party": "Labor"
+    },
+    "kooyong": {
+        "first_name": "Josh",
+        "last_name": "Frydenberg",
+        "party": "Liberal"
+    },
+    "la-trobe": {
+        "first_name": "Laura",
+        "last_name": "Smyth",
+        "party": "Labor"
+    },
+    "lalor": {
+        "first_name": "Julia",
+        "last_name": "Gillard",
+        "party": "Labor"
+    },
+    "leichhardt": {
+        "first_name": "Warren",
+        "last_name": "Entsch",
+        "party": "LNP"
+    },
+    "lilley": {
+        "first_name": "Wayne",
+        "last_name": "Swan",
+        "party": "Labor"
+    },
+    "lindsay": {
+        "first_name": "David",
+        "last_name": "Bradbury",
+        "party": "Labor"
+    },
+    "lingiari": {
+        "first_name": "Warren",
+        "last_name": "Snowdon",
+        "party": "Labor"
+    },
+    "longman": {
+        "first_name": "Wyatt",
+        "last_name": "Roy",
+        "party": "LNP"
+    },
+    "lyne": {
+        "first_name": "Rob",
+        "last_name": "Oakeshott",
+        "party": "Independent"
+    },
+    "lyons": {
+        "first_name": "Dick",
+        "last_name": "Adams",
+        "party": "Labor"
+    },
+    "macarthur": {
+        "first_name": "Russell",
+        "last_name": "Matheson",
+        "party": "Liberal"
+    },
+    "mackellar": {
+        "first_name": "Bronwyn",
+        "last_name": "Bishop",
+        "party": "Liberal"
+    },
+    "macquarie": {
+        "first_name": "Louise",
+        "last_name": "Markus",
+        "party": "Liberal"
+    },
+    "makin": {
+        "first_name": "Tony",
+        "last_name": "Zappia",
+        "party": "Labor"
+    },
+    "mallee": {
+        "first_name": "John",
+        "last_name": "Forrest",
+        "party": "National"
+    },
+    "maranoa": {
+        "first_name": "Bruce",
+        "last_name": "Scott",
+        "party": "LNP"
+    },
+    "maribyrnong": {
+        "first_name": "Bill",
+        "last_name": "Shorten",
+        "party": "Labor"
+    },
+    "mayo": {
+        "first_name": "Jamie",
+        "last_name": "Briggs",
+        "party": "Liberal"
+    },
+    "mcewen": {
+        "first_name": "Rob",
+        "last_name": "Mitchell",
+        "party": "Labor"
+    },
+    "mcmahon": {
+        "first_name": "Chris",
+        "last_name": "Bowen",
+        "party": "Labor"
+    },
+    "mcmillan": {
+        "first_name": "Russell",
+        "last_name": "Broadbent",
+        "party": "Liberal"
+    },
+    "mcpherson": {
+        "first_name": "Karen",
+        "last_name": "Andrews",
+        "party": "LNP"
+    },
+    "melbourne": {
+        "first_name": "Adam",
+        "last_name": "Bandt",
+        "party": "Greens"
+    },
+    "melbourne-ports": {
+        "first_name": "Michael",
+        "last_name": "Danby",
+        "party": "Labor"
+    },
+    "menzies": {
+        "first_name": "Kevin",
+        "last_name": "Andrews",
+        "party": "Liberal"
+    },
+    "mitchell": {
+        "first_name": "Alex",
+        "last_name": "Hawke",
+        "party": "Liberal"
+    },
+    "moncrieff": {
+        "first_name": "Steven",
+        "last_name": "Ciobo",
+        "party": "LNP"
+    },
+    "moore": {
+        "first_name": "Mal",
+        "last_name": "Washer",
+        "party": "Liberal"
+    },
+    "moreton": {
+        "first_name": "Graham",
+        "last_name": "Perrett",
+        "party": "Labor"
+    },
+    "murray": {
+        "first_name": "Sharman",
+        "last_name": "Stone",
+        "party": "Liberal"
+    },
+    "new-england": {
+        "first_name": "Tony",
+        "last_name": "Windsor",
+        "party": "Independent"
+    },
+    "newcastle": {
+        "first_name": "Sharon",
+        "last_name": "Grierson",
+        "party": "Labor"
+    },
+    "north-sydney": {
+        "first_name": "Joe",
+        "last_name": "Hockey",
+        "party": "Liberal"
+    },
+    "oconnor": {
+        "first_name": "Tony",
+        "last_name": "Crook",
+        "party": "Nationals WA"
+    },
+    "oxley": {
+        "first_name": "Bernie",
+        "last_name": "Ripoll",
+        "party": "Labor"
+    },
+    "page": {
+        "first_name": "Janelle",
+        "last_name": "Saffin",
+        "party": "Labor"
+    },
+    "parkes": {
+        "first_name": "Mark",
+        "last_name": "Coulton",
+        "party": "National"
+    },
+    "parramatta": {
+        "first_name": "Julie",
+        "last_name": "Owens",
+        "party": "Labor"
+    },
+    "paterson": {
+        "first_name": "Bob",
+        "last_name": "Baldwin",
+        "party": "Liberal"
+    },
+    "pearce": {
+        "first_name": "Judi",
+        "last_name": "Moylan",
+        "party": "Liberal"
+    },
+    "perth": {
+        "first_name": "Stephen",
+        "last_name": "Smith",
+        "party": "Labor"
+    },
+    "petrie": {
+        "first_name": "Yvette",
+        "last_name": "D'Ath",
+        "party": "Labor"
+    },
+    "port-adelaide": {
+        "first_name": "Mark",
+        "last_name": "Butler",
+        "party": "Labor"
+    },
+    "rankin": {
+        "first_name": "Craig",
+        "last_name": "Emerson",
+        "party": "Labor"
+    },
+    "reid": {
+        "first_name": "John",
+        "last_name": "Murphy",
+        "party": "Labor"
+    },
+    "richmond": {
+        "first_name": "Justine",
+        "last_name": "Elliot",
+        "party": "Labor"
+    },
+    "riverina": {
+        "first_name": "Michael",
+        "last_name": "McCormack",
+        "party": "National"
+    },
+    "robertson": {
+        "first_name": "Deborah",
+        "last_name": "O'Neill",
+        "party": "Labor"
+    },
+    "ryan": {
+        "first_name": "Jane",
+        "last_name": "Prentice",
+        "party": "LNP"
+    },
+    "scullin": {
+        "first_name": "Harry",
+        "last_name": "Jenkins",
+        "party": "Labor"
+    },
+    "shortland": {
+        "first_name": "Jill",
+        "last_name": "Hall",
+        "party": "Labor"
+    },
+    "solomon": {
+        "first_name": "Natasha",
+        "last_name": "Griggs",
+        "party": "CLP"
+    },
+    "stirling": {
+        "first_name": "Michael",
+        "last_name": "Keenan",
+        "party": "Liberal"
+    },
+    "sturt": {
+        "first_name": "Christopher",
+        "last_name": "Pyne",
+        "party": "Liberal"
+    },
+    "swan": {
+        "first_name": "Steve",
+        "last_name": "Irons",
+        "party": "Liberal"
+    },
+    "sydney": {
+        "first_name": "Tanya",
+        "last_name": "Plibersek",
+        "party": "Labor"
+    },
+    "tangney": {
+        "first_name": "Dennis",
+        "last_name": "Jensen",
+        "party": "Liberal"
+    },
+    "throsby": {
+        "first_name": "Stephen",
+        "last_name": "Jones",
+        "party": "Labor"
+    },
+    "wakefield": {
+        "first_name": "Nick",
+        "last_name": "Champion",
+        "party": "Labor"
+    },
+    "wannon": {
+        "first_name": "Dan",
+        "last_name": "Tehan",
+        "party": "Liberal"
+    },
+    "warringah": {
+        "first_name": "Tony",
+        "last_name": "Abbott",
+        "party": "Liberal"
+    },
+    "watson": {
+        "first_name": "Tony",
+        "last_name": "Burke",
+        "party": "Labor"
+    },
+    "wentworth": {
+        "first_name": "Malcolm",
+        "last_name": "Turnbull",
+        "party": "Liberal"
+    },
+    "werriwa": {
+        "first_name": "Laurie",
+        "last_name": "Ferguson",
+        "party": "Labor"
+    },
+    "wide-bay": {
+        "first_name": "Warren",
+        "last_name": "Truss",
+        "party": "LNP"
+    },
+    "wills": {
+        "first_name": "Kelvin",
+        "last_name": "Thomson",
+        "party": "Labor"
+    },
+    "wright": {
+        "first_name": "Scott",
+        "last_name": "Buchholz",
+        "party": "LNP"
+    }
+}
