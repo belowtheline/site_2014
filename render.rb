@@ -21,12 +21,12 @@ divisions.each do |key, div|
   div_by_state[div['state']] << div
 end
 
-index = Haml::Engine.new(File.open('templates/index.haml').read)
+index = Haml::Engine.new(File.read('templates/index.haml'))
 locals = {states: states, divisions: div_by_state}
 
 File.write('output/index.html', index.render(Object.new, locals))
 
-division = Haml::Engine.new(File.open('templates/division.haml').read)
+division = Haml::Engine.new(File.read('templates/division.haml'))
 divisions.each do |key, div|
   locals = div.clone.merge(
     states: states, rep: representatives[key], senators: senators[div['state']]
