@@ -1,0 +1,10 @@
+{
+    "last_name":    "Ryan",
+    "first_name":   "Scott",
+    "party":        "lib",
+    "elected":      "state/vic",
+    "term_start":   "2008-07-01",
+    "expiring":     true,
+    "retiring":     false,
+    "wikipedia":    "http://en.wikipedia.org/wiki/Scott_Ryan_(Australian_politician)"
+}

@@ -1,0 +1,13 @@
+{
+    "last_name":    "Collins",
+    "first_name":   "Jacinta",
+    "party":        "alp",
+    "elected":      "state/vic",
+    "term_start":   "2008-05-08",
+    "previous_terms": [
+        ["state/vic", "1995-05-03", "2005-06-30"]
+    ],
+    "expiring":     true,
+    "retiring":     false,
+    "wikipedia":    "http://en.wikipedia.org/wiki/Jacinta_Collins"
+}
