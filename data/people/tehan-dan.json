@@ -2,7 +2,7 @@
     "last_name":    "Tehan",
     "first_name":   "Dan",
     "party":        "lib",
-    "elected":      "divisions/wannon",
+    "elected":      "division/wannon",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Dan_Tehan"

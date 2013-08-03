@@ -2,7 +2,7 @@
     "last_name":    "Griffin",
     "first_name":   "Alan",
     "party":        "alp",
-    "elected":      "divisions/bruce",
+    "elected":      "division/bruce",
     "term_start":   "1996-03-02",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Alan_Griffin"

@@ -1,7 +1,7 @@
 {
     "last_name":    "Slipper",
     "first_name":   "Peter",
-    "elected":      "divisions/fisher",
+    "elected":      "division/fisher",
     "term_start":   "1993-03-13",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Peter_Slipper"

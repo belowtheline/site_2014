@@ -2,7 +2,7 @@
     "last_name":    "Turnbull",
     "first_name":   "Malcolm",
     "party":        "lib",
-    "elected":      "divisions/wentworth",
+    "elected":      "division/wentworth",
     "term_start":   "2004-10-09",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Malcolm_Turnbull"

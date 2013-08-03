@@ -2,7 +2,7 @@
     "last_name":    "Mitchell",
     "first_name":   "Rob",
     "party":        "alp",
-    "elected":      "divisions/mcewen",
+    "elected":      "division/mcewen",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Rob_Mitchell_(Victorian_politician)"

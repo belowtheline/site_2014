@@ -2,7 +2,7 @@
     "last_name":    "Fletcher",
     "first_name":   "Paul",
     "party":        "lib",
-    "elected":      "divisions/bradfield",
+    "elected":      "division/bradfield",
     "term_start":   "2009-12-05",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Paul_Fletcher_(politician)"

@@ -2,7 +2,7 @@
     "last_name":    "Macfarlane",
     "first_name":   "Ian",
     "party":        "lnp",
-    "elected":      "divisions/groom",
+    "elected":      "division/groom",
     "term_start":   "1998-10-03",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Ian_Macfarlane_(politician)"

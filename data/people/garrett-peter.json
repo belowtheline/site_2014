@@ -2,7 +2,7 @@
     "last_name":    "Garrett",
     "first_name":   "Peter",
     "party":        "alp",
-    "elected":      "divisions/kingsfordsmith",
+    "elected":      "division/kingsfordsmith",
     "term_start":   "2004-10-09",
     "retiring":     true,
     "wikipedia":    "http://en.wikipedia.org/wiki/Peter_Garrett"

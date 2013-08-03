@@ -2,7 +2,7 @@
     "last_name":    "Owens",
     "first_name":   "Julie",
     "party":        "alp",
-    "elected":      "divisions/parramatta",
+    "elected":      "division/parramatta",
     "term_start":   "2004-10-09",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Julie_Owens"

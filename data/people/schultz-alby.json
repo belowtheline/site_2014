@@ -2,7 +2,7 @@
     "last_name":    "Schultz",
     "first_name":   "Alby",
     "party":        "lib",
-    "elected":      "divisions/hume",
+    "elected":      "division/hume",
     "term_start":   "1998-10-03",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Alby_Schultz"

@@ -2,7 +2,7 @@
     "last_name":    "Ellis",
     "first_name":   "Kate",
     "party":        "alp",
-    "elected":      "divisions/adelaide",
+    "elected":      "division/adelaide",
     "term_start":   "2004-10-09",
     "retiring":     false,
     "website":      "http://www.kateellis.com.au/",

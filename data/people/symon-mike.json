@@ -2,7 +2,7 @@
     "last_name":    "Symon",
     "first_name":   "Mike",
     "party":        "alp",
-    "elected":      "divisions/deakin",
+    "elected":      "division/deakin",
     "term_start":   "2007-11-24",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Mike_Symon"

@@ -2,7 +2,7 @@
     "last_name":    "Secker",
     "first_name":   "Patrick",
     "party":        "lib",
-    "elected":      "divisions/barker",
+    "elected":      "division/barker",
     "term_start":   "1998-10-03",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Patrick_Secker"

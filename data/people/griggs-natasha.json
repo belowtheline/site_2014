@@ -2,7 +2,7 @@
     "last_name":    "Griggs",
     "first_name":   "Natasha",
     "party":        "clp",
-    "elected":      "divisions/solomon",
+    "elected":      "division/solomon",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Natasha_Griggs"

@@ -2,7 +2,7 @@
     "last_name":    "Rudd",
     "first_name":   "Kevin",
     "party":        "alp",
-    "elected":      "divisions/griffith",
+    "elected":      "division/griffith",
     "term_start":   "1998-10-03",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Kevin_Rudd"

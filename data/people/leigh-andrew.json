@@ -2,7 +2,7 @@
     "last_name":    "Leigh",
     "first_name":   "Andrew",
     "party":        "alp",
-    "elected":      "divisions/fraser",
+    "elected":      "division/fraser",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Andrew_Leigh"

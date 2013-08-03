@@ -2,7 +2,7 @@
     "last_name":    "Kelly",
     "first_name":   "Craig",
     "party":        "lib",
-    "elected":      "divisions/hughes",
+    "elected":      "division/hughes",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Craig_Kelly_(politician)"

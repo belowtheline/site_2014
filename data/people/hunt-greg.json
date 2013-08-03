@@ -2,7 +2,7 @@
     "last_name":    "Hunt",
     "first_name":   "Greg",
     "party":        "lib",
-    "elected":      "divisions/flinders",
+    "elected":      "division/flinders",
     "term_start":   "2001-11-10",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Greg_Hunt"

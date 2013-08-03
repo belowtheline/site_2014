@@ -2,7 +2,7 @@
     "last_name":    "McClelland",
     "first_name":   "Robert",
     "party":        "alp",
-    "elected":      "divisions/barton",
+    "elected":      "division/barton",
     "term_start":   "1996-03-02",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Robert_McClelland_(Australian_politician)"

@@ -2,7 +2,7 @@
     "last_name":    "Ruddock",
     "first_name":   "Philip",
     "party":        "lib",
-    "elected":      "divisions/berowra",
+    "elected":      "division/berowra",
     "term_start":   "1993-03-13",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Philip_Ruddock"

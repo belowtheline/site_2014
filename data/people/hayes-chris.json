@@ -2,7 +2,7 @@
     "last_name":    "Hayes",
     "first_name":   "Chris",
     "party":        "alp",
-    "elected":      "divisions/fowler",
+    "elected":      "division/fowler",
     "term_start":   "2010-08-21",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Chris_Hayes_(politician)"

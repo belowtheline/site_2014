@@ -2,7 +2,7 @@
     "last_name":    "Hawke",
     "first_name":   "Alex",
     "party":        "lib",
-    "elected":      "divisions/mitchell",
+    "elected":      "division/mitchell",
     "term_start":   "2007-11-24",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Alex_Hawke"

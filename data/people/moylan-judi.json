@@ -2,7 +2,7 @@
     "last_name":    "Moylan",
     "first_name":   "Judi",
     "party":        "lib",
-    "elected":      "divisions/pearce",
+    "elected":      "division/pearce",
     "term_start":   "1993-03-13",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Judi_Moylan"

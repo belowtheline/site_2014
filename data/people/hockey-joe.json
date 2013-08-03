@@ -2,7 +2,7 @@
     "last_name":    "Hockey",
     "first_name":   "Joe",
     "party":        "lib",
-    "elected":      "divisions/northsydney",
+    "elected":      "division/northsydney",
     "term_start":   "2009-02-16",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Joe_Hockey"

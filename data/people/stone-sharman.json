@@ -2,7 +2,7 @@
     "last_name":    "Stone",
     "first_name":   "Sharman",
     "party":        "lib",
-    "elected":      "divisions/murray",
+    "elected":      "division/murray",
     "term_start":   "1996-03-02",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Sharman_Stone"

@@ -2,7 +2,7 @@
     "last_name":    "Jenkins",
     "first_name":   "Harry",
     "party":        "alp",
-    "elected":      "divisions/scullin",
+    "elected":      "division/scullin",
     "term_start":   "1986-02-08",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Harry_Jenkins"

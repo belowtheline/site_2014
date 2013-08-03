@@ -2,7 +2,7 @@
     "last_name":    "Sidebottom",
     "first_name":   "Sid",
     "party":        "alp",
-    "elected":      "divisions/braddon",
+    "elected":      "division/braddon",
     "term_start":   "2007-11-24",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Sid_Sidebottom"
