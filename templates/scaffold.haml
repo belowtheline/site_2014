@@ -1,0 +1,43 @@
+!!! 5
+%html(ng-app="belowtheline")
+  %head
+    %title Below The Line
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    %link(rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css")
+    %script(src="http://code.jquery.com/jquery-1.10.2.min.js")
+    %script(src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js")
+    %script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs-mYug2pkaA-styj1mS6guOI012AYeXY&sensor=false")
+    %script(src="/js/app.js")
+    :css
+      html, body { height: 100%; }
+      #push, #footer { height: 80px; }
+      #footer { display: block; background-color: #f5f5f5; border-top: 1px solid #cccccc; line-height: 10px; }
+      #wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -60px; }
+      @media (max-width: 767px) {
+        #footer { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+      }
+      #wrap > .container { padding-top: 80px; }
+      .container .credit { margin: 20px 0; }
+      .start { padding-bottom: 20px; }
+      .logo { width: 40px; height: 40px; padding-right: 5px; }
+      .geolocation-only { display: none; }
+  %body
+    #wrap
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            %a.brand(href="#")
+              %img.logo(src="/images/belowtheline.png")
+              Below The Line
+      .container
+        .row
+          .offset3.span6
+            .alert
+              .text-center
+                %strong This site is in development.
+        = body
+    #footer
+      .container
+        %p.muted.credit Find out more about the site at <a href="http://github.com/belowtheline/site">GitHub</a>. Hosting generously provided by <a href="http://rackspace.com/">Rackspace</a>.
+        %p.muted.credit Incorporates data that is &copy; Commonwealth of Australia (Australian Electoral Commission) 2013.
+

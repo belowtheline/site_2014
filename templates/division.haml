@@ -1,6 +1,15 @@
 .row
+  .span12
+    %h1= division['name']
   .span6
     %h2.text-center House of Representatives
+    %p
+      Your local member of the House of Representatives is #{representative['first_name']} #{representative['last_name']}.
   .span6
     %h2.text-center Senate
+    %p
+      The Senators for your #{state_or_territory} are:
+    %ul
+      - senators.each do |senator|
+        %li #{senator['first_name']} #{senator['last_name']}
 #push
