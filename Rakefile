@@ -96,6 +96,7 @@ task :site => [:output_dirs] do
     states = load('state')
     divisions = load('division')
     people = load('people')
+    parties = load('parties')
 
     representatives = {}
     senators = {}
@@ -108,6 +109,12 @@ task :site => [:output_dirs] do
             senators[person['elected']].push(person)
         else
             representatives[person['elected']] = person
+        end
+
+        if person.has_key? 'party' then
+            if not parties.has_key? person['party'] then
+                puts "Missing party: #{person['party']}"
+            end
         end
     end
 
@@ -129,6 +136,7 @@ task :site => [:output_dirs] do
             :representative => representatives["division/#{division_id}"],
             :senators => senators[division['state']],
             :state_or_territory => state_or_territory,
+            :parties => parties,
         })
     end
 

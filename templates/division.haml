@@ -4,12 +4,21 @@
   .span6
     %h2.text-center House of Representatives
     %p
-      Your local member of the House of Representatives is #{representative['first_name']} #{representative['last_name']}.
+      Your local member of the House of Representatives is #{representative['first_name']} #{representative['last_name']}
+      - if representative['party'] then
+        of the
+        %span(class="party party-#{representative['party']}")
+          = parties[representative['party']]['name']
   .span6
     %h2.text-center Senate
     %p
       The Senators for your #{state_or_territory} are:
-    %ul
+    %table.table.table-condensed
       - senators.each do |senator|
-        %li #{senator['first_name']} #{senator['last_name']}
+        %tr
+          %td
+            #{senator['first_name']} #{senator['last_name']}
+          %td
+            %span(class="partycode party party-#{senator['party'] or 'ind'}")
+              #{parties.has_key? senator['party'] and parties[senator['party']]['code'] or 'IND'}
 #push
