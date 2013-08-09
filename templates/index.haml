@@ -1,7 +1,7 @@
 .row
-  .span6
+  .span5
     .hero-unit
-      %h1.start Let's start!
+      %h2.start Let's start!
       .geolocation-only
         %form
           %h3 Use your current location
@@ -14,7 +14,7 @@
             %span.geolocation-alt Use
             location search
           .input-append
-            %input.span2#addressInput(type="text" placeholder="Address...")
+            %input.span3#addressInput(type="text" placeholder="Address...")
             %button.btn#addressSearch(type="submit" data-loading-text="Searching...") Search
       %div
         %form.form-inline#division
@@ -28,11 +28,12 @@
                   %option(value="#{division_id}")= division["name"]
           %button.btn(type="submit") Go
 
-  .span6
-    %h3 Tired of voting for the same parties?
-    %p
-      More parties than Labor, Liberal and National run in every election and we're not just talking about the Greens. There are other small parties and even independent candidates who might suit your vision of Australia more than the major parties.
-    %h3 Will this waste my vote?
-    %p
-      Not at all! Australia's preferential voting system means that you must still indicate a preference for all the candidates running in your division. This means that if your preferred candidate isn't elected your vote will end up with your second preference and beyond. This way you can still direct your vote to a given major party ahead of the other.
-#push
+  .span7
+    .content-box
+      = intro
+    .content-box
+      .lead
+        Latest News (
+        %a(href='/news.html')>< Older News...
+        )
+      = news

@@ -1,16 +1,17 @@
 .row
   .span12
-    %h1= division['name']
+    .page-header
+      %h1= division['name']
   .span6
-    %h2.text-center House of Representatives
+    .lead.text-center House of Representatives
     %p
-      Your local member of the House of Representatives is #{representative['first_name']} #{representative['last_name']}
+      Your local member of the House of Representatives is 
       - if representative['party'] then
-        of the
-        %span(class="party party-#{representative['party']}")
-          = parties[representative['party']]['name']
+        #{representative['first_name']} #{representative['last_name']} of the <span class="party party-#{representative['party']}">#{parties[representative['party']]['name']}</span>.
+      - else
+        #{representative['first_name']} #{representative['last_name']}, an independent.
   .span6
-    %h2.text-center Senate
+    .lead.text-center Senate
     %p
       The Senators for your #{state_or_territory} are:
     %table.table.table-condensed

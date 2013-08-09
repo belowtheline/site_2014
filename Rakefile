@@ -5,6 +5,7 @@ require 'pathname'
 
 require 'fog'
 require 'haml'
+require 'kramdown'
 
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
@@ -15,6 +16,7 @@ task :output_dirs do
     FileUtils.mkdir_p(DATA_DIR)
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'division'))
     FileUtils.mkdir_p(File.join(DATA_DIR, 'senators'))
+    FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'news'))
 end
 
 task :data => [:output_dirs] do
@@ -73,8 +75,13 @@ end
 
 Scaffold = template('scaffold')
 
-def output(name, tmpl, locals={}, scaf_locals={})
-    scaf_locals[:body] = tmpl.render(Object.new, locals)
+def output(name, body, locals={}, scaf_locals={})
+    if body.kind_of? Haml::Engine then
+        scaf_locals[:body] = body.render(Object.new, locals)
+    else
+        scaf_locals[:body] = '<div class="row"><div class="span12">' + body +
+            '</div></div>'
+    end
     content = Scaffold.render(Object.new, scaf_locals)
     File.write(File.join(OUTPUT_DIR, name), content)
 end
@@ -90,6 +97,41 @@ def load(category)
     end
 
     return hash
+end
+
+Posters = {
+    'benno' => "Benno Rice"
+}
+
+PostDateFormat = "%I:%M%P EST on %B %-d, %Y"
+PostFilenameFormat = "news/%Y-%m-%dT%H:%M.html"
+
+def load_content(filename, target_filename)
+    filename = File.join('content', filename)
+
+    content = []
+    teaser_content = []
+    done_teaser = false
+    Kramdown::Document.new(File.read(filename)).to_html.lines.each do |line|
+        if line.match /-- BREAK --/ then
+            done_teaser = true
+            next
+        end
+
+        content.push(line)
+        if not done_teaser then
+            teaser_content.push(line)
+        end
+    end
+
+    target_link = "<a href=\"#{target_filename}\">Read more...</a>"
+    teaser_content.push("<p><strong>#{target_link}</strong></p>")
+
+    content[0] = '<div class="page-header">' + content[0] + '</div>'
+    teaser_content[0].sub! /<h1 id=".*?">/, '<p class="lead"><strong>'
+    teaser_content[0].sub! /<\/h1>/, '</strong></p>'
+
+    return content.join(''), teaser_content.join('')
 end
 
 task :site => [:output_dirs] do
@@ -118,10 +160,44 @@ task :site => [:output_dirs] do
         end
     end
 
+    teaser = nil
+    posts = {}
+
+    Dir.foreach("content/news") do |filename|
+        next if not filename.match /\.md$/
+
+        match = filename.match /^(.*)_(.*)\.md$/
+        timestamp = DateTime.iso8601(match[1])
+        poster = Posters[match[2]]
+        target = timestamp.strftime(PostFilenameFormat)
+
+        attribution = "Posted by #{poster} at #{timestamp.strftime(PostDateFormat)}"
+        attribution = '<div class="post-attribution">' + attribution + '</div>'
+
+        body, teaser = load_content(File.join('news', filename), target)
+        body = '<div>' + body + '</div>'
+
+        title = body.match(/<strong>(.*?)<\/strong>/)[1]
+
+        if not posts.has_key? timestamp.to_date then
+            posts[timestamp.to_date] = []
+        end
+        posts[timestamp.to_date].push([title, target])
+
+        output(target, body)
+    end
+
+    intro, index_intro = load_content('intro.md', 'intro.html')
+
     output('index.html', template('index'), {
         :states => states,
         :divisions => divisions,
+        :intro => index_intro,
+        :news => teaser,
     })
+
+    output('intro.html', intro)
+    output('news.html', template('news'), { :posts => posts })
 
     divisions.each do |division_id, division|
         if division['state'].match /t$/ then
@@ -140,7 +216,7 @@ task :site => [:output_dirs] do
         })
     end
 
-    ['images', 'js'].each do |dir|
+    ['css', 'images', 'js'].each do |dir|
         outdir = File.join(OUTPUT_DIR, dir)
         if Dir.exists?(outdir)
             FileUtils.rm_r(File.join(OUTPUT_DIR, dir))

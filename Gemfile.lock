@@ -39,6 +39,7 @@ GEM
     haml (4.0.3)
       tilt
     http_parser.rb (0.5.3)
+    kramdown (1.1.0)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -77,3 +78,4 @@ DEPENDENCIES
   guard-haml
   guard-livereload
   guard-rake
+  kramdown

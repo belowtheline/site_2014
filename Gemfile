@@ -5,4 +5,5 @@ group :development do
   gem 'guard-haml'
   gem 'guard-livereload'
   gem 'guard-rake'
+  gem 'kramdown'
 end
