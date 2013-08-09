@@ -82,6 +82,11 @@ def output(name, body, locals={}, scaf_locals={})
         scaf_locals[:body] = '<div class="row"><div class="span12">' + body +
             '</div></div>'
     end
+
+    if not scaf_locals.has_key? :title then
+        scaf_locals[:title] = nil
+    end
+
     content = Scaffold.render(Object.new, scaf_locals)
     File.write(File.join(OUTPUT_DIR, name), content)
 end
@@ -184,7 +189,7 @@ task :site => [:output_dirs] do
         end
         posts[timestamp.to_date].push([title, target])
 
-        output(target, body)
+        output(target, body, {}, {:title => title})
     end
 
     intro, index_intro = load_content('intro.md', 'intro.html')
@@ -196,8 +201,9 @@ task :site => [:output_dirs] do
         :news => teaser,
     })
 
-    output('intro.html', intro)
-    output('news.html', template('news'), { :posts => posts })
+    output('intro.html', intro, {}, {:title => "Introduction"})
+    output('news.html', template('news'), { :posts => posts },
+        {:title => "News"})
 
     divisions.each do |division_id, division|
         if division['state'].match /t$/ then
@@ -213,7 +219,7 @@ task :site => [:output_dirs] do
             :senators => senators[division['state']],
             :state_or_territory => state_or_territory,
             :parties => parties,
-        })
+        }, {:title => division['name']})
     end
 
     ['css', 'images', 'js'].each do |dir|
