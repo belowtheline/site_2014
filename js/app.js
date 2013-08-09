@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    var GEO_API_URL = 'http://erstwhile.jeamland.net:5000/division';
+    var GEO_API_URL = 'http://api.belowtheline.org.au/division';
 
     var geocoder = null;
 
@@ -29,6 +29,7 @@
                 $(this).button('loading');
 
                 navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log(position.coords.latitude + ", " + position.coords.longitude);
                     divisionByLatLon(position.coords.latitude,
                                      position.coords.longitude);
                 }, function (error) {
