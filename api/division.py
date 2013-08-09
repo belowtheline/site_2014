@@ -4,7 +4,7 @@ from datetime import timedelta
 from functools import update_wrapper
 import json
 
-from flask import Flask, abort, current_app, make_response, request
+from flask import Flask, abort, current_app, jsonify, make_response, request
 
 import psycopg2
 
@@ -59,8 +59,8 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 @app.route('/division', methods=['POST', 'OPTIONS'])
-@crossdomain(origin='*', headers=['Content-Type', 'X-Requested-With'])
-def post():
+@crossdomain(origin='http://www.belowtheline.org.au', headers=['Content-Type', 'X-Requested-With'])
+def division_lookup():
     if request.json is None:
         abort(400, "Must provide JSON (did you set Content-type?)")
     if 'latitude' not in request.json:
@@ -77,11 +77,11 @@ def post():
 
     result = cursor.fetchone()
     if result is None:
-        return {'division': None}
-    name = result[0].lower().strip(" -'")
-    response = make_response(json.dumps({'division': name}))
-    response.headers['content-type'] = 'application/json'
-    return response
+        name = None
+    else:
+        name = result[0].lower().strip(" -'")
+
+    return jsonify({'division': name})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
