@@ -2,7 +2,6 @@
 
 from datetime import timedelta
 from functools import update_wrapper
-import json
 
 from flask import Flask, abort, current_app, jsonify, make_response, request
 
@@ -16,6 +15,13 @@ SELECT elect_div FROM com20111216_elb_region WHERE
 """
 
 app = Flask(__name__)
+
+if not app.debug:
+    import logging
+    from logging.handlers import RotatingFileHandler
+    file_handler = RotatingFileHandler('/home/benno/logs/division.log')
+    file_handler.setLevel(logging.INFO)
+    app.logger.addHandler(file_handler)
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -58,29 +64,33 @@ def crossdomain(origin=None, methods=None, headers=None,
         return update_wrapper(wrapped_function, f)
     return decorator
 
-@app.route('/division', methods=['POST', 'OPTIONS'])
-@crossdomain(origin='http://www.belowtheline.org.au', headers=['Content-Type', 'X-Requested-With'])
+@app.route('/division', methods=['GET', 'POST', 'OPTIONS'])
+@crossdomain(origin='*', headers=['Content-Type', 'X-Requested-With'])
 def division_lookup():
-    if request.json is None:
+    if request.json is None and request.method == 'POST':
         abort(400, "Must provide JSON (did you set Content-type?)")
-    if 'latitude' not in request.json:
+    elif request.method == 'POST':
+        args = request.json
+    else:
+        args = request.args
+
+    if 'latitude' not in args:
         abort(400, "Most provide latitude and longitude")
-    if 'longitude' not in request.json:
+    if 'longitude' not in args:
         abort(400, "Most provide latitude and longitude")
 
     conn = psycopg2.connect(host=dbcreds.HOSTNAME, database=dbcreds.DATABASE,
                             user=dbcreds.USERNAME, password=dbcreds.PASSWORD)
     cursor = conn.cursor()
 
-    cursor.execute(QUERY_FORMAT.format(latitude=request.json['latitude'],
-                                       longitude=request.json['longitude']))
+    cursor.execute(QUERY_FORMAT.format(latitude=float(args['latitude']),
+                                       longitude=float(args['longitude'])))
 
     result = cursor.fetchone()
     if result is None:
         name = None
     else:
         name = result[0].lower().strip(" -'")
-
     return jsonify({'division': name})
 
 if __name__ == '__main__':
