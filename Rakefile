@@ -247,7 +247,7 @@ task :site => [:output_dirs] do
                  File.join(OUTPUT_DIR, 'favicon.ico'))
 end
 
-task :sitemap do
+task :sitemap => [:site] do
     sitemap = File.open(File.join(OUTPUT_DIR, 'sitemap.xml.gz'), 'w')
     sitemap = Zlib::GzipWriter.new(sitemap)
 
@@ -268,7 +268,7 @@ task :sitemap do
     sitemap.close
 end
 
-task :upload => [:site] do
+task :upload => [:site, :sitemap] do
     storage = Fog::Storage.new(:provider => 'Rackspace', :rackspace_region => :syd)
     directory = storage.directories.get "live"
     if directory == nil
