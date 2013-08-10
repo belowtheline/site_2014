@@ -89,6 +89,8 @@ def load_content(filename, target_filename)
   return content.join(''), teaser_content.join('')
 end
 
+task default: :site
+
 task site: [:output_dirs] do
   partytmpl = template('party')
 
