@@ -24,24 +24,28 @@ a candidate doesn't fit the common two-name format, get in touch.
 Senate candidates look mostly the same but with an additional ballot_position
 item and their candidate item refers to a state rather than a division:
 
-... {
-...     "first_name": "First",
-...     "last_name": "Last",
-...     "ballot_position": 1,
-...     "candidate": "state/foo",
-...     "party": "pty"
-... }
+```
+{
+    "first_name": "First",
+    "last_name": "Last",
+    "ballot_position": 1,
+    "candidate": "state/foo",
+    "party": "pty"
+}
+```
 
 Candidates can also have website links and Wikipedia links by adding "website"
 and "wikipedia" items.
 
 Lastly, parties look like this:
 
-... {
-...     "name": "The Party Party",
-...     "code": "PTY",
-...     "website": "http://partyparty.org.au/"
-... }
+```
+{
+    "name": "The Party Party",
+    "code": "PTY",
+    "website": "http://partyparty.org.au/"
+}
+```
 
 If you're adding a party, make sure the code isn't already taken.
 
