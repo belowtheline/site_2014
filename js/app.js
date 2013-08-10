@@ -7,11 +7,8 @@
 
     function divisionByLatLon(latitude, longitude) {
         $.ajax({
-            type: "POST",
-            url: GEO_API_URL,
-            data: JSON.stringify({latitude: latitude, longitude: longitude}),
-            processData: false,
-            contentType: 'application/json'
+            type: "GET",
+            url: GEO_API_URL + '?latitude=' + latitude + '&longitude=' + longitude
         }).done(function (data) {
             window.location = '/division/' + data.division + '.html';
         }).fail(function () {
