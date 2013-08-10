@@ -1,0 +1,10 @@
+.row
+  .span12
+    .page-header
+      %h1 Past news entries
+    - posts.each do |date, entries|
+      .well= date.strftime('%B %-d, %Y')
+      %ul
+        - entries.each do |e|
+          %li
+            %a(href="/#{e[1]}")= e[0]
