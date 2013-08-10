@@ -7,11 +7,11 @@
     %p
       Your local member of the House of Representatives is 
       - if representative['party'] then
-        #{representative['first_name']} #{representative['last_name']} of the <span class="party party-#{representative['party']}">#{parties[representative['party']]['name']}</span>.
+        <strong>#{representative['first_name']} #{representative['last_name']}</strong> of the <span class="party party-#{representative['party']}">#{parties[representative['party']]['name']}</span>.
       - else
-        #{representative['first_name']} #{representative['last_name']}, an independent.
+        <strong>#{representative['first_name']} #{representative['last_name']}</strong>, an independent.
     %hr
-      Currently known candidates for the division of #{division['name']} are:
+      Currently known candidates for the this division are:
       %table.table.table-condensed
         - candidates.each do |candidate|
           %tr
