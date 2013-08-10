@@ -241,6 +241,9 @@ task :site => [:output_dirs] do
         end
         FileUtils.cp_r(dir, File.join(OUTPUT_DIR, dir))
     end
+
+    FileUtils.mv(File.join(OUTPUT_DIR, 'images', 'favicon.ico'),
+                 File.join(OUTPUT_DIR, 'favicon.ico'))
 end
 
 task :upload => [:site] do
