@@ -1,9 +1,10 @@
 {
-    "last_name":    "Neumann",
-    "first_name":   "Shayne",
-    "party":        "alp",
-    "elected":      "division/blair",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Shayne_Neumann"
+    "candidate": "division/blair",
+    "elected": "division/blair",
+    "first_name": "Shayne",
+    "last_name": "Neumann",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Shayne_Neumann"
 }

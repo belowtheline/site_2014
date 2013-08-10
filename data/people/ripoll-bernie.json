@@ -1,9 +1,10 @@
 {
-    "last_name":    "Ripoll",
-    "first_name":   "Bernie",
-    "party":        "alp",
-    "elected":      "division/oxley",
-    "term_start":   "1998-10-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bernie_Ripoll"
+    "candidate": "division/oxley",
+    "elected": "division/oxley",
+    "first_name": "Bernie",
+    "last_name": "Ripoll",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bernie_Ripoll"
 }

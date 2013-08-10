@@ -1,9 +1,10 @@
 {
-    "last_name":    "Gray",
-    "first_name":   "Gary",
-    "party":        "alp",
-    "elected":      "division/brand",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Gary_Gray_(Australian_politician)"
+    "candidate": "division/brand",
+    "elected": "division/brand",
+    "first_name": "Gary",
+    "last_name": "Gray",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Gary_Gray_(Australian_politician)"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Adams",
-    "first_name":   "Dick",
-    "party":        "alp",
-    "elected":      "division/lyons",
-    "term_start":   "1993-03-13",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Dick_Adams_(politician)"
+    "candidate": "division/lyons",
+    "elected": "division/lyons",
+    "first_name": "Dick",
+    "last_name": "Adams",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1993-03-13",
+    "wikipedia": "http://en.wikipedia.org/wiki/Dick_Adams_(politician)"
 }

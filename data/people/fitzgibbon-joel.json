@@ -1,9 +1,10 @@
 {
-    "last_name":    "Fitzgibbon",
-    "first_name":   "Joel",
-    "party":        "alp",
-    "elected":      "division/hunter",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Joel_Fitzgibbon"
+    "candidate": "division/hunter",
+    "elected": "division/hunter",
+    "first_name": "Joel",
+    "last_name": "Fitzgibbon",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Joel_Fitzgibbon"
 }

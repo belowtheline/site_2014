@@ -1,9 +1,10 @@
 {
-    "last_name":    "Swan",
-    "first_name":   "Wayne",
-    "party":        "alp",
-    "elected":      "division/lilley",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Wayne_Swan"
+    "candidate": "division/lilley",
+    "elected": "division/lilley",
+    "first_name": "Wayne",
+    "last_name": "Swan",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Wayne_Swan"
 }

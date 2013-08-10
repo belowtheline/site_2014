@@ -1,9 +1,10 @@
 {
-    "last_name":    "Bowen",
-    "first_name":   "Chris",
-    "party":        "alp",
-    "elected":      "division/mcmahon",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Chris_Bowen"
+    "candidate": "division/mcmahon",
+    "elected": "division/mcmahon",
+    "first_name": "Chris",
+    "last_name": "Bowen",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Chris_Bowen"
 }

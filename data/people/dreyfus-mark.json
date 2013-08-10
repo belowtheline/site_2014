@@ -1,9 +1,10 @@
 {
-    "last_name":    "Dreyfus",
-    "first_name":   "Mark",
-    "party":        "alp",
-    "elected":      "division/isaacs",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Mark_Dreyfus"
+    "candidate": "division/isaacs",
+    "elected": "division/isaacs",
+    "first_name": "Mark",
+    "last_name": "Dreyfus",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mark_Dreyfus"
 }

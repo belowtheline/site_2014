@@ -1,9 +1,10 @@
 {
-    "last_name":    "Parke",
-    "first_name":   "Melissa",
-    "party":        "alp",
-    "elected":      "division/fremantle",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Melissa_Parke"
+    "candidate": "division/fremantle",
+    "elected": "division/fremantle",
+    "first_name": "Melissa",
+    "last_name": "Parke",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Melissa_Parke"
 }

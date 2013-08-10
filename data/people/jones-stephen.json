@@ -1,9 +1,10 @@
 {
-    "last_name":    "Jones",
-    "first_name":   "Stephen",
-    "party":        "alp",
-    "elected":      "division/throsby",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Stephen_Jones_(Australian_politician)"
+    "candidate": "division/throsby",
+    "elected": "division/throsby",
+    "first_name": "Stephen",
+    "last_name": "Jones",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Stephen_Jones_(Australian_politician)"
 }

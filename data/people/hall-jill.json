@@ -1,9 +1,10 @@
 {
-    "last_name":    "Hall",
-    "first_name":   "Jill",
-    "party":        "alp",
-    "elected":      "division/shortland",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jill_Hall"
+    "candidate": "division/shortland",
+    "elected": "division/shortland",
+    "first_name": "Jill",
+    "last_name": "Hall",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jill_Hall"
 }

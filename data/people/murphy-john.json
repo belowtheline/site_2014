@@ -1,9 +1,10 @@
 {
-    "last_name":    "Murphy",
-    "first_name":   "John",
-    "party":        "alp",
-    "elected":      "division/reid",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/John_Murphy_(Australian_politician)"
+    "candidate": "division/reid",
+    "elected": "division/reid",
+    "first_name": "John",
+    "last_name": "Murphy",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/John_Murphy_(Australian_politician)"
 }

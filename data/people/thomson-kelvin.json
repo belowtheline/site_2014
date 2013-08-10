@@ -1,9 +1,10 @@
 {
-    "last_name":    "Thomson",
-    "first_name":   "Kelvin",
-    "party":        "alp",
-    "elected":      "division/wills",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kelvin_Thomson"
+    "candidate": "division/wills",
+    "elected": "division/wills",
+    "first_name": "Kelvin",
+    "last_name": "Thomson",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kelvin_Thomson"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Snowdon",
-    "first_name":   "Warren",
-    "party":        "alp",
-    "elected":      "division/lingiari",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Warren_Snowdon"
+    "candidate": "division/lingiari",
+    "elected": "division/lingiari",
+    "first_name": "Warren",
+    "last_name": "Snowdon",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Warren_Snowdon"
 }

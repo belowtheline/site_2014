@@ -1,9 +1,10 @@
 {
-    "last_name":    "Plibersek",
-    "first_name":   "Tanya",
-    "party":        "alp",
-    "elected":      "division/sydney",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tanya_Plibersek"
+    "candidate": "division/sydney",
+    "elected": "division/sydney",
+    "first_name": "Tanya",
+    "last_name": "Plibersek",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tanya_Plibersek"
 }

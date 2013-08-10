@@ -1,9 +1,10 @@
 {
-    "last_name":    "Lyons",
-    "first_name":   "Geoff",
-    "party":        "alp",
-    "elected":      "division/bass",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Geoff_Lyons"
+    "candidate": "division/bass",
+    "elected": "division/bass",
+    "first_name": "Geoff",
+    "last_name": "Lyons",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Geoff_Lyons"
 }

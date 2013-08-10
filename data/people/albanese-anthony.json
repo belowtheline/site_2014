@@ -3,6 +3,7 @@
     "first_name":   "Anthony",
     "party":        "alp",
     "elected":      "division/grayndler",
+    "candidate":    "division/grayndler",
     "term_start":   "1996-03-02",
     "retiring":     false,
     "wikipedia":    "http://en.wikipedia.org/wiki/Anthony_Albanese"

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Burke",
-    "first_name":   "Anna",
-    "party":        "alp",
-    "elected":      "division/chisholm",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Anna_Burke"
+    "candidate": "division/chisholm",
+    "elected": "division/chisholm",
+    "first_name": "Anna",
+    "last_name": "Burke",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Anna_Burke"
 }

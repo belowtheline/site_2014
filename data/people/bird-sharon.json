@@ -1,9 +1,10 @@
 {
-    "last_name":    "Bird",
-    "first_name":   "Sharon",
-    "party":        "alp",
-    "elected":      "division/cunningham",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Sharon_Bird"
+    "candidate": "division/cunningham",
+    "elected": "division/cunningham",
+    "first_name": "Sharon",
+    "last_name": "Bird",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Sharon_Bird"
 }

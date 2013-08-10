@@ -1,9 +1,10 @@
 {
-    "last_name":    "Bradbury",
-    "first_name":   "David",
-    "party":        "alp",
-    "elected":      "division/lindsay",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/David_Bradbury"
+    "candidate": "division/lindsay",
+    "elected": "division/lindsay",
+    "first_name": "David",
+    "last_name": "Bradbury",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/David_Bradbury"
 }

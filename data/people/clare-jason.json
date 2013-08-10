@@ -1,9 +1,10 @@
 {
-    "last_name":    "Clare",
-    "first_name":   "Jason",
-    "party":        "alp",
-    "elected":      "division/blaxland",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jason_Clare"
+    "candidate": "division/blaxland",
+    "elected": "division/blaxland",
+    "first_name": "Jason",
+    "last_name": "Clare",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jason_Clare"
 }

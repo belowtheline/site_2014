@@ -1,9 +1,10 @@
 {
-    "last_name":    "Elliot",
-    "first_name":   "Justine",
-    "party":        "alp",
-    "elected":      "division/richmond",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Justine_Elliot"
+    "candidate": "division/richmond",
+    "elected": "division/richmond",
+    "first_name": "Justine",
+    "last_name": "Elliot",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Justine_Elliot"
 }

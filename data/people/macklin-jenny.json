@@ -1,9 +1,10 @@
 {
-    "last_name":    "Macklin",
-    "first_name":   "Jenny",
-    "party":        "alp",
-    "elected":      "division/jagajaga",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jenny_Macklin"
+    "candidate": "division/jagajaga",
+    "elected": "division/jagajaga",
+    "first_name": "Jenny",
+    "last_name": "Macklin",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jenny_Macklin"
 }

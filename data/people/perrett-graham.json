@@ -1,9 +1,10 @@
 {
-    "last_name":    "Perrett",
-    "first_name":   "Graham",
-    "party":        "alp",
-    "elected":      "division/moreton",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Graham_Perrett"
+    "candidate": "division/moreton",
+    "elected": "division/moreton",
+    "first_name": "Graham",
+    "last_name": "Perrett",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Graham_Perrett"
 }

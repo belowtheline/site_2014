@@ -1,9 +1,10 @@
 {
-    "last_name":    "Rishworth",
-    "first_name":   "Amanda",
-    "party":        "alp",
-    "elected":      "division/kingston",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Amanda_Rishworth"
+    "candidate": "division/kingston",
+    "elected": "division/kingston",
+    "first_name": "Amanda",
+    "last_name": "Rishworth",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Amanda_Rishworth"
 }

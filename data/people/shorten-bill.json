@@ -1,9 +1,10 @@
 {
-    "last_name":    "Shorten",
-    "first_name":   "Bill",
-    "party":        "alp",
-    "elected":      "division/maribyrnong",
-    "term_start":   "2007-12-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bill_Shorten"
+    "candidate": "division/maribyrnong",
+    "elected": "division/maribyrnong",
+    "first_name": "Bill",
+    "last_name": "Shorten",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-12-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bill_Shorten"
 }

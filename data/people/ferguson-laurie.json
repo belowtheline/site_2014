@@ -1,9 +1,10 @@
 {
-    "last_name":    "Ferguson",
-    "first_name":   "Laurie",
-    "party":        "alp",
-    "elected":      "division/werriwa",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Laurie_Ferguson"
+    "candidate": "division/werriwa",
+    "elected": "division/werriwa",
+    "first_name": "Laurie",
+    "last_name": "Ferguson",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Laurie_Ferguson"
 }

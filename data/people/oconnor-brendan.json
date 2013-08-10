@@ -1,9 +1,10 @@
 {
-    "last_name":    "O'Connor",
-    "first_name":   "Brendan",
-    "party":        "alp",
-    "elected":      "division/gorton",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Brendan_O%27Connor_(politician)"
+    "candidate": "division/gorton",
+    "elected": "division/gorton",
+    "first_name": "Brendan",
+    "last_name": "O'Connor",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Brendan_O%27Connor_(politician)"
 }

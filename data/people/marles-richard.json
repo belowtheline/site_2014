@@ -1,9 +1,10 @@
 {
-    "last_name":    "Marles",
-    "first_name":   "Richard",
-    "party":        "alp",
-    "elected":      "division/corio",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Richard_Marles"
+    "candidate": "division/corio",
+    "elected": "division/corio",
+    "first_name": "Richard",
+    "last_name": "Marles",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Richard_Marles"
 }

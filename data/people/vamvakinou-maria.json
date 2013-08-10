@@ -1,9 +1,10 @@
 {
-    "last_name":    "Vamvakinou",
-    "first_name":   "Maria",
-    "party":        "alp",
-    "elected":      "division/calwell",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Maria_Vamvakinou"
+    "candidate": "division/calwell",
+    "elected": "division/calwell",
+    "first_name": "Maria",
+    "last_name": "Vamvakinou",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Maria_Vamvakinou"
 }

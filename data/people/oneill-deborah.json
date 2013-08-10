@@ -1,9 +1,10 @@
 {
-    "last_name":    "O'Neill",
-    "first_name":   "Deborah",
-    "party":        "alp",
-    "elected":      "division/robertson",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Deborah_O%27Neill"
+    "candidate": "division/robertson",
+    "elected": "division/robertson",
+    "first_name": "Deborah",
+    "last_name": "O'Neill",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Deborah_O%27Neill"
 }

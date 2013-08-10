@@ -1,9 +1,10 @@
 {
-    "last_name":    "Melham",
-    "first_name":   "Daryl",
-    "party":        "alp",
-    "elected":      "division/banks",
-    "term_start":   "1990-03-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Daryl_Melham"
+    "candidate": "division/banks",
+    "elected": "division/banks",
+    "first_name": "Daryl",
+    "last_name": "Melham",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1990-03-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Daryl_Melham"
 }

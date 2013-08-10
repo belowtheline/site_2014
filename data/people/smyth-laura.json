@@ -1,9 +1,10 @@
 {
-    "last_name":    "Smyth",
-    "first_name":   "Laura",
-    "party":        "alp",
-    "elected":      "division/latrobe",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Laura_Smyth"
+    "candidate": "division/latrobe",
+    "elected": "division/latrobe",
+    "first_name": "Laura",
+    "last_name": "Smyth",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Laura_Smyth"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Champion",
-    "first_name":   "Nick",
-    "party":        "alp",
-    "elected":      "division/wakefield",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Nick_Champion"
+    "candidate": "division/wakefield",
+    "elected": "division/wakefield",
+    "first_name": "Nick",
+    "last_name": "Champion",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Nick_Champion"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "King",
-    "first_name":   "Catherine",
-    "party":        "alp",
-    "elected":      "division/ballarat",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Catherine_King_(politician)"
+    "candidate": "division/ballarat",
+    "elected": "division/ballarat",
+    "first_name": "Catherine",
+    "last_name": "King",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Catherine_King_(politician)"
 }

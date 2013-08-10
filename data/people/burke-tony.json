@@ -1,9 +1,10 @@
 {
-    "last_name":    "Burke",
-    "first_name":   "Tony",
-    "party":        "alp",
-    "elected":      "division/watson",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tony_Burke"
+    "candidate": "division/watson",
+    "elected": "division/watson",
+    "first_name": "Tony",
+    "last_name": "Burke",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tony_Burke"
 }

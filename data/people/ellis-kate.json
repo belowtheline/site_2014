@@ -1,10 +1,11 @@
 {
-    "last_name":    "Ellis",
-    "first_name":   "Kate",
-    "party":        "alp",
-    "elected":      "division/adelaide",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "website":      "http://www.kateellis.com.au/",
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kate_Ellis"
+    "candidate": "division/adelaide",
+    "elected": "division/adelaide",
+    "first_name": "Kate",
+    "last_name": "Ellis",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "website": "http://www.kateellis.com.au/",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kate_Ellis"
 }

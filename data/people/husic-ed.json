@@ -1,9 +1,10 @@
 {
-    "last_name":    "Husic",
-    "first_name":   "Ed",
-    "party":        "alp",
-    "elected":      "division/chifley",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ed_Husic"
+    "candidate": "division/chifley",
+    "elected": "division/chifley",
+    "first_name": "Ed",
+    "last_name": "Husic",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ed_Husic"
 }

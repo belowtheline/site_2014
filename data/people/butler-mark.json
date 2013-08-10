@@ -1,9 +1,10 @@
 {
-    "last_name":    "Butler",
-    "first_name":   "Mark",
-    "party":        "alp",
-    "elected":      "division/portadelaide",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Mark_Butler"
+    "candidate": "division/portadelaide",
+    "elected": "division/portadelaide",
+    "first_name": "Mark",
+    "last_name": "Butler",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mark_Butler"
 }
