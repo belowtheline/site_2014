@@ -8,12 +8,14 @@ If you'd like to add candidates, please check out the format in the
 data/people directory. In short, for House of Representatives candidates,
 each file is a JSON structure of the format:
 
-... {
-...     "first_name": "First",
-...     "last_name": "Last",
-...     "candidate": "division/foo",
-...     "party": "pty"
-... }
+```
+{
+    "first_name": "First",
+    "last_name": "Last",
+    "candidate": "division/foo",
+    "party": "pty"
+}
+```
 
 The division code and party code can be found by looking in the data/division
 and data/party directories. The file naming structure is reasonably clear. If
