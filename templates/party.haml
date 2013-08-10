@@ -1,0 +1,11 @@
+- if parties.has_key? code then
+  - party = parties[code]
+  %span(class="partycode party party-#{code}" title="#{party['name']}")
+    - if party.has_key? 'website' then
+      %a(href="#{party['website']}")
+        = party['code']
+    - else
+      = party['code']
+-else
+  %span(class="partycode party party-ind" title="Independent")
+    IND
