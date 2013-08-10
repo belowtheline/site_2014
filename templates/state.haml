@@ -15,7 +15,8 @@
               #{parties.has_key? senator['party'] and parties[senator['party']]['code'] or 'IND'}
   .span6
     %p
-      Currently known candidates for #{state['name']} are:
+      Currently known candidates for #{state['name']} (in alphabetical order
+      by party) are:
     %table.table.table-condensed
       - candidates.each do |candidate|
         %tr

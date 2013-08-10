@@ -11,7 +11,7 @@
       - else
         #{representative['first_name']} #{representative['last_name']}, an independent.
     %hr
-      Currently known candidates for the division of #{division['name']} are:
+      Currently known candidates for the division of #{division['name']} (in alphabetical order by surname) are:
       %table.table.table-condensed
         - candidates.each do |candidate|
           %tr
@@ -23,7 +23,9 @@
   .span6
     .lead.text-center Senate
     %p
-      The Senators for your #{state_or_territory} are:
+      The Senators for your #{state_or_territory} are listed below. To see more
+      information about Senate representation for your #{state_or_territory}
+      click <a href="/#{division['state']}.html">here</a>.
     %table.table.table-condensed
       - senators.each do |senator|
         %tr
