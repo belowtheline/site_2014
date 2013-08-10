@@ -24,6 +24,8 @@ end
 Scaffold = template('scaffold')
 
 def output(name, body, locals={}, scaf_locals={})
+    puts "Outputting #{name}..."
+
     if body.kind_of? Haml::Engine then
         scaf_locals[:body] = body.render(Object.new, locals)
     else
@@ -102,6 +104,10 @@ task :site => [:output_dirs] do
     state_list = states.keys.sort
 
     people.each do |person_id, person|
+        if person.has_key? 'party' and not parties.has_key? person['party'] then
+            raise "Party not known: #{person['party']}"
+        end
+
         if person.has_key? 'candidate' then
             if person['candidate'].match /^state/ then
                 candidates = candidates_senate
@@ -197,8 +203,14 @@ task :site => [:output_dirs] do
         candidates.sort! { |a, b|
             if a['party'] == b['party'] then
                 a['ballot_position'] <=> b['ballot_position']
-            else
+            elsif a.has_key? 'party' and b.has_key? 'party' then
                 parties[a['party']]['name'] <=> parties[b['party']]['name']
+            elsif a.has_key? 'party' then
+                1
+            elsif b.has_key? 'party' then
+                -1
+            else
+                0
             end
         }
 
