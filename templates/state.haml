@@ -1,0 +1,26 @@
+.row
+  .span12
+    .page-header
+      %h1= state['name']
+  .span6
+    %p
+      The Senators for your #{state_or_territory} are:
+    %table.table.table-condensed
+      - senators.each do |senator|
+        %tr
+          %td
+            #{senator['first_name']} #{senator['last_name']}
+          %td
+            %span(class="partycode party party-#{senator['party'] or 'ind'}")
+              #{parties.has_key? senator['party'] and parties[senator['party']]['code'] or 'IND'}
+  .span6
+    %p
+      Currently known candidates for #{state['name']} are:
+    %table.table.table-condensed
+      - candidates.each do |candidate|
+        %tr
+          %td
+            #{candidate['first_name']} #{candidate['last_name']}
+          %td
+            %span(class="partycode party party-#{candidate['party'] or 'ind'}")
+              #{parties.has_key? candidate['party'] and parties[candidate['party']]['code'] or 'IND'}

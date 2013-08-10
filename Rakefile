@@ -9,64 +9,12 @@ require 'kramdown'
 
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
-DATA_DIR = File.join(OUTPUT_DIR, 'data')
 
 task :output_dirs do
     FileUtils.mkdir_p(OUTPUT_DIR)
-    FileUtils.mkdir_p(DATA_DIR)
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'division'))
-    FileUtils.mkdir_p(File.join(DATA_DIR, 'senators'))
+    FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'state'))
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'news'))
-end
-
-task :data => [:output_dirs] do
-    blob = {:state => {}, :division => {}, :representatives => {},
-            :senators => {}}
-    representatives = {}
-    senators = {}
-    people = {}
-
-    Dir.foreach('data/people') do |name|
-        next unless name =~ /\.json$/
-        data = JSON.parse(File.read(File.join('data', 'people', name)))
-
-        if data['elected'].match /^division/ then
-            representatives[data['elected']] = data
-        else
-            state = data['elected']
-            if not senators.key? state then
-                senators[state] = []
-            end
-            name.sub!(/\.json$/, '')
-            senators[state].push name
-            people[name] = data
-        end
-    end
-
-    File.write(File.join(DATA_DIR, 'senators.json'), JSON.generate(senators));
-
-    Dir.foreach('data/state') do |name|
-        next unless name =~ /\.json$/
-        data = JSON.parse(File.read(File.join('data', 'state', name)))
-        name.sub!(/\.json$/, '')
-        blob[:state][name] = data
-
-        File.write(File.join(DATA_DIR, "senators/#{name}.json"),
-            JSON.generate(senators["state/#{name}"].map { |n| people[n] }))
-    end
-
-    Dir.foreach('data/division') do |name|
-        next unless name =~ /\.json$/
-        data = JSON.parse(File.read(File.join('data', 'division', name)))
-        name.sub!(/\.json$/, '')
-        blob[:division][name] = data
-
-        File.write(File.join(DATA_DIR, "#{name}.json"),
-            JSON.generate(representatives["division/#{name}"]));
-    end
-
-    File.write(File.join(DATA_DIR, 'data.js'),
-        "var _btldata = " + JSON.generate(blob) + ";")
 end
 
 def template(name)
@@ -239,6 +187,32 @@ task :site => [:output_dirs] do
             :parties => parties,
             :candidates => candidates_reps["division/#{division_id}"] || [],
         }, {:title => division['name']})
+    end
+
+    states.each do |state_id, state|
+        candidates = candidates_senate["state/#{state_id}"] || []
+        candidates.sort! { |a, b|
+            if a['party'] == b['party'] then
+                a['ballot_position'] <=> b['ballot_position']
+            else
+                a['party'] <=> b['party']
+            end
+        }
+
+        if state_id.match /t$/ then
+            state_or_territory = 'territory'
+        else
+            state_or_territory = 'state'
+        end
+
+        output(File.join('state', "#{state_id}.html"),
+               template('state'), {
+            :state => state,
+            :state_or_territory => state_or_territory,
+            :senators => senators["state/#{state_id}"],
+            :parties => parties,
+            :candidates => candidates || [],
+        }, {:title => state['name']})
     end
 
     ['css', 'images', 'js'].each do |dir|
