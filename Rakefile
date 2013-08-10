@@ -3,6 +3,7 @@ require 'find'
 require 'json'
 require 'pathname'
 
+require 'builder'
 require 'fog'
 require 'haml'
 require 'kramdown'
@@ -244,6 +245,27 @@ task :site => [:output_dirs] do
 
     FileUtils.mv(File.join(OUTPUT_DIR, 'images', 'favicon.ico'),
                  File.join(OUTPUT_DIR, 'favicon.ico'))
+end
+
+task :sitemap do
+    sitemap = File.open(File.join(OUTPUT_DIR, 'sitemap.xml.gz'), 'w')
+    sitemap = Zlib::GzipWriter.new(sitemap)
+
+    xml = Builder::XmlMarkup.new(:target => sitemap, :indent => 2)
+    xml.instruct! :xml, :encoding => "UTF-8"
+    xml.urlset(:xmlns => 'http://www.sitemaps.org/schemas/sitemap/0.9') do |urlset|
+        Find.find(OUTPUT_DIR) do |filename|
+            next if not filename.match /\.html$/
+
+            xml.url do |url|
+                url.loc 'http://belowtheline.org.au/' + filename.sub(/^site\//, '')
+                url.lastmod File.stat(filename).mtime.strftime('%Y-%m-%d')
+                url.changefreq 'hourly'
+            end
+        end
+    end
+
+    sitemap.close
 end
 
 task :upload => [:site] do
