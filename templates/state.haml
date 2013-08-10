@@ -11,8 +11,7 @@
           %td
             #{senator['first_name']} #{senator['last_name']}
           %td
-            %span(class="partycode party party-#{senator['party'] or 'ind'}" title="#{parties.has_key? senator['party'] and parties[senator['party']]['name']}")
-              #{parties.has_key? senator['party'] and parties[senator['party']]['code'] or 'IND'}
+            = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)
   .span6
     %p
       Currently known candidates for #{state['name']} (in alphabetical order
@@ -23,5 +22,4 @@
           %td
             #{candidate['first_name']} #{candidate['last_name']}
           %td
-            %span(class="partycode party party-#{candidate['party'] or 'ind'}" title="#{parties.has_key? candidate['party'] and parties[candidate['party']]['name']}")
-              #{parties.has_key? candidate['party'] and parties[candidate['party']]['code'] or 'IND'}
+            = partytmpl.render(Object.new, :code => candidate['party'], :parties => parties)

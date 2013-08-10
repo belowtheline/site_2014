@@ -90,6 +90,8 @@ def load_content(filename, target_filename)
 end
 
 task :site => [:output_dirs] do
+    partytmpl = template('party')
+
     states = load('state')
     divisions = load('division')
     people = load('people')
@@ -195,6 +197,7 @@ task :site => [:output_dirs] do
             :state_or_territory => state_or_territory,
             :parties => parties,
             :candidates => candidates_reps["division/#{division_id}"] || [],
+            :partytmpl => partytmpl,
         }, {:title => division['name']})
     end
 
@@ -227,6 +230,7 @@ task :site => [:output_dirs] do
             :senators => senators["state/#{state_id}"],
             :parties => parties,
             :candidates => candidates || [],
+            :partytmpl => partytmpl,
         }, {:title => state['name']})
     end
 
