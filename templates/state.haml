@@ -14,8 +14,7 @@
             = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)
   .span6
     %p
-      Currently known candidates for #{state['name']} (in alphabetical order
-      by party) are:
+      Currently known candidates for #{state['name']} are:
     %table.table.table-condensed
       - candidates.each do |candidate|
         %tr
