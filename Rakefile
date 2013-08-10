@@ -148,7 +148,25 @@ task :site => [:output_dirs] do
     representatives = {}
     senators = {}
 
+    candidates_reps = {}
+    candidates_senate = {}
+
     people.each do |person_id, person|
+        if person.has_key? 'candidate' then
+            if person['candidate'].match /^state/ then
+                candidates = candidates_senate
+            else
+                candidates = candidates_reps
+            end
+
+            if not candidates.has_key? person['candidate'] then
+                candidates[person['candidate']] = []
+            end
+            candidates[person['candidate']].push(person)
+        end
+
+        next if not person.has_key? 'elected'
+
         if person['elected'].match /^state/ then
             if not senators.has_key? person['elected'] then
                 senators[person['elected']] = []
@@ -219,6 +237,7 @@ task :site => [:output_dirs] do
             :senators => senators[division['state']],
             :state_or_territory => state_or_territory,
             :parties => parties,
+            :candidates => candidates_reps["division/#{division_id}"] || [],
         }, {:title => division['name']})
     end
 

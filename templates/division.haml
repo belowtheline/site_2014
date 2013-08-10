@@ -10,6 +10,16 @@
         #{representative['first_name']} #{representative['last_name']} of the <span class="party party-#{representative['party']}">#{parties[representative['party']]['name']}</span>.
       - else
         #{representative['first_name']} #{representative['last_name']}, an independent.
+    %hr
+      Currently known candidates for the division of #{division['name']} are:
+      %table.table.table-condensed
+        - candidates.each do |candidate|
+          %tr
+            %td
+              #{candidate['first_name']} #{candidate['last_name']}
+            %td
+              %span(class="partycode party party-#{candidate['party'] or 'ind'}")
+                #{parties.has_key? candidate['party'] and parties[candidate['party']]['code'] or 'IND'}
   .span6
     .lead.text-center Senate
     %p
