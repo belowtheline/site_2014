@@ -1,9 +1,10 @@
 {
-    "last_name":    "Alexander",
-    "first_name":   "John",
-    "party":        "lib",
-    "elected":      "division/bennelong",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/John_Alexander_(tennis)"
+    "candidate": "division/bennelong",
+    "elected": "division/bennelong",
+    "first_name": "John",
+    "last_name": "Alexander",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/John_Alexander_(tennis)"
 }

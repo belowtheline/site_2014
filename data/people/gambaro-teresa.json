@@ -1,9 +1,10 @@
 {
-    "last_name":    "Gambaro",
-    "first_name":   "Teresa",
-    "party":        "lnp",
-    "elected":      "division/brisbane",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Teresa_Gambaro"
+    "candidate": "division/brisbane",
+    "elected": "division/brisbane",
+    "first_name": "Teresa",
+    "last_name": "Gambaro",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Teresa_Gambaro"
 }

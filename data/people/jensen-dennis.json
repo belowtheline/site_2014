@@ -1,9 +1,10 @@
 {
-    "last_name":    "Jensen",
-    "first_name":   "Dennis",
-    "party":        "lib",
-    "elected":      "division/tangney",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Dennis_Jensen"
+    "candidate": "division/tangney",
+    "elected": "division/tangney",
+    "first_name": "Dennis",
+    "last_name": "Jensen",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Dennis_Jensen"
 }

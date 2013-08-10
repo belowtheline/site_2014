@@ -1,9 +1,10 @@
 {
-    "last_name":    "Griggs",
-    "first_name":   "Natasha",
-    "party":        "clp",
-    "elected":      "division/solomon",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Natasha_Griggs"
+    "candidate": "division/solomon",
+    "elected": "division/solomon",
+    "first_name": "Natasha",
+    "last_name": "Griggs",
+    "party": "clp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Natasha_Griggs"
 }

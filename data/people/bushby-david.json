@@ -1,10 +1,11 @@
 {
-    "last_name":    "Bushby",
-    "first_name":   "David",
-    "party":        "lib",
-    "elected":      "state/tas",
-    "term_start":   "2007-08-30",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/David_Bushby"
+    "candidate": "state/tas",
+    "elected": "state/tas",
+    "expiring": true,
+    "first_name": "David",
+    "last_name": "Bushby",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-08-30",
+    "wikipedia": "http://en.wikipedia.org/wiki/David_Bushby"
 }

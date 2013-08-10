@@ -1,10 +1,11 @@
 {
-    "last_name":    "Feeney",
-    "first_name":   "David",
-    "party":        "alp",
-    "elected":      "state/vic",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/David_Feeney"
+    "candidate": "division/batman",
+    "elected": "state/vic",
+    "expiring": true,
+    "first_name": "David",
+    "last_name": "Feeney",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/David_Feeney"
 }

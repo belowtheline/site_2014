@@ -1,9 +1,10 @@
 {
-    "last_name":    "Bishop",
-    "first_name":   "Julie",
-    "party":        "lib",
-    "elected":      "division/curtin",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Julie_Bishop"
+    "candidate": "division/curtin",
+    "elected": "division/curtin",
+    "first_name": "Julie",
+    "last_name": "Bishop",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Julie_Bishop"
 }

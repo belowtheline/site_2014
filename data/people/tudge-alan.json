@@ -1,9 +1,10 @@
 {
-    "last_name":    "Tudge",
-    "first_name":   "Alan",
-    "party":        "lib",
-    "elected":      "division/aston",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Alan_Tudge"
+    "candidate": "division/aston",
+    "elected": "division/aston",
+    "first_name": "Alan",
+    "last_name": "Tudge",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Alan_Tudge"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Mirabella",
-    "first_name":   "Sophie",
-    "party":        "lib",
-    "elected":      "division/indi",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Sophie_Mirabella"
+    "candidate": "division/indi",
+    "elected": "division/indi",
+    "first_name": "Sophie",
+    "last_name": "Mirabella",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Sophie_Mirabella"
 }

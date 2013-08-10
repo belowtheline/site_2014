@@ -1,10 +1,11 @@
 {
-    "last_name":    "Whish-Wilson",
-    "first_name":   "Peter",
-    "party":        "grn",
-    "elected":      "state/tas",
-    "term_start":   "2012-06-20",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Peter_Whish-Wilson"
+    "candidate": "state/tas",
+    "elected": "state/tas",
+    "expiring": true,
+    "first_name": "Peter",
+    "last_name": "Whish-Wilson",
+    "party": "grn",
+    "retiring": false,
+    "term_start": "2012-06-20",
+    "wikipedia": "http://en.wikipedia.org/wiki/Peter_Whish-Wilson"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Andrews",
-    "first_name":   "Kevin",
-    "party":        "lib",
-    "elected":      "division/menzies",
-    "term_start":   "1991-05-11",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kevin_Andrews_(Australian_politician)"
+    "candidate": "division/menzies",
+    "elected": "division/menzies",
+    "first_name": "Kevin",
+    "last_name": "Andrews",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1991-05-11",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kevin_Andrews_(Australian_politician)"
 }

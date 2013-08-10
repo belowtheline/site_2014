@@ -1,9 +1,10 @@
 {
-    "last_name":    "Southcott",
-    "first_name":   "Andrew",
-    "party":        "lib",
-    "elected":      "division/boothby",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Andrew_Southcott"
+    "candidate": "division/boothby",
+    "elected": "division/boothby",
+    "first_name": "Andrew",
+    "last_name": "Southcott",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Andrew_Southcott"
 }

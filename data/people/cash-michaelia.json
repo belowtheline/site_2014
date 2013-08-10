@@ -1,10 +1,11 @@
 {
-    "last_name":    "Cash",
-    "first_name":   "Michaelia",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Michaelia_Cash"
+    "candidate": "state/wa",
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "Michaelia",
+    "last_name": "Cash",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Michaelia_Cash"
 }

@@ -1,10 +1,11 @@
 {
-    "last_name":    "Macdonald",
-    "first_name":   "Ian",
-    "party":        "lnp",
-    "elected":      "state/qld",
-    "term_start":   "1990-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ian_Macdonald_(Australian_politician)"
+    "candidate": "state/qld",
+    "elected": "state/qld",
+    "expiring": true,
+    "first_name": "Ian",
+    "last_name": "Macdonald",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "1990-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ian_Macdonald_(Australian_politician)"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Irons",
-    "first_name":   "Steve",
-    "party":        "lib",
-    "elected":      "division/swan",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Steve_Irons"
+    "candidate": "division/swan",
+    "elected": "division/swan",
+    "first_name": "Steve",
+    "last_name": "Irons",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Steve_Irons"
 }

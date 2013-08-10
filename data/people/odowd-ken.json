@@ -1,9 +1,10 @@
 {
-    "last_name":    "O'Dowd",
-    "first_name":   "Ken",
-    "party":        "lnp",
-    "elected":      "division/flynn",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ken_O%27Dowd"
+    "candidate": "division/flynn",
+    "elected": "division/flynn",
+    "first_name": "Ken",
+    "last_name": "O'Dowd",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ken_O%27Dowd"
 }

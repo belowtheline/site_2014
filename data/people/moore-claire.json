@@ -1,10 +1,11 @@
 {
-    "last_name":    "Moore",
-    "first_name":   "Claire",
-    "party":        "alp",
-    "elected":      "state/qld",
-    "term_start":   "2002-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Claire_Moore"
+    "candidate": "state/qld",
+    "elected": "state/qld",
+    "expiring": true,
+    "first_name": "Claire",
+    "last_name": "Moore",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2002-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Claire_Moore"
 }

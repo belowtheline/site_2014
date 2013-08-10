@@ -1,9 +1,10 @@
 {
-    "last_name":    "Markus",
-    "first_name":   "Louise",
-    "party":        "lib",
-    "elected":      "division/macquarie",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Louise_Markus"
+    "candidate": "division/macquarie",
+    "elected": "division/macquarie",
+    "first_name": "Louise",
+    "last_name": "Markus",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Louise_Markus"
 }

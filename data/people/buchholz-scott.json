@@ -1,9 +1,10 @@
 {
-    "last_name":    "Buchholz",
-    "first_name":   "Scott",
-    "party":        "lnp",
-    "elected":      "division/wright",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Scott_Buchholz"
+    "candidate": "division/wright",
+    "elected": "division/wright",
+    "first_name": "Scott",
+    "last_name": "Buchholz",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Scott_Buchholz"
 }

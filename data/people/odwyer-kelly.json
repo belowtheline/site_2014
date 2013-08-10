@@ -1,9 +1,10 @@
 {
-    "last_name":    "O'Dwyer",
-    "first_name":   "Kelly",
-    "party":        "lib",
-    "elected":      "division/higgins",
-    "term_start":   "2009-12-05",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kelly_O%27Dwyer"
+    "candidate": "division/higgins",
+    "elected": "division/higgins",
+    "first_name": "Kelly",
+    "last_name": "O'Dwyer",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2009-12-05",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kelly_O%27Dwyer"
 }

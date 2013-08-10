@@ -1,9 +1,10 @@
 {
-    "last_name":    "Vasta",
-    "first_name":   "Ross",
-    "party":        "lnp",
-    "elected":      "division/bonner",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ross_Vasta"
+    "candidate": "division/bonner",
+    "elected": "division/bonner",
+    "first_name": "Ross",
+    "last_name": "Vasta",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ross_Vasta"
 }

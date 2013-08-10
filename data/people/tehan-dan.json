@@ -1,9 +1,10 @@
 {
-    "last_name":    "Tehan",
-    "first_name":   "Dan",
-    "party":        "lib",
-    "elected":      "division/wannon",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Dan_Tehan"
+    "candidate": "division/wannon",
+    "elected": "division/wannon",
+    "first_name": "Dan",
+    "last_name": "Tehan",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Dan_Tehan"
 }

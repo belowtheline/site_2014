@@ -1,10 +1,11 @@
 {
-    "last_name":    "Pratt",
-    "first_name":   "Louise",
-    "party":        "alp",
-    "elected":      "state/wa",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Louise_Pratt"
+    "candidate": "state/wa",
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "Louise",
+    "last_name": "Pratt",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Louise_Pratt"
 }

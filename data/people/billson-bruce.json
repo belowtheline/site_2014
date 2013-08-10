@@ -1,9 +1,10 @@
 {
-    "last_name":    "Billson",
-    "first_name":   "Bruce",
-    "party":        "lib",
-    "elected":      "division/dunkley",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bruce_Billson"
+    "candidate": "division/dunkley",
+    "elected": "division/dunkley",
+    "first_name": "Bruce",
+    "last_name": "Billson",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bruce_Billson"
 }

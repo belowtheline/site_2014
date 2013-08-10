@@ -1,9 +1,10 @@
 {
-    "last_name":    "Dutton",
-    "first_name":   "Peter",
-    "party":        "lnp",
-    "elected":      "division/dickson",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Peter_Dutton"
+    "candidate": "division/dickson",
+    "elected": "division/dickson",
+    "first_name": "Peter",
+    "last_name": "Dutton",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Peter_Dutton"
 }

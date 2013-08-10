@@ -1,10 +1,11 @@
 {
-    "last_name":    "Ludlam",
-    "first_name":   "Scott",
-    "party":        "grn",
-    "elected":      "state/wa",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Scott_Ludlam"
+    "candidate": "state/wa",
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "Scott",
+    "last_name": "Ludlam",
+    "party": "grn",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Scott_Ludlam"
 }

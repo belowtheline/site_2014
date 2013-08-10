@@ -1,9 +1,10 @@
 {
-    "last_name":    "Bishop",
-    "first_name":   "Bronwyn",
-    "party":        "lib",
-    "elected":      "division/mackellar",
-    "term_start":   "1994-03-26",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bronwyn_Bishop"
+    "candidate": "division/mackellar",
+    "elected": "division/mackellar",
+    "first_name": "Bronwyn",
+    "last_name": "Bishop",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1994-03-26",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bronwyn_Bishop"
 }

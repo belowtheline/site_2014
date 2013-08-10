@@ -1,10 +1,11 @@
 {
-    "last_name":    "Johnston",
-    "first_name":   "David",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "2002-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/David_Johnston_(politician)"
+    "candidate": "state/wa",
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "David",
+    "last_name": "Johnston",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2002-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/David_Johnston_(politician)"
 }

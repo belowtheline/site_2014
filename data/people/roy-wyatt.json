@@ -1,9 +1,10 @@
 {
-    "last_name":    "Roy",
-    "first_name":   "Wyatt",
-    "party":        "lnp",
-    "elected":      "division/longman",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Wyatt_Roy"
+    "candidate": "division/longman",
+    "elected": "division/longman",
+    "first_name": "Wyatt",
+    "last_name": "Roy",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Wyatt_Roy"
 }

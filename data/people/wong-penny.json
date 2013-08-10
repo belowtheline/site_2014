@@ -1,10 +1,11 @@
 {
-    "last_name":    "Wong",
-    "first_name":   "Penny",
-    "party":        "alp",
-    "elected":      "state/sa",
-    "term_start":   "2002-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Penny_Wong"
+    "candidate": "state/sa",
+    "elected": "state/sa",
+    "expiring": true,
+    "first_name": "Penny",
+    "last_name": "Wong",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2002-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Penny_Wong"
 }

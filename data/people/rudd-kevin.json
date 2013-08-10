@@ -1,10 +1,10 @@
 {
-    "last_name":    "Rudd",
-    "first_name":   "Kevin",
-    "party":        "alp",
-    "elected":      "division/griffith",
-    "candidate":    "division/griffith",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kevin_Rudd"
+    "candidate": "division/griffith",
+    "elected": "division/griffith",
+    "first_name": "Kevin",
+    "last_name": "Rudd",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kevin_Rudd"
 }

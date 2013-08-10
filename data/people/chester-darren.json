@@ -1,9 +1,10 @@
 {
-    "last_name":    "Chester",
-    "first_name":   "Darren",
-    "party":        "nat",
-    "elected":      "division/gippsland",
-    "term_start":   "2008-06-28",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Darren_Chester"
+    "candidate": "division/gippsland",
+    "elected": "division/gippsland",
+    "first_name": "Darren",
+    "last_name": "Chester",
+    "party": "nat",
+    "retiring": false,
+    "term_start": "2008-06-28",
+    "wikipedia": "http://en.wikipedia.org/wiki/Darren_Chester"
 }

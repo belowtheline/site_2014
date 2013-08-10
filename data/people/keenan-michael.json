@@ -1,9 +1,10 @@
 {
-    "last_name":    "Keenan",
-    "first_name":   "Michael",
-    "party":        "lib",
-    "elected":      "division/stirling",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Michael_Keenan"
+    "candidate": "division/stirling",
+    "elected": "division/stirling",
+    "first_name": "Michael",
+    "last_name": "Keenan",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Michael_Keenan"
 }

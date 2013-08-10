@@ -1,10 +1,11 @@
 {
-    "last_name":    "Thistlethwaite",
-    "first_name":   "Matt",
-    "party":        "alp",
-    "elected":      "state/nsw",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Matt_Thistlethwaite"
+    "candidate": "division/kingsfordsmith",
+    "elected": "state/nsw",
+    "expiring": false,
+    "first_name": "Matt",
+    "last_name": "Thistlethwaite",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Matt_Thistlethwaite"
 }

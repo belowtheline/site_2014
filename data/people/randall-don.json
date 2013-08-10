@@ -1,9 +1,10 @@
 {
-    "last_name":    "Randall",
-    "first_name":   "Don",
-    "party":        "lib",
-    "elected":      "division/canning",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Don_Randall"
+    "candidate": "division/canning",
+    "elected": "division/canning",
+    "first_name": "Don",
+    "last_name": "Randall",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Don_Randall"
 }

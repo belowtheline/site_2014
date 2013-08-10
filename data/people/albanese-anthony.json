@@ -1,10 +1,10 @@
 {
-    "last_name":    "Albanese",
-    "first_name":   "Anthony",
-    "party":        "alp",
-    "elected":      "division/grayndler",
-    "candidate":    "division/grayndler",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Anthony_Albanese"
+    "candidate": "division/grayndler",
+    "elected": "division/grayndler",
+    "first_name": "Anthony",
+    "last_name": "Albanese",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Anthony_Albanese"
 }

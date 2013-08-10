@@ -1,9 +1,10 @@
 {
-    "last_name":    "Wyatt",
-    "first_name":   "Ken",
-    "party":        "lib",
-    "elected":      "division/hasluck",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ken_Wyatt"
+    "candidate": "division/hasluck",
+    "elected": "division/hasluck",
+    "first_name": "Ken",
+    "last_name": "Wyatt",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ken_Wyatt"
 }

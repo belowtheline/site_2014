@@ -1,9 +1,10 @@
 {
-    "last_name":    "Frydenberg",
-    "first_name":   "Josh",
-    "party":        "lib",
-    "elected":      "division/kooyong",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Josh_Frydenberg"
+    "candidate": "division/kooyong",
+    "elected": "division/kooyong",
+    "first_name": "Josh",
+    "last_name": "Frydenberg",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Josh_Frydenberg"
 }

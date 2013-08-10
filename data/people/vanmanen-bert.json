@@ -1,9 +1,10 @@
 {
-    "last_name":    "Van Manen",
-    "first_name":   "Bert",
-    "party":        "lnp",
-    "elected":      "division/forde",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bert_Van_Manen"
+    "candidate": "division/forde",
+    "elected": "division/forde",
+    "first_name": "Bert",
+    "last_name": "Van Manen",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bert_Van_Manen"
 }

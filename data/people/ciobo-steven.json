@@ -1,9 +1,10 @@
 {
-    "last_name":    "Ciobo",
-    "first_name":   "Steven",
-    "party":        "lnp",
-    "elected":      "division/moncrieff",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Steven_Ciobo"
+    "candidate": "division/moncrieff",
+    "elected": "division/moncrieff",
+    "first_name": "Steven",
+    "last_name": "Ciobo",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Steven_Ciobo"
 }

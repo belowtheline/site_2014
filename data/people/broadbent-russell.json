@@ -1,9 +1,10 @@
 {
-    "last_name":    "Broadbent",
-    "first_name":   "Russell",
-    "party":        "lib",
-    "elected":      "division/mcmillan",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Russell_Broadbent"
+    "candidate": "division/mcmillan",
+    "elected": "division/mcmillan",
+    "first_name": "Russell",
+    "last_name": "Broadbent",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Russell_Broadbent"
 }

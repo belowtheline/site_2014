@@ -1,9 +1,10 @@
 {
-    "last_name":    "Entsch",
-    "first_name":   "Warren",
-    "party":        "lnp",
-    "elected":      "division/leichhardt",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Warren_Entsch"
+    "candidate": "division/leichhardt",
+    "elected": "division/leichhardt",
+    "first_name": "Warren",
+    "last_name": "Entsch",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Warren_Entsch"
 }

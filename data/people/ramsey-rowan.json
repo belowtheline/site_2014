@@ -1,9 +1,10 @@
 {
-    "last_name":    "Ramsey",
-    "first_name":   "Rowan",
-    "party":        "lib",
-    "elected":      "division/grey",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Rowan_Ramsey"
+    "candidate": "division/grey",
+    "elected": "division/grey",
+    "first_name": "Rowan",
+    "last_name": "Ramsey",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Rowan_Ramsey"
 }

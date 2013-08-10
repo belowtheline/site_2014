@@ -1,9 +1,10 @@
 {
-    "last_name":    "Jones",
-    "first_name":   "Ewen",
-    "party":        "lnp",
-    "elected":      "division/herbert",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ewen_Jones"
+    "candidate": "division/herbert",
+    "elected": "division/herbert",
+    "first_name": "Ewen",
+    "last_name": "Jones",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ewen_Jones"
 }

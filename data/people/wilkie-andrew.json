@@ -1,8 +1,9 @@
 {
-    "last_name":    "Wilkie",
-    "first_name":   "Andrew",
-    "elected":      "division/denison",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Andrew_Wilkie"
+    "candidate": "division/denison",
+    "elected": "division/denison",
+    "first_name": "Andrew",
+    "last_name": "Wilkie",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Andrew_Wilkie"
 }

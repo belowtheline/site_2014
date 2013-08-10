@@ -1,9 +1,10 @@
 {
-    "last_name":    "McCormack",
-    "first_name":   "Michael",
-    "party":        "nat",
-    "elected":      "division/riverina",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Michael_McCormack_(politician)"
+    "candidate": "division/riverina",
+    "elected": "division/riverina",
+    "first_name": "Michael",
+    "last_name": "McCormack",
+    "party": "nat",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Michael_McCormack_(politician)"
 }

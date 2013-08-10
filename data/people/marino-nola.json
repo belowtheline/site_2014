@@ -1,9 +1,10 @@
 {
-    "last_name":    "Marino",
-    "first_name":   "Nola",
-    "party":        "lib",
-    "elected":      "division/forrest",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Nola_Marino"
+    "candidate": "division/forrest",
+    "elected": "division/forrest",
+    "first_name": "Nola",
+    "last_name": "Marino",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Nola_Marino"
 }

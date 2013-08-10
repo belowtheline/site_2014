@@ -1,9 +1,10 @@
 {
-    "last_name":    "Fletcher",
-    "first_name":   "Paul",
-    "party":        "lib",
-    "elected":      "division/bradfield",
-    "term_start":   "2009-12-05",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Paul_Fletcher_(politician)"
+    "candidate": "division/bradfield",
+    "elected": "division/bradfield",
+    "first_name": "Paul",
+    "last_name": "Fletcher",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2009-12-05",
+    "wikipedia": "http://en.wikipedia.org/wiki/Paul_Fletcher_(politician)"
 }

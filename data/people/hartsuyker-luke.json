@@ -1,9 +1,10 @@
 {
-    "last_name":    "Hartsuyker",
-    "first_name":   "Luke",
-    "party":        "nat",
-    "elected":      "division/cowper",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Luke_Hartsuyker"
+    "candidate": "division/cowper",
+    "elected": "division/cowper",
+    "first_name": "Luke",
+    "last_name": "Hartsuyker",
+    "party": "nat",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Luke_Hartsuyker"
 }

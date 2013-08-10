@@ -1,10 +1,11 @@
 {
-    "last_name":    "Xenophon",
-    "first_name":   "Nick",
-    "elected":      "state/sa",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Nick_Xenophon",
-    "website":      "http://www.nickxenophon.com.au/"
+    "candidate": "state/sa",
+    "elected": "state/sa",
+    "expiring": true,
+    "first_name": "Nick",
+    "last_name": "Xenophon",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "website": "http://www.nickxenophon.com.au/",
+    "wikipedia": "http://en.wikipedia.org/wiki/Nick_Xenophon"
 }

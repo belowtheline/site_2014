@@ -1,9 +1,10 @@
 {
-    "last_name":    "Abbott",
-    "first_name":   "Tony",
-    "party":        "lib",
-    "elected":      "division/warringah",
-    "term_start":   "1994-03-26",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tony_Abbott"
+    "candidate": "division/warringah",
+    "elected": "division/warringah",
+    "first_name": "Tony",
+    "last_name": "Abbott",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1994-03-26",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tony_Abbott"
 }

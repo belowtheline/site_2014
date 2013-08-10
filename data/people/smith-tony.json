@@ -1,9 +1,10 @@
 {
-    "last_name":    "Smith",
-    "first_name":   "Tony",
-    "party":        "lib",
-    "elected":      "division/casey",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tony_Smith_(Victorian_politician)"
+    "candidate": "division/casey",
+    "elected": "division/casey",
+    "first_name": "Tony",
+    "last_name": "Smith",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tony_Smith_(Victorian_politician)"
 }

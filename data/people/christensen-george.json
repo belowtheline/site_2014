@@ -1,9 +1,10 @@
 {
-    "last_name":    "Christensen",
-    "first_name":   "George",
-    "party":        "lnp",
-    "elected":      "division/dawson",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/George_Christensen_(politician)"
+    "candidate": "division/dawson",
+    "elected": "division/dawson",
+    "first_name": "George",
+    "last_name": "Christensen",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/George_Christensen_(politician)"
 }

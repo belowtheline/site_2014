@@ -1,9 +1,10 @@
 {
-    "last_name":    "Briggs",
-    "first_name":   "Jamie",
-    "party":        "lib",
-    "elected":      "division/mayo",
-    "term_start":   "2008-09-06",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jamie_Briggs"
+    "candidate": "division/mayo",
+    "elected": "division/mayo",
+    "first_name": "Jamie",
+    "last_name": "Briggs",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2008-09-06",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jamie_Briggs"
 }

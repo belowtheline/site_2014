@@ -1,9 +1,10 @@
 {
-    "last_name":    "Pyne",
-    "first_name":   "Christopher",
-    "party":        "lib",
-    "elected":      "division/sturt",
-    "term_start":   "1993-03-13",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Christopher_Pyne"
+    "candidate": "division/sturt",
+    "elected": "division/sturt",
+    "first_name": "Christopher",
+    "last_name": "Pyne",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1993-03-13",
+    "wikipedia": "http://en.wikipedia.org/wiki/Christopher_Pyne"
 }

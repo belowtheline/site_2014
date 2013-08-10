@@ -1,10 +1,11 @@
 {
-    "last_name":    "Bernardi",
-    "first_name":   "Cory",
-    "party":        "lib",
-    "elected":      "state/sa",
-    "term_start":   "2006-05-04",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Cory_Bernardi"
+    "candidate": "state/sa",
+    "elected": "state/sa",
+    "expiring": true,
+    "first_name": "Cory",
+    "last_name": "Bernardi",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2006-05-04",
+    "wikipedia": "http://en.wikipedia.org/wiki/Cory_Bernardi"
 }

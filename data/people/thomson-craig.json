@@ -1,8 +1,9 @@
 {
-    "last_name":    "Thomson",
-    "first_name":   "Craig",
-    "elected":      "division/dobell",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Craig_Thomson_(politician)"
+    "candidate": "division/dobell",
+    "elected": "division/dobell",
+    "first_name": "Craig",
+    "last_name": "Thomson",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Craig_Thomson_(politician)"
 }

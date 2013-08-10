@@ -1,9 +1,10 @@
 {
-    "last_name":    "Robb",
-    "first_name":   "Andrew",
-    "party":        "lib",
-    "elected":      "division/goldstein",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Andrew_Robb"
+    "candidate": "division/goldstein",
+    "elected": "division/goldstein",
+    "first_name": "Andrew",
+    "last_name": "Robb",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Andrew_Robb"
 }

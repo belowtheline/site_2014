@@ -1,10 +1,11 @@
 {
-    "last_name":    "Colbeck",
-    "first_name":   "Richard",
-    "party":        "lib",
-    "elected":      "state/tas",
-    "term_start":   "2002-02-04",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Richard_Colbeck"
+    "candidate": "state/tas",
+    "elected": "state/tas",
+    "expiring": true,
+    "first_name": "Richard",
+    "last_name": "Colbeck",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2002-02-04",
+    "wikipedia": "http://en.wikipedia.org/wiki/Richard_Colbeck"
 }

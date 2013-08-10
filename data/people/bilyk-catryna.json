@@ -1,10 +1,11 @@
 {
-    "last_name":    "Bilyk",
-    "first_name":   "Catryna",
-    "party":        "alp",
-    "elected":      "state/tas",
-    "term_start":   "2008-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Catryna_Bilyk"
+    "candidate": "state/tas",
+    "elected": "state/tas",
+    "expiring": true,
+    "first_name": "Catryna",
+    "last_name": "Bilyk",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Catryna_Bilyk"
 }

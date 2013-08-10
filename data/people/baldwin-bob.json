@@ -1,9 +1,10 @@
 {
-    "last_name":    "Baldwin",
-    "first_name":   "Bob",
-    "party":        "lib",
-    "elected":      "division/paterson",
-    "term_start":   "2001-10-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bob_Baldwin"
+    "candidate": "division/paterson",
+    "elected": "division/paterson",
+    "first_name": "Bob",
+    "last_name": "Baldwin",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2001-10-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bob_Baldwin"
 }

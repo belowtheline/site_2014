@@ -1,9 +1,10 @@
 {
-    "last_name":    "Simpkins",
-    "first_name":   "Luke",
-    "party":        "lib",
-    "elected":      "division/cowan",
-    "term_start":   "2007-11-24",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Luke_Simpkins"
+    "candidate": "division/cowan",
+    "elected": "division/cowan",
+    "first_name": "Luke",
+    "last_name": "Simpkins",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Luke_Simpkins"
 }

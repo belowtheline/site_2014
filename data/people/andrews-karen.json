@@ -1,9 +1,10 @@
 {
-    "last_name":    "Andrews",
-    "first_name":   "Karen",
-    "party":        "lnp",
-    "elected":      "division/mcpherson",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Karen_Andrews"
+    "candidate": "division/mcpherson",
+    "elected": "division/mcpherson",
+    "first_name": "Karen",
+    "last_name": "Andrews",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Karen_Andrews"
 }

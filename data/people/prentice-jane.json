@@ -1,9 +1,10 @@
 {
-    "last_name":    "Prentice",
-    "first_name":   "Jane",
-    "party":        "lnp",
-    "elected":      "division/ryan",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jane_Prentice"
+    "candidate": "division/ryan",
+    "elected": "division/ryan",
+    "first_name": "Jane",
+    "last_name": "Prentice",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jane_Prentice"
 }

@@ -1,9 +1,10 @@
 {
-    "last_name":    "Matheson",
-    "first_name":   "Russell",
-    "party":        "lib",
-    "elected":      "division/macarthur",
-    "term_start":   "2010-08-21",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Russell_Matheson"
+    "candidate": "division/macarthur",
+    "elected": "division/macarthur",
+    "first_name": "Russell",
+    "last_name": "Matheson",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Russell_Matheson"
 }

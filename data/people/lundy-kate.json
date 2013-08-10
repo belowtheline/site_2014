@@ -1,11 +1,12 @@
 {
-    "last_name":    "Lundy",
-    "first_name":   "Kate",
-    "party":        "alp",
-    "elected":      "state/act",
-    "term_start":   "1996-03-02",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Kate_Lundy",
-    "website":      "http://www.katelundy.com.au/"
+    "candidate": "state/act",
+    "elected": "state/act",
+    "expiring": true,
+    "first_name": "Kate",
+    "last_name": "Lundy",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "website": "http://www.katelundy.com.au/",
+    "wikipedia": "http://en.wikipedia.org/wiki/Kate_Lundy"
 }

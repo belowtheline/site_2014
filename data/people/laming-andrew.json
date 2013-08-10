@@ -1,9 +1,10 @@
 {
-    "last_name":    "Laming",
-    "first_name":   "Andrew",
-    "party":        "lnp",
-    "elected":      "division/bowman",
-    "term_start":   "2004-10-09",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Andrew_Laming"
+    "candidate": "division/bowman",
+    "elected": "division/bowman",
+    "first_name": "Andrew",
+    "last_name": "Laming",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "2004-10-09",
+    "wikipedia": "http://en.wikipedia.org/wiki/Andrew_Laming"
 }
