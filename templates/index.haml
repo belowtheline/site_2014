@@ -21,8 +21,8 @@
           %h3 Or select your division
           %select#divisionSelector
             %option(value="") Division...
-            - states.each do |state_id, state|
-              %optgroup(label="#{state["name"]}")
+            - state_list.each do |state_id|
+              %optgroup(label="#{states[state_id]["name"]}")
                 - divisions.each do |division_id, division|
                   - next if division["state"] != "state/#{state_id}"
                   %option(value="#{division_id}")= division["name"]

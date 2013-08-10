@@ -99,6 +99,8 @@ task :site => [:output_dirs] do
     candidates_reps = {}
     candidates_senate = {}
 
+    state_list = states.keys.sort
+
     people.each do |person_id, person|
         if person.has_key? 'candidate' then
             if person['candidate'].match /^state/ then
@@ -162,6 +164,7 @@ task :site => [:output_dirs] do
 
     output('index.html', template('index'), {
         :states => states,
+        :state_list => state_list,
         :divisions => divisions,
         :intro => index_intro,
         :news => teaser,
@@ -195,7 +198,7 @@ task :site => [:output_dirs] do
             if a['party'] == b['party'] then
                 a['ballot_position'] <=> b['ballot_position']
             else
-                a['party'] <=> b['party']
+                parties[a['party']]['name'] <=> parties[b['party']]['name']
             end
         }
 
