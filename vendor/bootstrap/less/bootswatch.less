@@ -13,7 +13,10 @@
 
 .navbar {
 
-	.btn-shadow(@navbar-bg);
+  #gradient > .vertical(#ffffff, 0%, darken(#ffffff, 5%), 100%);
+  border: 1px solid darken(#ffffff, 12%);
+  .box-shadow(0 1px 4px rgba(0,0,0,.065));
+
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 
 	&-inverse {
@@ -27,7 +30,7 @@
 		padding-bottom: @navbar-padding-vertical - 2px;
 		.transition(color ease-in-out .2s);
 	}
-	
+
 	&-brand,
 	&-brand:hover {
 		.transition(color ease-in-out .2s);
