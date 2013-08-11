@@ -93,7 +93,7 @@ end
 task default: :site
 
 desc "Build site"
-task site: [:output_dirs, :images, :js, :css, :content]
+task site: [:output_dirs, :images, :js, :css, :content, :sitemap]
 
 desc "Build content from templates & data"
 task content: [:output_dirs] do
@@ -260,7 +260,8 @@ end
 
 desc "Copy images into site directory"
 task images: [:output_dirs] do
-  FileUtils.cp_r('images', File.join(OUTPUT_DIR, 'images'))
+  FileUtils.cp_r('images', File.join(OUTPUT_DIR))
+  FileUtils.mv(File.join(OUTPUT_DIR, 'images', 'favicon.ico'), File.join(OUTPUT_DIR, 'favicon.ico'))
 end
 
 desc "Build & Copy JS into site directory (requires uglify-js)"
@@ -279,5 +280,27 @@ end
 desc "Serve site on port 8000 (requires Python)"
 task :serve do
   system "cd site; python -m SimpleHTTPServer &"
+end
+
+desc "Build Sitemap"
+task :sitemap do
+  sitemap = File.open(File.join(OUTPUT_DIR, 'sitemap.xml.gz'), 'w')
+  sitemap = Zlib::GzipWriter.new(sitemap)
+
+  xml = Builder::XmlMarkup.new(target: sitemap, indent: 2)
+  xml.instruct! :xml, encoding: "UTF-8"
+  xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do |urlset|
+    Find.find(OUTPUT_DIR) do |filename|
+      next if not filename.match /\.html$/
+
+      xml.url do |url|
+        url.loc 'http://belowtheline.org.au/' + filename.sub(/^site\//, '')
+        url.lastmod File.stat(filename).mtime.strftime('%Y-%m-%d')
+        url.changefreq 'hourly'
+      end
+    end
+  end
+
+  sitemap.close
 end
 

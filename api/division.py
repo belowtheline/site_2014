@@ -90,7 +90,7 @@ def division_lookup():
     if result is None:
         name = None
     else:
-        name = result[0].lower().strip(" -'")
+        name = result[0].lower().translate(None, " -'")
     return jsonify({'division': name})
 
 if __name__ == '__main__':

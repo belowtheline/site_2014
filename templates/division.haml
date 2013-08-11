@@ -6,13 +6,15 @@
     .lead.text-center House of Representatives
     %p
       Your local member of the House of Representatives is
-      - if representative['party']
-        #{representative['first_name']} #{representative['last_name']} of the
-        %span.party(class="party-#{representative['party']}")= parties[representative['party']]['name']
+      - if representative['party'] then
+        %strong= "#{representative['first_name']} #{representative['last_name']}"
+        of the
+        .party(class="party-#{representative['party']}")#{parties[representative['party']]['name']}
       - else
-        #{representative['first_name']} #{representative['last_name']}, an independent.
+        %strong<= "#{representative['first_name']} #{representative['last_name']}"
+        , an independent.
     %hr
-      Currently known candidates for the division of #{division['name']} are:
+      Currently known candidates for this division are:
       %table.table.table-condensed
         - candidates.each do |candidate|
           %tr
