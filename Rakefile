@@ -182,6 +182,7 @@ task content: [:output_dirs] do
   output('news.html', template('news'), { posts: posts },
     {title: "News"})
 
+  File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
     if division['state'].match /t$/ then
@@ -190,16 +191,21 @@ task content: [:output_dirs] do
       state_or_territory = 'state'
     end
 
-    output(File.join('division', "#{division_id}.html"),
-     template('division'), {
+    division_data = {
       division: division,
       representative: representatives["division/#{division_id}"],
       senators: senators[division['state']],
       state_or_territory: state_or_territory,
-      parties: parties,
       candidates: candidates_reps["division/#{division_id}"] || [],
-      partytmpl: partytmpl,
-      }, {title: division['name']})
+    }
+    output(
+      File.join('division', "#{division_id}.html"),
+      template('division'),
+      division_data.merge(partytmpl: partytmpl, parties: parties),
+      {title: division['name']}
+    )
+    File.write(File.join(OUTPUT_DIR, 'division', "#{division_id}.json"), JSON.generate(division_data))
+
   end
 
   states.each do |state_id, state|
@@ -224,15 +230,21 @@ task content: [:output_dirs] do
       state_or_territory = 'state'
     end
 
-    output(File.join('state', "#{state_id}.html"),
-     template('state'), {
+    state_data = {
       state: state,
       state_or_territory: state_or_territory,
       senators: senators["state/#{state_id}"],
-      parties: parties,
-      candidates: candidates || [],
-      partytmpl: partytmpl,
-      }, {title: state['name']})
+      candidates: candidates || []
+    }
+
+    output(
+      File.join('state', "#{state_id}.html"),
+      template('state'),
+      state_data.merge(partytmpl: partytmpl, parties: parties),
+      {title: state['name']}
+    )
+
+    File.write(File.join(OUTPUT_DIR, 'state', "#{state_id}.json"), JSON.generate(state_data))
   end
 
 end
