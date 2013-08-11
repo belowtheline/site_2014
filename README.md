@@ -49,4 +49,15 @@ Lastly, parties look like this:
 
 If you're adding a party, make sure the code isn't already taken.
 
+## Development
+
+  1. Install Ruby 2.0 & node.js & Python
+  1. Install the bundler gem: `gem install  bundler`
+  1. Run `bundle install`
+  1. Install `lessc`: `npm install -g lessc`
+  1. Install `uglify-js`: `npm install -g uglify-js`
+  1. Run `rake site`
+  1. Run `rake serve`
+  1. Visit [http://localhost:8000](http://localhost:8000)
+
 Any further queries, please contact me at benno@jeamland.net.
