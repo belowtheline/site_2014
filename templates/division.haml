@@ -9,7 +9,7 @@
       - if representative['party'] then
         %strong= "#{representative['first_name']} #{representative['last_name']}"
         of the
-        .party(class="party-#{representative['party']}")#{parties[representative['party']]['name']}
+        %span.party(class="party-#{representative['party']}")#{parties[representative['party']]['name']}
       - else
         %strong<= "#{representative['first_name']} #{representative['last_name']}"
         , an independent.
