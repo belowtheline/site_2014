@@ -10,10 +10,9 @@ OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
 
 task :output_dirs do
-  FileUtils.mkdir_p(OUTPUT_DIR)
-  FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'division'))
-  FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'state'))
-  FileUtils.mkdir_p(File.join(OUTPUT_DIR, 'news'))
+  %w{division state news js css}.each do |dirname|
+    FileUtils.mkdir_p(File.join(OUTPUT_DIR, dirname))
+  end
 end
 
 def template(name)
@@ -266,7 +265,6 @@ end
 
 desc "Build & Copy JS into site directory (requires uglify-js)"
 task js: [:output_dirs] do
-  system "uglifyjs vendor/bootstrap/js/*.js -c > site/js/bootstrap.js"
   FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
   FileUtils.cp(Dir.glob('js/*.js'), File.join(OUTPUT_DIR, 'js'))
 end
