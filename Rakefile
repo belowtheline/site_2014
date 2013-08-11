@@ -3,9 +3,8 @@ require 'find'
 require 'json'
 require 'pathname'
 
-require 'fog'
-require 'haml'
-require 'kramdown'
+require 'bundler/setup'
+Bundler.require(:development)
 
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
@@ -21,7 +20,9 @@ def template(name)
   return Haml::Engine.new(File.read(File.join(TEMPLATE_DIR, "#{name}.haml")))
 end
 
-Scaffold = template('scaffold')
+def layout
+  @layout ||= template('layout')
+end
 
 def output(name, body, locals={}, scaf_locals={})
   puts "Outputting #{name}..."
@@ -37,7 +38,7 @@ def output(name, body, locals={}, scaf_locals={})
     scaf_locals[:title] = nil
   end
 
-  content = Scaffold.render(Object.new, scaf_locals)
+  content = layout.render(Object.new, scaf_locals)
   File.write(File.join(OUTPUT_DIR, name), content)
 end
 
@@ -91,7 +92,8 @@ end
 
 task default: :site
 
-task site: [:output_dirs] do
+desc "Generate templates & build site"
+task site: [:output_dirs, :images, :js, :css] do
   partytmpl = template('party')
 
   states = load('state')
@@ -230,15 +232,9 @@ task site: [:output_dirs] do
       }, {title: state['name']})
   end
 
-  ['css', 'images', 'js'].each do |dir|
-    outdir = File.join(OUTPUT_DIR, dir)
-    if Dir.exists?(outdir)
-      FileUtils.rm_r(File.join(OUTPUT_DIR, dir))
-    end
-    FileUtils.cp_r(dir, File.join(OUTPUT_DIR, dir))
-  end
 end
 
+desc "Upload site to Rackspace"
 task upload: [:site] do
   storage = Fog::Storage.new(provider: 'Rackspace', rackspace_region: :syd)
   directory = storage.directories.get "live"
@@ -257,3 +253,26 @@ task upload: [:site] do
   directory.metadata["Web-Index"] = 'index.html'
   directory.save
 end
+
+desc "Copy images into site directory"
+task images: [:output_dirs] do
+  FileUtils.cp_r('images', File.join(OUTPUT_DIR, 'images'))
+end
+
+desc "Build & Copy JS into site directory (requires uglify-js)"
+task js: [:output_dirs] do
+  system "uglifyjs vendor/bootstrap/js/*.js -c > site/js/bootstrap.js"
+  FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
+  FileUtils.cp(Dir.glob('js/*.js'), File.join(OUTPUT_DIR, 'js'))
+end
+
+desc "Build & Copy CSS into site directory (requires lessc)"
+task css: [:output_dirs] do
+  system "lessc vendor/bootstrap/less/bootstrap.less site/css/bootstrap.css"
+end
+
+desc "Serve site on port 8000 (requires Python)"
+task :serve do
+  system "cd site; python -m SimpleHTTPServer &"
+end
+
