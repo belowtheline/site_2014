@@ -13,7 +13,7 @@
         %tr(ng-repeat="c in stateCandidates")
           %td {{c.first_name}} {{c.last_name}}
           %td
-            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
               {{ parties[c.party].code }}
             %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
               IND
