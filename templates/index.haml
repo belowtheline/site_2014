@@ -21,9 +21,10 @@
           %h3 Or select your division
           %select#divisionSelector
             %option(value="") Division...
-            - state_list.each do |state_id|
+            - states.keys.sort.each do |state_id|
               %optgroup(label="#{states[state_id]["name"]}")
-                - divisions.each do |division_id, division|
+                - divisions.keys.sort.each do |division_id|
+                  - division = divisions[division_id]
                   - next if division["state"] != "state/#{state_id}"
                   %option(value="#{division_id}")= division["name"]
           %button.btn(type="submit") Go
