@@ -183,7 +183,8 @@ task content: [:output_dirs] do
   output('news.html', template('news'), { posts: posts },
     {title: "News"})
 
-  divisions.each do |division_id, division|
+  Parallel.each(divisions.keys) do |division_id|
+    division = divisions[division_id]
     if division['state'].match /t$/ then
       state_or_territory = 'territory'
     else

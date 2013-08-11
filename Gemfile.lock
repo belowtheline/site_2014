@@ -54,6 +54,7 @@ GEM
     net-ssh (2.6.8)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    parallel (0.7.1)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -79,3 +80,4 @@ DEPENDENCIES
   guard-livereload
   guard-rake
   kramdown
+  parallel
