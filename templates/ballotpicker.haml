@@ -1,4 +1,4 @@
-.row(ng-app ng-controller="BallotPickerCtrl")
+.row(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
   .col.lg-12
     .page-header
       %h1 Ballot Picker for {{division.division.name}}
@@ -9,19 +9,25 @@
       %small Senate
 
     %table.table.table-condensed
-      %tr(ng-repeat="c in state.candidates")
-        %td {{c.first_name}} {{c.last_name}}
-        %td
-          %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
-            {{ parties[c.party].code }}
-          %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-            IND
-
+      %tbody(ui-sortable ng-model="stateCandidates")
+        %tr(ng-repeat="c in stateCandidates")
+          %td {{c.first_name}} {{c.last_name}}
+          %td
+            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+              {{ parties[c.party].code }}
+            %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+              IND
   .col-lg-5
     %h2
       Lower House
       %small House of Representatives
 
-    %ul
-      %li(ng-repeat="c in division.candidates")
-        {{c.first_name}} {{c.last_name}}
+    %table.table.table-condensed
+      %tbody(ui-sortable ng-model="divisionCandidates")
+        %tr(ng-repeat="c in divisionCandidates")
+          %td {{c.first_name}} {{c.last_name}}
+          %td
+            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+              {{ parties[c.party].code }}
+            %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+              IND

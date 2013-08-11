@@ -62,14 +62,25 @@
 }());
 
 
+angular.module('belowtheline', ['ui.sortable']);
+
 function BallotPickerCtrl($scope, $http) {
 
     $scope.division = {};
     $scope.state = {};
     $scope.parties = {};
 
-    $http.get('/division/adelaide.json').success(function(data) { $scope.division = data; });
-    $http.get('/state/sa.json').success(function(data) { $scope.state = data; });
+    $scope.stateCandidates = [];
+    $scope.divisionCandidates = [];
+
+    $http.get('/division/adelaide.json').success(function(data) {
+        $scope.division = data;
+        $scope.divisionCandidates = _.values(data.candidates);
+    });
+    $http.get('/state/sa.json').success(function(data) {
+        $scope.state = data;
+        $scope.stateCandidates = _.values(data.candidates);
+    });
     $http.get('/parties.json').success(function(data) { $scope.parties = data; });
 
 }
