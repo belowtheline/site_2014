@@ -8,7 +8,11 @@
         Below The Line
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
     %link(rel="stylesheet" href="/css/bootstrap.css")
+    %link(rel="stylesheet" href="/css/app.css")
+
     :javascript
       var _sf_startpt=(new Date()).getTime()
     %script(src="/js/jquery-1.10.2.min.js")
@@ -33,11 +37,9 @@
       .navbar { margin-bottom: 20px; }
   %body
     .navbar.navbar-static-top
-      .navbar-inner
-        .container
-          %a.brand(href="/")
-            %img.logo(src="/images/belowtheline.png")
-            Below The Line
+      %a.navbar-brand.navbar-brand-longer(href="/")
+        %img.logo(src="/images/belowtheline.png")
+        Below The Line
     .container
       = body
       .row

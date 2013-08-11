@@ -273,6 +273,7 @@ end
 desc "Build & Copy CSS into site directory (requires lessc)"
 task css: [:output_dirs] do
   system "lessc vendor/bootstrap/less/bootstrap.less site/css/bootstrap.css"
+  system "lessc less/app.less site/css/app.css"
 end
 
 desc "Serve site on port 8000 (requires Python)"
