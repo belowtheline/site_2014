@@ -92,8 +92,11 @@ end
 
 task default: :site
 
-desc "Generate templates & build site"
-task site: [:output_dirs, :images, :js, :css] do
+desc "Build site"
+task site: [:output_dirs, :images, :js, :css, :content]
+
+desc "Build content from templates & data"
+task content: [:output_dirs] do
   partytmpl = template('party')
 
   states = load('state')
