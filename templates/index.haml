@@ -1,5 +1,5 @@
 .row
-  .span5
+  .col-lg-5
     .hero-unit
       %h2.start Let's start!
       .geolocation-only
@@ -14,7 +14,7 @@
             %span.geolocation-alt Use
             location search
           .input-append
-            %input.span3#addressInput(type="text" placeholder="Address...")
+            %input.col-lg-3#addressInput(type="text" placeholder="Address...")
             %button.btn#addressSearch(type="submit" data-loading-text="Searching...") Search
       %div
         %form.form-inline#division
@@ -28,7 +28,7 @@
                   %option(value="#{division_id}")= division["name"]
           %button.btn(type="submit") Go
 
-  .span7
+  .col-lg-7
     .content-box
       = intro
     .content-box
