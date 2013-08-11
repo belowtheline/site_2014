@@ -51,7 +51,7 @@ If you're adding a party, make sure the code isn't already taken.
 
 ## Development
 
-  1. Install Ruby 2.0 & node.js & Python
+  1. Install Ruby 2.0 & node.js
   1. Install the bundler gem: `gem install  bundler`
   1. Run `bundle install`
   1. Install `lessc`: `npm install -g lessc`

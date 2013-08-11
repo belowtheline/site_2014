@@ -292,9 +292,13 @@ task css: [:output_dirs] do
   system "lessc less/app.less site/css/app.css"
 end
 
-desc "Serve site on port 8000 (requires Python)"
+desc "Serve site on port 8000"
 task :serve do
-  system "cd site; python -m SimpleHTTPServer &"
+  require 'webrick'
+
+  server = WEBrick::HTTPServer.new Port: 8000, DocumentRoot: OUTPUT_DIR
+  trap 'INT' do server.shutdown end
+  server.start
 end
 
 desc "Build Sitemap"
