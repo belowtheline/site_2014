@@ -5,7 +5,7 @@
       .geolocation-only
         %form
           %h3 Use your current location
-          %button.btn.btn-default#geolocate(type="button" data-loading-text="Locating...")
+          %button.btn.btn-primary#geolocate(type="button" data-loading-text="Locating...")
             Click here!
       %div
         %form#address
@@ -16,7 +16,7 @@
           .input-group
             %input.form-control#addressInput(type="text" placeholder="Address...")
             .input-group-btn
-              %button.btn.btn-default#addressSearch(type="submit" data-loading-text="Searching...") Search
+              %button.btn.btn-primary#addressSearch(type="submit" data-loading-text="Searching...") Search
       %div
         %form.form-inline#division
           %h3 Or select your division
@@ -29,7 +29,7 @@
                     - next if division["state"] != "state/#{state_id}"
                     %option(value="#{division_id}")= division["name"]
             .input-group-btn
-              %button.btn.btn-default(type="submit") Go
+              %button.btn.btn-primary(type="submit") Go
 
   .col-lg-7
     .content-box
