@@ -285,7 +285,10 @@ end
 
 desc "Build & Copy CSS into site directory (requires lessc)"
 task css: [:output_dirs] do
-  system "lessc vendor/bootstrap/less/bootstrap.less site/css/bootstrap.css"
+  res = system "lessc vendor/bootstrap/less/bootstrap.less site/css/bootstrap.css"
+  if not res then
+    puts "lessc failed, is it installed?"
+  end
   system "lessc less/app.less site/css/app.css"
 end
 
