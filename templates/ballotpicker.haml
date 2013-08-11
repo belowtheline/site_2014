@@ -1,0 +1,27 @@
+.row(ng-app ng-controller="BallotPickerCtrl")
+  .col.lg-12
+    .page-header
+      %h1 Ballot Picker for {{division.division.name}}
+
+  .col-lg-6
+    %h2
+      Upper House
+      %small Senate
+
+    %table.table.table-condensed
+      %tr(ng-repeat="c in state.candidates")
+        %td {{c.first_name}} {{c.last_name}}
+        %td
+          %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+            {{ parties[c.party].code }}
+          %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+            IND
+
+  .col-lg-5
+    %h2
+      Lower House
+      %small House of Representatives
+
+    %ul
+      %li(ng-repeat="c in division.candidates")
+        {{c.first_name}} {{c.last_name}}

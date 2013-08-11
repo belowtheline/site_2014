@@ -183,6 +183,9 @@ task content: [:output_dirs] do
     {title: "News"})
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
+  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Picker'})
+
+
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
     if division['state'].match /t$/ then
@@ -194,14 +197,13 @@ task content: [:output_dirs] do
     division_data = {
       division: division,
       representative: representatives["division/#{division_id}"],
-      senators: senators[division['state']],
       state_or_territory: state_or_territory,
       candidates: candidates_reps["division/#{division_id}"] || [],
     }
     output(
       File.join('division', "#{division_id}.html"),
       template('division'),
-      division_data.merge(partytmpl: partytmpl, parties: parties),
+      division_data.merge(partytmpl: partytmpl, parties: parties, senators: senators[division['state']]),
       {title: division['name']}
     )
     File.write(File.join(OUTPUT_DIR, 'division', "#{division_id}.json"), JSON.generate(division_data))
