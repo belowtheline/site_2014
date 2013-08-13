@@ -146,9 +146,8 @@ task content: [:output_dirs] do
   teaser = nil
   posts = {}
 
-  Dir.foreach("content/news") do |filename|
-    next if not filename.match /\.md$/
-
+  postfiles = Dir.glob('content/news/*.md').sort.map { |s| s.split('/')[-1] }
+  postfiles.each do |filename|
     match = filename.match /^(.*)_(.*)\.md$/
     timestamp = DateTime.iso8601(match[1])
     poster = Posters[match[2]]
@@ -184,7 +183,6 @@ task content: [:output_dirs] do
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
   output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Picker'})
-
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
