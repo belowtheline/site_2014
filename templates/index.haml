@@ -22,11 +22,11 @@
           %h3 Or select your division
           .input-group
             %select#divisionSelector.form-control
-            %option(value="") Division...
-            - states.keys.sort.each do |state_id|
-              %optgroup(label="#{states[state_id]["name"]}")
-                - divisions.keys.sort.each do |division_id|
-                  - division = divisions[division_id]
+              %option(value="") Division...
+              - states.keys.sort.each do |state_id|
+                %optgroup(label="#{states[state_id]["name"]}")
+                  - divisions.keys.sort.each do |division_id|
+                    - division = divisions[division_id]
                     - next if division["state"] != "state/#{state_id}"
                     %option(value="#{division_id}")= division["name"]
             .input-group-btn
