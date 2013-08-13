@@ -160,7 +160,7 @@ task content: [:output_dirs] do
     body, teaser = load_content(File.join('news', filename), target)
     body = '<div>' + body + '</div>'
 
-    title = body.match(/<strong>(.*?)<\/strong>/)[1]
+    title = body.match(/<h1.*?>(.*?)<\/h1>/)[1]
 
     posts[timestamp.to_date] ||= []
     posts[timestamp.to_date].push([title, target])
