@@ -186,16 +186,11 @@ task content: [:output_dirs] do
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
-    if division['state'].match /t$/ then
-      state_or_territory = 'territory'
-    else
-      state_or_territory = 'state'
-    end
 
     division_data = {
       division: division,
+      states: states,
       representative: representatives["division/#{division_id}"],
-      state_or_territory: state_or_territory,
       candidates: candidates_reps["division/#{division_id}"] || [],
     }
     output(

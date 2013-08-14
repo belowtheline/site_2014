@@ -30,7 +30,7 @@
   .col-lg-6
     .lead.text-center Senate
     %p
-      The Senators for <a href="/#{division['state']}.html">#{states[division['state']]['name']}</a> are listed below.
+      The Senators for <a href="/#{division['state']}.html">#{states[division['state'].split('/')[1]]['name']}</a> are listed below.
     %table.table.table-condensed
       - senators.each do |senator|
         %tr
