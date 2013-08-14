@@ -30,9 +30,7 @@
   .col-lg-6
     .lead.text-center Senate
     %p
-      The Senators for your #{state_or_territory} are listed below. To see more
-      information about Senate representation for your #{state_or_territory}
-      click <a href="/#{division['state']}.html">here</a>.
+      The Senators for <a href="/#{division['state']}.html">#{states[division['state']]['name']}</a> are listed below.
     %table.table.table-condensed
       - senators.each do |senator|
         %tr
