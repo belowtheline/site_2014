@@ -189,6 +189,7 @@ task content: [:output_dirs] do
 
     division_data = {
       division: division,
+      division_id: division_id,
       states: states,
       representative: representatives["division/#{division_id}"],
       candidates: candidates_reps["division/#{division_id}"] || [],

@@ -1,10 +1,7 @@
 .row
   .col-lg-12
     .pull-right
-      .alert.alert-info
-        %strong Ballot editors not available yet.
-        %br
-        Nominations are announced on Friday 16 August. Ballot editors will be available soon after.
+      %a.btn.btn-primary(href="/ballotpicker.html#/#{division_id}") Ballot Editor for #{division['name']} &raquo;
     .page-header
       %h1= division['name']
   .col-lg-6

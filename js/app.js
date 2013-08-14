@@ -64,7 +64,10 @@
 
 angular.module('belowtheline', ['ui.sortable']);
 
-function BallotPickerCtrl($scope, $http) {
+function BallotPickerCtrl($scope, $http, $location) {
+
+    var divisionPath = $location.path();
+    console.log(divisionPath);
 
     $scope.division = {};
     $scope.state = {};
@@ -73,13 +76,13 @@ function BallotPickerCtrl($scope, $http) {
     $scope.stateCandidates = [];
     $scope.divisionCandidates = [];
 
-    $http.get('/division/adelaide.json').success(function(data) {
+    $http.get('/division' + divisionPath + '.json').success(function(data) {
         $scope.division = data;
         $scope.divisionCandidates = _.values(data.candidates);
-    });
-    $http.get('/state/sa.json').success(function(data) {
-        $scope.state = data;
-        $scope.stateCandidates = _.values(data.candidates);
+        $http.get($scope.division.division.state + '.json').success(function(data) {
+            $scope.state = data;
+            $scope.stateCandidates = _.values(data.candidates);
+        });
     });
     $http.get('/parties.json').success(function(data) { $scope.parties = data; });
 
