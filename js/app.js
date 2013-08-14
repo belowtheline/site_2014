@@ -82,8 +82,15 @@ function BallotPickerCtrl($scope, $http, $location) {
         $http.get($scope.division.division.state + '.json').success(function(data) {
             $scope.state = data;
             $scope.stateCandidates = _.values(data.candidates);
+            $http.get('/parties.json').success(function(data) {
+                var partyCodes = _.filter(_.keys(data), function(partyCode) {
+                    var inDivision = _.findWhere($scope.divisionCandidates, {party: partyCode});
+                    var inState = _.findWhere($scope.stateCandidates, {party: partyCode});
+                    return(inDivision || inState);
+                });
+                $scope.parties = _.pick(data, partyCodes);
+            });
         });
     });
-    $http.get('/parties.json').success(function(data) { $scope.parties = data; });
 
 }
