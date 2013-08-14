@@ -1,8 +1,8 @@
 # Your vote. Your preference. Your deal.
 
-__There are over 50 small parties running this election__ --- does one of them
-suit your vision for Australia better than Labor, Liberal, the Nationals, or
-even Family First or the Greens? 
+__There are over 50 small parties running in this election__ --- does one of
+them suit your vision for Australia better than Labor, Liberal, the Nationals,
+or even Family First or the Greens? 
 
 __In Australia, you *cannot* throw away your vote.__
 
