@@ -11,10 +11,9 @@
       - if representative['party'] then
         %strong= "#{representative['first_name']} #{representative['last_name']}"
         of the
-        %span.party(class="party-#{representative['party']}")#{parties[representative['party']]['name']}
+        <span class="party party-#{representative['party']}">#{parties[representative['party']]['name']}</span>.
       - else
-        %strong<= "#{representative['first_name']} #{representative['last_name']}"
-        , an independent.
+        <strong>#{representative['first_name']} #{representative['last_name']}</strong>, an independent.
     %hr
       Currently known candidates for this division are:
       %table.table.table-condensed
