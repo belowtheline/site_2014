@@ -1,10 +1,10 @@
 {
-    "last_name":    "Heffernan",
-    "first_name":   "Bill",
-    "party":        "lib",
-    "elected":      "state/nsw",
-    "term_start":   "1996-09-18",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Bill_Heffernan"
+    "elected": "state/nsw",
+    "expiring": false,
+    "first_name": "Bill",
+    "last_name": "HEFFERNAN",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1996-09-18",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bill_Heffernan"
 }

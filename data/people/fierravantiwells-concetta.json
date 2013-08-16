@@ -1,10 +1,10 @@
 {
-    "last_name":    "Fierravanti-Wells",
-    "first_name":   "Concetta",
-    "party":        "lib",
-    "elected":      "state/nsw",
-    "term_start":   "2005-05-05",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Concetta_Fierravanti-Wells"
+    "elected": "state/nsw",
+    "expiring": false,
+    "first_name": "Concetta",
+    "last_name": "FIERRAVANTI-WELLS",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2005-05-05",
+    "wikipedia": "http://en.wikipedia.org/wiki/Concetta_Fierravanti-Wells"
 }

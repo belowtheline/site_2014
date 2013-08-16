@@ -1,10 +1,10 @@
 {
-    "last_name":    "Bishop",
-    "first_name":   "Mark",
-    "party":        "alp",
-    "elected":      "state/wa",
-    "term_start":   "1996-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Mark_Bishop"
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "Mark",
+    "last_name": "BISHOP",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mark_Bishop"
 }

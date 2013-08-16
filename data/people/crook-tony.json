@@ -1,9 +1,9 @@
 {
-    "last_name":    "Crook",
-    "first_name":   "Tony",
-    "party":        "nat",
-    "elected":      "division/oconnor",
-    "term_start":   "2010-08-21",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tony_Crook_(politician)"
+    "elected": "division/oconnor",
+    "first_name": "Tony",
+    "last_name": "CROOK",
+    "party": "nat",
+    "retiring": true,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tony_Crook_(politician)"
 }

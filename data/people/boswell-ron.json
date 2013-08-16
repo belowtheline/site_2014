@@ -1,10 +1,10 @@
 {
-    "last_name":    "Boswell",
-    "first_name":   "Ron",
-    "party":        "lnp",
-    "elected":      "state/qld",
-    "term_start":   "1983-03-05",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Ron_Boswell"
+    "elected": "state/qld",
+    "expiring": true,
+    "first_name": "Ron",
+    "last_name": "BOSWELL",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "1983-03-05",
+    "wikipedia": "http://en.wikipedia.org/wiki/Ron_Boswell"
 }

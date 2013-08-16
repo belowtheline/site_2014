@@ -1,10 +1,10 @@
 {
-    "last_name":    "Parry",
-    "first_name":   "Stephen",
-    "party":        "lib",
-    "elected":      "state/tas",
-    "term_start":   "2011-07-04",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Stephen_Parry_(politician)"
+    "elected": "state/tas",
+    "expiring": false,
+    "first_name": "Stephen",
+    "last_name": "PARRY",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2011-07-04",
+    "wikipedia": "http://en.wikipedia.org/wiki/Stephen_Parry_(politician)"
 }

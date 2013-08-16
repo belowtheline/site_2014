@@ -1,10 +1,10 @@
 {
-    "last_name":    "Singh",
-    "first_name":   "Lisa",
-    "party":        "alp",
-    "elected":      "state/tas",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Lisa_Singh"
+    "elected": "state/tas",
+    "expiring": false,
+    "first_name": "Lisa",
+    "last_name": "SINGH",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Lisa_Singh"
 }

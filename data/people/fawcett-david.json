@@ -1,10 +1,10 @@
 {
-    "last_name":    "Fawcett",
-    "first_name":   "David",
-    "party":        "lib",
-    "elected":      "state/sa",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/David_Fawcett"
+    "elected": "state/sa",
+    "expiring": false,
+    "first_name": "David",
+    "last_name": "FAWCETT",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/David_Fawcett"
 }

@@ -1,9 +1,9 @@
 {
-    "last_name":    "Grierson",
-    "first_name":   "Sharon",
-    "party":        "alp",
-    "elected":      "division/newcastle",
-    "term_start":   "2001-11-10",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Sharon_Grierson"
+    "elected": "division/newcastle",
+    "first_name": "Sharon",
+    "last_name": "GRIERSON",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Sharon_Grierson"
 }

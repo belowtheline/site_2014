@@ -1,9 +1,9 @@
 {
-    "last_name":    "Gillard",
-    "first_name":   "Julia",
-    "party":        "alp",
-    "elected":      "division/lalor",
-    "term_start":   "1998-10-03",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Julia_Gillard"
+    "elected": "division/lalor",
+    "first_name": "Julia",
+    "last_name": "GILLARD",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Julia_Gillard"
 }

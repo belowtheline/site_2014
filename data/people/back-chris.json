@@ -1,10 +1,10 @@
 {
-    "last_name":    "Back",
-    "first_name":   "Chris",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "2009-03-12",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Chris_Back"
+    "elected": "state/wa",
+    "expiring": false,
+    "first_name": "Chris",
+    "last_name": "BACK",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2009-03-12",
+    "wikipedia": "http://en.wikipedia.org/wiki/Chris_Back"
 }

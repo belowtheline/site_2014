@@ -1,9 +1,9 @@
 {
-    "last_name":    "Forrest",
-    "first_name":   "John",
-    "party":        "nat",
-    "elected":      "division/mallee",
-    "term_start":   "1993-03-13",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/John_Forrest_(Victorian_politician)"
+    "elected": "division/mallee",
+    "first_name": "John",
+    "last_name": "FORREST",
+    "party": "nat",
+    "retiring": true,
+    "term_start": "1993-03-13",
+    "wikipedia": "http://en.wikipedia.org/wiki/John_Forrest_(Victorian_politician)"
 }
