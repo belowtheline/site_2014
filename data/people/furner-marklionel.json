@@ -1,8 +1,13 @@
 {
     "ballot_position": 3,
     "candidate": "state/qld",
+    "elected": "state/qld",
+    "expiring": true,
     "first_name": "Mark Lionel",
     "group": "G",
     "last_name": "FURNER",
-    "party": "alp"
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2008-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mark_Furner"
 }
