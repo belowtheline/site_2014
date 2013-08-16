@@ -14,7 +14,7 @@
             = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)
   .col-lg-6
     %p
-      Currently known candidates for #{state['name']} are:
+      The Senate candidates for #{state['name']}, in ballot order:
     %table.table.table-condensed
       - candidates.each do |candidate|
         %tr

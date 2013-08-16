@@ -11,6 +11,7 @@
     .lead.text-center House of Representatives
     %p
       Your local member of the House of Representatives is
+      %br
       - if representative['party'] then
         %strong= "#{representative['first_name']} #{representative['last_name']}"
         of the
@@ -18,12 +19,15 @@
       - else
         <strong>#{representative['first_name']} #{representative['last_name']}</strong>, an independent.
     %hr
-      Currently known candidates for this division are:
+      The candidates for #{division['name']}, in ballot order:
       %table.table.table-condensed
         - candidates.each do |candidate|
           %tr
             %td
-              #{candidate['first_name']} #{candidate['last_name']}
+              - if candidate == representative
+                <strong>#{candidate['first_name']} #{candidate['last_name']}</strong>
+              - else
+                #{candidate['first_name']} #{candidate['last_name']}
             %td
               = partytmpl.render(Object.new, :code => candidate['party'], :parties => parties)
   .col-lg-6
