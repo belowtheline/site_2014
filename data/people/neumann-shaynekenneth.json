@@ -1,7 +1,11 @@
 {
     "ballot_position": 2,
     "candidate": "division/blair",
-    "first_name": "Shayne Kenneth",
+    "elected": "division/blair",
+    "first_name": "Shayne",
     "last_name": "NEUMANN",
-    "party": "alp"
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Shayne_Neumann"
 }
