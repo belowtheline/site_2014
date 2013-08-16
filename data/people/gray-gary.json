@@ -1,8 +1,9 @@
 {
+    "ballot_position": 3,
     "candidate": "division/brand",
     "elected": "division/brand",
     "first_name": "Gary",
-    "last_name": "Gray",
+    "last_name": "GRAY",
     "party": "alp",
     "retiring": false,
     "term_start": "2007-11-24",

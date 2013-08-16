@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/act",
     "first_name": "Joe",
-    "last_name": "Arnold",
+    "group": "B",
+    "last_name": "ARNOLD",
     "party": "kap"
 }

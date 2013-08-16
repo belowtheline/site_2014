@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/qld",
     "first_name": "Chris",
-    "last_name": "Ketter",
+    "group": "G",
+    "last_name": "KETTER",
     "party": "alp"
 }

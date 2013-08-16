@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "Richard",
-    "last_name": "Colbeck",
+    "group": "E",
+    "last_name": "COLBECK",
     "party": "lib",
     "retiring": false,
     "term_start": "2002-02-04",

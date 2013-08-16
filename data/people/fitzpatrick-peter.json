@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/sa",
     "first_name": "Peter",
-    "last_name": "Fitzpatrick",
-    "party": "onp"
+    "group": "U",
+    "last_name": "FITZPATRICK",
+    "party": "on"
 }

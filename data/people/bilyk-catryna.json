@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "Catryna",
-    "last_name": "Bilyk",
+    "group": "C",
+    "last_name": "BILYK",
     "party": "alp",
     "retiring": false,
     "term_start": "2008-07-01",

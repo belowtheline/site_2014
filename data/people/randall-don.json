@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/canning",
     "elected": "division/canning",
     "first_name": "Don",
-    "last_name": "Randall",
+    "last_name": "RANDALL",
     "party": "lib",
     "retiring": false,
     "term_start": "2001-11-10",

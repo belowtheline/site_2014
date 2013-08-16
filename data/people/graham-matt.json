@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nt",
     "first_name": "Matt",
-    "last_name": "Graham",
+    "group": "I",
+    "last_name": "GRAHAM",
     "party": "sfp"
 }

@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/vic",
     "first_name": "Tim",
-    "last_name": "Wilms",
+    "group": "B",
+    "last_name": "WILMS",
     "party": "ldp"
 }

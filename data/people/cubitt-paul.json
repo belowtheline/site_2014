@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/act",
     "first_name": "Paul",
-    "last_name": "Cubitt",
+    "group": "F",
+    "last_name": "CUBITT",
     "party": "dlr"
 }

@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/fowler",
     "elected": "division/fowler",
     "first_name": "Chris",
-    "last_name": "Hayes",
+    "last_name": "HAYES",
     "party": "alp",
     "retiring": false,
     "term_start": "2010-08-21",

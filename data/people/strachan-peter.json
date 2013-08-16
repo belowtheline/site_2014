@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "first_name": "Peter",
-    "last_name": "Strachan",
+    "group": "P",
+    "last_name": "STRACHAN",
     "party": "spp"
 }

@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/wa",
     "first_name": "David",
-    "last_name": "Eagles",
+    "group": "U",
+    "last_name": "EAGLES",
     "party": "nat"
 }

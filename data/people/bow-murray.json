@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "first_name": "Murray",
-    "last_name": "Bow",
+    "group": "G",
+    "last_name": "BOW",
     "party": "sfp"
 }

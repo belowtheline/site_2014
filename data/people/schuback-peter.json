@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/qld",
     "first_name": "Peter",
-    "last_name": "Schuback",
+    "group": "I",
+    "last_name": "SCHUBACK",
     "party": "afp"
 }

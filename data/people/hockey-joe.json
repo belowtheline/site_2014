@@ -1,8 +1,9 @@
 {
+    "ballot_position": 2,
     "candidate": "division/northsydney",
     "elected": "division/northsydney",
     "first_name": "Joe",
-    "last_name": "Hockey",
+    "last_name": "HOCKEY",
     "party": "lib",
     "retiring": false,
     "term_start": "2009-02-16",

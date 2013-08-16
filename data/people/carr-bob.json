@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nsw",
     "elected": "state/nsw",
     "expiring": true,
     "first_name": "Bob",
-    "last_name": "Carr",
+    "group": "M",
+    "last_name": "CARR",
     "party": "alp",
     "retiring": false,
     "term_start": "2012-03-12",

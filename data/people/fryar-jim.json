@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "first_name": "Jim",
-    "last_name": "Fryar",
+    "group": "B",
+    "last_name": "FRYAR",
     "party": "ldp"
 }

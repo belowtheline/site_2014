@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nsw",
     "first_name": "David",
-    "last_name": "Leyonhjelm",
+    "group": "A",
+    "last_name": "LEYONHJELM",
     "party": "ldp"
 }

@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nt",
     "first_name": "Gary",
-    "last_name": "Bell",
+    "group": "B",
+    "last_name": "BELL",
     "party": "uap"
 }

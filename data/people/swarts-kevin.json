@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
-    "first_name": "Kevin ",
-    "last_name": "Swarts",
+    "first_name": "Kevin",
+    "group": "G",
+    "last_name": "SWARTS",
     "party": "acp"
 }

@@ -1,9 +1,12 @@
 {
+    "ballot_position": 1,
     "candidate": "state/sa",
     "elected": "state/sa",
     "expiring": true,
     "first_name": "Nick",
-    "last_name": "Xenophon",
+    "group": "G",
+    "last_name": "XENOPHON",
+    "party": "xen",
     "retiring": false,
     "term_start": "2008-07-01",
     "website": "http://www.nickxenophon.com.au/",

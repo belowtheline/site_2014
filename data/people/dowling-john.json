@@ -1,6 +1,8 @@
 {
+    "ballot_position": 4,
     "candidate": "state/tas",
     "first_name": "John",
-    "last_name": "Dowling",
+    "group": "C",
+    "last_name": "DOWLING",
     "party": "alp"
 }

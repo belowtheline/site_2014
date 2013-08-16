@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/vic",
     "elected": "state/vic",
     "expiring": true,
     "first_name": "Scott",
-    "last_name": "Ryan",
+    "group": "E",
+    "last_name": "RYAN",
     "party": "lib",
     "retiring": false,
     "term_start": "2008-07-01",

@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "Peter",
-    "last_name": "Whish-Wilson",
+    "group": "J",
+    "last_name": "WHISH-WILSON",
     "party": "grn",
     "retiring": false,
     "term_start": "2012-06-20",

@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/watson",
     "elected": "division/watson",
     "first_name": "Tony",
-    "last_name": "Burke",
+    "last_name": "BURKE",
     "party": "alp",
     "retiring": false,
     "term_start": "2004-10-09",

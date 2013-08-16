@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "elected": "state/wa",
     "expiring": true,
     "first_name": "David",
-    "last_name": "Johnston",
+    "group": "AA",
+    "last_name": "JOHNSTON",
     "party": "lib",
     "retiring": false,
     "term_start": "2002-07-01",

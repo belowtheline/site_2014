@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/bradfield",
     "elected": "division/bradfield",
     "first_name": "Paul",
-    "last_name": "Fletcher",
+    "last_name": "FLETCHER",
     "party": "lib",
     "retiring": false,
     "term_start": "2009-12-05",

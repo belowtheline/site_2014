@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/qld",
     "first_name": "James",
-    "last_name": "McGrath",
+    "group": "B",
+    "last_name": "McGRATH",
     "party": "lnp"
 }

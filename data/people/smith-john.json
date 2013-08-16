@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/qld",
     "first_name": "John",
-    "last_name": "Smith",
+    "group": "AC",
+    "last_name": "SMITH",
     "party": "uap"
 }

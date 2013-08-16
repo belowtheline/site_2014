@@ -1,8 +1,9 @@
 {
+    "ballot_position": 7,
     "candidate": "division/paterson",
     "elected": "division/paterson",
     "first_name": "Bob",
-    "last_name": "Baldwin",
+    "last_name": "BALDWIN",
     "party": "lib",
     "retiring": false,
     "term_start": "2001-10-10",

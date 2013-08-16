@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/lindsay",
     "elected": "division/lindsay",
     "first_name": "David",
-    "last_name": "Bradbury",
+    "last_name": "BRADBURY",
     "party": "alp",
     "retiring": false,
     "term_start": "2007-11-24",

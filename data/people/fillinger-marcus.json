@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/act",
     "first_name": "Marcus",
-    "last_name": "Fillinger",
+    "group": "A",
+    "last_name": "FILLINGER",
     "party": "ajp"
 }

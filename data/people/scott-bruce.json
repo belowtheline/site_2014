@@ -1,8 +1,9 @@
 {
+    "ballot_position": 4,
     "candidate": "division/maranoa",
     "elected": "division/maranoa",
     "first_name": "Bruce",
-    "last_name": "Scott",
+    "last_name": "SCOTT",
     "party": "lnp",
     "retiring": false,
     "term_start": "1990-03-24",

@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "first_name": "David",
-    "last_name": "Collyer",
+    "group": "AB",
+    "last_name": "COLLYER",
     "party": "dem"
 }

@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "elected": "state/vic",
     "expiring": true,
     "first_name": "Mitch",
-    "last_name": "Fifield",
+    "group": "E",
+    "last_name": "FIFIELD",
     "party": "lib",
     "retiring": false,
     "term_start": "2004-03-31",

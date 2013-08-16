@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/qld",
     "elected": "state/qld",
     "expiring": true,
     "first_name": "Ian",
-    "last_name": "Macdonald",
+    "group": "B",
+    "last_name": "MACDONALD",
     "party": "lnp",
     "retiring": false,
     "term_start": "1990-07-01",

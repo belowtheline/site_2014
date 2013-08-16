@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/vic",
-    "first_name": "John ",
-    "last_name": "Sherman",
+    "first_name": "John",
+    "group": "AF",
+    "last_name": "SHERMAN",
     "party": "dlr"
 }
