@@ -1,6 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
+ignore! /site/
 
 guard 'rake', task: 'content', run_on_start: false do
   watch(%r{templates/.+})
@@ -14,8 +15,7 @@ guard 'rake', task: 'js', run_on_start: false do
 end
 
 guard 'rake', task: 'css', run_on_start: false do
-  watch(%r{less/.+})
-  watch(%r{vendor/bootstrap/.+})
+  watch(%r{\.less})
 end
 
 guard 'livereload' do

@@ -64,7 +64,7 @@
 
 angular.module('belowtheline', ['ui.sortable']);
 
-function BallotPickerCtrl($scope, $http, $location) {
+function BallotPickerCtrl($scope, $http, $location, $window) {
 
     var divisionPath = $location.path();
     console.log(divisionPath);
@@ -72,6 +72,20 @@ function BallotPickerCtrl($scope, $http, $location) {
     $scope.division = {};
     $scope.state = {};
     $scope.parties = {};
+    $scope.orderByParty = true;
+    $scope.orderByCandidate = false;
+
+    $scope.showOrderByCandidate = function() {
+      $scope.orderByParty = false;
+      $scope.orderByCandidate = true;
+    };
+
+    $scope.showOrderByParty = function() {
+      if($window.confirm("Are you sure? Any changes made here will be lost.")) {
+        $scope.orderByParty = true;
+        $scope.orderByCandidate = false;
+      }
+    };
 
     $scope.stateCandidates = [];
     $scope.divisionCandidates = [];
