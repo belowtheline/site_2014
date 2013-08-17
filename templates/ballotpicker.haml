@@ -5,8 +5,7 @@
 
   .col-lg-6
     %h2
-      Upper House
-      %small Senate
+      Senate
 
     %table.table.table-condensed
       %tbody(ui-sortable ng-model="stateCandidates")
@@ -17,10 +16,9 @@
               {{ parties[c.party].code }}
             %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
               IND
-  .col-lg-5
+  .col-lg-6
     %h2
-      Lower House
-      %small House of Representatives
+      House of Representatives
 
     %table.table.table-condensed
       %tbody(ui-sortable ng-model="divisionCandidates")
