@@ -1,6 +1,6 @@
 #ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
   .row
-    .col.lg-12
+    .col-lg-12
       .page-header
         %h1 Ballot Editor for {{division.division.name}}
 
@@ -12,9 +12,11 @@
         %h2
           Order by Party
           %small
-            or continue straight to
+            or skip straight to
             %a(ng-click="skipToOrderByCandidate()") ordering by candidate
 
+    .row
+      .col-lg-6
         %h3
           Parties
           %small
@@ -33,7 +35,7 @@
     .row
       .col-lg-12
         %h2
-          Order By Candidate
+          Order by Candidate
           %small
             or return to
             %a(ng-click="showOrderByParty()") ordering by party
@@ -44,7 +46,7 @@
           Lower House
           %small
             House of Representatives
-            %a.pull-right(ng-show="divisionDirty()" ng-click="resetDivision()") Reset
+            %a.pull-right(ng-show="divisionDirty()" ng-click="resetDivision()") Reset to Ballot Order
 
         %table.table.table-condensed
           %tbody(ui-sortable ng-model="division.candidates")
@@ -61,7 +63,7 @@
           Upper House
           %small
             Senate
-            %a.pull-right(ng-show="stateDirty()" ng-click="resetState()") Reset
+            %a.pull-right(ng-show="stateDirty()" ng-click="resetState()") Reset to Ballot Order
 
         %table.table.table-condensed
           %tbody(ui-sortable ng-model="state.candidates")
