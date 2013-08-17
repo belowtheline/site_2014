@@ -1,0 +1,37 @@
+#ballotPicker(ng-app="belowtheline" ng-controller="TicketViewerCtrl")
+  .row
+    .col.lg-12
+      .page-header
+        %h1 Tickets for {{state.name}}
+
+      %p
+        Select tickets below and compare the various preference flows. The "Ballot Order" setting shows what would happen if you simply numbered the boxes sequentially through the groups on the ballot. Selecting a ticket will re-order the candidates into the order set by that ticket.
+
+  .row
+    .col-lg-6
+      %select.form-control(ng-model="ticket[0]" ng-change="changeTicket(0)" ng-options="ticket.id as ticket.name for ticket in ticketList")
+        %option(value="") Ballot Order
+
+      %table.table.table-condensed
+        %tbody(ng-model="candidateOrder[0]")
+          %tr(ng-repeat="person_id in candidateOrder[0]")
+            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
+                {{ parties[candidates[person_id].party].code }}
+              %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
+                IND
+
+    .col-lg-6.hidden-xs
+      %select.form-control(ng-model="ticket[1]" ng-change="changeTicket(1)" ng-options="ticket.id as ticket.name for ticket in ticketList")
+        %option(value="") Ballot Order
+
+      %table.table.table-condensed
+        %tbody(ng-model="candidateOrder[1]")
+          %tr(ng-repeat="person_id in candidateOrder[1]")
+            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
+                {{ parties[candidates[person_id].party].code }}
+              %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
+                IND

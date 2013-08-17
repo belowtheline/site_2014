@@ -16,7 +16,8 @@
     %p
       The Senate candidates for #{state['name']}, in ballot order:
     %table.table.table-condensed
-      - candidates.each do |candidate|
+      - ballot_order.each do |candidate_id|
+        - candidate = candidates[candidate_id]
         %tr
           %td
             #{candidate['first_name']} #{candidate['last_name']}

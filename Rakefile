@@ -183,6 +183,7 @@ task content: [:output_dirs] do
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
   output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Picker'})
+  output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer'})
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
@@ -207,14 +208,23 @@ task content: [:output_dirs] do
   end
 
   states.each do |state_id, state|
-    candidates = candidates_senate["state/#{state_id}"] || []
-    candidates.sort! do |a, b|
-      if a['group'] == b['group'] then
-        a['ballot_position'] <=> b['ballot_position']
+    candidates = {}
+    ballot_order = []
+
+    people.each do |person_id, person|
+      next if person['candidate'] != "state/#{state_id}"
+      candidates[person_id] = person
+      ballot_order.push [person_id, person['group'], person['ballot_position']]
+    end
+
+    ballot_order.sort! do |a, b|
+      if a[1] == b[1]
+        a[2] <=> b[2]
       else
-        a['group'] <=> b['group']
+        a[1] <=> b[1]
       end
     end
+    ballot_order.map! { |a| a[0] }
 
     if state_id.match /t$/ then
       state_or_territory = 'territory'
@@ -222,11 +232,22 @@ task content: [:output_dirs] do
       state_or_territory = 'state'
     end
 
+    groups = {}
+
+    Dir.foreach("data/groups") do |name|
+      next unless name =~ /^#{state_id}-[A-Z]+\.json$/
+      data = JSON.parse(File.read(File.join('data', 'groups', name)))
+      name.sub!(/^#{state_id}-([A-Z]+)\.json$/, '\1')
+      groups[name] = data
+    end
+
     state_data = {
       state: state,
       state_or_territory: state_or_territory,
       senators: senators["state/#{state_id}"],
-      candidates: candidates || []
+      candidates: candidates,
+      ballot_order: ballot_order,
+      groups: groups,
     }
 
     output(
