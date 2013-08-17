@@ -1,36 +1,69 @@
-.row(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
-  .col.lg-12
-    .page-header
-      %h1 Ballot Editor for {{division.division.name}}
+#ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
+  .row
+    .col.lg-12
+      .page-header
+        %h1 Ballot Editor for {{division.division.name}}
 
+      %p.lead Click and drag items in the list to re-order them.
 
-  .col-lg-6
-    %h2
-      Lower House
-      %small House of Representatives
+  #orderByParty(ng-show="orderByParty")
+    .row
+      .col-lg-12
+        %h2
+          Order by Party
+          %small
+            Or go straight to
+            %a(ng-click="showOrderByCandidate()") ordering by candidate
 
-    %table.table.table-condensed
-      %tbody(ui-sortable ng-model="divisionCandidates")
-        %tr(ng-repeat="c in divisionCandidates")
-          %td {{c.first_name}} {{c.last_name}}
-          %td
-            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
-              {{ parties[c.party].code }}
-            %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-              IND
+        %h3
+          Parties
 
-  .col-lg-6
-    %h2
-      Upper House
-      %small Senate
+        %table.table.table-condensed
+          %tbody(ui-sortable ng-model="parties")
+            %tr(ng-repeat="p in parties")
+              %td
+                %span(class="partycode party party-{{p.code}}") {{ p.code }}
+              %td {{p.name}}
 
-    %table.table.table-condensed
-      %tbody(ui-sortable ng-model="stateCandidates")
-        %tr(ng-repeat="c in stateCandidates")
-          %td {{c.first_name}} {{c.last_name}}
-          %td
-            %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-              {{ parties[c.party].code }}
-            %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-              IND
-          %td {{c.group}}
+        %a.btn.btn-primary(ng-click="showOrderByCandidate()") Order by Candidate &raquo;
+
+  #orderByCandidate(ng-show="orderByCandidate")
+    .row
+      .col-lg-12
+        %h2
+          Order By Candidate
+          %small
+            Or return to
+            %a(ng-click="showOrderByParty()") ordering by party
+
+    .row
+      .col-lg-6
+        %h3
+          Lower House
+          %small House of Representatives
+
+        %table.table.table-condensed
+          %tbody(ui-sortable ng-model="divisionCandidates")
+            %tr(ng-repeat="c in divisionCandidates")
+              %td {{c.first_name}} {{c.last_name}}
+              %td
+                %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+                  {{ parties[c.party].code }}
+                %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+                  IND
+
+      .col-lg-6
+        %h3
+          Upper House
+          %small Senate
+
+        %table.table.table-condensed
+          %tbody(ui-sortable ng-model="stateCandidates")
+            %tr(ng-repeat="c in stateCandidates")
+              %td {{c.first_name}} {{c.last_name}}
+              %td
+                %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
+                  {{ parties[c.party].code }}
+                %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+                  IND
+              %td {{c.group}}
