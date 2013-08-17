@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nsw",
     "first_name": "William",
-    "last_name": "Bourke",
+    "group": "AI",
+    "last_name": "BOURKE",
     "party": "spp"
 }

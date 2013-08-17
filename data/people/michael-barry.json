@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "first_name": "Barry",
-    "last_name": "Michael",
+    "group": "W",
+    "last_name": "MICHAEL",
     "party": "pup"
 }

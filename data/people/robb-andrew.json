@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/goldstein",
     "elected": "division/goldstein",
     "first_name": "Andrew",
-    "last_name": "Robb",
+    "last_name": "ROBB",
     "party": "lib",
     "retiring": false,
     "term_start": "2004-10-09",

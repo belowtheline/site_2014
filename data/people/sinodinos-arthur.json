@@ -1,9 +1,11 @@
 {
+    "ballot_position": 3,
     "candidate": "state/nsw",
     "elected": "state/nsw",
     "expiring": true,
     "first_name": "Arthur",
-    "last_name": "Sinodinos",
+    "group": "Y",
+    "last_name": "SINODINOS",
     "party": "lib",
     "retiring": false,
     "term_start": "2011-11-02",

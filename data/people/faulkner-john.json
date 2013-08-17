@@ -1,10 +1,10 @@
 {
-    "last_name":    "Faulkner",
-    "first_name":   "John",
-    "party":        "alp",
-    "elected":      "state/nsw",
-    "term_start":   "1989-04-04",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/John_Faulkner"
+    "elected": "state/nsw",
+    "expiring": false,
+    "first_name": "John",
+    "last_name": "FAULKNER",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1989-04-04",
+    "wikipedia": "http://en.wikipedia.org/wiki/John_Faulkner"
 }

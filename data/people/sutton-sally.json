@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/sa",
     "first_name": "Sally",
-    "last_name": "Sutton",
+    "group": "Q",
+    "last_name": "SUTTON",
     "party": "ajp"
 }

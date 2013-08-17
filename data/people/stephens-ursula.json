@@ -1,9 +1,11 @@
 {
+    "ballot_position": 3,
     "candidate": "state/nsw",
     "elected": "state/nsw",
     "expiring": true,
     "first_name": "Ursula",
-    "last_name": "Stephens",
+    "group": "M",
+    "last_name": "STEPHENS",
     "party": "alp",
     "retiring": false,
     "term_start": "2002-07-01",

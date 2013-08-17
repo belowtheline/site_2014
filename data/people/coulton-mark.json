@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/parkes",
     "elected": "division/parkes",
     "first_name": "Mark",
-    "last_name": "Coulton",
+    "last_name": "COULTON",
     "party": "nat",
     "retiring": false,
     "term_start": "2007-11-24",

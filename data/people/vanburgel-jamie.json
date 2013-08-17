@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
-    "first_name": "Jamie ",
-    "last_name": "Van Burgel ",
+    "first_name": "Jamie",
+    "group": "C",
+    "last_name": "VAN BURGEL",
     "party": "acp"
 }

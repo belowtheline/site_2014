@@ -1,10 +1,10 @@
 {
-    "last_name":    "Hogg",
-    "first_name":   "John",
-    "party":        "alp",
-    "elected":      "state/qld",
-    "term_start":   "2008-08-26",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/John_Hogg"
+    "elected": "state/qld",
+    "expiring": true,
+    "first_name": "John",
+    "last_name": "HOGG",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2008-08-26",
+    "wikipedia": "http://en.wikipedia.org/wiki/John_Hogg"
 }

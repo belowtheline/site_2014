@@ -186,13 +186,15 @@ task content: [:output_dirs] do
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
+    candidates = candidates_reps["division/#{division_id}"] || []
+    candidates.sort! { |a, b| a['ballot_position'] <=> b['ballot_position'] }
 
     division_data = {
       division: division,
       division_id: division_id,
       states: states,
       representative: representatives["division/#{division_id}"],
-      candidates: candidates_reps["division/#{division_id}"] || [],
+      candidates: candidates,
     }
     output(
       File.join('division', "#{division_id}.html"),
@@ -207,16 +209,10 @@ task content: [:output_dirs] do
   states.each do |state_id, state|
     candidates = candidates_senate["state/#{state_id}"] || []
     candidates.sort! do |a, b|
-      if a['party'] == b['party'] then
+      if a['group'] == b['group'] then
         a['ballot_position'] <=> b['ballot_position']
-      elsif a.has_key? 'party' and b.has_key? 'party' then
-        parties[a['party']]['name'] <=> parties[b['party']]['name']
-      elsif a.has_key? 'party' then
-        1
-      elsif b.has_key? 'party' then
-        -1
       else
-        0
+        a['group'] <=> b['group']
       end
     end
 

@@ -1,10 +1,10 @@
 {
-    "last_name":    "Smith",
-    "first_name":   "Dean",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "2012-05-02",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Dean_Smith_(Australian_politician)"
+    "elected": "state/wa",
+    "expiring": false,
+    "first_name": "Dean",
+    "last_name": "SMITH",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2012-05-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Dean_Smith_(Australian_politician)"
 }

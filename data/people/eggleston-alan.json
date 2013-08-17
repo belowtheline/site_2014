@@ -1,10 +1,10 @@
 {
-    "last_name":    "Eggleston",
-    "first_name":   "Alan",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "1996-07-01",
-    "expiring":     true,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Alan_Eggleston"
+    "elected": "state/wa",
+    "expiring": true,
+    "first_name": "Alan",
+    "last_name": "EGGLESTON",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1996-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Alan_Eggleston"
 }

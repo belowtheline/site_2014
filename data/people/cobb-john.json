@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/calare",
     "elected": "division/calare",
     "first_name": "John",
-    "last_name": "Cobb",
+    "last_name": "COBB",
     "party": "nat",
     "retiring": false,
     "term_start": "2007-11-24",

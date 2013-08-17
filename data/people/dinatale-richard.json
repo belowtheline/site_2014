@@ -1,10 +1,10 @@
 {
-    "last_name":    "Di Natale",
-    "first_name":   "Richard",
-    "party":        "grn",
-    "elected":      "state/vic",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Richard_Di_Natale"
+    "elected": "state/vic",
+    "expiring": false,
+    "first_name": "Richard",
+    "last_name": "DI NATALE",
+    "party": "grn",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Richard_Di_Natale"
 }

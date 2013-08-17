@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/cunningham",
     "elected": "division/cunningham",
     "first_name": "Sharon",
-    "last_name": "Bird",
+    "last_name": "BIRD",
     "party": "alp",
     "retiring": false,
     "term_start": "2004-10-09",

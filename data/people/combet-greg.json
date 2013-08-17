@@ -1,9 +1,9 @@
 {
-    "last_name":    "Combet",
-    "first_name":   "Greg",
-    "party":        "alp",
-    "elected":      "division/charlton",
-    "term_start":   "2007-11-24",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Greg_Combet"
+    "elected": "division/charlton",
+    "first_name": "Greg",
+    "last_name": "COMBET",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "2007-11-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Greg_Combet"
 }

@@ -1,8 +1,9 @@
 {
+    "ballot_position": 2,
     "candidate": "division/dawson",
     "elected": "division/dawson",
     "first_name": "George",
-    "last_name": "Christensen",
+    "last_name": "CHRISTENSEN",
     "party": "lnp",
     "retiring": false,
     "term_start": "2010-08-21",

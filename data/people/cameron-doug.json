@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/nsw",
     "elected": "state/nsw",
     "expiring": true,
     "first_name": "Doug",
-    "last_name": "Cameron",
+    "group": "M",
+    "last_name": "CAMERON",
     "party": "alp",
     "retiring": false,
     "term_start": "2008-07-01",

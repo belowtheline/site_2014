@@ -1,8 +1,9 @@
 {
+    "ballot_position": 4,
     "candidate": "division/riverina",
     "elected": "division/riverina",
     "first_name": "Michael",
-    "last_name": "McCormack",
+    "last_name": "McCORMACK",
     "party": "nat",
     "retiring": false,
     "term_start": "2010-08-21",

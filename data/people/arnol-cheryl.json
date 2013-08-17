@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
     "first_name": "Cheryl",
-    "last_name": "Arnol",
-    "party": "cal"
+    "group": "A",
+    "last_name": "ARNOL",
+    "party": "cya"
 }

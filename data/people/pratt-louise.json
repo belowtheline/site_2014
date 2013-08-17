@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/wa",
     "elected": "state/wa",
     "expiring": true,
     "first_name": "Louise",
-    "last_name": "Pratt",
+    "group": "Z",
+    "last_name": "PRATT",
     "party": "alp",
     "retiring": false,
     "term_start": "2008-07-01",

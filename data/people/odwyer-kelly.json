@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/higgins",
     "elected": "division/higgins",
     "first_name": "Kelly",
-    "last_name": "O'Dwyer",
+    "last_name": "O'DWYER",
     "party": "lib",
     "retiring": false,
     "term_start": "2009-12-05",

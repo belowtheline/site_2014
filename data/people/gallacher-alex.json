@@ -1,10 +1,10 @@
 {
-    "last_name":    "Gallacher",
-    "first_name":   "Alex",
-    "party":        "alp",
-    "elected":      "state/sa",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Alex_Gallacher"
+    "elected": "state/sa",
+    "expiring": false,
+    "first_name": "Alex",
+    "last_name": "GALLACHER",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Alex_Gallacher"
 }

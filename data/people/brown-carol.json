@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "Carol",
-    "last_name": "Brown",
+    "group": "C",
+    "last_name": "BROWN",
     "party": "alp",
     "retiring": false,
     "term_start": "2005-08-25",

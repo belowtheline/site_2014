@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/longman",
     "elected": "division/longman",
     "first_name": "Wyatt",
-    "last_name": "Roy",
+    "last_name": "ROY",
     "party": "lnp",
     "retiring": false,
     "term_start": "2010-08-21",

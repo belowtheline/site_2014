@@ -1,8 +1,9 @@
 {
+    "ballot_position": 3,
     "candidate": "division/ryan",
     "elected": "division/ryan",
     "first_name": "Jane",
-    "last_name": "Prentice",
+    "last_name": "PRENTICE",
     "party": "lnp",
     "retiring": false,
     "term_start": "2010-08-21",

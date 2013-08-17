@@ -1,8 +1,8 @@
 {
-    "last_name":    "Oakeshott",
-    "first_name":   "Rob",
-    "elected":      "division/lyne",
-    "term_start":   "2008-09-06",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Rob_Oakeshott"
+    "elected": "division/lyne",
+    "first_name": "Rob",
+    "last_name": "OAKESHOTT",
+    "retiring": true,
+    "term_start": "2008-09-06",
+    "wikipedia": "http://en.wikipedia.org/wiki/Rob_Oakeshott"
 }

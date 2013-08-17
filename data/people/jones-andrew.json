@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "first_name": "Andrew",
-    "last_name": "Jones",
-    "party": "cal"
+    "group": "H",
+    "last_name": "JONES",
+    "party": "cya"
 }

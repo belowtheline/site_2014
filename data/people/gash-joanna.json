@@ -1,9 +1,9 @@
 {
-    "last_name":    "Gash",
-    "first_name":   "Joanna",
-    "party":        "lib",
-    "elected":      "division/gilmore",
-    "term_start":   "1996-03-02",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Joanna_Gash"
+    "elected": "division/gilmore",
+    "first_name": "Joanna",
+    "last_name": "GASH",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1996-03-02",
+    "wikipedia": "http://en.wikipedia.org/wiki/Joanna_Gash"
 }

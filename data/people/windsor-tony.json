@@ -1,8 +1,8 @@
 {
-    "last_name":    "Windsor",
-    "first_name":   "Tony",
-    "elected":      "division/newengland",
-    "term_start":   "2001-11-10",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Tony_Windsor"
+    "elected": "division/newengland",
+    "first_name": "Tony",
+    "last_name": "WINDSOR",
+    "retiring": true,
+    "term_start": "2001-11-10",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tony_Windsor"
 }

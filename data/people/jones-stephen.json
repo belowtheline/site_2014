@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/throsby",
     "elected": "division/throsby",
     "first_name": "Stephen",
-    "last_name": "Jones",
+    "last_name": "JONES",
     "party": "alp",
     "retiring": false,
     "term_start": "2010-08-21",

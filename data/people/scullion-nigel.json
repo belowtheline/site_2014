@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nt",
     "elected": "state/nt",
     "expiring": true,
     "first_name": "Nigel",
-    "last_name": "Scullion",
+    "group": "E",
+    "last_name": "SCULLION",
     "party": "clp",
     "retiring": false,
     "term_start": "2001-11-10",

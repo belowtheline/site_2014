@@ -1,10 +1,10 @@
 {
-    "last_name":    "Abetz",
-    "first_name":   "Eric",
-    "party":        "lib",
-    "elected":      "state/tas",
-    "term_start":   "1994-02-22",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Eric_Abetz"
+    "elected": "state/tas",
+    "expiring": false,
+    "first_name": "Eric",
+    "last_name": "ABETZ",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1994-02-22",
+    "wikipedia": "http://en.wikipedia.org/wiki/Eric_Abetz"
 }

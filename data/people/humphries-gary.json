@@ -1,11 +1,11 @@
 {
-    "last_name":    "Humphries",
-    "first_name":   "Gary",
-    "party":        "lib",
-    "elected":      "state/act",
-    "term_start":   "2003-02-18",
-    "expiring":     true,
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Gary_Humphries",
-    "website":      "http://www.garyhumphries.com"
+    "elected": "state/act",
+    "expiring": true,
+    "first_name": "Gary",
+    "last_name": "HUMPHRIES",
+    "party": "lib",
+    "retiring": true,
+    "term_start": "2003-02-18",
+    "website": "http://www.garyhumphries.com",
+    "wikipedia": "http://en.wikipedia.org/wiki/Gary_Humphries"
 }

@@ -1,10 +1,10 @@
 {
-    "last_name":    "Crossin",
-    "first_name":   "Trish",
-    "party":        "alp",
-    "elected":      "state/nt",
-    "term_start":   "1998-07-01",
-    "expiring":     true,
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Trish_Crossin"
+    "elected": "state/nt",
+    "expiring": true,
+    "first_name": "Trish",
+    "last_name": "CROSSIN",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1998-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Trish_Crossin"
 }

@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/canberra",
     "elected": "division/canberra",
     "first_name": "Gai",
-    "last_name": "Brodtmann",
+    "last_name": "BRODTMANN",
     "party": "alp",
     "retiring": false,
     "term_start": "2010-08-21",

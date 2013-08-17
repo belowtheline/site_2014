@@ -1,9 +1,11 @@
 {
-    "candidate": "division/casey",
+    "ballot_position": 2,
+    "candidate": "state/vic",
     "elected": "division/casey",
     "first_name": "Tony",
-    "last_name": "Smith",
-    "party": "lib",
+    "group": "D",
+    "last_name": "SMITH",
+    "party": "sol",
     "retiring": false,
     "term_start": "2001-11-10",
     "wikipedia": "http://en.wikipedia.org/wiki/Tony_Smith_(Victorian_politician)"

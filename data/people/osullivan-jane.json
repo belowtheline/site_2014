@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/qld",
     "first_name": "Jane",
-    "last_name": "O'Sullivan",
+    "group": "S",
+    "last_name": "O'SULLIVAN",
     "party": "spp"
 }

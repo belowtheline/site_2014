@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "David",
-    "last_name": "Bushby",
+    "group": "E",
+    "last_name": "BUSHBY",
     "party": "lib",
     "retiring": false,
     "term_start": "2007-08-30",

@@ -1,10 +1,10 @@
 {
-    "last_name":    "Mason",
-    "first_name":   "Brett",
-    "party":        "lnp",
-    "elected":      "state/qld",
-    "term_start":   "1999-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Brett_Mason"
+    "elected": "state/qld",
+    "expiring": false,
+    "first_name": "Brett",
+    "last_name": "MASON",
+    "party": "lnp",
+    "retiring": false,
+    "term_start": "1999-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Brett_Mason"
 }

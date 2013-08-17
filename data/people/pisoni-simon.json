@@ -1,6 +1,8 @@
 {
+    "ballot_position": 3,
     "candidate": "state/sa",
     "first_name": "Simon",
-    "last_name": "Pisoni",
+    "group": "AB",
+    "last_name": "PISONI",
     "party": "alp"
 }

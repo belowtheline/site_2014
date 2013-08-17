@@ -1,9 +1,11 @@
 {
+    "ballot_position": 3,
     "candidate": "state/tas",
     "elected": "state/tas",
     "expiring": true,
     "first_name": "Lin",
-    "last_name": "Thorp",
+    "group": "C",
+    "last_name": "THORP",
     "party": "alp",
     "retiring": false,
     "term_start": "2012-06-20",

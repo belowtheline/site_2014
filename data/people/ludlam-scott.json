@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "elected": "state/wa",
     "expiring": true,
     "first_name": "Scott",
-    "last_name": "Ludlam",
+    "group": "S",
+    "last_name": "LUDLAM",
     "party": "grn",
     "retiring": false,
     "term_start": "2008-07-01",

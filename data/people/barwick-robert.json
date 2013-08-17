@@ -1,6 +1,8 @@
 {
+    "ballot_position": 2,
     "candidate": "state/vic",
     "first_name": "Robert",
-    "last_name": "Barwick",
+    "group": "AI",
+    "last_name": "BARWICK",
     "party": "cec"
 }

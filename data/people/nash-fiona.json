@@ -1,10 +1,10 @@
 {
-    "last_name":    "Nash",
-    "first_name":   "Fiona",
-    "party":        "nat",
-    "elected":      "state/nsw",
-    "term_start":   "2005-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Fiona_Nash"
+    "elected": "state/nsw",
+    "expiring": false,
+    "first_name": "Fiona",
+    "last_name": "NASH",
+    "party": "nat",
+    "retiring": false,
+    "term_start": "2005-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Fiona_Nash"
 }

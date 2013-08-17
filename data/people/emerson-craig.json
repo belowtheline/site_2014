@@ -1,9 +1,9 @@
 {
-    "last_name":    "Emerson",
-    "first_name":   "Craig",
-    "party":        "alp",
-    "elected":      "division/rankin",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Craig_Emerson"
+    "elected": "division/rankin",
+    "first_name": "Craig",
+    "last_name": "EMERSON",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Craig_Emerson"
 }
