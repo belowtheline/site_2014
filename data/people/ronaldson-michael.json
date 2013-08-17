@@ -1,10 +1,10 @@
 {
-    "last_name":    "Ronaldson",
-    "first_name":   "Michael",
-    "party":        "lib",
-    "elected":      "state/vic",
-    "term_start":   "2005-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Michael_Ronaldson"
+    "elected": "state/vic",
+    "expiring": false,
+    "first_name": "Michael",
+    "last_name": "RONALDSON",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2005-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Michael_Ronaldson"
 }

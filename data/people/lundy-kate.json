@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/act",
     "elected": "state/act",
     "expiring": true,
     "first_name": "Kate",
-    "last_name": "Lundy",
+    "group": "L",
+    "last_name": "LUNDY",
     "party": "alp",
     "retiring": false,
     "term_start": "1996-03-02",

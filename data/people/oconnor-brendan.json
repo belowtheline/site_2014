@@ -1,8 +1,9 @@
 {
+    "ballot_position": 6,
     "candidate": "division/gorton",
     "elected": "division/gorton",
     "first_name": "Brendan",
-    "last_name": "O'Connor",
+    "last_name": "O'CONNOR",
     "party": "alp",
     "retiring": false,
     "term_start": "2004-10-09",

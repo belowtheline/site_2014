@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "first_name": "Mark",
-    "last_name": "Farrell",
+    "group": "AM",
+    "last_name": "FARRELL",
     "party": "dlp"
 }

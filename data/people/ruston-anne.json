@@ -1,10 +1,10 @@
 {
-    "last_name":    "Ruston",
-    "first_name":   "Anne",
-    "party":        "lib",
-    "elected":      "state/sa",
-    "term_start":   "2012-09-05",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Anne_Ruston"
+    "elected": "state/sa",
+    "expiring": false,
+    "first_name": "Anne",
+    "last_name": "RUSTON",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2012-09-05",
+    "wikipedia": "http://en.wikipedia.org/wiki/Anne_Ruston"
 }

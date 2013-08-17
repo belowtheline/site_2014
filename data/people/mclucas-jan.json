@@ -1,10 +1,10 @@
 {
-    "last_name":    "McLucas",
-    "first_name":   "Jan",
-    "party":        "alp",
-    "elected":      "state/qld",
-    "term_start":   "1999-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Jan_McLucas"
+    "elected": "state/qld",
+    "expiring": false,
+    "first_name": "Jan",
+    "last_name": "McLUCAS",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1999-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Jan_McLucas"
 }

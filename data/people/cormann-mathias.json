@@ -1,10 +1,10 @@
 {
-    "last_name":    "Cormann",
-    "first_name":   "Mathias",
-    "party":        "lib",
-    "elected":      "state/wa",
-    "term_start":   "2007-06-19",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Mathias_Cormann"
+    "elected": "state/wa",
+    "expiring": false,
+    "first_name": "Mathias",
+    "last_name": "CORMANN",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2007-06-19",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mathias_Cormann"
 }

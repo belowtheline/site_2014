@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/qld",
     "elected": "state/qld",
     "expiring": true,
     "first_name": "Claire",
-    "last_name": "Moore",
+    "group": "G",
+    "last_name": "MOORE",
     "party": "alp",
     "retiring": false,
     "term_start": "2002-07-01",

@@ -1,9 +1,11 @@
 {
+    "ballot_position": 3,
     "candidate": "state/vic",
     "elected": "state/vic",
     "expiring": true,
     "first_name": "Helen",
-    "last_name": "Kroger",
+    "group": "E",
+    "last_name": "KROGER",
     "party": "lib",
     "retiring": false,
     "term_start": "2008-07-01",

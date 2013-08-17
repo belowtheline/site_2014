@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/lilley",
     "elected": "division/lilley",
     "first_name": "Wayne",
-    "last_name": "Swan",
+    "last_name": "SWAN",
     "party": "alp",
     "retiring": false,
     "term_start": "1998-10-03",

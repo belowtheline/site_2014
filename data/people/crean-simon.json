@@ -1,9 +1,9 @@
 {
-    "last_name":    "Crean",
-    "first_name":   "Simon",
-    "party":        "alp",
-    "elected":      "division/hotham",
-    "term_start":   "1990-03-24",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Simon_Crean"
+    "elected": "division/hotham",
+    "first_name": "Simon",
+    "last_name": "CREAN",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1990-03-24",
+    "wikipedia": "http://en.wikipedia.org/wiki/Simon_Crean"
 }

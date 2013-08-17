@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nsw",
     "first_name": "Mark",
-    "last_name": "Pearson",
+    "group": "AA",
+    "last_name": "PEARSON",
     "party": "ajp"
 }

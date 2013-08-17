@@ -1,9 +1,10 @@
 {
+    "ballot_position": 8,
     "candidate": "division/batman",
     "elected": "state/vic",
     "expiring": true,
     "first_name": "David",
-    "last_name": "Feeney",
+    "last_name": "FEENEY",
     "party": "alp",
     "retiring": true,
     "term_start": "2008-07-01",

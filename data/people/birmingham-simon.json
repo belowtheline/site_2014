@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/sa",
     "elected": "state/sa",
     "expiring": true,
     "first_name": "Simon",
-    "last_name": "Birmingham",
+    "group": "AG",
+    "last_name": "BIRMINGHAM",
     "party": "lib",
     "retiring": false,
     "term_start": "2007-05-03",

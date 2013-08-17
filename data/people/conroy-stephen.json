@@ -1,10 +1,10 @@
 {
-    "last_name":    "Conroy",
-    "first_name":   "Stephen",
-    "party":        "alp",
-    "elected":      "state/vic",
-    "term_start":   "1996-04-30",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Stephen_Conroy"
+    "elected": "state/vic",
+    "expiring": false,
+    "first_name": "Stephen",
+    "last_name": "CONROY",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "1996-04-30",
+    "wikipedia": "http://en.wikipedia.org/wiki/Stephen_Conroy"
 }

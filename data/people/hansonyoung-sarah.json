@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/sa",
     "elected": "state/sa",
     "expiring": true,
     "first_name": "Sarah",
-    "last_name": "Hanson-Young",
+    "group": "P",
+    "last_name": "HANSON-YOUNG",
     "party": "grn",
     "retiring": false,
     "term_start": "2008-07-01",

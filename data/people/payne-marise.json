@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/nsw",
     "elected": "state/nsw",
     "expiring": true,
     "first_name": "Marise",
-    "last_name": "Payne",
+    "group": "Y",
+    "last_name": "PAYNE",
     "party": "lib",
     "retiring": false,
     "term_start": "1997-04-09",

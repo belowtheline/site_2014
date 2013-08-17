@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/holt",
     "elected": "division/holt",
     "first_name": "Anthony",
-    "last_name": "Byrne",
+    "last_name": "BYRNE",
     "party": "alp",
     "retiring": false,
     "term_start": "1999-11-06",

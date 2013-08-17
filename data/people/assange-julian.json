@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "first_name": "Julian",
-    "last_name": "Assange",
+    "group": "AA",
+    "last_name": "ASSANGE",
     "party": "wkp"
 }

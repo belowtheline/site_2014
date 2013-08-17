@@ -1,9 +1,9 @@
 {
-    "last_name":    "Gibbons",
-    "first_name":   "Steve",
-    "party":        "alp",
-    "elected":      "division/bendigo",
-    "term_start":   "1998-10-03",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Steve_Gibbons"
+    "elected": "division/bendigo",
+    "first_name": "Steve",
+    "last_name": "GIBBONS",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Steve_Gibbons"
 }

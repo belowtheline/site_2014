@@ -1,9 +1,9 @@
 {
-    "last_name":    "Haase",
-    "first_name":   "Barry",
-    "party":        "lib",
-    "elected":      "division/durack",
-    "term_start":   "2010-08-21",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Barry_Haase"
+    "elected": "division/durack",
+    "first_name": "Barry",
+    "last_name": "HAASE",
+    "party": "lib",
+    "retiring": true,
+    "term_start": "2010-08-21",
+    "wikipedia": "http://en.wikipedia.org/wiki/Barry_Haase"
 }

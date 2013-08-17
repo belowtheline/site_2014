@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/wa",
     "first_name": "Jane",
-    "last_name": "Foreman",
+    "group": "Y",
+    "last_name": "FOREMAN",
     "party": "rua"
 }

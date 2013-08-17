@@ -1,9 +1,9 @@
 {
-    "last_name":    "Roxon",
-    "first_name":   "Nicola",
-    "party":        "alp",
-    "elected":      "division/gellibrand",
-    "term_start":   "1998-10-03",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Nicola_Roxon"
+    "elected": "division/gellibrand",
+    "first_name": "Nicola",
+    "last_name": "ROXON",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Nicola_Roxon"
 }

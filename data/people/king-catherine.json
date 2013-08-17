@@ -1,8 +1,9 @@
 {
+    "ballot_position": 10,
     "candidate": "division/ballarat",
     "elected": "division/ballarat",
     "first_name": "Catherine",
-    "last_name": "King",
+    "last_name": "KING",
     "party": "alp",
     "retiring": false,
     "term_start": "2001-11-10",

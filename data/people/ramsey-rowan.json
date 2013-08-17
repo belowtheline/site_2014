@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/grey",
     "elected": "division/grey",
     "first_name": "Rowan",
-    "last_name": "Ramsey",
+    "last_name": "RAMSEY",
     "party": "lib",
     "retiring": false,
     "term_start": "2007-11-24",

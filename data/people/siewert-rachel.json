@@ -1,10 +1,10 @@
 {
-    "last_name":    "Siewert",
-    "first_name":   "Rachel",
-    "party":        "grn",
-    "elected":      "state/wa",
-    "term_start":   "2005-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Rachel_Siewert"
+    "elected": "state/wa",
+    "expiring": false,
+    "first_name": "Rachel",
+    "last_name": "SIEWERT",
+    "party": "grn",
+    "retiring": false,
+    "term_start": "2005-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Rachel_Siewert"
 }

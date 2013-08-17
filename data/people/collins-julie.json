@@ -1,8 +1,9 @@
 {
+    "ballot_position": 1,
     "candidate": "division/franklin",
     "elected": "division/franklin",
     "first_name": "Julie",
-    "last_name": "Collins",
+    "last_name": "COLLINS",
     "party": "alp",
     "retiring": false,
     "term_start": "2007-11-24",

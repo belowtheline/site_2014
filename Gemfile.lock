@@ -26,9 +26,6 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
-    guard-haml (0.5)
-      guard (>= 1.1)
-      haml (>= 3.0)
     guard-livereload (1.4.0)
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
@@ -76,8 +73,8 @@ PLATFORMS
 DEPENDENCIES
   fog
   guard
-  guard-haml
   guard-livereload
   guard-rake
+  haml
   kramdown
   parallel

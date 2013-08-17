@@ -1,10 +1,10 @@
 {
-    "last_name":    "Sterle",
-    "first_name":   "Glenn",
-    "party":        "alp",
-    "elected":      "state/wa",
-    "term_start":   "2005-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Glenn_Sterle"
+    "elected": "state/wa",
+    "expiring": false,
+    "first_name": "Glenn",
+    "last_name": "STERLE",
+    "party": "alp",
+    "retiring": false,
+    "term_start": "2005-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Glenn_Sterle"
 }

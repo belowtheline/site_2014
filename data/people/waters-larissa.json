@@ -1,10 +1,10 @@
 {
-    "last_name":    "Waters",
-    "first_name":   "Larissa",
-    "party":        "grn",
-    "elected":      "state/qld",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Larissa_Waters"
+    "elected": "state/qld",
+    "expiring": false,
+    "first_name": "Larissa",
+    "last_name": "WATERS",
+    "party": "grn",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Larissa_Waters"
 }

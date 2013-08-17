@@ -1,9 +1,9 @@
 {
-    "last_name":    "Smith",
-    "first_name":   "Stephen",
-    "party":        "alp",
-    "elected":      "division/perth",
-    "term_start":   "1993-03-13",
-    "retiring":     true,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Stephen_Smith_(Australian_politician)"
+    "elected": "division/perth",
+    "first_name": "Stephen",
+    "last_name": "SMITH",
+    "party": "alp",
+    "retiring": true,
+    "term_start": "1993-03-13",
+    "wikipedia": "http://en.wikipedia.org/wiki/Stephen_Smith_(Australian_politician)"
 }

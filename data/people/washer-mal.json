@@ -1,9 +1,9 @@
 {
-    "last_name":    "Washer",
-    "first_name":   "Mal",
-    "party":        "lib",
-    "elected":      "division/moore",
-    "term_start":   "1998-10-03",
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Mal_Washer"
+    "elected": "division/moore",
+    "first_name": "Mal",
+    "last_name": "WASHER",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "1998-10-03",
+    "wikipedia": "http://en.wikipedia.org/wiki/Mal_Washer"
 }

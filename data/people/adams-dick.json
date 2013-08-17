@@ -1,8 +1,9 @@
 {
+    "ballot_position": 6,
     "candidate": "division/lyons",
     "elected": "division/lyons",
     "first_name": "Dick",
-    "last_name": "Adams",
+    "last_name": "ADAMS",
     "party": "alp",
     "retiring": false,
     "term_start": "1993-03-13",

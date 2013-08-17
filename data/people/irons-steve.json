@@ -1,8 +1,9 @@
 {
+    "ballot_position": 2,
     "candidate": "division/swan",
     "elected": "division/swan",
     "first_name": "Steve",
-    "last_name": "Irons",
+    "last_name": "IRONS",
     "party": "lib",
     "retiring": false,
     "term_start": "2007-11-24",

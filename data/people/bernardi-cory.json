@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/sa",
     "elected": "state/sa",
     "expiring": true,
     "first_name": "Cory",
-    "last_name": "Bernardi",
+    "group": "AG",
+    "last_name": "BERNARDI",
     "party": "lib",
     "retiring": false,
     "term_start": "2006-05-04",

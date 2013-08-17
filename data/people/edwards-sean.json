@@ -1,10 +1,10 @@
 {
-    "last_name":    "Edwards",
-    "first_name":   "Sean",
-    "party":        "lib",
-    "elected":      "state/sa",
-    "term_start":   "2011-07-01",
-    "expiring":     false,
-    "retiring":     false,
-    "wikipedia":    "http://en.wikipedia.org/wiki/Sean_Edwards_(politician)"
+    "elected": "state/sa",
+    "expiring": false,
+    "first_name": "Sean",
+    "last_name": "EDWARDS",
+    "party": "lib",
+    "retiring": false,
+    "term_start": "2011-07-01",
+    "wikipedia": "http://en.wikipedia.org/wiki/Sean_Edwards_(politician)"
 }

@@ -1,9 +1,11 @@
 {
+    "ballot_position": 2,
     "candidate": "state/sa",
     "elected": "state/sa",
     "expiring": true,
     "first_name": "Don",
-    "last_name": "Farrell",
+    "group": "AB",
+    "last_name": "FARRELL",
     "party": "alp",
     "retiring": false,
     "term_start": "2008-07-01",

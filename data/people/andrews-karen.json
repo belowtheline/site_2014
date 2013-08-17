@@ -1,8 +1,9 @@
 {
+    "ballot_position": 5,
     "candidate": "division/mcpherson",
     "elected": "division/mcpherson",
     "first_name": "Karen",
-    "last_name": "Andrews",
+    "last_name": "ANDREWS",
     "party": "lnp",
     "retiring": false,
     "term_start": "2010-08-21",

@@ -1,9 +1,11 @@
 {
+    "ballot_position": 1,
     "candidate": "state/vic",
     "elected": "state/vic",
     "expiring": true,
     "first_name": "Gavin",
-    "last_name": "Marshall",
+    "group": "AD",
+    "last_name": "MARSHALL",
     "party": "alp",
     "retiring": false,
     "term_start": "2002-07-01",

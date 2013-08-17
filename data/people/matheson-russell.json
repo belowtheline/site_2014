@@ -1,8 +1,9 @@
 {
+    "ballot_position": 2,
     "candidate": "division/macarthur",
     "elected": "division/macarthur",
     "first_name": "Russell",
-    "last_name": "Matheson",
+    "last_name": "MATHESON",
     "party": "lib",
     "retiring": false,
     "term_start": "2010-08-21",

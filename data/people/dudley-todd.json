@@ -1,6 +1,8 @@
 {
+    "ballot_position": 1,
     "candidate": "state/tas",
     "first_name": "Todd",
-    "last_name": "Dudley",
+    "group": "S",
+    "last_name": "DUDLEY",
     "party": "spp"
 }
