@@ -70,39 +70,74 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     console.log(divisionPath);
 
     $scope.division = {};
+    $scope.divisionBallotOrder = [];
     $scope.state = {};
+    $scope.stateBallotOrder = [];
     $scope.parties = {};
+    $scope.partyBallotOrder = [];
+
     $scope.orderByParty = true;
-    $scope.orderByCandidate = false;
 
     $scope.showOrderByCandidate = function() {
-      $scope.orderByParty = false;
-      $scope.orderByCandidate = true;
+        $scope.orderByParty = false;
+    };
+
+    $scope.skipToOrderByCandidate = function() {
+        if(
+            !$scope.partiesOrderDirty() ||
+            $window.confirm("Are you sure? You'll lose the changes you made to party ordering.")
+        ) {
+            $scope.orderByParty = false;
+        }
     };
 
     $scope.showOrderByParty = function() {
-      if($window.confirm("Are you sure? Any changes made here will be lost.")) {
-        $scope.orderByParty = true;
-        $scope.orderByCandidate = false;
-      }
+        if(
+            (!$scope.stateDirty() && !$scope.divisionDirty()) ||
+            $window.confirm("Are you sure? You'll lose the changes you made to candidate ordering.")
+        ) {
+            $scope.orderByParty = true;
+        }
     };
 
-    $scope.stateCandidates = [];
-    $scope.divisionCandidates = [];
+    $scope.partiesOrderDirty = function() {
+        return !(_.isEqual($scope.orderedParties, $scope.orderedPartiesOriginal));
+    };
+
+    $scope.stateDirty = function() {
+        return !(_.isEqual($scope.state.candidates, $scope.stateBallotOrder));
+    };
+
+    $scope.divisionDirty = function() {
+        return !(_.isEqual($scope.division.candidates, $scope.divisionBallotOrder));
+    };
+
+    $scope.resetParties = function() {
+        $scope.orderedParties = $scope.orderedPartiesOriginal.slice();
+    };
+    $scope.resetState = function() {
+        $scope.state.candidates = $scope.stateBallotOrder.slice();
+    };
+    $scope.resetDivision = function() {
+        $scope.division.candidates = $scope.divisionBallotOrder.slice();
+    };
+
 
     $http.get('/division' + divisionPath + '.json').success(function(data) {
         $scope.division = data;
-        $scope.divisionCandidates = _.values(data.candidates);
+        $scope.divisionBallotOrder = data.candidates.slice();
         $http.get($scope.division.division.state + '.json').success(function(data) {
             $scope.state = data;
-            $scope.stateCandidates = _.values(data.candidates);
+            $scope.stateBallotOrder = data.candidates.slice();
             $http.get('/parties.json').success(function(data) {
                 var partyCodes = _.filter(_.keys(data), function(partyCode) {
-                    var inDivision = _.findWhere($scope.divisionCandidates, {party: partyCode});
-                    var inState = _.findWhere($scope.stateCandidates, {party: partyCode});
+                    var inDivision = _.findWhere($scope.division.candidates, {party: partyCode});
+                    var inState = _.findWhere($scope.state.candidates, {party: partyCode});
                     return(inDivision || inState);
                 });
                 $scope.parties = _.pick(data, partyCodes);
+                $scope.orderedParties = _.values($scope.parties); // XXX, Use ballot order? Alphabetical?
+                $scope.orderedPartiesOriginal = $scope.orderedParties.slice();
             });
         });
     });
