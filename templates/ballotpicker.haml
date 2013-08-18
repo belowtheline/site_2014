@@ -6,40 +6,6 @@
 
       %p.lead Click and drag items in the list to re-order them.
 
-  / #orderByParty(ng-show="orderByParty")
-  /   .row
-  /     .col-lg-12
-  /       %h2
-  /         Order by Party
-  /         %small
-  /           or skip straight to
-  /           %a(ng-click="skipToOrderByCandidate()") ordering by candidate
-
-  /   .row
-  /     .col-lg-6
-  /       %h3
-  /         Parties
-  /         %small
-  /           %a.pull-right(ng-show="partiesOrderDirty()" ng-click="resetParties()") Reset
-
-  /       %table.table.table-condensed
-  /         %tbody(ui-sortable ng-model="orderedParties")
-  /           %tr(ng-repeat="p in orderedParties")
-  /             %td
-  /               %span(class="partycode party party-{{p.code | lowercase}}") {{ p.code }}
-  /             %td {{p.name}}
-
-  /       %a.btn.btn-primary(ng-click="showOrderByCandidate()") Save Ordering and Continue
-
-  / #orderByCandidate(ng-hide="orderByParty")
-  .row
-    .col-lg-12
-      %h2
-        Order by Candidate
-        %small
-          or return to
-          %a(ng-click="showOrderByParty()") ordering by party
-
   .row
     .col-lg-6
       %h3
@@ -60,10 +26,19 @@
     .col-lg-6
       %h3
         Senate
+        .btn-group
+          %button.btn.btn-primary.btn-small(ng-class="orderByGroup && 'active'" ng-click="showOrderByGroup()") By Group
+          %button.btn.btn-primary.btn-small(ng-class="orderByGroup || 'active'" ng-click="showOrderByCandidate()") By Candidate
         %small
-          %a.pull-right(ng-show="stateDirty()" ng-click="resetState()") Reset to Ballot Order
+          %a.pull-right(ng-show="!orderByGroup && stateDirty()" ng-click="resetState()") Reset to Ballot Order
+          %a.pull-right(ng-show="orderByGroup && groupsDirty()" ng-click="resetGroups()") Reset to Ballot Order
 
-      %table.table.table-condensed
+      %table.table.table-condensed(ng-show="orderByGroup")
+        %tbody(ui-sortable ng-model="groups")
+          %tr(ng-repeat="c in groups")
+            %td {{c}}
+
+      %table.table.table-condensed(ng-hide="orderByGroup")
         %tbody(ui-sortable ng-model="stateCandidates")
           %tr(ng-repeat="c in stateCandidates")
             %td {{c.first_name}} {{c.last_name}}
