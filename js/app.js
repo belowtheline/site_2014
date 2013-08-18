@@ -124,6 +124,48 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $scope.divisionCandidates = $scope.divisionBallotOrder.slice();
     };
 
+    $scope.downloadPDF = function () {
+        console.log("Here we go!");
+        if ($scope.orderByGroup) {
+            $scope.stateCandidates = _.sortBy($scope.stateCandidates, function(candidate) {
+                return _.indexOf($scope.groups, candidate.group);
+            });
+        }
+
+        console.log($scope.divisionCandidates);
+        console.log($scope.stateCandidates);
+        console.log($scope.groups);
+
+        function makeTicket(order, ballotOrder) {
+            var ticket = [];
+
+            angular.forEach(ballotOrder, function (candidate, idx) {
+                ticket.push(_.indexOf(order, candidate) + 1);
+            });
+
+            return ticket;
+        }
+
+        var division_ticket = makeTicket($scope.divisionCandidates,
+                                         $scope.divisionBallotOrder);
+        var senate_ticket = makeTicket($scope.stateCandidates,
+                                       $scope.stateBallotOrder);
+
+        console.log(division_ticket);
+        console.log(senate_ticket);
+
+        function make_input(name, value) {
+            return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
+        }
+
+        var form = '<form action="http://127.0.0.1:5000/pdf" method="POST">' +
+                    make_input('division', 'wills') +
+                    make_input('state', 'vic') +
+                    make_input('division_ticket', division_ticket.join(',')) +
+                    make_input('senate_ticket', senate_ticket.join(',')) +
+                    '</form>';
+        $(form).appendTo('body').submit().remove();
+    }
 
     $http.get('/division' + divisionPath + '.json').success(function(data) {
         division = data;
