@@ -75,34 +75,35 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     $scope.stateCandidates = [];
     $scope.stateBallotOrder = [];
     $scope.parties = {};
-    $scope.partyBallotOrder = [];
 
-    $scope.orderByParty = true;
+    $scope.groups = [];
+    $scope.groupBallotOrder = [];
+
+    $scope.orderByGroup = true;
+
+    var applyGroupOrdering = function() {
+        $scope.stateCandidates = _.sortBy($scope.stateCandidates, function(candidate) {
+            return _.indexOf($scope.groups, candidate.group);
+        });
+    };
 
     $scope.showOrderByCandidate = function() {
-        $scope.orderByParty = false;
+        applyGroupOrdering();
+        $scope.orderByGroup = false;
     };
 
-    $scope.skipToOrderByCandidate = function() {
+    $scope.showOrderByGroup = function() {
         if(
-            !$scope.partiesOrderDirty() ||
-            $window.confirm("Are you sure? You'll lose the changes you made to party ordering.")
+            !$scope.stateDirty() ||
+            $window.confirm("Are you sure? You'll lose any changes you made to candidate ordering.")
         ) {
-            $scope.orderByParty = false;
+            $scope.resetState();
+            $scope.orderByGroup = true;
         }
     };
 
-    $scope.showOrderByParty = function() {
-        if(
-            (!$scope.stateDirty() && !$scope.divisionDirty()) ||
-            $window.confirm("Are you sure? You'll lose the changes you made to candidate ordering.")
-        ) {
-            $scope.orderByParty = true;
-        }
-    };
-
-    $scope.partiesOrderDirty = function() {
-        return !(_.isEqual($scope.orderedParties, $scope.orderedPartiesOriginal));
+    $scope.groupsDirty = function() {
+        return !(_.isEqual($scope.groups, $scope.groupBallotOrder));
     };
 
     $scope.stateDirty = function() {
@@ -113,8 +114,8 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         return !(_.isEqual($scope.divisionCandidates, $scope.divisionBallotOrder));
     };
 
-    $scope.resetParties = function() {
-        $scope.orderedParties = $scope.orderedPartiesOriginal.slice();
+    $scope.resetGroups = function() {
+        $scope.groups = $scope.groupBallotOrder.slice();
     };
     $scope.resetState = function() {
         $scope.stateCandidates = $scope.stateBallotOrder.slice();
@@ -128,23 +129,21 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         division = data;
         $scope.divisionCandidates = data.candidates;
         $scope.divisionBallotOrder = data.candidates.slice();
+
         $http.get(division.division.state + '.json').success(function(data) {
             state = data;
             $scope.stateCandidates = _.map(data.ballot_order, function(id) {
                 return data.candidates[id];
             });
             $scope.stateBallotOrder = $scope.stateCandidates.slice();
-            $http.get('/parties.json').success(function(data) {
-                var partyCodes = _.filter(_.keys(data), function(partyCode) {
-                    var inDivision = _.findWhere($scope.divisionCandidates, {party: partyCode});
-                    var inState = _.findWhere($scope.stateCandidates, {party: partyCode});
-                    return(inDivision || inState);
-                });
-                $scope.parties = _.pick(data, partyCodes);
-                $scope.orderedParties = _.values($scope.parties); // XXX, Use ballot order? Alphabetical?
-                $scope.orderedPartiesOriginal = $scope.orderedParties.slice();
-            });
+            $scope.groups = _.uniq(_.pluck($scope.stateCandidates, 'group'));
+            $scope.groupBallotOrder = $scope.groups.slice();
+
         });
+    });
+
+    $http.get('/parties.json').success(function(data) {
+        $scope.parties = data;
     });
 
 }
