@@ -4,11 +4,15 @@ import cPickle
 import cStringIO
 import string
 
+from flask import Flask, abort, make_response, request
+
 from reportlab.lib.colors import black, white
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfgen import canvas
+
+app = Flask(__name__)
 
 DISCLAIMER_TEXT = "This is a custom-generated voting reference not under " \
                   "any circumstances to be distributed or used as how to " \
@@ -174,7 +178,19 @@ def generate(division, div_ticket, state, sen_ticket):
 
     return container.getvalue()
 
+@app.route('/pdf', methods=['POST'])
+def pdf():
+    division_ticket = request.form['division_ticket'].split(',')
+    senate_ticket = request.form['senate_ticket'].split(',')
+    pdf = generate(request.form['division'], division_ticket,
+                   request.form['state'], senate_ticket)
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'filename=ballot.pdf'
+    return response
+
 if __name__ == '__main__':
-    import sys
-    open('test.pdf', 'w').write(generate(sys.argv[1], range(1, 20),
-                                         sys.argv[2], range(1, 200)))
+    app.run(debug=True)
+    # import sys
+    # open('test.pdf', 'w').write(generate(sys.argv[1], range(1, 20),
+    #                                      sys.argv[2], range(1, 200)))
