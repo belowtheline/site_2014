@@ -67,11 +67,12 @@ angular.module('belowtheline', ['ui.sortable']);
 function BallotPickerCtrl($scope, $http, $location, $window) {
 
     var divisionPath = $location.path();
-    console.log(divisionPath);
+    var division = {};
+    var state = {};
 
-    $scope.division = {};
+    $scope.divisionCandidates = [];
     $scope.divisionBallotOrder = [];
-    $scope.state = {};
+    $scope.stateCandidates = [];
     $scope.stateBallotOrder = [];
     $scope.parties = {};
     $scope.partyBallotOrder = [];
@@ -105,34 +106,38 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     };
 
     $scope.stateDirty = function() {
-        return !(_.isEqual($scope.state.candidates, $scope.stateBallotOrder));
+        return !(_.isEqual($scope.stateCandidates, $scope.stateBallotOrder));
     };
 
     $scope.divisionDirty = function() {
-        return !(_.isEqual($scope.division.candidates, $scope.divisionBallotOrder));
+        return !(_.isEqual($scope.divisionCandidates, $scope.divisionBallotOrder));
     };
 
     $scope.resetParties = function() {
         $scope.orderedParties = $scope.orderedPartiesOriginal.slice();
     };
     $scope.resetState = function() {
-        $scope.state.candidates = $scope.stateBallotOrder.slice();
+        $scope.stateCandidates = $scope.stateBallotOrder.slice();
     };
     $scope.resetDivision = function() {
-        $scope.division.candidates = $scope.divisionBallotOrder.slice();
+        $scope.divisionCandidates = $scope.divisionBallotOrder.slice();
     };
 
 
     $http.get('/division' + divisionPath + '.json').success(function(data) {
-        $scope.division = data;
+        division = data;
+        $scope.divisionCandidates = data.candidates;
         $scope.divisionBallotOrder = data.candidates.slice();
-        $http.get($scope.division.division.state + '.json').success(function(data) {
-            $scope.state = data;
-            $scope.stateBallotOrder = data.candidates.slice();
+        $http.get(division.division.state + '.json').success(function(data) {
+            state = data;
+            $scope.stateCandidates = _.map(data.ballot_order, function(id) {
+                return data.candidates[id];
+            });
+            $scope.stateBallotOrder = $scope.stateCandidates.slice();
             $http.get('/parties.json').success(function(data) {
                 var partyCodes = _.filter(_.keys(data), function(partyCode) {
-                    var inDivision = _.findWhere($scope.division.candidates, {party: partyCode});
-                    var inState = _.findWhere($scope.state.candidates, {party: partyCode});
+                    var inDivision = _.findWhere($scope.divisionCandidates, {party: partyCode});
+                    var inState = _.findWhere($scope.stateCandidates, {party: partyCode});
                     return(inDivision || inState);
                 });
                 $scope.parties = _.pick(data, partyCodes);

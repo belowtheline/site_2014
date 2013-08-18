@@ -6,70 +6,70 @@
 
       %p.lead Click and drag items in the list to re-order them.
 
-  #orderByParty(ng-show="orderByParty")
-    .row
-      .col-lg-12
-        %h2
-          Order by Party
-          %small
-            or skip straight to
-            %a(ng-click="skipToOrderByCandidate()") ordering by candidate
+  / #orderByParty(ng-show="orderByParty")
+  /   .row
+  /     .col-lg-12
+  /       %h2
+  /         Order by Party
+  /         %small
+  /           or skip straight to
+  /           %a(ng-click="skipToOrderByCandidate()") ordering by candidate
 
-    .row
-      .col-lg-6
-        %h3
-          Parties
-          %small
-            %a.pull-right(ng-show="partiesOrderDirty()" ng-click="resetParties()") Reset
+  /   .row
+  /     .col-lg-6
+  /       %h3
+  /         Parties
+  /         %small
+  /           %a.pull-right(ng-show="partiesOrderDirty()" ng-click="resetParties()") Reset
 
-        %table.table.table-condensed
-          %tbody(ui-sortable ng-model="orderedParties")
-            %tr(ng-repeat="p in orderedParties")
-              %td
-                %span(class="partycode party party-{{p.code | lowercase}}") {{ p.code }}
-              %td {{p.name}}
+  /       %table.table.table-condensed
+  /         %tbody(ui-sortable ng-model="orderedParties")
+  /           %tr(ng-repeat="p in orderedParties")
+  /             %td
+  /               %span(class="partycode party party-{{p.code | lowercase}}") {{ p.code }}
+  /             %td {{p.name}}
 
-        %a.btn.btn-primary(ng-click="showOrderByCandidate()") Save Ordering and Continue
+  /       %a.btn.btn-primary(ng-click="showOrderByCandidate()") Save Ordering and Continue
 
-  #orderByCandidate(ng-hide="orderByParty")
-    .row
-      .col-lg-12
-        %h2
-          Order by Candidate
-          %small
-            or return to
-            %a(ng-click="showOrderByParty()") ordering by party
+  / #orderByCandidate(ng-hide="orderByParty")
+  .row
+    .col-lg-12
+      %h2
+        Order by Candidate
+        %small
+          or return to
+          %a(ng-click="showOrderByParty()") ordering by party
 
-    .row
-      .col-lg-6
-        %h3
-          House of Representatives
-          %small
-            %a.pull-right(ng-show="divisionDirty()" ng-click="resetDivision()") Reset to Ballot Order
+  .row
+    .col-lg-6
+      %h3
+        House of Representatives
+        %small
+          %a.pull-right(ng-show="divisionDirty()" ng-click="resetDivision()") Reset to Ballot Order
 
-        %table.table.table-condensed
-          %tbody(ui-sortable ng-model="division.candidates")
-            %tr(ng-repeat="c in division.candidates")
-              %td {{c.first_name}} {{c.last_name}}
-              %td
-                %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
-                  {{ parties[c.party].code }}
-                %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-                  IND
+      %table.table.table-condensed
+        %tbody(ui-sortable ng-model="divisionCandidates")
+          %tr(ng-repeat="c in divisionCandidates")
+            %td {{c.first_name}} {{c.last_name}}
+            %td
+              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+                {{ parties[c.party].code }}
+              %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+                IND
 
-      .col-lg-6
-        %h3
-          Senate
-          %small
-            %a.pull-right(ng-show="stateDirty()" ng-click="resetState()") Reset to Ballot Order
+    .col-lg-6
+      %h3
+        Senate
+        %small
+          %a.pull-right(ng-show="stateDirty()" ng-click="resetState()") Reset to Ballot Order
 
-        %table.table.table-condensed
-          %tbody(ui-sortable ng-model="state.candidates")
-            %tr(ng-repeat="c in state.candidates")
-              %td {{c.first_name}} {{c.last_name}}
-              %td
-                %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                  {{ parties[c.party].code }}
-                %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-                  IND
-              %td {{c.group}}
+      %table.table.table-condensed
+        %tbody(ui-sortable ng-model="stateCandidates")
+          %tr(ng-repeat="c in stateCandidates")
+            %td {{c.first_name}} {{c.last_name}}
+            %td
+              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
+                {{ parties[c.party].code }}
+              %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
+                IND
+            %td {{c.group}}
