@@ -1,3 +1,4 @@
 Flask==0.10.1
 gunicorn==17.5
 psycopg2==2.5.1
+reportlab==2.7
