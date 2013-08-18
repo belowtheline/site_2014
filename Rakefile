@@ -320,6 +320,7 @@ task :serve do
 
   server = WEBrick::HTTPServer.new Port: 8000, DocumentRoot: OUTPUT_DIR
   trap 'INT' do server.shutdown end
+  puts "Serving on http://127.0.0.1:8000"
   server.start
 end
 
