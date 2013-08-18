@@ -92,7 +92,7 @@ end
 task default: :site
 
 desc "Build site"
-task site: [:output_dirs, :images, :js, :css, :content, :sitemap]
+task site: [:output_dirs, :images, :js, :css, :content, :sitemap, :pdfballots]
 
 desc "Build content from templates & data"
 task content: [:output_dirs] do
@@ -303,6 +303,15 @@ task css: [:output_dirs] do
     puts "lessc failed, is it installed?"
   end
   system "lessc less/app.less site/css/app.css"
+end
+
+desc "Generate ballot data for PDF renderer"
+task :pdfballots do
+  res = system "python pdfprep.py"
+  if not res
+    puts "pdfprep.py failed"
+  end
+  FileUtils.mv("ballots.pck", "api/ballots.pck")
 end
 
 desc "Serve site on port 8000"
