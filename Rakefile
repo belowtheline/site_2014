@@ -220,6 +220,8 @@ task content: [:output_dirs] do
     ballot_order.sort! do |a, b|
       if a[1] == b[1]
         a[2] <=> b[2]
+      elsif a[1].length != b[1].length
+        a[1].length <=> b[1].length
       else
         a[1] <=> b[1]
       end
