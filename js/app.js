@@ -127,6 +127,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     $http.get('/division' + divisionPath + '.json').success(function(data) {
         division = data;
+        $scope.divisionName = data.division.name
         $scope.divisionCandidates = data.candidates;
         $scope.divisionBallotOrder = data.candidates.slice();
 
@@ -136,7 +137,9 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
                 return data.candidates[id];
             });
             $scope.stateBallotOrder = $scope.stateCandidates.slice();
-            $scope.groups = _.uniq(_.pluck($scope.stateCandidates, 'group'));
+
+            var groupNames = _.uniq(_.pluck($scope.stateCandidates, 'group'));
+            $scope.groups = _.map(groupNames, function(name) { return state.groups[name]; });
             $scope.groupBallotOrder = $scope.groups.slice();
 
         });

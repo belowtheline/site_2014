@@ -2,7 +2,7 @@
   .row
     .col-lg-12
       .page-header
-        %h1 Ballot Editor for {{division.division.name}}
+        %h1 Ballot Editor for {{divisionName}}
 
       %p.lead Click and drag items in the list to re-order them.
 
@@ -18,7 +18,7 @@
           %tr(ng-repeat="c in divisionCandidates")
             %td {{c.first_name}} {{c.last_name}}
             %td
-              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
                 {{ parties[c.party].code }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 IND
@@ -36,7 +36,11 @@
       %table.table.table-condensed(ng-show="orderByGroup")
         %tbody(ui-sortable ng-model="groups")
           %tr(ng-repeat="c in groups")
-            %td {{c}}
+            %td {{c.name }}
+            %td
+              %span(ng-repeat="p in c.parties" class="partycode party party-{{p}}")
+                {{ parties[p].code }}
+
 
       %table.table.table-condensed(ng-hide="orderByGroup")
         %tbody(ui-sortable ng-model="stateCandidates")
