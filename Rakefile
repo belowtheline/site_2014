@@ -182,7 +182,7 @@ task content: [:output_dirs] do
     {title: "News"})
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
-  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Picker'})
+  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Editor'})
   output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer'})
 
   Parallel.each(divisions.keys) do |division_id|
