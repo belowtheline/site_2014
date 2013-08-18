@@ -210,6 +210,8 @@ task content: [:output_dirs] do
     candidates.sort! do |a, b|
       if a['group'] == b['group'] then
         a['ballot_position'] <=> b['ballot_position']
+      elsif a['group'].length != b['group'].length
+        a['group'].length <=> b['group'].length
       else
         a['group'] <=> b['group']
       end
