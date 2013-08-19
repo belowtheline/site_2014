@@ -213,9 +213,28 @@ function TicketViewerCtrl($scope, $http, $location) {
     }
 
     function generateTicketList() {
+        var groups = []
         var tickets = [];
 
         angular.forEach($scope.groups, function (group, group_id) {
+            groups.push(group_id);
+        });
+
+        groups.sort(function (a, b) {
+            if (a.length != b.length) {
+                return a.length - b.length;
+            } else if (a < b) {
+                return -1
+            } else if (b > a) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+
+        angular.forEach(groups, function (group_id, idx) {
+            var group = $scope.groups[group_id];
+
             if (group.tickets.length == 1) {
                 tickets.push({
                     id: "" + group_id + "-1",
