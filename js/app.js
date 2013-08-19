@@ -184,8 +184,11 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             angular.forEach(ungroupedCandidates, function(candidate, idx) {
               var newGroup = {
                 name: candidate.first_name + ' ' + candidate.last_name,
-                parties: [ candidate.party ]
               };
+              if(candidate.party) {
+                newGroup.parties = [ candidate.party ];
+              }
+
               var newGroupName = 'UG' + (idx + 1);
               state.groups[newGroupName] = newGroup;
               $scope.groups = $scope.groups.concat(newGroup);

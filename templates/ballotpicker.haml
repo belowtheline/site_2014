@@ -21,9 +21,9 @@
             %td {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                {{ parties[c.party].code }}
+                {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-                IND
+                Independent
 
     .col-lg-6
       %h3
@@ -47,10 +47,10 @@
       %table.table.table-condensed(ng-hide="orderByGroup")
         %tbody(ui-sortable ng-model="stateCandidates")
           %tr(ng-repeat="c in stateCandidates")
+            %td {{c.group}}
             %td {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                {{ parties[c.party].code }}
+                {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
-                IND
-            %td {{c.group}}
+                Independent
