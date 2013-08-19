@@ -3,9 +3,13 @@
         "dudley-todd",
         "richardson-pierre"
     ],
-    "name": "Group S",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/roberts-andrew"
+        ]
+    ]
 }
