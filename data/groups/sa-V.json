@@ -3,9 +3,13 @@
         "oates-greg",
         "wearne-madeleine"
     ],
-    "name": "Group V",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/weaver-robert"
+        ]
+    ]
 }

@@ -3,9 +3,13 @@
         "griff-stirling",
         "xenophon-nick"
     ],
-    "name": "Group G",
+    "name": "Nick Xenophon Group",
     "parties": [
         "xen"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/weaver-robert"
+        ]
+    ]
 }

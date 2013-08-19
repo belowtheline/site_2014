@@ -3,9 +3,13 @@
         "byrne-peter",
         "cogan-james"
     ],
-    "name": "Group A",
+    "name": "Socialist Equality Party",
     "parties": [
         "sep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/weaver-robert"
+        ]
+    ]
 }

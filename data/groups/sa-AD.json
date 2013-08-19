@@ -3,9 +3,13 @@
         "green-nathan",
         "stewart-robertgordon"
     ],
-    "name": "Group AD",
+    "name": "Australian Motoring Enthusiast Party",
     "parties": [
         "amep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/weaver-robert"
+        ]
+    ]
 }
