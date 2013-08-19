@@ -4,9 +4,13 @@
         "mcculloch-kate",
         "plumb-aaron"
     ],
-    "name": "Group AR",
+    "name": "One Nation",
     "parties": [
         "on"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lamela-john"
+        ]
+    ]
 }

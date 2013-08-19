@@ -3,9 +3,13 @@
         "futter-bj",
         "olbourne-jason"
     ],
-    "name": "Group G",
+    "name": "Help End Marijuana Prohibition (HEMP) Party",
     "parties": [
         "hmp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lamela-john"
+        ]
+    ]
 }

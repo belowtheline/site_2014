@@ -3,9 +3,13 @@
         "beams-nick",
         "hambides-zac"
     ],
-    "name": "Group AE",
+    "name": "Socialist Equality Party",
     "parties": [
         "sep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lamela-john"
+        ]
+    ]
 }

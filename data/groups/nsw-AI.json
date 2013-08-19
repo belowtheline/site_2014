@@ -3,9 +3,13 @@
         "bourke-william",
         "spike-kris"
     ],
-    "name": "Group AI",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lamela-john"
+        ]
+    ]
 }

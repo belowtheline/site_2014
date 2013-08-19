@@ -3,9 +3,13 @@
         "villaver-ronaldo",
         "wallace-andrew"
     ],
-    "name": "Group AF",
+    "name": "Australian Democrats",
     "parties": [
         "dem"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lamela-john"
+        ]
+    ]
 }
