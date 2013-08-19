@@ -178,8 +178,19 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             });
             $scope.stateBallotOrder = $scope.stateCandidates.slice();
 
-            var groupNames = _.uniq(_.pluck($scope.stateCandidates, 'group'));
+            var groupNames = _.without(_.uniq(_.pluck($scope.stateCandidates, 'group')), 'UG');
+            var ungroupedCandidates = _.where($scope.stateCandidates, { group: 'UG' });
             $scope.groups = _.map(groupNames, function(name) { return state.groups[name]; });
+            angular.forEach(ungroupedCandidates, function(candidate, idx) {
+              var newGroup = {
+                name: candidate.first_name + ' ' + candidate.last_name,
+                parties: [ candidate.party ]
+              };
+              var newGroupName = 'UG' + (idx + 1);
+              state.groups[newGroupName] = newGroup;
+              $scope.groups = $scope.groups.concat(newGroup);
+              candidate.group = newGroupName;
+            });
             $scope.groupBallotOrder = $scope.groups.slice();
 
         });
