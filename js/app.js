@@ -200,8 +200,6 @@ function TicketViewerCtrl($scope, $http, $location) {
     $scope.ticketList = [];
 
     $scope.changeTicket = function (idx) {
-        console.log(">>> " + $scope.ticket[idx]);
-
         if (!$scope.ticket[idx]) {
             $scope.candidateOrder[idx] = $scope.ballotOrder;
             return;
@@ -212,7 +210,6 @@ function TicketViewerCtrl($scope, $http, $location) {
         var ticket = parseInt(data[1]) - 1;
 
         $scope.candidateOrder[idx] = $scope.groups[group].tickets[ticket];
-        console.log($scope.candidateOrder[idx]);
     }
 
     function generateTicketList() {
@@ -247,7 +244,6 @@ function TicketViewerCtrl($scope, $http, $location) {
 
             $scope.candidateOrder = [$scope.ballotOrder, $scope.ballotOrder];
 
-            console.log($scope.candidates);
             generateTicketList();
         }).
         error(function () {
