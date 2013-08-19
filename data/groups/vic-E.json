@@ -5,10 +5,14 @@
         "kroger-helen",
         "ryan-scott"
     ],
-    "name": "Group E",
+    "name": "Liberal/The Nationals",
     "parties": [
         "nat",
         "lib"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

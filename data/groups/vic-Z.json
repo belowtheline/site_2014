@@ -3,9 +3,13 @@
         "gill-craiga",
         "muir-ricky"
     ],
-    "name": "Group Z",
+    "name": "Australian Motoring Enthusiast Party",
     "parties": [
         "amep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

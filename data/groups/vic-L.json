@@ -3,9 +3,13 @@
         "hayes-clifford",
         "quirk-jill"
     ],
-    "name": "Group L",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

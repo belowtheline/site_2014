@@ -3,9 +3,13 @@
         "barwick-robert",
         "isherwood-craig"
     ],
-    "name": "Group AI",
+    "name": "Citizens Electoral Council",
     "parties": [
         "cec"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

@@ -3,9 +3,13 @@
         "baptist-tania",
         "oconnor-patrick"
     ],
-    "name": "Group AK",
+    "name": "Socialist Equality Party",
     "parties": [
         "sep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

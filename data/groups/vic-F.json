@@ -3,9 +3,13 @@
         "fletcher-ryanwilliam",
         "riley-matt"
     ],
-    "name": "Group F",
+    "name": "Help End Marijuana Prohibition (HEMP) Party",
     "parties": [
         "hmp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

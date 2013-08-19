@@ -7,9 +7,13 @@
         "livesay-robert",
         "raines-greg"
     ],
-    "name": "Group AB",
+    "name": "Australian Democrats",
     "parties": [
         "dem"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }

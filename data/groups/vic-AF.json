@@ -3,9 +3,13 @@
         "chipp-greg",
         "sherman-john"
     ],
-    "name": "Group AF",
+    "name": "Drug Law Reform",
     "parties": [
         "dlr"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/morrison-darrellscott"
+        ]
+    ]
 }
