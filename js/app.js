@@ -127,9 +127,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     $scope.downloadPDF = function () {
         console.log("Here we go!");
         if ($scope.orderByGroup) {
-            $scope.stateCandidates = _.sortBy($scope.stateCandidates, function(candidate) {
-                return _.indexOf($scope.groups, candidate.group);
-            });
+          applyGroupOrdering();
         }
 
         console.log($scope.divisionCandidates);
