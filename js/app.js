@@ -83,7 +83,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     var applyGroupOrdering = function() {
         $scope.stateCandidates = _.sortBy($scope.stateCandidates, function(candidate) {
-            return _.indexOf($scope.groups, candidate.group);
+            return _.indexOf($scope.groups, state.groups[candidate.group]);
         });
     };
 
