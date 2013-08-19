@@ -3,9 +3,13 @@
         "littler-keith",
         "morrison-tony"
     ],
-    "name": "Group AH",
+    "name": "Australian Motoring Enthusiast Party",
     "parties": [
         "amep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/muirhead-neil"
+        ]
+    ]
 }

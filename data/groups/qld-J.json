@@ -3,9 +3,13 @@
         "head-mike",
         "zabala-gabriela"
     ],
-    "name": "Group J",
+    "name": "Socialist Equality Party",
     "parties": [
         "sep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/muirhead-neil"
+        ]
+    ]
 }

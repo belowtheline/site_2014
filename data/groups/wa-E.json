@@ -3,9 +3,13 @@
         "lopez-joe",
         "symonds-peter"
     ],
-    "name": "Group E",
+    "name": "Socialist Equality Party",
     "parties": [
         "sep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/farmer-robertmalcolm"
+        ]
+    ]
 }

@@ -3,9 +3,13 @@
         "stankovic-mile",
         "work-vernon"
     ],
-    "name": "Group H",
+    "name": "Citizens Electoral Council",
     "parties": [
         "cec"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/futcher-lisa"
+        ]
+    ]
 }

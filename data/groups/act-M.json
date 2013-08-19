@@ -3,9 +3,39 @@
         "fernie-anthonywatson",
         "petersen-valma"
     ],
-    "name": "Group M",
+    "name": "Australian Independents",
     "parties": [
         "ain"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/ezekielhart-emmanuel",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/lundy-kate",
+            "people/sant-chris"
+        ]
+    ]
 }

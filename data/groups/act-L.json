@@ -3,9 +3,39 @@
         "lundy-kate",
         "sant-chris"
     ],
-    "name": "Group L",
+    "name": "Australian Labor Party",
     "parties": [
         "alp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/ezekielhart-emmanuel",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/nash-merinda",
+            "people/seselja-zed"
+        ]
+    ]
 }

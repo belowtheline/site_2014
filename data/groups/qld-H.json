@@ -3,9 +3,13 @@
         "nelson-ian",
         "savage-jim"
     ],
-    "name": "Group H",
+    "name": "One Nation",
     "parties": [
         "on"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/muirhead-neil"
+        ]
+    ]
 }

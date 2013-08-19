@@ -3,9 +3,39 @@
         "arnold-joe",
         "bailey-steven"
     ],
-    "name": "Group B",
+    "name": "Katter's Australian Party",
     "parties": [
         "kap"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/ezekielhart-emmanuel",
+            "people/nitschke-philip",
+            "people/macdougall-susan"
+        ]
+    ]
 }

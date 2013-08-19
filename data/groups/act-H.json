@@ -3,9 +3,39 @@
         "henriquez-jose",
         "ross-irwin"
     ],
-    "name": "Group H",
+    "name": "Rise Up Australia Party",
     "parties": [
         "rua"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/ezekielhart-emmanuel"
+        ]
+    ]
 }

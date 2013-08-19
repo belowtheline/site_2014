@@ -3,9 +3,39 @@
         "nash-merinda",
         "seselja-zed"
     ],
-    "name": "Group K",
+    "name": "Liberal",
     "parties": [
         "lib"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/graham-greg",
+            "people/montagne-jessica",
+            "people/arnold-joe",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/henriquez-jose",
+            "people/ross-irwin",
+            "people/fillinger-marcus",
+            "people/bailey-steven",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/dowson-stacey",
+            "people/oconnor-mark",
+            "people/avery-deborah",
+            "people/ezekielhart-emmanuel",
+            "people/miller-jamie",
+            "people/macdougall-susan",
+            "people/cubitt-paul",
+            "people/nitschke-philip",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/esguerra-indra",
+            "people/sheikh-simon"
+        ]
+    ]
 }

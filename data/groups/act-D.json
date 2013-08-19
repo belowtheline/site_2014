@@ -3,9 +3,13 @@
         "graham-greg",
         "oconnor-mark"
     ],
-    "name": "Group D",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/ezekielhart-emmanuel"
+        ]
+    ]
 }

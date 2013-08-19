@@ -3,9 +3,39 @@
         "slattery-waynekenneth",
         "teerman-paulgerard"
     ],
-    "name": "Group J",
+    "name": "Palmer United Party",
     "parties": [
         "pup"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/ezekielhart-emmanuel",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/cubitt-paul",
+            "people/dowson-stacey"
+        ]
+    ]
 }

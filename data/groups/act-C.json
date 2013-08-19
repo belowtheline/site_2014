@@ -3,9 +3,39 @@
         "esguerra-indra",
         "sheikh-simon"
     ],
-    "name": "Group C",
+    "name": "Australian Greens",
     "parties": [
         "grn"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/ezekielhart-emmanuel",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/ross-irwin",
+            "people/henriquez-jose"
+        ]
+    ]
 }

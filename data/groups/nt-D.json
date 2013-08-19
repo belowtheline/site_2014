@@ -3,9 +3,36 @@
         "gadambua-jeannie",
         "kunothmonks-rosalie"
     ],
-    "name": "Group D",
+    "name": "A.F.N.P.P.",
     "parties": [
         "fnpp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/kunothmonks-rosalie",
+            "people/gadambua-jeannie",
+            "people/miles-jim",
+            "people/russell-mark",
+            "people/tewake-douglas",
+            "people/mccabe-johnbriandouglas",
+            "people/bell-gary",
+            "people/watt-kathryn",
+            "people/graham-matt",
+            "people/righton-christopherjames",
+            "people/edwards-joannelouise",
+            "people/randall-traceylee",
+            "people/work-vernon",
+            "people/stankovic-mile",
+            "people/pile-jan",
+            "people/cox-michael",
+            "people/walcott-phil",
+            "people/futcher-lisa",
+            "people/williams-warrenh",
+            "people/brand-michael",
+            "people/scullion-nigel",
+            "people/fazldeen-linda",
+            "people/peris-nova",
+            "people/foley-rowan"
+        ]
+    ]
 }

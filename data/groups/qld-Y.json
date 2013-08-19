@@ -3,9 +3,13 @@
         "hayden-cheryl",
         "stevenson-paulj."
     ],
-    "name": "Group Y",
+    "name": "Australian Democrats",
     "parties": [
         "dem"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/muirhead-neil"
+        ]
+    ]
 }

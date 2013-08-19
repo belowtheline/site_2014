@@ -3,9 +3,13 @@
         "fernandez-chris",
         "thiel-william"
     ],
-    "name": "Group R",
+    "name": "Australian Democrats",
     "parties": [
         "dem"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/farmer-robertmalcolm"
+        ]
+    ]
 }

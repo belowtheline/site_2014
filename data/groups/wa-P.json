@@ -3,9 +3,13 @@
         "banks-john",
         "strachan-peter"
     ],
-    "name": "Group P",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/farmer-robertmalcolm"
+        ]
+    ]
 }

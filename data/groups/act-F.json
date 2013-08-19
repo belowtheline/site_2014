@@ -3,9 +3,39 @@
         "cubitt-paul",
         "dowson-stacey"
     ],
-    "name": "Group F",
+    "name": "Drug Law Reform",
     "parties": [
         "dlr"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/ezekielhart-emmanuel",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/bailey-steven",
+            "people/arnold-joe"
+        ]
+    ]
 }

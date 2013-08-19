@@ -3,9 +3,36 @@
         "mccabe-johnbriandouglas",
         "tewake-douglas"
     ],
-    "name": "Group A",
+    "name": "Palmer United Party",
     "parties": [
         "pup"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/tewake-douglas",
+            "people/mccabe-johnbriandouglas",
+            "people/scullion-nigel",
+            "people/fazldeen-linda",
+            "people/walcott-phil",
+            "people/futcher-lisa",
+            "people/pile-jan",
+            "people/cox-michael",
+            "people/work-vernon",
+            "people/stankovic-mile",
+            "people/williams-warrenh",
+            "people/brand-michael",
+            "people/edwards-joannelouise",
+            "people/randall-traceylee",
+            "people/graham-matt",
+            "people/righton-christopherjames",
+            "people/kunothmonks-rosalie",
+            "people/gadambua-jeannie",
+            "people/miles-jim",
+            "people/russell-mark",
+            "people/peris-nova",
+            "people/foley-rowan",
+            "people/watt-kathryn",
+            "people/bell-gary"
+        ]
+    ]
 }

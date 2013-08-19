@@ -3,9 +3,36 @@
         "cox-michael",
         "pile-jan"
     ],
-    "name": "Group J",
+    "name": "Rise Up Australia Party",
     "parties": [
         "rua"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/pile-jan",
+            "people/cox-michael",
+            "people/bell-gary",
+            "people/watt-kathryn",
+            "people/walcott-phil",
+            "people/futcher-lisa",
+            "people/kunothmonks-rosalie",
+            "people/gadambua-jeannie",
+            "people/graham-matt",
+            "people/righton-christopherjames",
+            "people/tewake-douglas",
+            "people/mccabe-johnbriandouglas",
+            "people/scullion-nigel",
+            "people/fazldeen-linda",
+            "people/work-vernon",
+            "people/stankovic-mile",
+            "people/miles-jim",
+            "people/russell-mark",
+            "people/peris-nova",
+            "people/foley-rowan",
+            "people/edwards-joannelouise",
+            "people/randall-traceylee",
+            "people/williams-warrenh",
+            "people/brand-michael"
+        ]
+    ]
 }

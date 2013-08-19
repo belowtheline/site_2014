@@ -3,9 +3,39 @@
         "macdougall-susan",
         "nitschke-philip"
     ],
-    "name": "Group I",
+    "name": "Voluntary Euthanasia Party",
     "parties": [
         "vep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/ezekielhart-emmanuel"
+        ]
+    ]
 }

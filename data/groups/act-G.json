@@ -3,9 +3,39 @@
         "avery-deborah",
         "miller-jamie"
     ],
-    "name": "Group G",
+    "name": "Sex Party",
     "parties": [
         "asxp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/sheikh-simon",
+            "people/esguerra-indra",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/nash-merinda",
+            "people/seselja-zed",
+            "people/ezekielhart-emmanuel",
+            "people/ross-irwin",
+            "people/henriquez-jose"
+        ]
+    ]
 }

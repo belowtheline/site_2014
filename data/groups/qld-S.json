@@ -3,9 +3,13 @@
         "moran-matt",
         "osullivan-jane"
     ],
-    "name": "Group S",
+    "name": "Stable Population Party",
     "parties": [
         "spp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/muirhead-neil"
+        ]
+    ]
 }

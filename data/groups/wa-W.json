@@ -3,9 +3,13 @@
         "howlett-richie",
         "young-sharon"
     ],
-    "name": "Group W",
+    "name": "Australian Motoring Enthusiast Party",
     "parties": [
         "amep"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/farmer-robertmalcolm"
+        ]
+    ]
 }

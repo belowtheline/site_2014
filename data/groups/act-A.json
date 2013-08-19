@@ -3,9 +3,39 @@
         "fillinger-marcus",
         "montagne-jessica"
     ],
-    "name": "Group A",
+    "name": "Animal Justice Party",
     "parties": [
         "ajp"
     ],
-    "tickets": []
+    "tickets": [
+        [
+            "people/fillinger-marcus",
+            "people/montagne-jessica",
+            "people/oconnor-mark",
+            "people/graham-greg",
+            "people/bucknell-chris",
+            "people/lemmey-michaeljames",
+            "people/fernie-anthonywatson",
+            "people/petersen-valma",
+            "people/nitschke-philip",
+            "people/macdougall-susan",
+            "people/avery-deborah",
+            "people/miller-jamie",
+            "people/cubitt-paul",
+            "people/dowson-stacey",
+            "people/ross-irwin",
+            "people/henriquez-jose",
+            "people/slattery-waynekenneth",
+            "people/teerman-paulgerard",
+            "people/lundy-kate",
+            "people/sant-chris",
+            "people/seselja-zed",
+            "people/nash-merinda",
+            "people/bailey-steven",
+            "people/arnold-joe",
+            "people/ezekielhart-emmanuel",
+            "people/sheikh-simon",
+            "people/esguerra-indra"
+        ]
+    ]
 }
