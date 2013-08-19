@@ -245,6 +245,7 @@ task content: [:output_dirs] do
 
     state_data = {
       state: state,
+      state_id: state_id,
       state_or_territory: state_or_territory,
       senators: senators["state/#{state_id}"],
       candidates: candidates,
