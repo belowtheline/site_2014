@@ -189,7 +189,7 @@ def generate(division, div_ticket, state, sen_ticket):
 
     for col_offset, block in group_block_iterator(groups):
         max_candidates = max([len(g['candidates']) for g in block])
-        group_height = max_candidates * (BOX_SIZE + BOX_GAP) + BOX_GAP
+        group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
         tl = None
         br = None
 
