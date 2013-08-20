@@ -20,9 +20,22 @@ DISCLAIMER_TEXT = "This is a custom-generated voting reference not under " \
                   "http://belowtheline.org.au/"
 LOGO_FILENAME = 'belowtheline-print.png'
 
+STATES = {
+    'act': 'Australian Capital Territory',
+    'nsw': 'New South Wales',
+    'nt': 'Northern Territory',
+    'qld': 'Queensland',
+    'sa': 'South Australia',
+    'tas': 'Tasmania',
+    'vic': 'Victoria',
+    'wa': 'Western Australia',
+}
+
+DIVISION_TEXT = "Your ballot for {} is to the left."
+STATE_TEXT = "Your ballot for {} is to the right."
+
 FONT = 'Helvetica'
 A4R = landscape(A4)
-font = pdfmetrics.getFont(FONT)
 
 PAGE_HEIGHT = A4R[1]
 PAGE_WIDTH = A4R[0]
@@ -35,7 +48,7 @@ RIGHT_MARGIN = 6.5 * mm
 GROUP_ROW_GAP = 5 * mm
 
 BOX_SIZE = 6 * mm
-BOX_GAP = 5.25 * mm
+BOX_GAP = 7 * mm
 
 FONT_SIZE = 8.0
 CANDIDATE_FONT_SIZE = 7.5
@@ -56,8 +69,35 @@ def end_page(c):
     c.showPage()
     c.setFont(FONT, FONT_SIZE)
 
+def draw_text(string, text, font, size, width, leading=None):
+    if leading:
+        text.setFont(font, size, leading=leading)
+    else:
+        text.setFont(font, size)
+    font = pdfmetrics.getFont(font)
+    if font.stringWidth(string, size) > width:
+        bits = string.split(' ')
+        while bits:
+            did_something = False
+
+            for i in range(1, len(bits) + 1):
+                if font.stringWidth(' '.join(bits[:i]), size) > width:
+                    if i == 1:
+                        i = 2
+                    text.textLine(' '.join(bits[:i - 1]))
+                    bits = bits[i - 1:]
+                    did_something = True
+                    break
+
+            if not did_something:
+                text.textLine(' '.join(bits))
+                break
+    else:
+        text.textLine(string)
+
 def draw_candidate(c, number, family, given, party, i, tl, br):
     number = str(number)
+    font = pdfmetrics.getFont(FONT)
 
     c.rect(tl[0] + 1 * mm,
            tl[1] - 3 * mm - i * BOX_GAP - (i + 1) * BOX_SIZE,
@@ -72,22 +112,10 @@ def draw_candidate(c, number, family, given, party, i, tl, br):
     text.setFont(FONT + '-Bold', CANDIDATE_FONT_SIZE,
                  leading=1.1 * CANDIDATE_FONT_SIZE)
     text.textLine(family)
-    text.setFont(FONT, CANDIDATE_FONT_SIZE,
-                 leading=CANDIDATE_FONT_SIZE)
-    text.textLine(given)
+    draw_text(given, text, FONT, CANDIDATE_FONT_SIZE, LABEL_WIDTH,
+                leading=CANDIDATE_FONT_SIZE)
     if party:
-        party = party.upper()
-        text.setFont(FONT, PARTY_FONT_SIZE)
-        if font.stringWidth(party, PARTY_FONT_SIZE) > LABEL_WIDTH:
-            bits = party.split(' ')
-            for i in range(len(bits) - 1, 0, -1):
-                s = ' '.join(bits[:i])
-                if font.stringWidth(s, PARTY_FONT_SIZE) <= LABEL_WIDTH:
-                    text.textLine(s)
-                    text.textLine(' '.join(bits[i:]))
-                    break
-        else:
-            text.textLine(party.upper())
+        draw_text(party.upper(), text, FONT, PARTY_FONT_SIZE, LABEL_WIDTH)
     c.drawText(text)
 
     c.setFont(FONT, FONT_SIZE)
@@ -98,6 +126,8 @@ def generate(division, div_ticket, state, sen_ticket):
     c.setLineWidth(0.1)
     c.setStrokeColor(black)
     c.setFont(FONT, FONT_SIZE)
+
+    font = pdfmetrics.getFont(FONT)
 
     groups = ballots[state]
     division_name, candidates = ballots[division]
@@ -119,6 +149,18 @@ def generate(division, div_ticket, state, sen_ticket):
         family, given, party = candidates[i]
         number = div_ticket.pop(0)
         draw_candidate(c, number, family, given, party, i, tl, br)
+
+    tl = (LEFT_MARGIN + GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
+    br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
+
+    text = c.beginText(tl[0] + 2 * mm, tl[1] - 5 * mm)
+    draw_text(DIVISION_TEXT.format(division_name.upper()), text, FONT + '-Bold',
+              FONT_SIZE, GROUP_WIDTH - 4 * mm)
+    text.textLine('')
+    text.textLine('')
+    draw_text(STATE_TEXT.format(STATES[state].upper()), text, FONT + '-Bold',
+              FONT_SIZE, GROUP_WIDTH - 4 * mm)
+    c.drawText(text)
 
     row_height = PAGE_HEIGHT - TOP_MARGIN
     first_page = True
@@ -146,7 +188,7 @@ def generate(division, div_ticket, state, sen_ticket):
                 end_page(c)
                 row_height = PAGE_HEIGHT - TOP_MARGIN
 
-            if group['label'] != 'UG':
+            if not group['label'].startswith('UG'):
                 group_label = "Group " + group['label']
             else:
                 group_label = 'Ungrouped'
@@ -166,6 +208,7 @@ def generate(division, div_ticket, state, sen_ticket):
             col += 1
 
             for i in range(0, len(group['candidates'])):
+                print len(group['candidates'])
                 family, given, party = group['candidates'][i]
                 number = sen_ticket.pop(0)
                 draw_candidate(c, number, family, given, party, i, tl, br)
@@ -182,6 +225,9 @@ def generate(division, div_ticket, state, sen_ticket):
 def pdf():
     division_ticket = request.form['division_ticket'].split(',')
     senate_ticket = request.form['senate_ticket'].split(',')
+    print request.form['division'], request.form['state']
+    print repr(division_ticket)
+    print repr(senate_ticket)
     pdf = generate(request.form['division'], division_ticket,
                    request.form['state'], senate_ticket)
     response = make_response(pdf)
@@ -190,7 +236,7 @@ def pdf():
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5002, debug=True)
     # import sys
     # open('test.pdf', 'w').write(generate(sys.argv[1], range(1, 20),
     #                                      sys.argv[2], range(1, 200)))
