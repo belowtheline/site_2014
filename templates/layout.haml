@@ -26,11 +26,16 @@
     %script(src="/js/app.js")
   %body
     .navbar.navbar-static-top
+      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
       %a.navbar-brand.navbar-brand-longer(href="/")
         %img.logo(src="/images/belowtheline.png")
         Below The Line
 
-      .pull-right
+      .pull-right.nav-collapse.collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav
           %li
             %a(href="/about-us.html") About Us
