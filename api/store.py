@@ -1,7 +1,6 @@
 from datetime import timedelta
 from functools import update_wrapper
 
-import marshal
 import random
 import string
 
@@ -87,7 +86,7 @@ def store_at_random_id(ballot, start_length=5):
     return candidate
 
 @app.route('/store', methods=['POST', 'OPTIONS'])
-@crossdomain(origin=['http://localhost:8000'], headers=['Content-Type', 'X-Requested-With'])
+@crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def store_ballot():
     if request.json is not None:
         state = request.json['state']
@@ -103,13 +102,19 @@ def store_ballot():
     ballot_id = store_at_random_id({
         'state': state,
         'division': division,
-        'division_ticket': marshal.dumps(division_ticket),
-        'senate_ticket': marshal.dumps(senate_ticket),
+        'division_ticket': ','.join(str(x) for x in division_ticket),
+        'senate_ticket': ','.join(str(x) for x in senate_ticket),
     })
 
     return jsonify({'ballot_id': ballot_id})
 
-@app.route('/store/<ballot_id>', methods=['GET'])
+@app.route('/store/', methods=['GET', 'OPTIONS'])
+@crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
+def foo():
+    return ''
+
+@app.route('/store/<ballot_id>', methods=['GET', 'OPTIONS'])
+@crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def get_ballot(ballot_id):
     r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
 
@@ -118,7 +123,7 @@ def get_ballot(ballot_id):
 
     ballot = r.hgetall(ballot_id)
     for ticket in ('division_ticket', 'senate_ticket'):
-        ballot[ticket] = marshal.loads(ticket)
+        ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
 
     return jsonify(ballot)
 

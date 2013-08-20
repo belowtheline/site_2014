@@ -65,7 +65,6 @@
 angular.module('belowtheline', ['ui.sortable']);
 
 function BallotPickerCtrl($scope, $http, $location, $window) {
-
     var divisionPath = $location.path();
     var division = {};
     var state = {};
@@ -176,11 +175,35 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $(form).appendTo('body').submit().remove();
     }
 
+    var savedDivisionOrder = null;
+    var savedStateOrder = null;
+
+    if (divisionPath.slice(0, 6) == '/store') {
+        var ballotId = divisionPath.slice(7, -5);
+
+        $http.get('http://localhost:5005' + divisionPath).
+            success(function (data) {
+                divisionPath = '/' + data.division;
+                savedDivisionOrder = data.division_ticket;
+                savedStateOrder = data.senate_ticket;
+                $scope.orderByGroup = false;
+            }).
+            error (function () {
+                console.log('erk');
+            });
+    }
+
     $http.get('/division' + divisionPath + '.json').success(function(data) {
         division = data;
         $scope.divisionName = data.division.name
         $scope.divisionCandidates = data.candidates;
         $scope.divisionBallotOrder = data.candidates.slice();
+
+        if (savedDivisionOrder) {
+            var candidates = _.zip(savedDivisionOrder, $scope.divisionBallotOrder);
+            candidates.sort(function (a, b) { return a[0] - b[0]; });
+            $scope.divisionCandidates = _.unzip(candidates)[1];
+        }
 
         $http.get(division.division.state + '.json').success(function(data) {
             state = data;
