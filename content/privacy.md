@@ -48,6 +48,6 @@ accounts.
 If you wish to contact us regarding this privacy policy you can use one of the
 following mechanisms:
 
-Email: [benno@belowtheline.org.au](mailto:benno@belowtheline.org.au)
-Twitter: [@belowtheline_au](https://twitter.com/belowtheline_au)
-Facebook: [Voting Below The Line](https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796)
+Email: [benno@belowtheline.org.au](mailto:benno@belowtheline.org.au)  
+Twitter: [@belowtheline_au](https://twitter.com/belowtheline_au)  
+Facebook: [Voting Below The Line](https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796)  
