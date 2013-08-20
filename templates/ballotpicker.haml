@@ -5,7 +5,7 @@
         %h1 Ballot Editor for {{divisionName}}
 
       .pull-right
-        %button.btn.btn-primary(ng-click="downloadPDF()") Download PDF
+        %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!stateCandidates || !divisionCandidates") Download PDF
       %p.lead Click and drag items in the list to re-order them.
 
   .row
