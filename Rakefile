@@ -79,12 +79,16 @@ def load_content(filename, target_filename)
     end
   end
 
-  target_link = "<a href=\"#{target_filename}\">Read more...</a>"
-  teaser_content.push("<p><strong>#{target_link}</strong></p>")
-
   content[0] = '<div class="page-header">' + content[0] + '</div>'
-  teaser_content[0].sub! /<h1 id=".*?">/, '<p class="lead"><strong>'
-  teaser_content[0].sub! /<\/h1>/, '</strong></p>'
+
+  if done_teaser
+    puts "HERE"
+    target_link = "<a href=\"#{target_filename}\">Read more...</a>"
+    teaser_content.push("<p><strong>#{target_link}</strong></p>")
+
+    teaser_content[0].sub! /<h1 id=".*?">/, '<p class="lead"><strong>'
+    teaser_content[0].sub! /<\/h1>/, '</strong></p>'
+  end
 
   return content.join(''), teaser_content.join('')
 end
@@ -159,6 +163,7 @@ task content: [:output_dirs] do
     body, teaser = load_content(File.join('news', filename), target)
     body = '<div>' + body + '</div>'
 
+    puts body
     title = body.match(/<h1.*?>(.*?)<\/h1>/)[1]
 
     posts[timestamp.to_date] ||= []
@@ -178,6 +183,8 @@ task content: [:output_dirs] do
     })
 
   output('intro.html', intro, {}, {title: "Introduction"})
+  output('about-us.html', load_content('about-us.md', nil)[0], {}, {title: "About Us"})
+  output('privacy.html', load_content('privacy.md', nil)[0], {}, {title: "Privacy Policy"})
   output('news.html', template('news'), { posts: posts },
     {title: "News"})
 
