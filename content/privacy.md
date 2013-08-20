@@ -1,7 +1,8 @@
 # Privacy Policy
 
-This is the privacy policy for the Below The Line website,
-[belowtheline.org.au](http://belowtheline.org.au).
+This is the privacy policy for
+[belowtheline.org.au](http://belowtheline.org.au). It was last updated at
+11:30am AEST on Tuesday, August 20 2013.
 
 ## Collection of your personal information
 This site does not directly collect any personally identifying information. The
