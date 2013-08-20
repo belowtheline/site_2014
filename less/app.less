@@ -1,3 +1,7 @@
+@import  "../vendor/bootstrap/less/variables.less";
+@import  "../vendor/bootstrap/less/mixins.less";
+
+
 .navbar-brand-longer {
   max-width: 300px;
 }
@@ -38,3 +42,11 @@
 }
 
 .social-logo { width: 16px; height: 16px; }
+
+.btn {
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+}
