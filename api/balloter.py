@@ -208,7 +208,6 @@ def generate(division, div_ticket, state, sen_ticket):
             col += 1
 
             for i in range(0, len(group['candidates'])):
-                print len(group['candidates'])
                 family, given, party = group['candidates'][i]
                 number = sen_ticket.pop(0)
                 draw_candidate(c, number, family, given, party, i, tl, br)
@@ -225,9 +224,6 @@ def generate(division, div_ticket, state, sen_ticket):
 def pdf():
     division_ticket = request.form['division_ticket'].split(',')
     senate_ticket = request.form['senate_ticket'].split(',')
-    print request.form['division'], request.form['state']
-    print repr(division_ticket)
-    print repr(senate_ticket)
     pdf = generate(request.form['division'], division_ticket,
                    request.form['state'], senate_ticket)
     response = make_response(pdf)
