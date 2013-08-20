@@ -20,8 +20,9 @@
           %tr(ng-repeat="c in divisionCandidates")
             %td {{c.first_name}} {{c.last_name}}
             %td
-              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                {{ parties[c.party].name }}
+              %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
+                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                  {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
 
@@ -41,7 +42,8 @@
             %td {{c.name }}
             %td
               %span(ng-repeat="p in c.parties" class="partycode party party-{{p}}")
-                {{ parties[p].code }}
+                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                  {{ parties[p].code }}
 
 
       %table.table.table-condensed(ng-hide="orderByGroup")
@@ -51,6 +53,7 @@
             %td {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                {{ parties[c.party].name }}
+                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                  {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
