@@ -123,6 +123,15 @@ def draw_candidate(c, number, family, given, party, i, tl, br):
 def generate(division, div_ticket, state, sen_ticket):
     container = cStringIO.StringIO()
     c = canvas.Canvas(container, A4R)
+
+    c.saveState()
+    c.setStrokeColorRGB(0.86666, 0.86666, 0.86666)
+    c.setFillColorRGB(0.86666, 0.86666, 0.86666)
+    c.setFont(FONT, 90.0)
+    c.rotate(35.3)
+    c.drawString(40 * mm, 0, "belowtheline.org.au")
+    c.restoreState()
+
     c.setLineWidth(0.1)
     c.setStrokeColor(black)
     c.setFont(FONT, FONT_SIZE)
