@@ -29,7 +29,7 @@ def output(name, body, locals={}, scaf_locals={})
   if body.kind_of? Haml::Engine then
     scaf_locals[:body] = body.render(Object.new, locals)
   else
-    scaf_locals[:body] = '<div class="row"><div class="span12">' + body +
+    scaf_locals[:body] = '<div class="row"><div class="col-lg-8">' + body +
     '</div></div>'
   end
 
