@@ -26,27 +26,28 @@
     %script(src="/js/app.js")
   %body
     .navbar.navbar-static-top
-      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
 
-      %a.navbar-brand.navbar-brand-longer(href="/")
-        %img.logo(src="/images/belowtheline.png")
-        Below The Line
+        %a.navbar-brand.navbar-brand-longer(href="/")
+          %img.logo(src="/images/belowtheline.png")
+          Below The Line
 
-      .pull-right.nav-collapse.collapse.navbar-responsive-collapse
-        %ul.nav.navbar-nav
-          %li
-            %a(href="/about-us.html") About Us
-          %li
-            %a(href="/privacy.html") Privacy
-          %li
-            %a(href="https://twitter.com/belowtheline_au")
-              %img.social-logo(src="/images/twitter-bird-light-bgs.png" alt="Twitter")
-          %li
-            %a(href="https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796")
-              %img.social-logo(src="/images/FB-f-Logo__blue_144.png" alt="Facebook")
+        .pull-right.nav-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a(href="/about-us.html") About Us
+            %li
+              %a(href="/privacy.html") Privacy
+            %li
+              %a(href="https://twitter.com/belowtheline_au")
+                %img.social-logo(src="/images/twitter-bird-light-bgs.png" alt="Twitter")
+            %li
+              %a(href="https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796")
+                %img.social-logo(src="/images/FB-f-Logo__blue_144.png" alt="Facebook")
     .container
       = body
       .row
