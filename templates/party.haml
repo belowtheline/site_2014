@@ -2,7 +2,7 @@
   - party = parties[code]
   %span.partycode.party(class="party-#{code}" title="#{party['name']}")
     - if party.has_key? 'website' then
-      %a(href="#{party['website']}")
+      %a(href="#{party['website']}" target="_blank")
         = party['code']
     - else
       = party['code']

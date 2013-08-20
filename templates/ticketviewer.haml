@@ -2,7 +2,7 @@
   .row
     .col.lg-12
       .page-header
-        %h1 Tickets for {{state.name}}
+        %h1 Preference Tickets for {{state.name}}
 
       %p
         Select tickets below and compare the various preference flows. The "Ballot Order" setting shows what would happen if you simply numbered the boxes sequentially through the groups on the ballot. Selecting a ticket will re-order the candidates into the order set by that ticket.
@@ -17,8 +17,9 @@
           %tr(ng-repeat="person_id in candidateOrder[0]")
             %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
-              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
-                {{ parties[candidates[person_id].party].code }}
+              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}" title="{{parties[candidates[person_id].party].name}}")
+                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                  {{ parties[candidates[person_id].party].code }}
               %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
                 IND
 
@@ -31,7 +32,7 @@
           %tr(ng-repeat="person_id in candidateOrder[1]")
             %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
-              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
+              %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}" title="{{parties[candidates[person_id].party].name}}")
                 {{ parties[candidates[person_id].party].code }}
               %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
                 IND

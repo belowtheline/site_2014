@@ -3,6 +3,9 @@
     .pull-right
       %a.btn.btn-primary(href="/ballotpicker.html#/#{division_id}") Ballot Editor for #{division['name']} &raquo;
     .page-header
+      .pull-right
+        %a.btn.btn-primary(href="/ticketviewer.html#/#{division['state'].split('/')[1]}")
+          View Preferences
       %h1= division['name']
   .col-lg-6
     .lead.text-center House of Representatives
