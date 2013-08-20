@@ -124,43 +124,54 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $scope.divisionCandidates = $scope.divisionBallotOrder.slice();
     };
 
-    $scope.downloadPDF = function () {
-        console.log("Here we go!");
+    function makeTicket(order, ballotOrder) {
+        var ticket = [];
+
+        angular.forEach(ballotOrder, function (candidate, idx) {
+            ticket.push(_.indexOf(order, candidate) + 1);
+        });
+
+        return ticket;
+    }
+
+    function ballotData() {
         if ($scope.orderByGroup) {
           applyGroupOrdering();
         }
 
-        console.log($scope.divisionCandidates);
-        console.log($scope.stateCandidates);
-        console.log($scope.groups);
-
-        function makeTicket(order, ballotOrder) {
-            var ticket = [];
-
-            angular.forEach(ballotOrder, function (candidate, idx) {
-                ticket.push(_.indexOf(order, candidate) + 1);
-            });
-
-            return ticket;
+        return {
+            division: divisionPath.slice(1),
+            state: division.division.state.split('/')[1],
+            division_ticket: makeTicket($scope.divisionCandidates,
+                                        $scope.divisionBallotOrder),
+            senate_ticket: makeTicket($scope.stateCandidates,
+                                      $scope.stateBallotOrder)
         }
+    }
 
-        var division_ticket = makeTicket($scope.divisionCandidates,
-                                         $scope.divisionBallotOrder);
-        var senate_ticket = makeTicket($scope.stateCandidates,
-                                       $scope.stateBallotOrder);
+    $scope.saveBallot = function () {
+        var data = ballotData();
+        $http.post('http://localhost:5005/store', data, {
+            headers: {'Content-Type': 'application/json'}
+        }).success(function (data) {
+            console.log(data);
+        }).error(function () {
+            console.log('yar');
+        });
+    }
 
-        console.log(division_ticket);
-        console.log(senate_ticket);
+    $scope.downloadPDF = function () {
+        var data = ballotData();
 
         function make_input(name, value) {
             return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
         }
 
         var form = '<form action="http://api.belowtheline.org.au/pdf" method="POST">' +
-                    make_input('division', divisionPath.slice(1)) +
-                    make_input('state', division.division.state.split('/')[1]) +
-                    make_input('division_ticket', division_ticket.join(',')) +
-                    make_input('senate_ticket', senate_ticket.join(',')) +
+                    make_input('division', data.division) +
+                    make_input('state', data.state) +
+                    make_input('division_ticket', data.division_ticket.join(',')) +
+                    make_input('senate_ticket', data.senate_ticket.join(',')) +
                     '</form>';
         $(form).appendTo('body').submit().remove();
     }
