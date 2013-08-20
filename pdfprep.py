@@ -47,33 +47,51 @@ for filename in os.listdir('data/division'):
     division_id = filename[:-5]
     divisions[division_id] = json.loads(open('data/division/' + filename).read())
 
-for filename in os.listdir('data/groups'):
-    if not filename.endswith('.json'):
-        continue
+for state in ('act', 'nsw', 'nt', 'qld', 'sa', 'tas', 'vic', 'wa'):
+    ungrouped = {
+        'label': 'UG',
+        'name': 'Ungrouped',
+        'candidates': [],
+    }
 
-    group = json.loads(open('data/groups/' + filename).read())
-    state, group_label = filename[:-5].split('-', 1)
+    for filename in os.listdir('data/groups'):
+        if not filename.startswith(state):
+            continue
+        if not filename.endswith('.json'):
+            continue
 
-    ballot = ballots[state]
+        group = json.loads(open('data/groups/' + filename).read())
+        group_label = filename[:-5].split('-', 1)[1]
+        ballot = ballots[state]
 
-    ballot.append({
-        'label': group_label,
-        'name': group['name'],
-    })
-    
-    candidates = []
-    for candidate in group['candidates']:
-        person = people[candidate]
-
-        if person.get('party', None) is not None:
-            c = (person['last_name'], person['first_name'],
-                 parties[person['party']]['name'], person['ballot_position'])
+        if group_label.startswith('UG'):
+            ballot_group = ungrouped
         else:
-            c = (person['last_name'], person['first_name'], None,
-                 person['ballot_position'])
-        candidates.append(c)
+            ballot_group = {
+                'label': group_label,
+                'name': group['name'],
+            }
+            ballot.append(ballot_group)
+        
+        candidates = []
+        for candidate in group['candidates']:
+            person = people[candidate]
 
-    ballot[-1]['candidates'] = sorted_candidates(candidates)
+            if person.get('party', None) is not None:
+                c = (person['last_name'], person['first_name'],
+                     parties[person['party']]['name'], person['ballot_position'])
+            else:
+                c = (person['last_name'], person['first_name'], None,
+                     person['ballot_position'])
+            candidates.append(c)
+
+        if group_label.startswith('UG'):
+            ungrouped['candidates'].append(candidates[0][:-1])
+        else:
+            ballot_group['candidates'] = sorted_candidates(candidates)
+
+    if ungrouped['candidates']:
+        ballots[state].append(ungrouped)
 
 division_ballots = {}
 
