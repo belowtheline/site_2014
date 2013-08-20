@@ -3,9 +3,6 @@
   %span.partycode.party(class="party-#{code}" title="#{party['name']}")
     - if party.has_key? 'website' then
       %a(href="#{party['website']}" target="_blank")
-        = party['code']
+        = party['name']
     - else
-      = party['code']
--else
-  %span.partycode.party.party-ind(title="Independent")
-    IND
+      = party['name']
