@@ -156,7 +156,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
         }
 
-        var form = '<form action="http://127.0.0.1:5002/pdf" method="POST">' +
+        var form = '<form action="http://belowtheline.org.au/pdf" method="POST">' +
                     make_input('division', divisionPath.slice(1)) +
                     make_input('state', division.division.state.split('/')[1]) +
                     make_input('division_ticket', division_ticket.join(',')) +
