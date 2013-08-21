@@ -185,7 +185,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     var savedStateOrder = null;
 
     if (divisionPath.slice(0, 6) == '/store') {
-        var ballotId = divisionPath.slice(7, -5);
+        var ballotId = divisionPath.slice(7);
 
         $http.get('http://localhost:5005' + divisionPath).
             success(function (data) {
@@ -193,51 +193,59 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
                 savedDivisionOrder = data.division_ticket;
                 savedStateOrder = data.senate_ticket;
                 $scope.orderByGroup = false;
+
+                loadData(divisionPath);
             }).
-            error (function () {
+            error(function () {
                 console.log('erk');
             });
+    } else {
+        loadData(divisionPath);
     }
 
-    $http.get('/division' + divisionPath + '.json').success(function(data) {
-        division = data;
-        $scope.divisionName = data.division.name
-        $scope.divisionCandidates = data.candidates;
-        $scope.divisionBallotOrder = data.candidates.slice();
+    function loadData(division) {
+        $http.get('/division' + division + '.json').success(function(data) {
+            division = data;
+            $scope.divisionName = data.division.name
+            $scope.divisionCandidates = data.candidates;
+            $scope.divisionBallotOrder = data.candidates.slice();
+            foo = $scope.divisionCandidates;
+            bar = $scope.divisionBallotOrder;
 
-        if (savedDivisionOrder) {
-            var candidates = _.zip(savedDivisionOrder, $scope.divisionBallotOrder);
-            candidates.sort(function (a, b) { return a[0] - b[0]; });
-            $scope.divisionCandidates = _.unzip(candidates)[1];
-        }
+            if (savedDivisionOrder) {
+                var candidates = _.zip(savedDivisionOrder, $scope.divisionBallotOrder);
+                candidates.sort(function (a, b) { return a[0] - b[0]; });
+                $scope.divisionCandidates = _.map(candidates, function (c) { return c[1]; });
+            }
 
-        $http.get(division.division.state + '.json').success(function(data) {
-            state = data;
-            $scope.stateCandidates = _.map(data.ballot_order, function(id) {
-                return data.candidates[id];
+            $http.get('/' + division.division.state + '.json').success(function(data) {
+                state = data;
+                $scope.stateCandidates = _.map(data.ballot_order, function(id) {
+                    return data.candidates[id];
+                });
+                $scope.stateBallotOrder = $scope.stateCandidates.slice();
+
+                var groupNames = _.without(_.uniq(_.pluck($scope.stateCandidates, 'group')), 'UG');
+                var ungroupedCandidates = _.where($scope.stateCandidates, { group: 'UG' });
+                $scope.groups = _.map(groupNames, function(name) { return state.groups[name]; });
+                angular.forEach(ungroupedCandidates, function(candidate, idx) {
+                  var newGroup = {
+                    name: candidate.first_name + ' ' + candidate.last_name,
+                  };
+                  if(candidate.party) {
+                    newGroup.parties = [ candidate.party ];
+                  }
+
+                  var newGroupName = 'UG' + (idx + 1);
+                  state.groups[newGroupName] = newGroup;
+                  $scope.groups = $scope.groups.concat(newGroup);
+                  candidate.group = newGroupName;
+                });
+                $scope.groupBallotOrder = $scope.groups.slice();
+
             });
-            $scope.stateBallotOrder = $scope.stateCandidates.slice();
-
-            var groupNames = _.without(_.uniq(_.pluck($scope.stateCandidates, 'group')), 'UG');
-            var ungroupedCandidates = _.where($scope.stateCandidates, { group: 'UG' });
-            $scope.groups = _.map(groupNames, function(name) { return state.groups[name]; });
-            angular.forEach(ungroupedCandidates, function(candidate, idx) {
-              var newGroup = {
-                name: candidate.first_name + ' ' + candidate.last_name,
-              };
-              if(candidate.party) {
-                newGroup.parties = [ candidate.party ];
-              }
-
-              var newGroupName = 'UG' + (idx + 1);
-              state.groups[newGroupName] = newGroup;
-              $scope.groups = $scope.groups.concat(newGroup);
-              candidate.group = newGroupName;
-            });
-            $scope.groupBallotOrder = $scope.groups.slice();
-
         });
-    });
+    }
 
     $http.get('/parties.json').success(function(data) {
         $scope.parties = data;
