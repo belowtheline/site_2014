@@ -62,9 +62,9 @@
 }());
 
 
-angular.module('belowtheline', ['ui.sortable']);
+angular.module('belowtheline', ['ui.sortable', 'ngStorage']);
 
-function BallotPickerCtrl($scope, $http, $location, $window) {
+function BallotPickerCtrl($scope, $http, $location, $window, $localStorage) {
 
     var divisionPath = $location.path();
     var division = {};
@@ -124,15 +124,28 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $scope.divisionCandidates = $scope.divisionBallotOrder.slice();
     };
 
+
+    var restoreFromLocalStorage = function() {
+      angular.forEach(['groups', 'stateCandidates', 'divisionCandidates'], function(i) {
+        if(!$localStorage[divisionPath]) {
+          $localStorage[divisionPath] = {};
+        }
+
+        if($localStorage[divisionPath][i]) {
+          $scope[i] = angular.fromJson($localStorage[divisionPath][i]);
+        }
+        $scope.$watch(i, function() {
+          $localStorage[divisionPath][i] = angular.toJson($scope[i]);
+        });
+      });
+    };
+
+
     $scope.downloadPDF = function () {
         console.log("Here we go!");
         if ($scope.orderByGroup) {
           applyGroupOrdering();
         }
-
-        console.log($scope.divisionCandidates);
-        console.log($scope.stateCandidates);
-        console.log($scope.groups);
 
         function makeTicket(order, ballotOrder) {
             var ticket = [];
@@ -148,9 +161,6 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
                                          $scope.divisionBallotOrder);
         var senate_ticket = makeTicket($scope.stateCandidates,
                                        $scope.stateBallotOrder);
-
-        console.log(division_ticket);
-        console.log(senate_ticket);
 
         function make_input(name, value) {
             return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
@@ -196,6 +206,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             });
             $scope.groupBallotOrder = $scope.groups.slice();
 
+            restoreFromLocalStorage();
         });
     });
 
