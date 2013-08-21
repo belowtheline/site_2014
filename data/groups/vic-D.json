@@ -1,6 +1,6 @@
 {
     "candidates": [
-        "smith-tony",
+        "smith-tony-sol",
         "taylor-lloyd"
     ],
     "name": "Senator Online (Internet Voting Bills/Issues)",
@@ -10,7 +10,7 @@
     "tickets": [
         [
             "taylor-lloyd",
-            "smith-tony",
+            "smith-tony-sol",
             "erwood-mark",
             "phillips-steve",
             "poon-bruce",
