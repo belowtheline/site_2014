@@ -47,6 +47,14 @@ for filename in os.listdir('data/division'):
     division_id = filename[:-5]
     divisions[division_id] = json.loads(open('data/division/' + filename).read())
 
+def group_sort(a, b):
+    a_group = a.split('-', 1)[1][:-5]
+    b_group = b.split('-', 1)[1][:-5]
+
+    if len(a_group) != len(b_group):
+        return cmp(len(a_group), len(b_group))
+    return cmp(a_group, b_group)
+
 for state in ('act', 'nsw', 'nt', 'qld', 'sa', 'tas', 'vic', 'wa'):
     ungrouped = {
         'label': 'UG',
@@ -54,11 +62,11 @@ for state in ('act', 'nsw', 'nt', 'qld', 'sa', 'tas', 'vic', 'wa'):
         'candidates': [],
     }
 
-    for filename in os.listdir('data/groups'):
-        if not filename.startswith(state):
-            continue
-        if not filename.endswith('.json'):
-            continue
+    groups = [f for f in os.listdir('data/groups') if f.startswith(state) and f.endswith('.json')]
+    groups.sort(cmp=group_sort)
+
+    for filename in groups:
+        print "Processing:", filename
 
         group = json.loads(open('data/groups/' + filename).read())
         group_label = filename[:-5].split('-', 1)[1]
