@@ -62,10 +62,16 @@
 }());
 
 
-angular.module('belowtheline', ['ui.sortable']);
+angular.module('belowtheline', ['ui.sortable']).
+    config(['$locationProvider', function ($locationProvider) {
+            $locationProvider.html5Mode(true);
+    }]);
 
 function BallotPickerCtrl($scope, $http, $location, $window) {
     var divisionPath = $location.path();
+    if (divisionPath.substr(0, 7) == '/editor') {
+        divisionPath = divisionPath.substr(7);
+    }   
     var division = {};
     var state = {};
 
@@ -240,7 +246,10 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 }
 
 function TicketViewerCtrl($scope, $http, $location) {
-    var state = $location.path();
+    var divisionPath = $location.path();
+    if (divisionPath.substr(0, 7) == '/editor') {
+        divisionPath = divisionPath.substr(7);
+    }   
 
     $scope.ticket = [null, null];
     $scope.candidateOrder = [[], []];

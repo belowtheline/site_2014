@@ -327,6 +327,12 @@ task :serve do
   require 'webrick'
 
   server = WEBrick::HTTPServer.new Port: 8000, DocumentRoot: OUTPUT_DIR
+  server.mount_proc '/editor' do |req, res|
+    res.body = File.read(File.join(OUTPUT_DIR, 'ballotpicker.html'))
+  end
+  server.mount_proc '/viewer' do |req, res|
+    res.body = File.read(File.join(OUTPUT_DIR, 'ticketviewer.html'))
+  end
   trap 'INT' do server.shutdown end
   puts "Serving on http://127.0.0.1:8000"
   server.start
