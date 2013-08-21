@@ -62,11 +62,20 @@
 }());
 
 
-angular.module('belowtheline', ['ui.sortable']);
+angular.module('belowtheline', ['ui.sortable']).
+    config(['$locationProvider', function ($locationProvider) {
+            $locationProvider.html5Mode(true);
+    }]);
 
 function BallotPickerCtrl($scope, $http, $location, $window) {
-
     var divisionPath = $location.path();
+    if (divisionPath == "/ballotpicker.html") {
+        divisionPath = $location.hash();
+    }
+    if (divisionPath.substr(0, 7) == '/editor') {
+        divisionPath = divisionPath.substr(7);
+    }   
+
     var division = {};
     var state = {};
 
@@ -171,7 +180,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $scope.divisionCandidates = data.candidates;
         $scope.divisionBallotOrder = data.candidates.slice();
 
-        $http.get(division.division.state + '.json').success(function(data) {
+        $http.get('/' + division.division.state + '.json').success(function(data) {
             state = data;
             $scope.stateCandidates = _.map(data.ballot_order, function(id) {
                 return data.candidates[id];
@@ -207,6 +216,12 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
 function TicketViewerCtrl($scope, $http, $location) {
     var state = $location.path();
+    if (state == "/ticketviewer.html") {
+        state = $location.hash();
+    }
+    if (state.substr(0, 7) == '/viewer') {
+        state = state.substr(7);
+    }   
 
     $scope.ticket = [null, null];
     $scope.candidateOrder = [[], []];
