@@ -1,3 +1,4 @@
+'use strict';
 
 function TicketViewerCtrl($scope, $http, $location) {
     var state = $location.path();
