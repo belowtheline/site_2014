@@ -326,10 +326,13 @@ task :pdfballots do
 end
 
 desc "Serve site on port 8000"
-task :serve do
+task :serve, :host, :port do |t, args|
+  args.with_defaults(:host => '127.0.0.1', :port => 8000)
+
   require 'webrick'
 
-  server = WEBrick::HTTPServer.new Port: 8000, DocumentRoot: OUTPUT_DIR
+  server = WEBrick::HTTPServer.new Port: args[:port].to_i,
+    BindAddress: args['host'], DocumentRoot: OUTPUT_DIR
   server.mount_proc '/editor' do |req, res|
     res.body = File.read(File.join(OUTPUT_DIR, 'ballotpicker.html'))
   end
@@ -337,7 +340,7 @@ task :serve do
     res.body = File.read(File.join(OUTPUT_DIR, 'ticketviewer.html'))
   end
   trap 'INT' do server.shutdown end
-  puts "Serving on http://127.0.0.1:8000"
+  puts "Serving on http://#{args[:host]}:#{args[:port]}"
   server.start
 end
 
