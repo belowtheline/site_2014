@@ -18,6 +18,10 @@ function TicketViewerCtrl($scope, $http, $location) {
         var ticket = parseInt($scope.ticket[idx].slice(-1)) - 1;
 
         $scope.candidateOrder[idx] = $scope.groups[group].tickets[ticket];
+
+        if (idx == 0) {
+            $location.hash($scope.ticket[0]);
+        }
     }
 
     function generateTicketList() {
