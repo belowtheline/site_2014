@@ -36,6 +36,9 @@ def output(name, body, locals={}, scaf_locals={})
   if not scaf_locals.has_key? :title then
     scaf_locals[:title] = nil
   end
+  if not scaf_locals.has_key? :base then
+    scaf_locals[:base] = nil
+  end
 
   content = layout.render(Object.new, scaf_locals)
   File.write(File.join(OUTPUT_DIR, name), content)
@@ -189,8 +192,8 @@ task content: [:output_dirs] do
     {title: "News"})
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
-  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Editor'})
-  output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer'})
+  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Editor', base: '/editor/'})
+  output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer', base: '/viewer/'})
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
