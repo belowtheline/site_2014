@@ -67,7 +67,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     }
 
     var initialize = function() {
-        divisionPath = findDivisionPath();
+        divisionPath = $location.path();
         $http.get('/division' + divisionPath + '.json').success(function(data) {
             division = data;
             $scope.divisionName = data.division.name
@@ -105,17 +105,6 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         $http.get('/parties.json').success(function(data) {
             $scope.parties = data;
         });
-    };
-
-    var findDivisionPath = function() {
-        var path = $location.path();
-        if (path == "/ballotpicker.html") {
-            path = $location.hash();
-        }
-        if (path.substr(0, 7) == '/editor') {
-            path = path.substr(7);
-        }
-        return(path);
     };
 
     var applyGroupOrdering = function() {
