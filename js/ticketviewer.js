@@ -2,14 +2,8 @@
 
 function TicketViewerCtrl($scope, $http, $location) {
     var state = $location.path();
-    if (state == "/ticketviewer.html") {
-        state = $location.hash();
-    }
-    if (state.substr(0, 7) == '/viewer') {
-        state = state.substr(7);
-    }
 
-    $scope.ticket = [null, null];
+    $scope.ticket = [$location.hash() || null, null];
     $scope.candidateOrder = [[], []];
 
     $scope.ticketList = [];
@@ -20,9 +14,8 @@ function TicketViewerCtrl($scope, $http, $location) {
             return;
         }
 
-        var data = $scope.ticket[idx].split('-');
-        var group = data[0];
-        var ticket = parseInt(data[1]) - 1;
+        var group = $scope.ticket[idx].slice(0, -1);
+        var ticket = parseInt($scope.ticket[idx].slice(-1)) - 1;
 
         $scope.candidateOrder[idx] = $scope.groups[group].tickets[ticket];
     }
@@ -52,13 +45,13 @@ function TicketViewerCtrl($scope, $http, $location) {
 
             if (group.tickets.length == 1) {
                 tickets.push({
-                    id: "" + group_id + "-1",
+                    id: group_id + "1",
                     name: group.name
                 });
             } else {
                 angular.forEach(group.tickets, function (ticket, idx) {
                     tickets.push({
-                        id: "" + group_id + "-" + (idx + 1),
+                        id: group_id + (idx + 1),
                         name: group.name + " (" + (idx + 1) + " of " + group.tickets.length + ")"
                     });
                 });
@@ -66,6 +59,10 @@ function TicketViewerCtrl($scope, $http, $location) {
         });
 
         $scope.ticketList = tickets;
+
+        if (!!$scope.ticket[0]) {
+            $scope.changeTicket(0);
+        }
     }
 
     $http.get('/state' + state + '.json').
