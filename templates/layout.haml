@@ -52,17 +52,19 @@
             %li
               %a(href="https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796")
                 %img.social-logo(src="/images/FB-f-Logo__blue_144.png" alt="Facebook")
+            %li
+              %a
+                %form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank")
+                  %input(type="hidden" name="cmd" value="_s-xclick")
+                  %input(type="hidden" name="hosted_button_id" value="ZXQHV6SD4DP3W")
+                  %input(type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.")
+                  %img(alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1")
+
     .container
       = body
       .row
         .col-lg-12
           .well#footer
-            .pull-right
-              %form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top")
-                %input(type="hidden" name="cmd" value="_s-xclick")
-                %input(type="hidden" name="hosted_button_id" value="ZXQHV6SD4DP3W")
-                %input(type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.")
-                %img(alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1")
             %p.muted.credit Find out more about the site at <a href="http://github.com/belowtheline/site">GitHub</a>. Hosting generously provided by <a href="http://rackspace.com/">Rackspace</a>.
             %p.muted.credit Site code and content &copy; Benno Rice & Michael Pearson 2013.
             %p.muted.credit Incorporates data that is &copy; Commonwealth of Australia (Australian Electoral Commission) 2013.
