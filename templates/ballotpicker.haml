@@ -5,7 +5,7 @@
         %h1 Ballot Editor for {{divisionName}}
 
       .pull-right
-        %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division") Download PDF
+        %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#downloadModal") Download PDF
       %p.lead Click and drag items in the list to re-order them.
 
   .row
@@ -56,3 +56,14 @@
                   {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
+  #downloadModal.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close(type="button" data-dismiss="modal") &times;
+          %h4.modal-title Generating Printable Ballot
+        .modal-body
+          %p Your ballot should download shortly in PDF format. On Windows you may need to install a PDF reading application such as <a href="http://get.adobe.com/reader/">Adobe Reader</a>.
+        .modal-footer
+          %button.btn.btn-primary(type="button" data-dismiss="modal") Close
+

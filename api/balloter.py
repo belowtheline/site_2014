@@ -243,7 +243,7 @@ def pdf():
                    request.form['state'], senate_ticket)
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'filename=ballot.pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=ballot.pdf'
     return response
 
 if __name__ == '__main__':
