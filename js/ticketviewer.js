@@ -2,26 +2,42 @@
 
 function TicketViewerCtrl($scope, $http, $location) {
     var state = $location.path();
+    var hash = $location.hash();
 
-    $scope.ticket = [$location.hash() || null, null];
+    $scope.ticket = [null, null];
+    if (hash.indexOf('v') != -1) {
+        $scope.ticket = hash.split('v', 2);
+    } else if (hash) {
+        $scope.ticket = [hash, null];
+    }
+
     $scope.candidateOrder = [[], []];
 
     $scope.ticketList = [];
+    $scope.shareURL = '';
+    $scope.shareTicketText = 'this ticket';
+    $scope.shareWarning = '';
 
     $scope.changeTicket = function (idx) {
         if (!$scope.ticket[idx]) {
             $scope.candidateOrder[idx] = $scope.ballotOrder;
-            return;
+        } else {
+            var group = $scope.ticket[idx].slice(0, -1);
+            var ticket = parseInt($scope.ticket[idx].slice(-1)) - 1;
+
+            $scope.candidateOrder[idx] = $scope.groups[group].tickets[ticket];
         }
 
-        var group = $scope.ticket[idx].slice(0, -1);
-        var ticket = parseInt($scope.ticket[idx].slice(-1)) - 1;
-
-        $scope.candidateOrder[idx] = $scope.groups[group].tickets[ticket];
-
-        if (idx == 0) {
+        if (!$scope.ticket[1]) {
             $location.hash($scope.ticket[0]);
-        }
+            $scope.shareTicketText = 'this ticket';
+            $scope.shareWarning = '';
+        } else {
+            $location.hash($scope.ticket.join('v'));
+            $scope.shareTicketText = 'these tickets';
+            $scope.shareWarning = 'Note that only one ticket will be visible on smaller devices such as phones.';
+       }
+        $scope.shareURL = 'http://btl.tv/t' + state + '/' + $location.hash();
     }
 
     function generateTicketList() {
@@ -64,8 +80,11 @@ function TicketViewerCtrl($scope, $http, $location) {
 
         $scope.ticketList = tickets;
 
-        if (!!$scope.ticket[0]) {
-            $scope.changeTicket(0);
+        for (var i = 0; i <= 1; i++) {
+            console.log(i);
+            if (!!$scope.ticket[i]) {
+                $scope.changeTicket(i);
+            }
         }
     }
 
