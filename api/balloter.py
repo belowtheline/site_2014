@@ -182,23 +182,31 @@ def generate(division, div_ticket, state, sen_ticket):
         index = 0
         height = PAGE_HEIGHT - TOP_MARGIN - division_height - BOX_GAP
         while first_page and row_height >= height and index < len(groups):
-            yield 2, groups[index:index + GROUPS_PER_ROW - 2]
+            page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
+            if page_end:
+                break
             index += GROUPS_PER_ROW - 2
         for block in range(index, len(groups), GROUPS_PER_ROW):
             yield 0, groups[block:block + GROUPS_PER_ROW]
 
-    for col_offset, block in group_block_iterator(groups):
+    group_blocks = group_block_iterator(groups)
+    for col_offset, block in group_blocks:
         max_candidates = max([len(g['candidates']) for g in block])
         group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
         tl = None
         br = None
 
+        if row_height <= group_height + GROUP_ROW_GAP:
+            end_page(c)
+            row_height = PAGE_HEIGHT - TOP_MARGIN
+            if first_page:
+                first_page = False
+                col_offset, block = group_blocks.send(True)
+                max_candidates = max([len(g['candidates']) for g in block])
+                group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
+
         for col, group in enumerate(block):
             col += col_offset
-
-            if row_height <= group_height + GROUP_ROW_GAP:
-                end_page(c)
-                row_height = PAGE_HEIGHT - TOP_MARGIN
 
             if not group['label'].startswith('UG'):
                 group_label = "Group " + group['label']
