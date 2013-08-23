@@ -5,11 +5,16 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     var division = {};
     var state = {};
 
+    var storeURL = 'http://127.0.0.1:5005/store';
+    var pdfURL = 'http://api.belowtheline.org.au/pdf'
+
     $scope.orders = {};
     $scope.ballotOrders = {};
     $scope.parties = {};
 
     $scope.orderByGroup = true;
+
+    $scope.saveURL = '';
 
     $scope.dirty = function(ordering) {
         return !(_.isEqual($scope.orders[ordering], $scope.ballotOrders[ordering]));
@@ -33,19 +38,48 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         }
     };
 
+    function makeTicket(order, ballotOrder) {
+        var ticket = [];
+
+        angular.forEach(ballotOrder, function (candidate, idx) {
+            ticket.push(_.indexOf(order, candidate) + 1);
+        });
+
+        return ticket;
+    }
+
+    function unmakeTicket(ticket, ballotOrder) {
+        var order = _.zip(ticket, ballotOrder);
+        order.sort(function (a, b) { return a[0] - b[0]; });
+        return _.map(order, function (a) { return a[1]; });
+    }
+
+    $scope.saveBallot = function () {
+        var ballot = {
+            division: divisionPath.slice(1),
+            division_ticket: makeTicket($scope.orders.division,
+                                        $scope.ballotOrders.division),
+            order_by_group: $scope.orderByGroup
+        };
+
+        if ($scope.orderByGroup) {
+            ballot.senate_ticket = makeTicket($scope.orders.group,
+                                              $scope.ballotOrders.group);
+        } else {
+            ballot.senate_ticket = makeTicket($scope.orders.state,
+                                              $scope.ballotOrders.state);
+        }
+
+        $http.post(storeURL, angular.toJson(ballot), {
+            "Content-Type": "application/json"
+        }).success(function (data) {
+            $scope.saveURL = "http://btl.tv/b/" + data.ballot_id;
+        });
+    }
+
     $scope.downloadPDF = function () {
         if ($scope.orderByGroup) {
           applyGroupOrdering();
-        }
-
-        function makeTicket(order, ballotOrder) {
-            var ticket = [];
-
-            angular.forEach(ballotOrder, function (candidate, idx) {
-                ticket.push(_.indexOf(order, candidate) + 1);
-            });
-
-            return ticket;
         }
 
         var division_ticket = makeTicket($scope.orders.division,
@@ -57,7 +91,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
         }
 
-        var form = '<form action="http://api.belowtheline.org.au/pdf" method="POST">' +
+        var form = '<form action="' + pdfURL + '" method="POST">' +
                     make_input('division', divisionPath.slice(1)) +
                     make_input('state', division.division.state.split('/')[1]) +
                     make_input('division_ticket', division_ticket.join(',')) +
@@ -99,12 +133,39 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
                 });
                 $scope.ballotOrders.group = $scope.orders.group.slice();
 
+                if ($location.hash()) {
+                    loadBallot();
+                }
             });
         });
 
         $http.get('/parties.json').success(function(data) {
             $scope.parties = data;
         });
+
+        function loadBallot() {
+            $http.get(storeURL + '/' + $location.hash(), {
+                headers: {'Accept': 'application/json'}
+            }).success(function (data) {
+                if (divisionPath != '/' + data.division) {
+                    return;
+                }
+
+                $scope.orders.division = unmakeTicket(data.division_ticket,
+                                                      $scope.ballotOrders.division);
+
+                $scope.orderByGroup = data.order_by_group;
+                if (data.order_by_group) {
+                    $scope.orders.group = unmakeTicket(data.senate_ticket,
+                                                       $scope.ballotOrders.group);
+                } else {
+                    $scope.orders.state = unmakeTicket(data.senate_ticket,
+                                                       $scope.ballotOrders.state);
+                }
+            }).error(function () {
+                console.log('poot');
+            });
+        }
     };
 
     var applyGroupOrdering = function() {

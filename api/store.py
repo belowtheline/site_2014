@@ -4,11 +4,11 @@ from functools import update_wrapper
 import random
 import string
 
-from flask import Flask, abort, current_app, jsonify, make_response, request
+from flask import Flask, abort, current_app, jsonify, make_response, redirect, \
+                  request
 import redis
 
-ID_ALPHABET = ''.join([string.lowercase, string.uppercase, string.digits,
-                       '~!@$%^*()-_=+<>,.|'])
+ID_ALPHABET = ''.join([string.lowercase, string.uppercase, string.digits])
 REDIS_HOST = 'localhost'
 REDIS_DB = 5
 MAX_TRIES = 10
@@ -56,7 +56,7 @@ def crossdomain(origin=None, methods=None, headers=None,
         return update_wrapper(wrapped_function, f)
     return decorator
 
-def store_at_random_id(ballot, start_length=5):
+def store_at_random_id(ballot, start_length=3):
     r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
     candidate = None
     n = start_length
@@ -65,10 +65,6 @@ def store_at_random_id(ballot, start_length=5):
     def store(c):
         if c is None:
             return False
-
-        for reserved in RESERVED:
-            if c.startswith(reserved):
-                return False
 
         for key in sorted(ballot.keys()):
             if not r.hsetnx(c, key, ballot[key]):
@@ -89,29 +85,31 @@ def store_at_random_id(ballot, start_length=5):
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def store_ballot():
     if request.json is not None:
-        state = request.json['state']
         division = request.json['division']
         division_ticket = request.json['division_ticket']
         senate_ticket = request.json['senate_ticket']
+        order_by_group = request.json['order_by_group']
     else:
-        state = request.form['state']
         division = request.form['division']
         division_ticket = request.form['division_ticket'].split(',')
         senate_ticket = request.form['senate_ticket'].split(',')
+        order_by_group = bool(int(request.form['order_by_group']))
 
     ballot_id = store_at_random_id({
-        'state': state,
         'division': division,
         'division_ticket': ','.join(str(x) for x in division_ticket),
         'senate_ticket': ','.join(str(x) for x in senate_ticket),
+        'order_by_group': int(order_by_group),
     })
 
     return jsonify({'ballot_id': ballot_id})
 
-@app.route('/store/', methods=['GET', 'OPTIONS'])
-@crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
-def foo():
-    return ''
+def request_wants_json():
+    best = request.accept_mimetypes \
+        .best_match(['application/json', 'text/html'])
+    return best == 'application/json' and \
+        request.accept_mimetypes[best] > \
+        request.accept_mimetypes['text/html']
 
 @app.route('/store/<ballot_id>', methods=['GET', 'OPTIONS'])
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
@@ -121,39 +119,17 @@ def get_ballot(ballot_id):
     if not r.exists(ballot_id):
         abort(404)
 
-    ballot = r.hgetall(ballot_id)
-    for ticket in ('division_ticket', 'senate_ticket'):
-        ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
+    if request_wants_json():
+        ballot = r.hgetall(ballot_id)
+        for ticket in ('division_ticket', 'senate_ticket'):
+            ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
+        ballot['order_by_group'] = bool(int(ballot['order_by_group']))
 
-    return jsonify(ballot)
+        return jsonify(ballot)
 
-RESERVED = (
-    'act', 'nsw', 'nt', 'qld', 'sa', 'tas', 'vic', 'wa',
-    'adelaide', 'aston', 'ballarat', 'banks', 'barker', 'barton', 'bass',
-    'batman', 'bendigo', 'bennelong', 'berowra', 'blair', 'blaxland',
-    'bonner', 'boothby', 'bowman', 'braddon', 'bradfield', 'brand',
-    'brisbane', 'bruce', 'calare', 'calwell', 'canberra', 'canning',
-    'capricornia', 'casey', 'charlton', 'chifley', 'chisholm', 'cook',
-    'corangamite', 'corio', 'cowan', 'cowper', 'cunningham', 'curtin',
-    'dawson', 'deakin', 'denison', 'dickson', 'dobell', 'dunkley', 'durack',
-    'edenmonaro', 'fadden', 'fairfax', 'farrer', 'fisher', 'flinders',
-    'flynn', 'forde', 'forrest', 'fowler', 'franklin', 'fraser', 'fremantle',
-    'gellibrand', 'gilmore', 'gippsland', 'goldstein', 'gorton', 'grayndler',
-    'greenway', 'grey', 'griffith', 'groom', 'hasluck', 'herbert', 'higgins',
-    'hindmarsh', 'hinkler', 'holt', 'hotham', 'hughes', 'hume', 'hunter',
-    'indi', 'isaacs', 'jagajaga', 'kennedy', 'kingsfordsmith', 'kingston',
-    'kooyong', 'lalor', 'latrobe', 'leichhardt', 'lilley', 'lindsay',
-    'lingiari', 'longman', 'lyne', 'lyons', 'macarthur', 'mackellar',
-    'macquarie', 'makin', 'mallee', 'maranoa', 'maribyrnong', 'mayo',
-    'mcewen', 'mcmahon', 'mcmillan', 'mcpherson', 'melbourne',
-    'melbourneports', 'menzies', 'mitchell', 'moncrieff', 'moore', 'moreton',
-    'murray', 'newcastle', 'newengland', 'northsydney', 'oconnor', 'oxley',
-    'page', 'parkes', 'parramatta', 'paterson', 'pearce', 'perth', 'petrie',
-    'portadelaide', 'rankin', 'reid', 'richmond', 'riverina', 'robertson',
-    'ryan', 'scullin', 'shortland', 'solomon', 'stirling', 'sturt', 'swan',
-    'sydney', 'tangney', 'throsby', 'wakefield', 'wannon', 'warringah',
-    'watson', 'wentworth', 'werriwa', 'widebay', 'wills', 'wright',
-)
+    division = r.hget(ballot_id, 'division')
+    url = 'http://belowtheline.org.au/editor/{}#{}'.format(division, ballot_id)
+    return redirect(url)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)
