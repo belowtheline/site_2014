@@ -362,6 +362,9 @@ end
 
 desc "Build Sitemap"
 task :sitemap do
+  states = load('state')
+  divisions = load('division')
+
   sitemap = File.open(File.join(OUTPUT_DIR, 'sitemap.xml.gz'), 'w')
   sitemap = Zlib::GzipWriter.new(sitemap)
 
@@ -369,11 +372,29 @@ task :sitemap do
   xml.instruct! :xml, encoding: "UTF-8"
   xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do |urlset|
     Find.find(OUTPUT_DIR) do |filename|
+      next if filename == 'site/ballotpicker.html'
+      next if filename == 'site/ticketviewer.html'
       next if not filename.match /\.html$/
 
       xml.url do |url|
         url.loc 'http://belowtheline.org.au/' + filename.sub(/^site\//, '')
         url.lastmod File.stat(filename).mtime.strftime('%Y-%m-%d')
+        url.changefreq 'hourly'
+      end
+    end
+
+    states.each do |state_id, state|
+      xml.url do |url|
+        url.loc "http://belowtheline.org.au/viewer/#{state_id}"
+        url.lastmod File.stat("site/ticketviewer.html").mtime.strftime('%Y-%m-%d')
+        url.changefreq 'hourly'
+      end
+    end
+
+    divisions.each do |division_id, division|
+      xml.url do |url|
+        url.loc "http://belowtheline.org.au/editor/#{division_id}"
+        url.lastmod File.stat("site/ballotpicker.html").mtime.strftime('%Y-%m-%d')
         url.changefreq 'hourly'
       end
     end
