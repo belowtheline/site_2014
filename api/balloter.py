@@ -148,7 +148,11 @@ def generate(division, div_ticket, state, sen_ticket):
     row = 0
     col = 0
 
-    division_height = len(candidates) * (BOX_SIZE + DIVISION_BOX_GAP) + DIVISION_BOX_GAP
+    if len(candidates) > 13:
+        box_gap = DIVISION_BOX_GAP
+    else:
+        box_gap = BOX_GAP
+    division_height = len(candidates) * (BOX_SIZE + box_gap) + box_gap
     tl = (LEFT_MARGIN + col * GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
     br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
 
@@ -162,7 +166,7 @@ def generate(division, div_ticket, state, sen_ticket):
     for i in range(0, len(candidates)):
         family, given, party = candidates[i]
         number = div_ticket.pop(0)
-        draw_candidate(c, number, family, given, party, i, tl, br, DIVISION_BOX_GAP)
+        draw_candidate(c, number, family, given, party, i, tl, br, box_gap)
 
     tl = (LEFT_MARGIN + GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
     br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
@@ -182,7 +186,7 @@ def generate(division, div_ticket, state, sen_ticket):
     def group_block_iterator(groups):
         index = 0
         height = PAGE_HEIGHT - TOP_MARGIN - division_height - BOX_GAP
-        while first_page and row_height >= height and index < len(groups):
+        while index < len(groups):
             page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
             if page_end:
                 break
@@ -235,9 +239,6 @@ def generate(division, div_ticket, state, sen_ticket):
 
         c.line(br[0], br[1], br[0], tl[1])
         row_height -= group_height + GROUP_ROW_GAP
-
-        if row_height <= group_height + GROUP_ROW_GAP:
-            first_page = False
 
     disclaimer(c)
     c.save()
