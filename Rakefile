@@ -9,6 +9,8 @@ Bundler.require(:development)
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
 
+SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
+
 task :output_dirs do
   %w{division state news js css}.each do |dirname|
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, dirname))
@@ -39,6 +41,8 @@ def output(name, body, locals={}, scaf_locals={})
   if not scaf_locals.has_key? :base then
     scaf_locals[:base] = nil
   end
+
+  scaf_locals[:shortrev] = SHORTREV
 
   content = layout.render(Object.new, scaf_locals)
   File.write(File.join(OUTPUT_DIR, name), content)
@@ -304,7 +308,19 @@ end
 desc "Build & Copy JS into site directory (requires uglify-js)"
 task js: [:output_dirs] do
   FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
-  FileUtils.cp(Dir.glob('js/*.js'), File.join(OUTPUT_DIR, 'js'))
+
+  filename = File.join(OUTPUT_DIR, 'js', "belowtheline-#{SHORTREV}.js")
+  need_rebuild = !File.exists?(filename)
+
+  js = []
+  Dir.glob("js/*.js").each do |name|
+    js.push(File.read(name))
+  end
+  File.write(filename, js.join(''))
+
+  if need_rebuild
+    Rake::Task["content"].invoke
+  end
 end
 
 desc "Build & Copy CSS into site directory (requires lessc)"
