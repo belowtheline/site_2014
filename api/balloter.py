@@ -48,6 +48,7 @@ RIGHT_MARGIN = 6.5 * mm
 GROUP_ROW_GAP = 5 * mm
 
 BOX_SIZE = 6 * mm
+DIVISION_BOX_GAP = 5.5 * mm
 BOX_GAP = 7 * mm
 
 FONT_SIZE = 8.0
@@ -105,20 +106,20 @@ def draw_text(string, text, font, size, width, leading=None):
     else:
         text.textLine(string)
 
-def draw_candidate(c, number, family, given, party, i, tl, br):
+def draw_candidate(c, number, family, given, party, i, tl, br, box_gap):
     number = str(number)
     font = pdfmetrics.getFont(FONT)
 
     c.rect(tl[0] + 1 * mm,
-           tl[1] - 3 * mm - i * BOX_GAP - (i + 1) * BOX_SIZE,
+           tl[1] - 3 * mm - i * box_gap - (i + 1) * BOX_SIZE,
            BOX_SIZE, BOX_SIZE)
     width = font.stringWidth(number, FONT_SIZE + 1.0)
     c.setFont(FONT, FONT_SIZE + 1.0)
     c.drawCentredString(tl[0] + 1.1 * mm + BOX_SIZE / 2.0,
-                        tl[1] - 2.3 * mm - i * BOX_GAP - (i + 1) * BOX_SIZE + 1.5 * mm,
+                        tl[1] - 2.3 * mm - i * box_gap - (i + 1) * BOX_SIZE + 1.5 * mm,
                         number)
     text = c.beginText(tl[0] + 2 * mm + BOX_SIZE,
-                       tl[1] - 3 * mm - i * BOX_GAP - i * BOX_SIZE - 4.5)
+                       tl[1] - 3 * mm - i * box_gap - i * BOX_SIZE - 4.5)
     text.setFont(FONT + '-Bold', CANDIDATE_FONT_SIZE,
                  leading=1.1 * CANDIDATE_FONT_SIZE)
     text.textLine(family)
@@ -147,7 +148,11 @@ def generate(division, div_ticket, state, sen_ticket):
     row = 0
     col = 0
 
-    division_height = len(candidates) * (BOX_SIZE + BOX_GAP) + BOX_GAP
+    if len(candidates) > 13:
+        box_gap = DIVISION_BOX_GAP
+    else:
+        box_gap = BOX_GAP
+    division_height = len(candidates) * (BOX_SIZE + box_gap) + box_gap
     tl = (LEFT_MARGIN + col * GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
     br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
 
@@ -161,7 +166,7 @@ def generate(division, div_ticket, state, sen_ticket):
     for i in range(0, len(candidates)):
         family, given, party = candidates[i]
         number = div_ticket.pop(0)
-        draw_candidate(c, number, family, given, party, i, tl, br)
+        draw_candidate(c, number, family, given, party, i, tl, br, box_gap)
 
     tl = (LEFT_MARGIN + GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
     br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
@@ -181,24 +186,32 @@ def generate(division, div_ticket, state, sen_ticket):
     def group_block_iterator(groups):
         index = 0
         height = PAGE_HEIGHT - TOP_MARGIN - division_height - BOX_GAP
-        while first_page and row_height >= height and index < len(groups):
-            yield 2, groups[index:index + GROUPS_PER_ROW - 2]
+        while index < len(groups):
+            page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
+            if page_end:
+                break
             index += GROUPS_PER_ROW - 2
         for block in range(index, len(groups), GROUPS_PER_ROW):
             yield 0, groups[block:block + GROUPS_PER_ROW]
 
-    for col_offset, block in group_block_iterator(groups):
+    group_blocks = group_block_iterator(groups)
+    for col_offset, block in group_blocks:
         max_candidates = max([len(g['candidates']) for g in block])
         group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
         tl = None
         br = None
 
+        if row_height <= group_height + GROUP_ROW_GAP:
+            end_page(c)
+            row_height = PAGE_HEIGHT - TOP_MARGIN
+            if first_page:
+                first_page = False
+                col_offset, block = group_blocks.send(True)
+                max_candidates = max([len(g['candidates']) for g in block])
+                group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
+
         for col, group in enumerate(block):
             col += col_offset
-
-            if row_height <= group_height + GROUP_ROW_GAP:
-                end_page(c)
-                row_height = PAGE_HEIGHT - TOP_MARGIN
 
             if not group['label'].startswith('UG'):
                 group_label = "Group " + group['label']
@@ -222,13 +235,10 @@ def generate(division, div_ticket, state, sen_ticket):
             for i in range(0, len(group['candidates'])):
                 family, given, party = group['candidates'][i]
                 number = sen_ticket.pop(0)
-                draw_candidate(c, number, family, given, party, i, tl, br)
+                draw_candidate(c, number, family, given, party, i, tl, br, BOX_GAP)
 
         c.line(br[0], br[1], br[0], tl[1])
         row_height -= group_height + GROUP_ROW_GAP
-
-        if row_height <= group_height + GROUP_ROW_GAP:
-            first_page = False
 
     disclaimer(c)
     c.save()
@@ -243,7 +253,7 @@ def pdf():
                    request.form['state'], senate_ticket)
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'filename=ballot.pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=ballot.pdf'
     return response
 
 if __name__ == '__main__':
