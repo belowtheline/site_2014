@@ -9,6 +9,8 @@ Bundler.require(:development)
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
 
+SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
+
 task :output_dirs do
   %w{division state news js css}.each do |dirname|
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, dirname))
@@ -36,6 +38,11 @@ def output(name, body, locals={}, scaf_locals={})
   if not scaf_locals.has_key? :title then
     scaf_locals[:title] = nil
   end
+  if not scaf_locals.has_key? :base then
+    scaf_locals[:base] = nil
+  end
+
+  scaf_locals[:shortrev] = SHORTREV
 
   content = layout.render(Object.new, scaf_locals)
   File.write(File.join(OUTPUT_DIR, name), content)
@@ -189,8 +196,8 @@ task content: [:output_dirs] do
     {title: "News"})
 
   File.write(File.join(OUTPUT_DIR, 'parties.json'), JSON.generate(parties))
-  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Editor'})
-  output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer'})
+  output('ballotpicker.html', template('ballotpicker'), {}, {title: 'Ballot Editor', base: '/editor/'})
+  output('ticketviewer.html', template('ticketviewer'), {}, {title: 'Ticket Viewer', base: '/viewer/'})
 
   Parallel.each(divisions.keys) do |division_id|
     division = divisions[division_id]
@@ -301,7 +308,19 @@ end
 desc "Build & Copy JS into site directory (requires uglify-js)"
 task js: [:output_dirs] do
   FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
-  FileUtils.cp(Dir.glob('js/*.js'), File.join(OUTPUT_DIR, 'js'))
+
+  filename = File.join(OUTPUT_DIR, 'js', "belowtheline-#{SHORTREV}.js")
+  need_rebuild = !File.exists?(filename)
+
+  js = []
+  Dir.glob("js/*.js").each do |name|
+    js.push(File.read(name))
+  end
+  File.write(filename, js.join(''))
+
+  if need_rebuild
+    Rake::Task["content"].invoke
+  end
 end
 
 desc "Build & Copy CSS into site directory (requires lessc)"
@@ -323,10 +342,13 @@ task :pdfballots do
 end
 
 desc "Serve site on port 8000"
-task :serve do
+task :serve, :host, :port do |t, args|
+  args.with_defaults(:host => '127.0.0.1', :port => 8000)
+
   require 'webrick'
 
-  server = WEBrick::HTTPServer.new Port: 8000, DocumentRoot: OUTPUT_DIR
+  server = WEBrick::HTTPServer.new Port: args[:port].to_i,
+    BindAddress: args['host'], DocumentRoot: OUTPUT_DIR
   server.mount_proc '/editor' do |req, res|
     res.body = File.read(File.join(OUTPUT_DIR, 'ballotpicker.html'))
   end
@@ -334,12 +356,15 @@ task :serve do
     res.body = File.read(File.join(OUTPUT_DIR, 'ticketviewer.html'))
   end
   trap 'INT' do server.shutdown end
-  puts "Serving on http://127.0.0.1:8000"
+  puts "Serving on http://#{args[:host]}:#{args[:port]}"
   server.start
 end
 
 desc "Build Sitemap"
 task :sitemap do
+  states = load('state')
+  divisions = load('division')
+
   sitemap = File.open(File.join(OUTPUT_DIR, 'sitemap.xml.gz'), 'w')
   sitemap = Zlib::GzipWriter.new(sitemap)
 
@@ -347,11 +372,29 @@ task :sitemap do
   xml.instruct! :xml, encoding: "UTF-8"
   xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do |urlset|
     Find.find(OUTPUT_DIR) do |filename|
+      next if filename == 'site/ballotpicker.html'
+      next if filename == 'site/ticketviewer.html'
       next if not filename.match /\.html$/
 
       xml.url do |url|
         url.loc 'http://belowtheline.org.au/' + filename.sub(/^site\//, '')
         url.lastmod File.stat(filename).mtime.strftime('%Y-%m-%d')
+        url.changefreq 'hourly'
+      end
+    end
+
+    states.each do |state_id, state|
+      xml.url do |url|
+        url.loc "http://belowtheline.org.au/viewer/#{state_id}"
+        url.lastmod File.stat("site/ticketviewer.html").mtime.strftime('%Y-%m-%d')
+        url.changefreq 'hourly'
+      end
+    end
+
+    divisions.each do |division_id, division|
+      xml.url do |url|
+        url.loc "http://belowtheline.org.au/editor/#{division_id}"
+        url.lastmod File.stat("site/ballotpicker.html").mtime.strftime('%Y-%m-%d')
         url.changefreq 'hourly'
       end
     end

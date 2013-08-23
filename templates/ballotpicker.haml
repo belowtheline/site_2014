@@ -14,15 +14,15 @@
       %h3
         House of Representatives
         %small
-          %a.pull-right(ng-show="divisionDirty()" ng-click="resetDivision()") Reset to Ballot Order
+          %a.pull-right(ng-show="dirty('division')" ng-click="reset('division')") Reset to Ballot Order
 
       %table.table.table-condensed
-        %tbody(ui-sortable ng-model="divisionCandidates")
-          %tr(ng-repeat="c in divisionCandidates")
+        %tbody(ui-sortable ng-model="orders.division")
+          %tr(ng-repeat="c in orders.division")
             %td {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
-                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                %a(href="{{parties[c.party].website}}" target="_blank")
                   {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
@@ -34,27 +34,26 @@
           %button.btn.btn-primary.btn-small(ng-class="orderByGroup && 'active'" ng-click="showOrderByGroup()") By Group
           %button.btn.btn-primary.btn-small(ng-class="orderByGroup || 'active'" ng-click="showOrderByCandidate()") By Candidate
         %small
-          %a.pull-right(ng-show="!orderByGroup && stateDirty()" ng-click="resetState()") Reset to Ballot Order
-          %a.pull-right(ng-show="orderByGroup && groupsDirty()" ng-click="resetGroups()") Reset to Ballot Order
+          %a.pull-right(ng-show="!orderByGroup && dirty('state')" ng-click="reset('state')") Reset to Ballot Order
+          %a.pull-right(ng-show="orderByGroup && dirty('group')" ng-click="reset('group')") Reset to Ballot Order
 
       %table.table.table-condensed(ng-show="orderByGroup")
-        %tbody(ui-sortable ng-model="groups")
-          %tr(ng-repeat="c in groups")
+        %tbody(ui-sortable ng-model="orders.group")
+          %tr(ng-repeat="c in orders.group")
             %td {{c.name }}
             %td
               %span(ng-repeat="p in c.parties" class="partycode party party-{{p}}")
-                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                %a(href="{{parties[p].website}}" target="_blank")
                   {{ parties[p].code }}
 
-
       %table.table.table-condensed(ng-hide="orderByGroup")
-        %tbody(ui-sortable ng-model="stateCandidates")
-          %tr(ng-repeat="c in stateCandidates")
+        %tbody(ui-sortable ng-model="orders.state")
+          %tr(ng-repeat="c in orders.state")
             %td {{c.group}}
             %td {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
-                %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
+                %a(href="{{parties[c.party].website}}" target="_blank")
                   {{ parties[c.party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent

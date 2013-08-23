@@ -2,6 +2,8 @@
   .row
     .col.lg-12
       .page-header
+        .pull-right
+          %button.btn.btn-primary(data-toggle="modal" href="#shareModal") Share This
         %h1 Preference Tickets for {{state.name}}
 
       %p
@@ -36,3 +38,19 @@
                 {{ parties[candidates[person_id].party].name }}
               %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
                 IND
+
+  #shareModal.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close(type="button" data-dismiss="modal") &times;
+          %h4.modal-title Share Ticket
+        .modal-body
+          %p You can share {{shareTicketText}} with the following URL:
+          %p
+            %input.form-control(type="text" value="{{shareURL}}")
+          %p
+            %small
+              {{shareWarning}}
+        .modal-footer
+          %button.btn.btn-primary(type="button" data-dismiss="modal") Close

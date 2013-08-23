@@ -197,7 +197,6 @@ def generate(division, div_ticket, state, sen_ticket):
             col += col_offset
 
             if row_height <= group_height + GROUP_ROW_GAP:
-                first_page = False
                 end_page(c)
                 row_height = PAGE_HEIGHT - TOP_MARGIN
 
@@ -227,6 +226,9 @@ def generate(division, div_ticket, state, sen_ticket):
 
         c.line(br[0], br[1], br[0], tl[1])
         row_height -= group_height + GROUP_ROW_GAP
+
+        if row_height <= group_height + GROUP_ROW_GAP:
+            first_page = False
 
     disclaimer(c)
     c.save()
