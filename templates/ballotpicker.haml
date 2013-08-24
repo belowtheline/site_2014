@@ -18,7 +18,13 @@
       %table.table.table-condensed
         %tbody(ui-sortable ng-model="orders.division")
           %tr(ng-repeat="c in orders.division")
-            %td {{c.first_name}} {{c.last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
                 %a(href="{{parties[c.party].website}}" target="_blank")
@@ -49,7 +55,13 @@
         %tbody(ui-sortable ng-model="orders.state")
           %tr(ng-repeat="c in orders.state")
             %td {{c.group}}
-            %td {{c.first_name}} {{c.last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
                 %a(href="{{parties[c.party].website}}" target="_blank")

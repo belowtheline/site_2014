@@ -23,6 +23,13 @@
         - candidates.each do |candidate|
           %tr
             %td
+              .pull-right
+                - if candidate['website']
+                  %a.candidate-link(href="#{candidate['website']}" target="_blank")
+                    %span.glyphicon.glyphicon-link
+                - if candidate['wikipedia']
+                  %a.candidate-link(href="#{candidate['wikipedia']}" target="_blank")
+                    %img(src="/images/wikipedia-w.png" alt="Wikipedia")
               - if candidate == representative
                 <strong>#{candidate['first_name']} #{candidate['last_name']}</strong>
               - else
@@ -37,6 +44,13 @@
       - senators.each do |senator|
         %tr
           %td
+            .pull-right
+              - if senator['website']
+                %a.candidate-link(href="#{senator['website']}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+              -if senator['wikipedia']
+                %a(href="#{senator['wikipedia']}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
             #{senator['first_name']} #{senator['last_name']}
           %td
             = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)

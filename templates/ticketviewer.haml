@@ -17,7 +17,13 @@
       %table.table.table-condensed
         %tbody(ng-model="candidateOrder[0]")
           %tr(ng-repeat="person_id in candidateOrder[0]")
-            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
               %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
                 %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
@@ -32,7 +38,13 @@
       %table.table.table-condensed
         %tbody(ng-model="candidateOrder[1]")
           %tr(ng-repeat="person_id in candidateOrder[1]")
-            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
               %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
                 {{ parties[candidates[person_id].party].name }}
