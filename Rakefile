@@ -335,8 +335,16 @@ task css: [:output_dirs] do
   if not res then
     puts "lessc failed, is it installed?"
   end
-  system "lessc less/app.less site/css/app.css"
+
+  filename = File.join(OUTPUT_DIR, 'css', "belowtheline-#{SHORTREV}.css")
+  need_rebuild = !File.exists?(filename)
+
+  system "lessc less/app.less #{filename}"
   FileUtils.cp("less/bootstrap-glyphicons.css", "site/css/bootstrap-glyphicons.css")
+
+  if need_rebuild
+    Rake::Task["content"].invoke
+  end
 end
 
 desc "Generate ballot data for PDF renderer"
