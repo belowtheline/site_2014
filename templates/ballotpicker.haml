@@ -3,7 +3,7 @@
     .col-lg-12
       .page-header
         .pull-right
-          %button.btn.btn-primary(ng-click="saveBallot()" data-toggle="modal" href="#saveModal") Save
+          %button.btn.btn-primary(ng-click="saveBallot()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#saveModal") Save
           %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#downloadModal") Download PDF
         %h1 Ballot Editor for {{divisionName}}
         %p.lead Click and drag items in the list to re-order them.
