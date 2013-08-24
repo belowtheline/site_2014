@@ -5,7 +5,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     var division = {};
     var state = {};
 
-    var storeURL = 'http://127.0.0.1:5005/store';
+    var storeURL = 'http://api.belowtheline.org.au/store';
     var pdfURL = 'http://api.belowtheline.org.au/pdf'
 
     $scope.orders = {};
