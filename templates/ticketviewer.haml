@@ -6,9 +6,19 @@
           %button.btn.btn-primary(data-toggle="modal" href="#shareModal") Share This
         %h1 Preference Tickets for {{state.name}}
 
-      %p
-        Select tickets below and compare the various preference flows. The "Ballot Order" setting shows what would happen if you simply numbered the boxes sequentially through the groups on the ballot. Selecting a ticket will re-order the candidates into the order set by that ticket.
-
+        %p
+          Select tickets below and compare the various preference flows. The "Ballot Order" setting shows what would happen if you simply numbered the boxes sequentially through the groups on the ballot. Selecting a ticket will re-order the candidates into the order set by that ticket.
+        %p
+          To share any ticket, select it and then click the "Share This" button at the top right.
+        %p
+          More information on the parties can be found by clicking the party name or abbreviation to the right of each candidate.
+          This will open the party's website in a new window or tab. Candidates
+          may also have either or both of Wikipedia or link icons next to their
+          names. These will open the candidate's Wikipedia entry or personal
+          website in a new window or tab.
+        %p
+          If you know of a Wikipedia entry or website for a candidate who doesn't
+          have one or the other, please let us know.
   .row
     .col-lg-6
       %select.form-control(ng-model="ticket[0]" ng-change="changeTicket(0)" ng-options="ticket.id as ticket.name for ticket in ticketList")
@@ -17,7 +27,13 @@
       %table.table.table-condensed
         %tbody(ng-model="candidateOrder[0]")
           %tr(ng-repeat="person_id in candidateOrder[0]")
-            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
               %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
                 %a(href="{{parties[candidates[person_id].party].website}}" target="_blank")
@@ -32,7 +48,13 @@
       %table.table.table-condensed
         %tbody(ng-model="candidateOrder[1]")
           %tr(ng-repeat="person_id in candidateOrder[1]")
-            %td {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{candidates[person_id].first_name}} {{candidates[person_id].last_name}}
             %td
               %span(ng-show="parties[candidates[person_id].party]" class="partycode party party-{{candidates[person_id].party}}")
                 {{ parties[candidates[person_id].party].name }}

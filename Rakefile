@@ -12,7 +12,7 @@ TEMPLATE_DIR = 'templates'
 SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
 
 task :output_dirs do
-  %w{division state news js css}.each do |dirname|
+  %w{division state news js css fonts images}.each do |dirname|
     FileUtils.mkdir_p(File.join(OUTPUT_DIR, dirname))
   end
 end
@@ -103,7 +103,8 @@ end
 task default: :site
 
 desc "Build site"
-task site: [:output_dirs, :images, :js, :css, :content, :sitemap, :pdfballots]
+task site: [:output_dirs, :images, :fonts, :js, :css, :content, :sitemap,
+            :pdfballots]
 
 desc "Build content from templates & data"
 task content: [:output_dirs] do
@@ -305,6 +306,11 @@ task images: [:output_dirs] do
   FileUtils.mv(File.join(OUTPUT_DIR, 'images', 'favicon.ico'), File.join(OUTPUT_DIR, 'favicon.ico'))
 end
 
+desc "Copy fonts into site directory"
+task fonts: [:output_dirs] do
+  FileUtils.cp_r('fonts', File.join(OUTPUT_DIR))
+end
+
 desc "Build & Copy JS into site directory (requires uglify-js)"
 task js: [:output_dirs] do
   FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
@@ -329,7 +335,16 @@ task css: [:output_dirs] do
   if not res then
     puts "lessc failed, is it installed?"
   end
-  system "lessc less/app.less site/css/app.css"
+
+  filename = File.join(OUTPUT_DIR, 'css', "belowtheline-#{SHORTREV}.css")
+  need_rebuild = !File.exists?(filename)
+
+  system "lessc less/app.less #{filename}"
+  FileUtils.cp("less/bootstrap-glyphicons.css", "site/css/bootstrap-glyphicons.css")
+
+  if need_rebuild
+    Rake::Task["content"].invoke
+  end
 end
 
 desc "Generate ballot data for PDF renderer"

@@ -2,12 +2,20 @@
   .row
     .col-lg-12
       .page-header
+        .pull-right
+          %button.btn.btn-primary(ng-click="saveBallot()" data-toggle="modal" href="#saveModal") Save
+          %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#downloadModal") Download PDF
         %h1 Ballot Editor for {{divisionName}}
-
-      .pull-right
-        %button.btn.btn-primary(ng-click="saveBallot()" data-toggle="modal" href="#saveModal") Save
-        %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#downloadModal") Download PDF
-      %p.lead Click and drag items in the list to re-order them.
+        %p.lead Click and drag items in the list to re-order them.
+        %p
+          More information on the parties can be found by clicking the party name to the right of each candidate or the party abbreviation to the right of each group name.
+          This will open the party's website in a new window or tab. Candidates
+          may also have either or both of Wikipedia or link icons next to their
+          names. These will open the candidate's Wikipedia entry or personal
+          website in a new window or tab.
+        %p
+          If you know of a Wikipedia entry or website for a candidate who doesn't
+          have one or the other, please let us know.
 
   .row
     .col-lg-6
@@ -19,7 +27,13 @@
       %table.table.table-condensed
         %tbody(ui-sortable ng-model="orders.division")
           %tr(ng-repeat="c in orders.division")
-            %td {{c.first_name}} {{c.last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}")
                 %a(href="{{parties[c.party].website}}" target="_blank")
@@ -50,7 +64,13 @@
         %tbody(ui-sortable ng-model="orders.state")
           %tr(ng-repeat="c in orders.state")
             %td {{c.group}}
-            %td {{c.first_name}} {{c.last_name}}
+            %td
+              .pull-right 
+                %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+                %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
+              {{c.first_name}} {{c.last_name}}
             %td
               %span(ng-show="parties[c.party]" class="partycode party party-{{c.party}}" title="{{parties[c.party].name}}")
                 %a(href="{{parties[c.party].website}}" target="_blank")
