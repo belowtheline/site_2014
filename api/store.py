@@ -111,6 +111,18 @@ def request_wants_json():
         request.accept_mimetypes[best] > \
         request.accept_mimetypes['text/html']
 
+@app.route('/b/<ballot_id>')
+@crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
+def redirect_ballot(ballot_id):
+    r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
+
+    if not r.exists(ballot_id):
+        abort(404)
+
+    division = r.hget(ballot_id, 'division')
+    url = 'http://belowtheline.org.au/editor/{}#{}'.format(division, ballot_id)
+    return redirect(url)
+
 @app.route('/store/<ballot_id>', methods=['GET', 'OPTIONS'])
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def get_ballot(ballot_id):
@@ -119,17 +131,13 @@ def get_ballot(ballot_id):
     if not r.exists(ballot_id):
         abort(404)
 
-    if request_wants_json():
-        ballot = r.hgetall(ballot_id)
-        for ticket in ('division_ticket', 'senate_ticket'):
-            ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
-        ballot['order_by_group'] = bool(int(ballot['order_by_group']))
+    ballot = r.hgetall(ballot_id)
+    for ticket in ('division_ticket', 'senate_ticket'):
+        ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
+    ballot['order_by_group'] = bool(int(ballot['order_by_group']))
 
-        return jsonify(ballot)
+    return jsonify(ballot)
 
-    division = r.hget(ballot_id, 'division')
-    url = 'http://belowtheline.org.au/editor/{}#{}'.format(division, ballot_id)
-    return redirect(url)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)
