@@ -330,6 +330,7 @@ task js: [:output_dirs] do
   File.write(filename, js.join(''))
 
   if need_rebuild
+    Rake::Task["css"].invoke
     Rake::Task["content"].invoke
   end
 end
@@ -348,6 +349,7 @@ task css: [:output_dirs] do
   FileUtils.cp("less/bootstrap-glyphicons.css", "site/css/bootstrap-glyphicons.css")
 
   if need_rebuild
+    Rake::Task["js"].invoke
     Rake::Task["content"].invoke
   end
 end
