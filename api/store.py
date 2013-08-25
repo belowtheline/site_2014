@@ -1,12 +1,15 @@
 from datetime import timedelta
 from functools import update_wrapper
 
+import functools
+import os
 import random
 import string
 
 from flask import Flask, abort, current_app, jsonify, make_response, redirect, \
                   request
 import redis
+import rollbar
 
 ID_ALPHABET = ''.join([string.lowercase, string.uppercase, string.digits])
 REDIS_HOST = 'localhost'
@@ -14,6 +17,22 @@ REDIS_DB = 5
 MAX_TRIES = 10
 
 app = Flask(__name__)
+
+def setup_rollbar(environment):
+    if 'ROLLBAR_TOKEN' not in os.environ:
+        return
+    rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
+                 allow_logging_basic_config=False)
+
+def rollbarred(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        try:
+            f(*args, **kwargs)
+        except:
+            rollbar.report_exc_info()
+            raise
+    return wrapper
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -82,6 +101,7 @@ def store_at_random_id(ballot, start_length=3):
     return candidate
 
 @app.route('/store', methods=['POST', 'OPTIONS'])
+@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def store_ballot():
     if request.json is not None:
@@ -104,14 +124,8 @@ def store_ballot():
 
     return jsonify({'ballot_id': ballot_id})
 
-def request_wants_json():
-    best = request.accept_mimetypes \
-        .best_match(['application/json', 'text/html'])
-    return best == 'application/json' and \
-        request.accept_mimetypes[best] > \
-        request.accept_mimetypes['text/html']
-
 @app.route('/b/<ballot_id>')
+@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def redirect_ballot(ballot_id):
     r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
@@ -124,6 +138,7 @@ def redirect_ballot(ballot_id):
     return redirect(url)
 
 @app.route('/store/<ballot_id>', methods=['GET', 'OPTIONS'])
+@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def get_ballot(ballot_id):
     r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
@@ -138,6 +153,9 @@ def get_ballot(ballot_id):
 
     return jsonify(ballot)
 
-
 if __name__ == '__main__':
+    setup_rollbar('debug')
     app.run(debug=True, port=5005)
+else:
+    setup_rollbar('production')
+

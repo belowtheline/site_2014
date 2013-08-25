@@ -43,6 +43,11 @@ def output(name, body, locals={}, scaf_locals={})
   end
 
   scaf_locals[:shortrev] = SHORTREV
+  if ENV['BTL_PRODUCTION']
+    scaf_locals[:rollbar_environment] = 'production'
+  else
+    scaf_locals[:rollbar_environment] = 'debug'
+  end
 
   content = layout.render(Object.new, scaf_locals)
   File.write(File.join(OUTPUT_DIR, name), content)

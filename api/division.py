@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 
+import functools
+import os
+
 from datetime import timedelta
 from functools import update_wrapper
 
 from flask import Flask, abort, current_app, jsonify, make_response, request
 
 import psycopg2
+
+import rollbar
 
 import dbcreds
 
@@ -15,6 +20,22 @@ SELECT elect_div FROM com20111216_elb_region WHERE
 """
 
 app = Flask(__name__)
+
+def setup_rollbar(environment):
+    if 'ROLLBAR_TOKEN' not in os.environ:
+        return
+    rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
+                 allow_logging_basic_config=False)
+
+def rollbarred(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        try:
+            f(*args, **kwargs)
+        except:
+            rollbar.report_exc_info()
+            raise
+    return wrapper
 
 if not app.debug:
     import logging
@@ -65,6 +86,7 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 @app.route('/division', methods=['GET', 'POST', 'OPTIONS'])
+@rollbarred
 @crossdomain(origin='*', headers=['Content-Type', 'X-Requested-With'])
 def division_lookup():
     if request.json is None and request.method == 'POST':
@@ -94,4 +116,7 @@ def division_lookup():
     return jsonify({'division': name})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    setup_rollbar('debug')
+    app.run(debug=True)
+else:
+    setup_rollbar('production')

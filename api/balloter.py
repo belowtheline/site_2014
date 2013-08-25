@@ -2,6 +2,8 @@
 
 import cPickle
 import cStringIO
+import functools
+import os
 import string
 
 from flask import Flask, abort, make_response, request
@@ -11,6 +13,8 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfgen import canvas
+
+import rollbar
 
 app = Flask(__name__)
 
@@ -245,7 +249,24 @@ def generate(division, div_ticket, state, sen_ticket):
 
     return container.getvalue()
 
+def setup_rollbar(environment):
+    if 'ROLLBAR_TOKEN' not in os.environ:
+        return
+    rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
+                 allow_logging_basic_config=False)
+
+def rollbarred(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        try:
+            f(*args, **kwargs)
+        except:
+            rollbar.report_exc_info()
+            raise
+    return wrapper
+
 @app.route('/pdf', methods=['POST'])
+@rollbarred
 def pdf():
     division_ticket = request.form['division_ticket'].split(',')
     senate_ticket = request.form['senate_ticket'].split(',')
@@ -257,7 +278,7 @@ def pdf():
     return response
 
 if __name__ == '__main__':
-    app.run(port=5002, debug=True)
-    # import sys
-    # open('test.pdf', 'w').write(generate(sys.argv[1], range(1, 20),
-    #                                      sys.argv[2], range(1, 200)))
+    setup_rollbar('debug')
+    app.run(debug=True, port=5002)
+else:
+    setup_rollbar('production')
