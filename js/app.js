@@ -2,8 +2,24 @@
 
 (function () {
     var GEO_API_URL = 'http://api.belowtheline.org.au/division';
+    var CONFIRM_URL_IMAGE_FORMAT = 'http://maps.googleapis.com/maps/api/staticmap?size=300x300&visual_refresh=true&sensor=SENSOR&markers=|LATITUDE,LONGITUDE&zoom=14';
 
     var geocoder = null;
+
+    function confirmLatLon(latitude, longitude, sensor) {
+        var image_url = CONFIRM_URL_IMAGE_FORMAT;
+        image_url = image_url.replace('SENSOR', sensor);
+        image_url = image_url.replace('LATITUDE', latitude);
+        image_url = image_url.replace('LONGITUDE', longitude);
+        $('#geo-progress').hide();
+        $('#geo-progress').after($('<img class="geo-confirm-image" src="' + image_url + '">'));
+
+        $('#use-location').unbind('click');
+        $('#use-location').click(function (e) {
+            e.preventDefault();
+            divisionByLatLon(latitude, longitude);
+        });
+    }
 
     function divisionByLatLon(latitude, longitude) {
         $.ajax({
@@ -17,27 +33,41 @@
     }
 
     $(document).ready(function () {
-        if (false && !!navigator.geolocation) {
+        if (!!navigator.geolocation) {
             $(".geolocation-only").show();
             $(".geolocation-alt").hide();
 
             $('#geolocate').click(function (e) {
                 e.preventDefault();
-                $(this).button('loading');
+
+                $('.geolocation-warning').show();
+                $('.address-warning').hide();
+                $('.geo-confirm-image').remove();
+                $('#geo-progress').show();
 
                 navigator.geolocation.getCurrentPosition(function (position) {
-                    console.log(position.coords.latitude + ", " + position.coords.longitude);
-                    divisionByLatLon(position.coords.latitude,
-                                     position.coords.longitude);
+                    confirmLatLon(position.coords.latitude,
+                                  position.coords.longitude, true);
                 }, function (error) {
                     console.log(error);
                 });
             });
         }
 
-        $('#address').submit(function (e) {
+        $('#addressInput').keyup(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                $('#addressSearch').click();
+            }
+        });
+
+        $('#addressSearch').click(function (e) {
             e.preventDefault();
-            $('#addressSearch').button('loading');
+
+            $('.geolocation-warning').hide();
+            $('.address-warning').show();
+            $('#geo-confirm-image').remove();
+            $('#geo-progress').show();
 
             var address = $('#addressInput').val();
 
@@ -48,7 +78,7 @@
             geocoder.geocode({ address: address, region: 'au'},
                 function (results, status) {
                     var latlng = results[0].geometry.location;
-                    divisionByLatLon(latlng.lat(), latlng.lng());
+                    confirmLatLon(latlng.lat(), latlng.lng(), false);
                 });
         });
 
