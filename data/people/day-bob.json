@@ -4,5 +4,6 @@
     "first_name": "Bob",
     "group": "B",
     "last_name": "DAY",
-    "party": "ffp"
+    "party": "ffp",
+    "wikipedia": "https://en.wikipedia.org/wiki/Bob_Day"
 }
