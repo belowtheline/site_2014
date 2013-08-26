@@ -2,7 +2,7 @@
   .col-lg-12
     .page-header
       .pull-right
-        %a.btn.btn-primary(href="/ticketviewer.html#/#{state_id}")
+        %a.btn.btn-primary(href="/viewer/#{state_id}")
           View Preferences
       %h1= state['name']
   .col-lg-6
@@ -12,6 +12,13 @@
       - senators.each do |senator|
         %tr
           %td
+            .pull-right
+              - if senator['website']
+                %a.candidate-link(href="#{senator['website']}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+              -if senator['wikipedia']
+                %a(href="#{senator['wikipedia']}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
             #{senator['first_name']} #{senator['last_name']}
           %td
             = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)
@@ -23,6 +30,13 @@
         - candidate = candidates[candidate_id]
         %tr
           %td
+            .pull-right
+              - if candidate['website']
+                %a.candidate-link(href="#{candidate['website']}" target="_blank")
+                  %span.glyphicon.glyphicon-link
+              -if candidate['wikipedia']
+                %a(href="#{candidate['wikipedia']}" target="_blank")
+                  %img(src="/images/wikipedia-w.png" alt="Wikipedia")
             #{candidate['first_name']} #{candidate['last_name']}
           %td
             = partytmpl.render(Object.new, :code => candidate['party'], :parties => parties)

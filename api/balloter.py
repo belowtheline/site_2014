@@ -255,27 +255,21 @@ def setup_rollbar(environment):
     rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
                  allow_logging_basic_config=False)
 
-def rollbarred(f):
-    @functools.wraps(f)
-    def wrapper(*args, **kwargs):
-        try:
-            f(*args, **kwargs)
-        except:
-            rollbar.report_exc_info()
-            raise
-    return wrapper
-
 @app.route('/pdf', methods=['POST'])
-@rollbarred
 def pdf():
-    division_ticket = request.form['division_ticket'].split(',')
-    senate_ticket = request.form['senate_ticket'].split(',')
-    pdf = generate(request.form['division'], division_ticket,
-                   request.form['state'], senate_ticket)
-    response = make_response(pdf)
-    response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'attachment; filename=ballot.pdf'
-    return response
+    try:
+        division_ticket = request.form['division_ticket'].split(',')
+        senate_ticket = request.form['senate_ticket'].split(',')
+        pdf = generate(request.form['division'], division_ticket,
+                       request.form['state'], senate_ticket)
+        response = make_response(pdf)
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = \
+	    'attachment; filename=ballot.pdf'
+        return response
+    except:
+        rollbar.report_exc_info()
+        raise
 
 if __name__ == '__main__':
     setup_rollbar('debug')
