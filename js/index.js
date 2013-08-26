@@ -1,50 +1,56 @@
 'use strict';
 
-function IndexCtrl($scope, $http, $window) {
-    var CONFIRM_URL_IMAGE_FORMAT = 'http://maps.googleapis.com/maps/api/staticmap?size=300x300&visual_refresh=true&sensor=SENSOR&markers=|LATITUDE,LONGITUDE&zoom=14';
+function IndexCtrl($scope, $http, $window, geolocation) {
+    var GEO_API_URL = 'http://api.belowtheline.org.au/division';
 
     $scope.division = '';
     $scope.address = '';
-    $scope.geoConfirmationImage = '';
-
-    function makeGeoConfirmationImage(latitude, longitude, sensor) {
-        var image_url = CONFIRM_URL_IMAGE_FORMAT;
-        image_url = image_url.replace('SENSOR', sensor);
-        image_url = image_url.replace('LATITUDE', latitude);
-        image_url = image_url.replace('LONGITUDE', longitude);
-
-        return image_url;
-    }
+    $scope.position = {
+        latitude: 0,
+        longitude: 0
+    };
+    $scope.showMap = false;
+    $scope.usingGeolocation = false;
 
     $scope.geoAvailable = function () {
         return !!navigator.geolocation;
     }
 
     $scope.geolocate = function () {
-        $scope.geoConfirmationImage = '';
-        navigator.geolocation.getCurrentPosition(function (position) {
-            $scope.geoConfirmationImage =
-                makeGeoConfirmationImage(position.coords.latitude,
-                                         position.coords.longitude, true)
-        }, function (error) {
-            console.log(error);
-        });
+        $scope.usingGeolocation = true;
+        $scope.showMap = false;
+        geolocation.position().
+            then(function (position) {
+                $scope.position.latitude = position.coords.latitude;
+                $scope.position.longitude = position.coords.longitude;
+                $scope.position.sensor = true;
+                $scope.showMap = true;
+            }, function (error) {
+                console.log(error);
+            });
     }
 
     $scope.addressLookup = function () {
+        $scope.usingGeolocation = false;
+        $scope.showMap = false;
+
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({ address: $scope.address, region: 'au'},
             function (results, status) {
-                var latlng = results[0].geometry.location;
-                $scope.geoConfirmationImage =
-                    makeGeoConfirmationImage(latlng.lat(), latlng.lng(), false);
-                console.log($scope.geoConfirmationImage);
+                $scope.$apply(function () {
+                    var latlng = results[0].geometry.location;
+                    $scope.position.latitude = latlng.lat();
+                    $scope.position.longitude = latlng.lng();
+                    $scope.position.sensor = false;
+                    $scope.showMap = true;
+                })
             });
     }
 
     $scope.useLocation = function () {
-        $http.get(GEO_API_URL + '?latitude=' + latitude + '&longitude=' + longitude).
+        $http.get(GEO_API_URL + '?latitude=' + $scope.position.latitude + 
+                  '&longitude=' + $scope.position.longitude).
             success(function (data) {
                 $window.location = '/division/' + data.division + '.html';
             }).error(function () {

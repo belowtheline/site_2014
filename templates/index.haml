@@ -51,9 +51,9 @@
         .modal-body
           %p This is where we think you are:
           .text-center
-            .progress.progress-striped.active#geo-progress(ng-hide="geoConfirmationImage")
+            .progress.progress-striped.active#geo-progress(ng-hide="showMap")
               .progress-bar(style="width: 100%")
-            %img(ng-show="geoConfirmationImage" src="{{geoConfirmationImage}}")
+            %img(ng-show="showMap" ng-src="http://maps.googleapis.com/maps/api/staticmap?size=300x300&visual_refresh=true&sensor={{position.sensor}}&markers=|{{position.latitude}},{{position.longitude}}&zoom=14")
           %p(ng-show="usingGeolocation")
             Note that this location is based on your browser's geolocation
             facility which, particularly on desktops or laptops, may be
