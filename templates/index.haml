@@ -1,46 +1,47 @@
-.row
-  .col-lg-5
-    .jumbotron
-      %h2 Let's start!
-      .geolocation-only
-        %form
-          %h3 Use your current location
-          %button.btn.btn-primary#geolocate(type="button" data-toggle="modal" href="#geoModal")
-            Find me!
-      %div
-        %form#address
-          %h3
-            %span.geolocation-only Or use
-            %span.geolocation-alt Use
-            location search
-          .input-group
-            %input.form-control#addressInput(type="text" placeholder="Address...")
-            .input-group-btn
-              %button.btn.btn-primary#addressSearch(type="submit" data-toggle="modal" href="#geoModal") Search
-      %div
-        %form.form-inline#division
-          %h3 Or select your division
-          .input-group
-            %select#divisionSelector.form-control
-              %option(value="") Division...
-              - states.keys.sort.each do |state_id|
-                %optgroup(label="#{states[state_id]["name"]}")
-                  - divisions.keys.sort.each do |division_id|
-                    - division = divisions[division_id]
-                    - next if division["state"] != "state/#{state_id}"
-                    %option(value="#{division_id}")= division["name"]
-            .input-group-btn
-              %button.btn.btn-primary(type="submit") Go
+#index(ng-app="belowtheline" ng-controller="IndexCtrl")
+  .row
+    .col-lg-5
+      .jumbotron
+        %h2 Let's start!
+        %div(ng-show="geoAvailable()")
+          %form
+            %h3 Use your current location
+            %button.btn.btn-primary#geolocate(type="button" data-toggle="modal" href="#geoModal" ng-click="geolocate()")
+              Find me!
+        %div
+          %form
+            %h3
+              %span(ng-show="geoAvailable()") Or use
+              %span(ng-hide="geoAvailable()") Use
+              location search
+            .input-group
+              %input.form-control(type="text" placeholder="Address..." ng-model="address")
+              .input-group-btn
+                %button.btn.btn-primary(type="submit" data-toggle="modal" href="#geoModal" ng-click="addressLookup()") Search
+        %div
+          %form.form-inline
+            %h3 Or select your division
+            .input-group
+              %select.form-control(ng-model="division")
+                %option(value="") Division...
+                - states.keys.sort.each do |state_id|
+                  %optgroup(label="#{states[state_id]["name"]}")
+                    - divisions.keys.sort.each do |division_id|
+                      - division = divisions[division_id]
+                      - next if division["state"] != "state/#{state_id}"
+                      %option(value="#{division_id}")= division["name"]
+              .input-group-btn
+                %button.btn.btn-primary(ng-click="selectDivision()") Go
 
-  .col-lg-7
-    .content-box
-      = intro
-    .content-box
-      .lead
-        Latest News (
-        %a(href='/news.html')>< Older News...
-        )
-      = news
+    .col-lg-7
+      .content-box
+        = intro
+      .content-box
+        .lead
+          Latest News (
+          %a(href='/news.html')>< Older News...
+          )
+        = news
   #geoModal.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
     .modal-dialog
       .modal-content
@@ -50,13 +51,14 @@
         .modal-body
           %p This is where we think you are:
           .text-center
-            .progress.progress-striped.active#geo-progress
+            .progress.progress-striped.active#geo-progress(ng-hide="geoConfirmationImage")
               .progress-bar(style="width: 100%")
-          %p.geolocation-warning
+            %img(ng-show="geoConfirmationImage" src="{{geoConfirmationImage}}")
+          %p(ng-show="usingGeolocation")
             Note that this location is based on your browser's geolocation
             facility which, particularly on desktops or laptops, may be
             inaccurate.
-          %p.address-warning
+          %p(ng-hide="usingGeolocation")
             Note that this location is based on your input. Simply entering a
             postcode may be insufficient as some postcodes cover multiple
             electoral divisions.
@@ -68,4 +70,4 @@
             and select the division they give you from the drop down menu.
         .modal-footer
           %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
-          %button.btn.btn-primary#use-location(type="button") Use This Location
+          %button.btn.btn-primary#use-location(type="button" ng-click="useLocation()") Use This Location
