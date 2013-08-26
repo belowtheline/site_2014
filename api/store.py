@@ -24,16 +24,6 @@ def setup_rollbar(environment):
     rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
                  allow_logging_basic_config=False)
 
-def rollbarred(f):
-    @functools.wraps(f)
-    def wrapper(*args, **kwargs):
-        try:
-            f(*args, **kwargs)
-        except:
-            rollbar.report_exc_info()
-            raise
-    return wrapper
-
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
                 automatic_options=True):
@@ -101,57 +91,66 @@ def store_at_random_id(ballot, start_length=3):
     return candidate
 
 @app.route('/store', methods=['POST', 'OPTIONS'])
-@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def store_ballot():
-    if request.json is not None:
-        division = request.json['division']
-        division_ticket = request.json['division_ticket']
-        senate_ticket = request.json['senate_ticket']
-        order_by_group = request.json['order_by_group']
-    else:
-        division = request.form['division']
-        division_ticket = request.form['division_ticket'].split(',')
-        senate_ticket = request.form['senate_ticket'].split(',')
-        order_by_group = bool(int(request.form['order_by_group']))
+    try:
+        if request.json is not None:
+            division = request.json['division']
+            division_ticket = request.json['division_ticket']
+            senate_ticket = request.json['senate_ticket']
+            order_by_group = request.json['order_by_group']
+        else:
+            division = request.form['division']
+            division_ticket = request.form['division_ticket'].split(',')
+            senate_ticket = request.form['senate_ticket'].split(',')
+            order_by_group = bool(int(request.form['order_by_group']))
 
-    ballot_id = store_at_random_id({
-        'division': division,
-        'division_ticket': ','.join(str(x) for x in division_ticket),
-        'senate_ticket': ','.join(str(x) for x in senate_ticket),
-        'order_by_group': int(order_by_group),
-    })
+        ballot_id = store_at_random_id({
+            'division': division,
+            'division_ticket': ','.join(str(x) for x in division_ticket),
+            'senate_ticket': ','.join(str(x) for x in senate_ticket),
+            'order_by_group': int(order_by_group),
+        })
 
-    return jsonify({'ballot_id': ballot_id})
+        return jsonify({'ballot_id': ballot_id})
+    except:
+        rollbar.report_exc_info()
+        raise
 
 @app.route('/b/<ballot_id>')
-@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def redirect_ballot(ballot_id):
-    r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
+    try:
+        r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
 
-    if not r.exists(ballot_id):
-        abort(404)
+        if not r.exists(ballot_id):
+            abort(404)
 
-    division = r.hget(ballot_id, 'division')
-    url = 'http://belowtheline.org.au/editor/{}#{}'.format(division, ballot_id)
-    return redirect(url)
+        division = r.hget(ballot_id, 'division')
+        url = 'http://belowtheline.org.au/editor/{}#{}'.format(division, ballot_id)
+        return redirect(url)
+    except:
+        rollbar.report_exc_info()
+        raise
 
 @app.route('/store/<ballot_id>', methods=['GET', 'OPTIONS'])
-@rollbarred
 @crossdomain(origin=['*'], headers=['Content-Type', 'X-Requested-With'])
 def get_ballot(ballot_id):
-    r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
+    try:
+        r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
 
-    if not r.exists(ballot_id):
-        abort(404)
+        if not r.exists(ballot_id):
+            abort(404)
 
-    ballot = r.hgetall(ballot_id)
-    for ticket in ('division_ticket', 'senate_ticket'):
-        ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
-    ballot['order_by_group'] = bool(int(ballot['order_by_group']))
+        ballot = r.hgetall(ballot_id)
+        for ticket in ('division_ticket', 'senate_ticket'):
+            ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
+        ballot['order_by_group'] = bool(int(ballot['order_by_group']))
 
-    return jsonify(ballot)
+        return jsonify(ballot)
+    except:
+        rollbar.report_exc_info()
+        raise
 
 if __name__ == '__main__':
     setup_rollbar('debug')
