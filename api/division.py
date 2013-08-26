@@ -76,7 +76,6 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 @app.route('/division', methods=['GET', 'POST', 'OPTIONS'])
-@rollbarred
 @crossdomain(origin='*', headers=['Content-Type', 'X-Requested-With'])
 def division_lookup():
     try:
