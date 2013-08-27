@@ -14,7 +14,6 @@
       %base(href="#{base}")
 
     %link(rel="stylesheet" href="/css/bootstrap.css")
-    %link(rel="stylesheet" href="/css/bootstrap-glyphicons.css")
     %link(rel="stylesheet" href="/css/belowtheline-#{shortrev}.css")
 
     :javascript
@@ -30,8 +29,8 @@
     %script(src="/js/belowtheline-#{shortrev}.js")
 
   %body
-    .navbar.navbar-static-top
-      .container
+    %nav.navbar.navbar-static-top
+      .navbar-header
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
@@ -41,25 +40,25 @@
           %img.logo(src="/images/belowtheline.png")
           Below The Line
 
-        .pull-right.nav-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li
-              %a(href="/about-us.html") About Us
-            %li
-              %a(href="/privacy.html") Privacy
-            %li
-              %a(href="https://twitter.com/belowtheline_au")
-                %img.social-logo(src="/images/twitter-bird-light-bgs.png" alt="Twitter")
-            %li
-              %a(href="https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796")
-                %img.social-logo(src="/images/FB-f-Logo__blue_144.png" alt="Facebook")
-            %li
-              %a
-                %form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank")
-                  %input(type="hidden" name="cmd" value="_s-xclick")
-                  %input(type="hidden" name="hosted_button_id" value="ZXQHV6SD4DP3W")
-                  %input(type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.")
-                  %img(alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1")
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a(href="/about-us.html") About Us
+          %li
+            %a(href="/privacy.html") Privacy
+          %li
+            %a(href="https://twitter.com/belowtheline_au")
+              %img.social-logo(src="/images/twitter-bird-light-bgs.png" alt="Twitter")
+          %li
+            %a(href="https://www.facebook.com/pages/Voting-Below-The-Line/147330751945796")
+              %img.social-logo(src="/images/FB-f-Logo__blue_144.png" alt="Facebook")
+          %li
+            %a
+              %form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank")
+                %input(type="hidden" name="cmd" value="_s-xclick")
+                %input(type="hidden" name="hosted_button_id" value="ZXQHV6SD4DP3W")
+                %input(type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.")
+                %img(alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1")
 
     .container
       = body
