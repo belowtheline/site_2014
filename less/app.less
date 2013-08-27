@@ -1,5 +1,6 @@
 @import  "../vendor/bootstrap/less/variables.less";
 @import  "../vendor/bootstrap/less/mixins.less";
+@import  "../vendor/bootstrap/less/type.less";
 
 
 .navbar-brand-longer {
@@ -52,3 +53,16 @@
 }
 
 a.candidate-link { color: @text-color; text-decoration: none; vertical-align: middle; }
+
+td.prefnumber { vertical-align: top; margin-right: 5px; }
+div.prefnumber {
+  .text-center;
+  vertical-align: middle;
+  font-size: 18px;
+  border: 1px solid #444444;
+  width: 35px;
+  height: 35px;
+}
+
+.lastname { font-weight: bold; }
+.partyname { text-transform: uppercase; font-size: 80%; font-weight: light; }

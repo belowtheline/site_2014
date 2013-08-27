@@ -7,4 +7,6 @@ group :development do
   gem 'haml'
   gem 'kramdown'
   gem 'parallel'
+  gem 'sinatra'
+  gem 'redis'
 end
