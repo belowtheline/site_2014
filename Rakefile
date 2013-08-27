@@ -94,7 +94,6 @@ def load_content(filename, target_filename)
   content[0] = '<div class="page-header">' + content[0] + '</div>'
 
   if done_teaser
-    puts "HERE"
     target_link = "<a href=\"#{target_filename}\">Read more...</a>"
     teaser_content.push("<p><strong>#{target_link}</strong></p>")
 
@@ -176,7 +175,6 @@ task content: [:output_dirs] do
     body, teaser = load_content(File.join('news', filename), target)
     body = '<div>' + body + '</div>'
 
-    puts body
     title = body.match(/<h1.*?>(.*?)<\/h1>/)[1]
 
     posts[timestamp.to_date] ||= []

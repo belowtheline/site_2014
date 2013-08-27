@@ -1,68 +1,28 @@
 'use strict';
 
-(function () {
-    var GEO_API_URL = 'http://api.belowtheline.org.au/division';
-
-    var geocoder = null;
-
-    function divisionByLatLon(latitude, longitude) {
-        $.ajax({
-            type: "GET",
-            url: GEO_API_URL + '?latitude=' + latitude + '&longitude=' + longitude
-        }).done(function (data) {
-            window.location = '/division/' + data.division + '.html';
-        }).fail(function () {
-             console.log("OH NOES");
-        });
-    }
-
-    $(document).ready(function () {
-        if (false && !!navigator.geolocation) {
-            $(".geolocation-only").show();
-            $(".geolocation-alt").hide();
-
-            $('#geolocate').click(function (e) {
-                e.preventDefault();
-                $(this).button('loading');
-
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    console.log(position.coords.latitude + ", " + position.coords.longitude);
-                    divisionByLatLon(position.coords.latitude,
-                                     position.coords.longitude);
-                }, function (error) {
-                    console.log(error);
-                });
-            });
-        }
-
-        $('#address').submit(function (e) {
-            e.preventDefault();
-            $('#addressSearch').button('loading');
-
-            var address = $('#addressInput').val();
-
-            if (geocoder == null) {
-                geocoder = new google.maps.Geocoder();
-            }
-
-            geocoder.geocode({ address: address, region: 'au'},
-                function (results, status) {
-                    var latlng = results[0].geometry.location;
-                    divisionByLatLon(latlng.lat(), latlng.lng());
-                });
-        });
-
-        $('#division').submit(function (e) {
-            e.preventDefault();
-
-            var divisionId = $('#divisionSelector').val();
-            window.location = '/division/' + divisionId + '.html';
+angular.module('ngGeolocation',[])
+  .constant('options',{})
+  .factory('geolocation',
+        ["$q","$rootScope","options",
+function ($q , $rootScope , options){
+  return {
+    position: function () {
+      var deferred = $q.defer()
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        $rootScope.$apply(function () {
+          deferred.resolve(angular.copy(pos))
         })
-    });
-}());
+      }, function (error) {
+        $rootScope.$apply(function () {
+          deferred.reject(error)
+        })
+      },options)
+      return deferred.promise
+    }
+  }
+}]);
 
-
-angular.module('belowtheline', ['ui.sortable']).
+angular.module('belowtheline', ['ui.sortable', 'ngGeolocation']).
     config(['$locationProvider', function ($locationProvider) {
             $locationProvider.html5Mode(true);
     }]);

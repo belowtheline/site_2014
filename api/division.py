@@ -27,16 +27,6 @@ def setup_rollbar(environment):
     rollbar.init(os.environ['ROLLBAR_TOKEN'], environment,
                  allow_logging_basic_config=False)
 
-def rollbarred(f):
-    @functools.wraps(f)
-    def wrapper(*args, **kwargs):
-        try:
-            f(*args, **kwargs)
-        except:
-            rollbar.report_exc_info()
-            raise
-    return wrapper
-
 if not app.debug:
     import logging
     from logging.handlers import RotatingFileHandler
@@ -86,34 +76,37 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 @app.route('/division', methods=['GET', 'POST', 'OPTIONS'])
-@rollbarred
 @crossdomain(origin='*', headers=['Content-Type', 'X-Requested-With'])
 def division_lookup():
-    if request.json is None and request.method == 'POST':
-        abort(400, "Must provide JSON (did you set Content-type?)")
-    elif request.method == 'POST':
-        args = request.json
-    else:
-        args = request.args
+    try:
+        if request.json is None and request.method == 'POST':
+            abort(400, "Must provide JSON (did you set Content-type?)")
+        elif request.method == 'POST':
+            args = request.json
+        else:
+            args = request.args
 
-    if 'latitude' not in args:
-        abort(400, "Most provide latitude and longitude")
-    if 'longitude' not in args:
-        abort(400, "Most provide latitude and longitude")
+        if 'latitude' not in args:
+            abort(400, "Most provide latitude and longitude")
+        if 'longitude' not in args:
+            abort(400, "Most provide latitude and longitude")
 
-    conn = psycopg2.connect(host=dbcreds.HOSTNAME, database=dbcreds.DATABASE,
-                            user=dbcreds.USERNAME, password=dbcreds.PASSWORD)
-    cursor = conn.cursor()
+        conn = psycopg2.connect(host=dbcreds.HOSTNAME, database=dbcreds.DATABASE,
+                                user=dbcreds.USERNAME, password=dbcreds.PASSWORD)
+        cursor = conn.cursor()
 
-    cursor.execute(QUERY_FORMAT.format(latitude=float(args['latitude']),
-                                       longitude=float(args['longitude'])))
+        cursor.execute(QUERY_FORMAT.format(latitude=float(args['latitude']),
+                                           longitude=float(args['longitude'])))
 
-    result = cursor.fetchone()
-    if result is None:
-        name = None
-    else:
-        name = result[0].lower().translate(None, " -'")
-    return jsonify({'division': name})
+        result = cursor.fetchone()
+        if result is None:
+            name = None
+        else:
+            name = result[0].lower().translate(None, " -'")
+        return jsonify({'division': name})
+    except:
+        rollbar.report_exc_info()
+        raise
 
 if __name__ == '__main__':
     setup_rollbar('debug')
