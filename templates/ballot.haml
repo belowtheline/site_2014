@@ -1,8 +1,8 @@
 .row
   .col-lg-4.col-md-4.col-sm-6
-    %h3 Your House of Representatives ballot for #{division_name}
-  .col-lg-8.col-md-8.col-sm-6
-    %h3 Your Senate ballot for #{state_name}
+    %h3= division_name
+  .col-lg-8.col-md-8.col-sm-6.hidden-sm
+    %h3= state_name
 .row
   .col-lg-2.col-md-2.col-sm-3.ballot.reps
     %table.ballotgroup
@@ -17,7 +17,10 @@
             - if candidate['party']
               %br
               %span.partyname= parties[candidate['party']]['name']
-  .col-lg-2.col-lg-offset-4
+  .col-lg-2.col-md-2.col-sm-3
+    .visible-sm
+      %h3= state_name
+  .col-lg-2.col-md-2.col-sm-3
     %table
       - [13, 14, 15, 16, 17, 18].each do |n|
         %tr
@@ -41,9 +44,35 @@
             %span.firstname First Name
             %br
             %span.partyname Party
+  .clearfix.visible-md
   .col-lg-2.col-md-2.col-sm-3
     %table
       - [25, 26, 27, 28, 29, 30].each do |n|
+        %tr
+          %td.prefnumber
+            %div.prefnumber= n
+          %td.candidate
+            %span.lastname LASTNAME
+            %br
+            %span.firstname First Name
+            %br
+            %span.partyname Party
+  .col-lg-2.col-md-2.col-sm-3
+    %table
+      - [105, 106, 107, 108, 109, 110].each do |n|
+        %tr
+          %td.prefnumber
+            %div.prefnumber= n
+          %td.candidate
+            %span.lastname LASTNAME
+            %br
+            %span.firstname First Name
+            %br
+            %span.partyname Party
+  .clearfix.visible-lg.visible-md
+  .col-lg-2.col-md-2.col-sm-3
+    %table
+      - [105, 106, 107, 108, 109, 110].each do |n|
         %tr
           %td.prefnumber
             %div.prefnumber= n
