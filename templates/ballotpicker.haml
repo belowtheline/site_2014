@@ -1,6 +1,6 @@
 #ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
   .row
-    .col-lg-12
+    .col-md-12
       .page-header
         .pull-right
           %button.btn.btn-primary(ng-click="saveBallot()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#saveModal") Save
@@ -18,7 +18,7 @@
           have one or the other, please let us know.
 
   .row
-    .col-lg-6
+    .col-md-6
       %h3
         House of Representatives
         %small
@@ -28,7 +28,7 @@
         %tbody(ui-sortable ng-model="orders.division")
           %tr(ng-repeat="c in orders.division")
             %td
-              .pull-right 
+              .pull-right
                 %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
                   %span.glyphicon.glyphicon-link
                 %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")
@@ -41,7 +41,7 @@
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
 
-    .col-lg-6
+    .col-md-6
       %h3
         Senate
         .btn-group
@@ -65,7 +65,7 @@
           %tr(ng-repeat="c in orders.state")
             %td {{c.group}}
             %td
-              .pull-right 
+              .pull-right
                 %a.candidate-link(ng-show="c.website" href="{{c.website}}" target="_blank")
                   %span.glyphicon.glyphicon-link
                 %a.candidate-link(ng-show="c.wikipedia" href="{{c.wikipedia}}" target="_blank")

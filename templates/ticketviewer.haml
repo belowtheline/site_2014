@@ -20,7 +20,7 @@
           If you know of a Wikipedia entry or website for a candidate who doesn't
           have one or the other, please let us know.
   .row
-    .col-lg-6
+    .col-md-6
       %select.form-control(ng-model="ticket[0]" ng-change="changeTicket(0)" ng-options="ticket.id as ticket.name for ticket in ticketList")
         %option(value="") Ballot Order
 
@@ -28,7 +28,7 @@
         %tbody(ng-model="candidateOrder[0]")
           %tr(ng-repeat="person_id in candidateOrder[0]")
             %td
-              .pull-right 
+              .pull-right
                 %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
                   %span.glyphicon.glyphicon-link
                 %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")
@@ -41,7 +41,7 @@
               %span.partycode.party.party-ind(ng-hide="parties[candidates[person_id].party]" title="Independent")
                 IND
 
-    .col-lg-6.hidden-xs
+    .col-md-6.hidden-xs
       %select.form-control(ng-model="ticket[1]" ng-change="changeTicket(1)" ng-options="ticket.id as ticket.name for ticket in ticketList")
         %option(value="") Ballot Order
 
@@ -49,7 +49,7 @@
         %tbody(ng-model="candidateOrder[1]")
           %tr(ng-repeat="person_id in candidateOrder[1]")
             %td
-              .pull-right 
+              .pull-right
                 %a.candidate-link(ng-show="candidates[person_id].website" href="{{candidates[person_id].website}}" target="_blank")
                   %span.glyphicon.glyphicon-link
                 %a.candidate-link(ng-show="candidates[person_id].wikipedia" href="{{candidates[person_id].wikipedia}}" target="_blank")

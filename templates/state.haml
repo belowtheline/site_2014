@@ -1,11 +1,11 @@
 .row
-  .col-lg-12
+  .col-md-12
     .page-header
       .pull-right
         %a.btn.btn-primary(href="/viewer/#{state_id}")
           View Preferences
       %h1= state['name']
-  .col-lg-6
+  .col-md-6
     %p
       The Senators for your #{state_or_territory} are:
     %table.table.table-condensed
@@ -22,7 +22,7 @@
             #{senator['first_name']} #{senator['last_name']}
           %td
             = partytmpl.render(Object.new, :code => senator['party'], :parties => parties)
-  .col-lg-6
+  .col-md-6
     %p
       The Senate candidates for #{state['name']}, in ballot order:
     %table.table.table-condensed
