@@ -7,7 +7,7 @@ gem 'guard-livereload'
 gem 'guard-rake'
 gem 'kramdown'
 gem 'parallel'
-gem 'rb-readline'
+gem 'rb-readline', require: false
 gem 'sinatra', require: false
 gem 'redis'
 gem 'unicorn'
