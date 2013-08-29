@@ -1,0 +1,230 @@
+#! /usr/bin/python3
+# -*- coding: utf-8; -*-
+
+import sys
+import os
+import os.path
+import glob
+import json
+import pprint
+
+program_dir = os.path.dirname(os.path.abspath(__file__))
+parties_data_dir = os.path.join(program_dir, "data", "parties")
+candidates_data_dir = os.path.join(program_dir, "data", "people")
+
+
+def get_data_file_paths(data_dir, suffix=".json"):
+    """ Get a collection of data file paths from the specified directory.
+
+        :param data_dir: The directory path to inspect for data files.
+        :param suffix: The suffix to match on data files.
+        :return: A collection of filename paths.
+
+        """
+    data_file_glob = os.path.join(data_dir, "*" + suffix)
+    paths = glob.glob(data_file_glob)
+
+    return paths
+
+
+class Party:
+    """ A political party. """
+
+    def __init__(self, name, code, website=None):
+        self.name = name
+        self.code = code
+        self.website = website
+
+    def __repr__(self):
+        text = (
+                "<Party {code}: {name!r} (website {website})>".format(
+                    **vars(self)))
+        return text
+
+
+def read_party_from_json(infile):
+    """ Read the party data from the specified input file.
+
+        :param infile: An open input file from which to read the JSON data.
+        :return: A `Party` instance.
+
+        """
+    attrs = json.loads(infile.read())
+    party = Party(**attrs)
+
+    return party
+
+
+def get_parties_from_files(file_paths):
+    """ Get a collection of parties from the specified data file paths.
+
+        :param file_paths: An iterable of file paths to JSON data files.
+        :return: A collection of `Party` instances.
+
+        """
+    parties = set()
+    errors = set()
+    for path in file_paths:
+        try:
+            infile = open(path, 'r')
+        except (IOError, OSError) as exc:
+            errors.add((path, exc))
+            continue
+
+        try:
+            party = read_party_from_json(infile)
+        except (TypeError, ValueError) as exc:
+            errors.add((path, exc))
+            continue
+
+        parties.add(party)
+
+    if errors:
+        raise RuntimeError(
+                "The following errors occurred:\n"
+                "{errors}\n".format(errors=pprint.pformat(errors)))
+
+    return parties
+
+
+def get_parties_from_data_dir(data_dir):
+    """ Get parties from the files in data_dir. """
+    data_file_paths = get_data_file_paths(data_dir)
+    parties = get_parties_from_files(data_file_paths)
+
+    return parties
+
+
+def report_parties_without_website(parties):
+    """ Report parties in data_dir that lack a website attribute. """
+    parties_without_website = set(
+            party for party in parties
+                if not getattr(party, 'website'))
+    sys.stdout.write(
+            "Parties without website:\n"
+            "{parties}\n".format(parties=pprint.pformat(
+                    parties_without_website)))
+
+
+class Candidate:
+    """ A person standing for election. """
+
+    def __init__(
+            self, *,
+            first_name, last_name,
+            party=None, candidate=None, ballot_position=None, group=None,
+            retiring=None, elected=None,
+            term_start=None, expiring=None, previous_terms=None,
+            website=None, wikipedia=None):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.party = party
+        self.candidate = candidate
+        self.website = website
+        self.wikipedia = wikipedia
+
+    def __repr__(self):
+        text = (
+                "<Candidate {first_name} {last_name} [{party}]:"
+                " (website: {website} Wikipedia: {wikipedia})>".format(
+                    **vars(self)))
+        return text
+
+
+def read_candidate_from_json(infile):
+    """ Read the candidate data from the specified input file.
+
+        :param infile: An open input file from which to read the JSON data.
+        :return: A `Candidate` instance.
+
+        """
+    attrs = json.loads(infile.read())
+    candidate = Candidate(**attrs)
+
+    return candidate
+
+
+def get_candidates_from_files(file_paths):
+    """ Get a collection of candidates from the specified data file paths.
+
+        :param file_paths: An iterable of file paths to JSON data files.
+        :return: A collection of `Candidate` instances.
+
+        """
+    candidates = set()
+    errors = set()
+    for path in file_paths:
+        try:
+            infile = open(path, 'r')
+        except (IOError, OSError) as exc:
+            errors.add((path, exc))
+            continue
+
+        try:
+            candidate = read_candidate_from_json(infile)
+        except (TypeError, ValueError) as exc:
+            errors.add((path, exc))
+            continue
+
+        candidates.add(candidate)
+
+    if errors:
+        raise RuntimeError(
+                "The following errors occurred:\n"
+                "{errors}\n".format(errors=pprint.pformat(errors)))
+
+    return candidates
+
+
+def get_candidates_from_data_dir(data_dir):
+    """ Get candidates from the files in data_dir. """
+    data_file_paths = get_data_file_paths(data_dir)
+    candidates = get_candidates_from_files(data_file_paths)
+
+    return candidates
+
+
+def report_candidates_without_website(candidates):
+    """ Report candidates that lack a website attribute. """
+    candidates_without_website = set(
+            candidate for candidate in candidates
+                if not getattr(candidate, 'website', None))
+    sys.stdout.write(
+            "Candidates without website:\n"
+            "{candidates}\n".format(candidates=pprint.pformat(
+                    candidates_without_website)))
+
+
+def report_candidates_without_wikipedia(candidates):
+    """ Report candidates in data_dir that lack a ‘wikipedia’ attribute. """
+    candidates_without_wikipedia = set(
+            candidate for candidate in candidates
+                if not getattr(candidate, 'wikipedia', None))
+    sys.stdout.write(
+            "Candidates without Wikipedia URL:\n"
+            "{candidates}\n".format(candidates=pprint.pformat(
+                    candidates_without_wikipedia)))
+
+
+def main(argv):
+    """ Main process for this program. """
+
+    parties = get_parties_from_data_dir(parties_data_dir)
+    report_parties_without_website(parties)
+
+    candidates = get_candidates_from_data_dir(candidates_data_dir)
+    report_candidates_without_website(candidates)
+    report_candidates_without_wikipedia(candidates)
+
+
+if __name__ == "__main__":
+    from sys import argv as _argv
+    exit_code = main(_argv)
+    sys.exit(exit_code)
+
+
+# Local variables:
+# coding: utf-8
+# mode: python
+# End:
+# vim: fileencoding=utf-8 filetype=python :
