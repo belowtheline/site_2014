@@ -1,32 +1,36 @@
 .row
-  .col-lg-4.col-md-4.col-sm-6
-    %h3= division_name
-  .col-lg-8.col-md-8.col-sm-6.hidden-sm
-    %h3= state_name
+  .col-lg-12
+    %h3
+      Your House of Representatives ballot for
+      %strong= division_name
 .row
-  .col-lg-2.col-md-2.col-sm-3.ballot.reps
-    %table.ballotgroup
-      - division_candidates.each do |candidate|
-        %tr
-          %td.prefnumber
-            %div.prefnumber= candidate['preference']
-          %td.candidate
-            %span.lastname= candidate['last_name']
-            %br
-            %span.firstname= candidate['first_name']
-            - if candidate['party']
+  .col-lg-3.col-md-3.col-sm-3
+    .ballot.lowerhouse
+      %table.ballotgroup
+        - division_candidates.each do |candidate|
+          %tr
+            %td.prefnumber
+              %div.prefnumber= candidate['preference']
+            %td.candidate
+              %span.lastname= candidate['last_name']
               %br
-              %span.partyname= parties[candidate['party']]['name']
-  .col-lg-2.col-md-2.col-sm-3
-    .visible-sm
-      %h3= state_name
-  - counter = 2
+              %span.firstname= candidate['first_name']
+              - if candidate['party']
+                %br
+                %span.partyname= parties[candidate['party']]['name']
+.row
+  .col-lg-12
+    %h3
+      Your Senate ballot for
+      %strong= state_name
+.row
+  - counter = 0
   - for group_id in state['group_order']
-    .col-lg-2.col-md-2.col-sm-3
-      .text-center
-        Group #{group_id}
+    .col-lg-3.col-md-3.col-sm-3
       .ballot
-        %table
+        .text-center
+          Group #{group_id}
+        %table.ballotgroup
           - for candidate_id in state['groups'][group_id]['candidates']
             - candidate = state['candidates'][candidate_id]
             %tr
@@ -40,7 +44,24 @@
                   %br
                   %span.partyname= parties[candidate['party']]['name']
     - counter = counter + 1
-    - if counter % 4 == 0
-      .clearfix.visible-md
-    - if counter % 6 == 0
-      .clearfix.visible-lg
+    - if counter != 0 && counter % 4 == 0
+      .clearfix
+  - if state['ungrouped']
+    .col-lg-3.col-md-3.col-sm-3
+      .ballot
+        .text-center
+          Ungrouped
+        %table.ballotgroup
+          - for candidate_id in state['ungrouped']
+          - candidate = state['candidates'][candidate_id]
+            %tr
+              %td.prefnumber
+                %div.prefnumber= state_ticket.shift()
+              %td.candidate
+                %span.lastname= candidate['last_name']
+                %br
+                %span.firstname= candidate['first_name']
+                - if candidate['party']
+                  %br
+                  %span.partyname= parties[candidate['party']]['name']
+

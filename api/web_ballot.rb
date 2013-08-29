@@ -6,6 +6,7 @@ require "sinatra/base"
 require 'bundler/setup'
 Bundler.require(:development)
 
+BALLOT_STORE = File.join('..', 'site', 'ballots')
 SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
 
 TemplateDir = File.join('..', 'templates')
@@ -119,7 +120,9 @@ class WebBallot < Sinatra::Base
       state_ticket: state_ticket,
     })
 
-    return Layout.render(Object.new, locals)
+    content = Layout.render(Object.new, locals)
+    File.write(File.join(BALLOT_STORE, "#{params[:ballot_id]}.html"), content)
+    return content
   end
 
 end
