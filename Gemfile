@@ -7,6 +7,7 @@ group :development do
   gem 'haml'
   gem 'kramdown'
   gem 'parallel'
+  gem 'rb-readline'
   gem 'sinatra'
   gem 'redis'
 end

@@ -65,6 +65,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    rb-readline (0.5.0)
     redis (3.0.4)
     ruby-hmac (0.4.0)
     sinatra (1.4.3)
@@ -86,5 +87,6 @@ DEPENDENCIES
   haml
   kramdown
   parallel
+  rb-readline
   redis
   sinatra
