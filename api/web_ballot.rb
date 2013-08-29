@@ -6,14 +6,22 @@ require "sinatra/base"
 require 'bundler/setup'
 Bundler.require(:development)
 
-BALLOT_STORE = File.join('..', 'site', 'ballots')
+def path(p)
+  File.expand_path File.join('..', p), __FILE__
+end
+
+BALLOT_STORE = path(File.join('..', 'site', 'ballots'))
 SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
 
-TemplateDir = File.join('..', 'templates')
+if not Dir.exists? BALLOT_STORE
+  Dir.mkdir(BALLOT_STORE)
+end
+
+TemplateDir = path(File.join('..', 'templates'))
 Layout = Haml::Engine.new(File.read(File.join(TemplateDir, 'layout.haml')))
 Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
 
-SiteDir = File.join('..', 'site')
+SiteDir = path(File.join('..', 'site'))
 
 Divisions = {}
 States = {}
