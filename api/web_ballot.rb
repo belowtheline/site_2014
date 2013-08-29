@@ -10,7 +10,7 @@ def path(p)
   File.expand_path File.join('..', p), __FILE__
 end
 
-BALLOT_STORE = path(File.join('..', 'site', 'ballots'))
+BALLOT_STORE = path(File.join('..', 'site', 'ballot'))
 SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
 
 if not Dir.exists? BALLOT_STORE
