@@ -4,7 +4,7 @@ require "rubygems"
 require "sinatra/base"
 
 require 'bundler/setup'
-Bundler.require(:development)
+Bundler.require
 
 def path(p)
   File.expand_path File.join('..', p), __FILE__

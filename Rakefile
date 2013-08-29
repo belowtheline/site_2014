@@ -4,7 +4,7 @@ require 'json'
 require 'pathname'
 
 require 'bundler/setup'
-Bundler.require(:development)
+Bundler.require
 
 OUTPUT_DIR = 'site'
 TEMPLATE_DIR = 'templates'
