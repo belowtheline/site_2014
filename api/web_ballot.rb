@@ -120,6 +120,8 @@ class WebBallot < Sinatra::Base
     end
 
     locals[:body] = Ballot.render(Object.new, {
+      ballot_id: params[:ballot_id],
+      division_id: ticket['division'],
       division_name: division['division']['name'],
       state_name: state['name'],
       division_candidates: division_candidates,
