@@ -1,0 +1,67 @@
+.row
+  .col-lg-12
+    %h3
+      Your House of Representatives ballot for
+      %strong= division_name
+.row
+  .col-lg-3.col-md-3.col-sm-3
+    .ballot.lowerhouse
+      %table.ballotgroup
+        - division_candidates.each do |candidate|
+          %tr
+            %td.prefnumber
+              %div.prefnumber= candidate['preference']
+            %td.candidate
+              %span.lastname= candidate['last_name']
+              %br
+              %span.firstname= candidate['first_name']
+              - if candidate['party']
+                %br
+                %span.partyname= parties[candidate['party']]['name']
+.row
+  .col-lg-12
+    %h3
+      Your Senate ballot for
+      %strong= state_name
+.row
+  - counter = 0
+  - for group_id in state['group_order']
+    .col-lg-3.col-md-3.col-sm-3
+      .ballot
+        .text-center
+          Group #{group_id}
+        %table.ballotgroup
+          - for candidate_id in state['groups'][group_id]['candidates']
+            - candidate = state['candidates'][candidate_id]
+            %tr
+              %td.prefnumber
+                %div.prefnumber= state_ticket.shift()
+              %td.candidate
+                %span.lastname= candidate['last_name']
+                %br
+                %span.firstname= candidate['first_name']
+                - if candidate['party']
+                  %br
+                  %span.partyname= parties[candidate['party']]['name']
+    - counter = counter + 1
+    - if counter != 0 && counter % 4 == 0
+      .clearfix
+  - if state['ungrouped']
+    .col-lg-3.col-md-3.col-sm-3
+      .ballot
+        .text-center
+          Ungrouped
+        %table.ballotgroup
+          - for candidate_id in state['ungrouped']
+          - candidate = state['candidates'][candidate_id]
+            %tr
+              %td.prefnumber
+                %div.prefnumber= state_ticket.shift()
+              %td.candidate
+                %span.lastname= candidate['last_name']
+                %br
+                %span.firstname= candidate['first_name']
+                - if candidate['party']
+                  %br
+                  %span.partyname= parties[candidate['party']]['name']
+
