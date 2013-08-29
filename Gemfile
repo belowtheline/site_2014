@@ -10,4 +10,5 @@ group :development do
   gem 'rb-readline'
   gem 'sinatra'
   gem 'redis'
+  gem 'unicorn'
 end
