@@ -84,7 +84,7 @@ class WebBallot < Sinatra::Base
       candidate['preference'] = preference
     end
 
-    if ticket['order_by_group'].to_i
+    if ticket['order_by_group'].to_i == 1
       group_order = States[state_id]['group_order']
       ungrouped = (1..States[state_id]['ungrouped'].length).to_a
       ungrouped.map! {|a| "UG#{a}"}
