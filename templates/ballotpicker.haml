@@ -45,8 +45,8 @@
       %h3
         Senate
         .btn-group
-          %button.btn.btn-primary.btn-small(ng-class="orderByGroup && 'active'" ng-click="showOrderByGroup()") By Group
-          %button.btn.btn-primary.btn-small(ng-class="orderByGroup || 'active'" ng-click="showOrderByCandidate()") By Candidate
+          %button.btn.btn-primary.btn-sm(ng-class="orderByGroup && 'active'" ng-click="showOrderByGroup()") By Group
+          %button.btn.btn-primary.btn-sm(ng-class="orderByGroup || 'active'" ng-click="showOrderByCandidate()") By Candidate
         %small
           %a.pull-right(ng-show="!orderByGroup && dirty('state')" ng-click="reset('state')") Reset to Ballot Order
           %a.pull-right(ng-show="orderByGroup && dirty('group')" ng-click="reset('group')") Reset to Ballot Order
