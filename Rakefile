@@ -22,7 +22,7 @@ def template(name)
 end
 
 def layout
-  @layout ||= template('layout')
+  template('layout')
 end
 
 def output(name, body, locals={}, scaf_locals={})
