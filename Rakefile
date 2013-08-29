@@ -214,6 +214,7 @@ task content: [:output_dirs] do
       states: states,
       representative: representatives["division/#{division_id}"],
       candidates: candidates,
+      leaflets_id: division['name'].downcase.gsub(/[ ']/, '_'),
     }
     output(
       File.join('division', "#{division_id}.html"),
