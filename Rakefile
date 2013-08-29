@@ -311,7 +311,7 @@ end
 
 desc "Copy fonts into site directory"
 task fonts: [:output_dirs] do
-  FileUtils.cp_r('fonts', File.join(OUTPUT_DIR))
+  FileUtils.cp_r('vendor/bootstrap/fonts', File.join(OUTPUT_DIR))
 end
 
 desc "Build & Copy JS into site directory (requires uglify-js)"
