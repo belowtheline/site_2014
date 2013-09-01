@@ -98,7 +98,7 @@ class WebBallot < Sinatra::Base
         if a.slice(0, 2) == 'UG'
           b = a.slice(2).to_i - 1
           counter += 1
-          [a, [counter]]
+          [a, [counter - 1]]
         else
           candidates = States[state_id]['groups'][a]['candidates']
           start = counter
