@@ -12,8 +12,8 @@ import redis
 import rollbar
 
 ID_ALPHABET = ''.join([string.lowercase, string.uppercase, string.digits])
-REDIS_HOST = 'localhost'
-REDIS_DB = 5
+REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
+REDIS_DB = int(os.environ.get('REDIS_DB', 5))
 MAX_TRIES = 10
 
 app = Flask(__name__)

@@ -16,6 +16,9 @@ if not Dir.exists? BALLOT_STORE
   Dir.mkdir(BALLOT_STORE)
 end
 
+RedisHost = ENV['REDIS_HOST'] || 'localhost'
+RedisDb = (ENV['REDIS_DB'] || 5).to_i
+
 TemplateDir = path(File.join('..', 'templates'))
 Layout = Haml::Engine.new(File.read(File.join(TemplateDir, 'layout.haml')))
 Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
@@ -75,7 +78,7 @@ class WebBallot < Sinatra::Base
       js_cachebust: File.read(JsCachebust),
     }
 
-    redis = Redis.new(:db => 5)
+    redis = Redis.new(:host => RedisHost, :db => RedisDb)
     ticket = redis.hgetall(params[:ballot_id])
 
     division = Divisions[ticket['division']]
