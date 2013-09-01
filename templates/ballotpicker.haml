@@ -94,8 +94,12 @@
           %button.close(type="button" data-dismiss="modal") &times;
           %h4.modal-title Save Ticket
         .modal-body
-          %p Your ticket has been saved.
-          %p You can access it at the following URL:
+          %p Your ticket has been saved. You can access it at the URL below.
+          %p.alert.alert-warning
+            %strong Note:
+            If you're editing a previously saved ticket the URL
+            %strong< will be different
+            \.
           .progress.progress-striped.active(ng-hide="saveURL")
             .progress-bar(style="width: 100%")
           %p(ng-show="saveURL")
