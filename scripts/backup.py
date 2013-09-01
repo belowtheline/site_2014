@@ -32,6 +32,6 @@ backup.write(']}')
 backup.close()
 
 pyrax.set_setting('identity_type', 'rackspace')
-pyrax.set_credential_file(os.path.expanduser('~/.raxcreds', region='SYD'))
+pyrax.set_credential_file(os.path.expanduser('~/.raxcreds'), region='SYD')
 container = pyrax.cloudfiles.get_container('backups')
 container.upload_file(filename)
