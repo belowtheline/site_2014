@@ -5,11 +5,11 @@
   service: name=redis-server state=started
 
 - name: install redis module for backup script
-  pip: name=redis state=latest virtualenv=/home/btl/python
+  pip: name=redis state=present virtualenv=/home/btl/python
 - name: install hiredis module for backup script
-  pip: name=hiredis state=latest virtualenv=/home/btl/python
+  pip: name=hiredis state=present virtualenv=/home/btl/python
 - name: install pyrax module for backup script
   pip: name=pyrax state=present virtualenv=/home/btl/python
 
 - name: set up cron job for backups
-  cron: name="backups" minute="*/10" job="/home/btl/python/bin/python /home/btl/site/scripts/backup.py" state=present
+  cron: name="backups" minute="*/10" job="REDIS_HOST={{ ansible_eth1['ipv4']['address'] }} /home/btl/python/bin/python /home/btl/site/scripts/backup.py" state=present
