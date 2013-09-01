@@ -1,4 +1,4 @@
-#ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
+#ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl" )
   .row
     .col-lg-12
       .page-header
@@ -50,6 +50,10 @@
         %small
           %a.pull-right(ng-show="!orderByGroup && dirty('state')" ng-click="reset('state')") Reset to Ballot Order
           %a.pull-right(ng-show="orderByGroup && dirty('group')" ng-click="reset('group')") Reset to Ballot Order
+
+      .well.well-sm
+        %select#ticketSelect.form-control.input-sm(ng-model="ticket" ng-change="reorderByTicket()" ng-options="ticket.id as ticket.name for ticket in ticketList")
+          %option(value="") Start with an existing ticket...
 
       %table.table.table-condensed(ng-show="orderByGroup")
         %tbody(ui-sortable ng-model="orders.group")
