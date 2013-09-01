@@ -5,6 +5,7 @@ import gzip
 import json
 import os
 
+import pyrax
 import redis
 
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
