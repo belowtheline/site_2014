@@ -6,7 +6,6 @@ import json
 import os
 
 import redis
-import requests
 
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 REDIS_DB = int(os.environ.get('REDIS_DB', 5))
@@ -14,7 +13,8 @@ REDIS_DB = int(os.environ.get('REDIS_DB', 5))
 r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
 
 timestamp = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M')
-backup = gzip.GzipFile('backup-{}.json.gz'.format(timestamp), 'w', 9)
+filename = 'backup-{}.json.gz'.format(timestamp)
+backup = gzip.GzipFile(filename, 'w', 9)
 backup.write('{"backup":[')
 
 keys = r.keys('*')
@@ -28,3 +28,6 @@ while keys:
 
 backup.write(']}')
 backup.close()
+
+container = pyrax.cloudfiles.get_container('backups')
+container.upload_file(filename)
