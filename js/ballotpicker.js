@@ -11,6 +11,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     $scope.orders = {};
     $scope.ballotOrders = {};
     $scope.parties = {};
+    $scope.ticketList = [];
 
     $scope.orderByGroup = true;
 
@@ -36,6 +37,28 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             $scope.reset('state');
             $scope.orderByGroup = true;
         }
+    };
+
+    $scope.reorderByTicket = function() {
+        if (!$scope.ticket) { return; }
+        if (
+                ($scope.orderByGroup && $scope.dirty('group')) ||
+                (!$scope.orderByGroup && $scope.dirty('state'))
+            ) {
+            if (!$window.confirm("Are you sure? You'll lose any changes you made to ordering.")) {
+                return false;
+            }
+        }
+
+        $scope.orderByGroup = false;
+        var group = $scope.ticket.slice(0, -1);
+        var ticket = parseInt($scope.ticket.slice(-1)) - 1;
+
+        var newOrder = _.map($scope.groups[group].tickets[ticket], function(id) {
+            return _.findWhere($scope.orders.state, {id: id});
+        });
+
+        $scope.orders.state = newOrder;
     };
 
     function makeTicket(order, ballotOrder) {
@@ -111,9 +134,13 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             $http.get('/' + division.division.state + '.json').success(function(data) {
                 state = data;
                 $scope.orders.state = _.map(data.ballot_order, function(id) {
-                    return data.candidates[id];
+                    var candidateWithId = data.candidates[id];
+                    candidateWithId.id = id;
+                    return candidateWithId;
                 });
                 $scope.ballotOrders.state = $scope.orders.state.slice();
+                $scope.groups = state.groups;
+                $scope.ticketList = generateTicketList($scope.groups);
 
                 var groupNames = _.without(_.uniq(_.pluck($scope.orders.state, 'group')), 'UG');
                 var ungroupedCandidates = _.where($scope.orders.state, { group: 'UG' });
