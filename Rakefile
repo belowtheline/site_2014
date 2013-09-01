@@ -371,7 +371,6 @@ task css: [:output_dirs] do
 
 
   system "lessc less/app.less #{filename}"
-  FileUtils.cp("less/bootstrap-glyphicons.css", "site/css/bootstrap-glyphicons.css")
 
   if need_rebuild
     Rake::Task["js"].invoke
