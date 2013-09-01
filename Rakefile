@@ -28,6 +28,12 @@ end
 def output(name, body, locals={}, scaf_locals={})
   puts "Outputting #{name}..."
 
+  _, css_cachebust = cachebust_check('cachebust_css.txt')
+  _, js_cachebust = cachebust_check('cachebust_js.txt')
+
+  scaf_locals[:css_cachebust] = css_cachebust
+  scaf_locals[:js_cachebust] = js_cachebust
+
   if body.kind_of? Haml::Engine then
     scaf_locals[:body] = body.render(Object.new, locals)
   else
@@ -42,7 +48,6 @@ def output(name, body, locals={}, scaf_locals={})
     scaf_locals[:base] = nil
   end
 
-  scaf_locals[:shortrev] = SHORTREV
   if ENV['BTL_PRODUCTION']
     scaf_locals[:rollbar_environment] = 'production'
   else
@@ -64,6 +69,25 @@ def load(category)
   end
 
   return hash
+end
+
+def cachebust_check(tracking_filename, files=[])
+  if not File.exists? tracking_filename
+    current_timestamp = 0
+  else
+    current_timestamp = File.stat(tracking_filename).mtime.to_i
+  end
+
+  modification_timestamp = files.map{|f| File.stat(f).mtime.to_i}.max || 0
+
+  if current_timestamp < modification_timestamp
+    File.write(tracking_filename, SHORTREV)
+    File.utime(modification_timestamp, modification_timestamp,
+               tracking_filename)
+    [true, SHORTREV]
+  else
+    [false, File.read(tracking_filename)]
+  end
 end
 
 Posters = {
@@ -319,7 +343,8 @@ desc "Build & Copy JS into site directory (requires uglify-js)"
 task js: [:output_dirs] do
   FileUtils.cp(Dir.glob('vendor/*.js'), File.join(OUTPUT_DIR, 'js'))
 
-  filename = File.join(OUTPUT_DIR, 'js', "belowtheline-#{SHORTREV}.js")
+  need_rebuild, cachebust = cachebust_check('cachebust_js.txt', Dir.glob('js/*'))
+  filename = File.join(OUTPUT_DIR, 'js', "belowtheline-#{cachebust}.js")
   need_rebuild = !File.exists?(filename)
 
   js = []
@@ -341,8 +366,9 @@ task css: [:output_dirs] do
     puts "lessc failed, is it installed?"
   end
 
-  filename = File.join(OUTPUT_DIR, 'css', "belowtheline-#{SHORTREV}.css")
-  need_rebuild = !File.exists?(filename)
+  need_rebuild, cachebust = cachebust_check('cachebust_css.txt', ['less/app.less'])
+  filename = File.join(OUTPUT_DIR, 'css', "belowtheline-#{cachebust}.css")
+
 
   system "lessc less/app.less #{filename}"
   FileUtils.cp("less/bootstrap-glyphicons.css", "site/css/bootstrap-glyphicons.css")

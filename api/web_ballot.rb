@@ -11,7 +11,6 @@ def path(p)
 end
 
 BALLOT_STORE = path(File.join('..', 'site', 'ballot'))
-SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
 
 if not Dir.exists? BALLOT_STORE
   Dir.mkdir(BALLOT_STORE)
@@ -22,6 +21,9 @@ Layout = Haml::Engine.new(File.read(File.join(TemplateDir, 'layout.haml')))
 Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
 
 SiteDir = path(File.join('..', 'site'))
+
+CssCachebust = path(File.join('..', 'css_cachebust.txt'))
+JsCachebust = path(File.join('..', 'js_cachebust.txt'))
 
 Divisions = {}
 States = {}
@@ -68,8 +70,9 @@ class WebBallot < Sinatra::Base
     locals = {
       base: nil,
       title: 'Ballot',
-      shortrev: SHORTREV,
       rollbar_environment: ENV['BTL_PRODUCTION'] ? 'production' : 'debug',
+      css_cachebust: File.read(CssCachebust),
+      js_cachebust: File.read(JsCachebust),
     }
 
     redis = Redis.new(:db => 5)

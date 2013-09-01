@@ -15,7 +15,7 @@
 
     %link(rel="stylesheet" href="/css/bootstrap.css")
     %link(rel="stylesheet" href="/css/bootstrap-glyphicons.css")
-    %link(rel="stylesheet" href="/css/belowtheline-#{shortrev}.css")
+    %link(rel="stylesheet" href="/css/belowtheline-#{css_cachebust}.css")
 
     :javascript
       var _sf_startpt=(new Date()).getTime()
@@ -27,7 +27,7 @@
     %script(src="/js/underscore-1.4.4.min.js")
 
     %script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs-mYug2pkaA-styj1mS6guOI012AYeXY&sensor=true")
-    %script(src="/js/belowtheline-#{shortrev}.js")
+    %script(src="/js/belowtheline-#{js_cachebust}.js")
 
   %body
     .navbar.navbar-static-top
