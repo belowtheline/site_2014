@@ -22,8 +22,8 @@ Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
 
 SiteDir = path(File.join('..', 'site'))
 
-CssCachebust = path(File.join('..', 'css_cachebust.txt'))
-JsCachebust = path(File.join('..', 'js_cachebust.txt'))
+CssCachebust = path(File.join('..', 'cachebust_css.txt'))
+JsCachebust = path(File.join('..', 'cachebust_js.txt'))
 
 Divisions = {}
 States = {}
