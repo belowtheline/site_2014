@@ -10,4 +10,5 @@ gem 'parallel'
 gem 'rb-readline', require: false
 gem 'sinatra', require: false
 gem 'redis'
+gem 'foreman', require: false
 gem 'unicorn'
