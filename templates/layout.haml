@@ -6,16 +6,20 @@
         #{title} — Below The Line
       - else
         Below The Line
+
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta(property="og:image" content="http://belowtheline.org.au/images/belowtheline.png")
+    %meta(name="description" content="Want your vote to really count? Find out who the parties are preferencing and construct your own below the line Senate vote for the 2013 Australian Federal election.")
 
     - if base then
       %base(href="#{base}")
 
     %link(rel="stylesheet" href="/css/bootstrap.css")
     %link(rel="stylesheet" href="/css/bootstrap-glyphicons.css")
-    %link(rel="stylesheet" href="/css/belowtheline-#{shortrev}.css")
+    %link(rel="stylesheet" href="/css/belowtheline-#{css_cachebust}.css")
+    %link(rel="image_src" href="/images/belowtheline.png")
 
     :javascript
       var _sf_startpt=(new Date()).getTime()
@@ -27,7 +31,7 @@
     %script(src="/js/underscore-1.4.4.min.js")
 
     %script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs-mYug2pkaA-styj1mS6guOI012AYeXY&sensor=true")
-    %script(src="/js/belowtheline-#{shortrev}.js")
+    %script(src="/js/belowtheline-#{js_cachebust}.js")
 
   %body
     .navbar.navbar-static-top
