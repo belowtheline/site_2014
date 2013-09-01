@@ -4,3 +4,6 @@ site
 api/dbcreds.py
 cachebust_css.txt
 cachebust_js.txt
+ansible/roles/common/files/keys/*
+ansible/roles/common/files/raxcreds
+ansible/hosts

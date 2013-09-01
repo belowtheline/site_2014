@@ -1,0 +1,6 @@
+---
+- hosts: redis
+  user: root
+  roles:
+    - common
+    - redis

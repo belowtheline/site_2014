@@ -1,0 +1,43 @@
+---
+- name: add authorized ssh keys to root
+  authorized_key: user=root key="{{ item }}"
+  with_file:
+    - keys/benno
+
+- name: apt_repository requires python-pycurl
+  apt: pkg=python-pycurl state=latest
+
+- name: ensure ntp is installed
+  apt: pkg=ntp state=latest
+- name: ensure ntpd is running
+  service: name=ntp state=started
+
+- name: ensure vim is installed
+  apt: pkg=vim state=latest
+
+- name: ensure Rackspace repository key is installed
+  apt_key: url="https://monitoring.api.rackspacecloud.com/pki/agent/linux.asc" state=present
+- name: ensure Rackspace repository is installed
+  apt_repository: repo="deb http://stable.packages.cloudmonitoring.rackspace.com/ubuntu-13.04-x86_64/ cloudmonitoring main" state=present
+- name: install Rackspace monitoring agent
+  apt: pkg=rackspace-monitoring-agent state=latest update_cache=yes
+
+- name: create btl user
+  user: name=btl state=present
+
+- name: ensure git is at latest version
+  apt: pkg=git state=latest
+- name: check out git repo
+  git: dest=/home/btl/site repo=https://github.com/belowtheline/site
+
+- name: ensure python is at latest version
+  apt: pkg=python2.7 state=latest
+- name: ensure python-dev is at latest version
+  apt: pkg=python2.7-dev state=latest
+- name: ensure pip is at latest version
+  apt: pkg=python-pip state=latest
+- name: ensure virtualenv is installed
+  pip: name=virtualenv state=latest
+
+- name: upload Rackspace credentials
+  copy: src=raxcreds dest=/root/.raxcreds
