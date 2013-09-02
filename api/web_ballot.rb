@@ -10,8 +10,7 @@ def path(p)
   File.expand_path File.join('..', p), __FILE__
 end
 
-BALLOT_STORE = path(File.join('..', 'site', 'ballots'))
-SHORTREV = `git rev-parse --short HEAD`.strip() || 'xxx'
+BALLOT_STORE = path(File.join('..', 'site', 'ballot'))
 
 if not Dir.exists? BALLOT_STORE
   Dir.mkdir(BALLOT_STORE)
@@ -22,6 +21,9 @@ Layout = Haml::Engine.new(File.read(File.join(TemplateDir, 'layout.haml')))
 Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
 
 SiteDir = path(File.join('..', 'site'))
+
+CssCachebust = path(File.join('..', 'cachebust_css.txt'))
+JsCachebust = path(File.join('..', 'cachebust_js.txt'))
 
 Divisions = {}
 States = {}
@@ -68,8 +70,9 @@ class WebBallot < Sinatra::Base
     locals = {
       base: nil,
       title: 'Ballot',
-      shortrev: SHORTREV,
       rollbar_environment: ENV['BTL_PRODUCTION'] ? 'production' : 'debug',
+      css_cachebust: File.read(CssCachebust),
+      js_cachebust: File.read(JsCachebust),
     }
 
     redis = Redis.new(:db => 5)
@@ -84,7 +87,7 @@ class WebBallot < Sinatra::Base
       candidate['preference'] = preference
     end
 
-    if ticket['order_by_group'].to_i
+    if ticket['order_by_group'].to_i == 1
       group_order = States[state_id]['group_order']
       ungrouped = (1..States[state_id]['ungrouped'].length).to_a
       ungrouped.map! {|a| "UG#{a}"}
@@ -98,7 +101,7 @@ class WebBallot < Sinatra::Base
         if a.slice(0, 2) == 'UG'
           b = a.slice(2).to_i - 1
           counter += 1
-          [a, [counter]]
+          [a, [counter - 1]]
         else
           candidates = States[state_id]['groups'][a]['candidates']
           start = counter
@@ -120,6 +123,8 @@ class WebBallot < Sinatra::Base
     end
 
     locals[:body] = Ballot.render(Object.new, {
+      ballot_id: params[:ballot_id],
+      division_id: ticket['division'],
       division_name: division['division']['name'],
       state_name: state['name'],
       division_candidates: division_candidates,

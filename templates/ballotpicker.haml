@@ -1,4 +1,4 @@
-#ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl")
+#ballotPicker(ng-app="belowtheline" ng-controller="BallotPickerCtrl" )
   .row
     .col-md-12
       .page-header
@@ -51,6 +51,10 @@
           %a.pull-right(ng-show="!orderByGroup && dirty('state')" ng-click="reset('state')") Reset to Ballot Order
           %a.pull-right(ng-show="orderByGroup && dirty('group')" ng-click="reset('group')") Reset to Ballot Order
 
+      .well.well-sm
+        %select#ticketSelect.form-control.input-sm(ng-model="ticket" ng-change="reorderByTicket()" ng-options="ticket.id as ticket.name for ticket in ticketList")
+          %option(value="") Start with an existing ticket...
+
       %table.table.table-condensed(ng-show="orderByGroup")
         %tbody(ui-sortable ng-model="orders.group")
           %tr(ng-repeat="c in orders.group")
@@ -94,8 +98,12 @@
           %button.close(type="button" data-dismiss="modal") &times;
           %h4.modal-title Save Ticket
         .modal-body
-          %p Your ticket has been saved.
-          %p You can access it at the following URL:
+          %p Your ticket has been saved. You can access it at the URL below.
+          %p.alert.alert-warning
+            %strong Note:
+            If you're editing a previously saved ticket the URL
+            %strong< will be different
+            \.
           .progress.progress-striped.active(ng-hide="saveURL")
             .progress-bar(style="width: 100%")
           %p(ng-show="saveURL")
