@@ -5,3 +5,4 @@ redis==2.7.6
 reportlab==2.7
 hiredis==0.1.1
 rollbar==0.5.8
+pyrax==1.4.11
