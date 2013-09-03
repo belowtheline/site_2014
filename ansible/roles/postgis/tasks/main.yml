@@ -1,0 +1,15 @@
+---
+- name: ensure postgresql is at latest version
+  apt: pkg=postgresql-9.1 state=latest
+- name: ensure postgresql is running
+  service: name=postgresql state=started
+
+- name: ensure postgis PPA is present
+  apt_repository: repo="ppa:ubuntugis/ubuntugis-unstable" state=present
+- name: ensure postgis is at latest version
+  apt: pkg=postgresql-9.1-postgis-2.0-scripts state=latest update_cache=yes
+
+- name: ensure postgresql client development libraries are at latest version
+  apt: pkg=libpq-dev state=latest
+- name: ensure psycopg2 is at latest version
+  apt: pkg=python-psycopg2 state=latest

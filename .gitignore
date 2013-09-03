@@ -7,5 +7,6 @@ cachebust_css.txt
 cachebust_js.txt
 ansible/roles/common/files/keys/*
 ansible/roles/common/files/raxcreds
+ansible/roles/frontend/files/btl_password.txt
 ansible/hosts
 *.pyc

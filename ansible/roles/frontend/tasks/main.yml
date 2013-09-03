@@ -1,0 +1,14 @@
+---
+- name: ensure python environment is set up
+  pip: requirements=/home/btl/site/api/requirements.txt virtualenv=/home/btl/python
+
+- name: ensure database user is present
+  sudo: true
+  sudo_user: postgres
+  postgresql_user: name=btl password="{{ item }}" state=present
+  with_file:
+    - btl_password.txt
+- name: ensure database is present
+  sudo: true
+  sudo_user: postgres
+  postgresql_db: name=btl owner=btl encoding='UTF-8' template=template0 state=present

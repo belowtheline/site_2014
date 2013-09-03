@@ -4,3 +4,8 @@
   roles:
     - common
     - redis
+- hosts: frontend
+  user: root
+  roles:
+    - common
+    - frontend
