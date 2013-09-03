@@ -39,5 +39,7 @@
 - name: ensure virtualenv is installed
   pip: name=virtualenv state=latest
 
-- name: upload Rackspace credentials
-  copy: src=raxcreds dest=/root/.raxcreds
+- name: upload Rackspace credentials to root
+  copy: src=raxcreds dest=/root/.raxcreds owner=root group=root mode=0600
+- name: upload Rackspace credentials to btl
+  copy: src=raxcreds dest=/home/btl/.raxcreds owner=btl group=btl mode=0600

@@ -12,3 +12,20 @@
   sudo: true
   sudo_user: postgres
   postgresql_db: name=btl owner=btl encoding='UTF-8' template=template0 state=present
+- name: ensure postgis setup script is present
+  copy: src=postgis-setup.sh dest=/home/btl/postgis-setup.sh mode=0755
+- name: set up postgis
+  command: /home/btl/postgis-setup.sh creates=/home/btl/postgis-setup-done
+- name: ensure database creds file is present
+  template: src=dbcreds.py.j2 dest=/home/btl/site/api/dbcreds.py owner=btl group=btl mode=0640
+  with_file:
+    - btl_password.txt
+
+- name: ensure unzip is at latest
+  apt: pkg=unzip state=latest
+- name: ensure division boundary loader script is present
+  copy: src=load_division_boundaries.py dest=/home/btl/load_division_boundaries.py mode=0755
+- name: load division boundaries
+  sudo: true
+  sudo_user: btl
+  command: /home/btl/python/bin/python /home/btl/load_division_boundaries.py chdir=/home/btl creates=/home/btl/divisions-loaded
