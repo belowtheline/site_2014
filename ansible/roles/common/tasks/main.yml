@@ -1,6 +1,18 @@
 ---
+- name: create btl user
+  user: name=btl shell=/bin/zsh state=present
+
+- name: ensure btl profile is present
+  copy: src=profile dest=/home/btl/.profile
+- name: ensure btl zshrc is present
+  copy: src=zshrc dest=/home/btl/.zshrc
+
 - name: add authorized ssh keys to root
   authorized_key: user=root key="{{ item }}"
+  with_file:
+    - keys/benno
+- name: add authorized ssh keys to btl
+  authorized_key: user=btl key="{{ item }}"
   with_file:
     - keys/benno
 
@@ -22,12 +34,11 @@
 - name: install Rackspace monitoring agent
   apt: pkg=rackspace-monitoring-agent state=latest update_cache=yes
 
-- name: create btl user
-  user: name=btl state=present
-
 - name: ensure git is at latest version
   apt: pkg=git state=latest
 - name: check out git repo
+  sudo: true
+  sudo_user: btl
   git: dest=/home/btl/site repo=https://github.com/belowtheline/site
 
 - name: ensure python is at latest version

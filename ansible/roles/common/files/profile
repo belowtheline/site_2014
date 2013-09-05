@@ -1,0 +1,20 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+HISTSIZE=1000
+PROMPT='%n@%m:%2~%(!.#.>) '
+WORDCHARS=${WORDCHARS:s,/,,}
+
+bindkey -e
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+setopt ignoreeof
+setopt hist_ignore_dups
+
+alias ls="ls -F"
+alias less="less -X"
+alias su="su -m"
+
+if [ -x ~/.rbenv/bin/rbenv ]; then
+    eval "$(rbenv init -)"
+fi

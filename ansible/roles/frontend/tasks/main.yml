@@ -29,3 +29,49 @@
   sudo: true
   sudo_user: btl
   command: /home/btl/python/bin/python /home/btl/load_division_boundaries.py chdir=/home/btl creates=/home/btl/divisions-loaded
+
+- name: ensure rbenv is up to date
+  sudo: true
+  sudo_user: btl
+  git: repo="https://github.com/sstephenson/rbenv.git" dest=/home/btl/.rbenv
+- name: ensure ruby-build is up to date
+  sudo: true
+  sudo_user: btl
+  git: repo="https://github.com/sstephenson/ruby-build.git" dest=/home/btl/.rbenv/plugins/ruby-build
+- name: ensure ruby is installed
+  sudo: true
+  sudo_user: btl
+  command: /home/btl/.rbenv/bin/rbenv install 2.0.0-p0 chdir=/home/btl creates=/home/btl/.rbenv/versions/2.0.0-p0
+- name: ensure bundler is installed
+  sudo: true
+  sudo_user: btl
+  command: /home/btl/.rbenv/versions/2.0.0-p0/bin/gem install bundler chdir=/home/btl creates=/home/btl/.rbenv/versions/2.0.0-p0/bin/bundle
+- name: install ruby dependencies
+  sudo: true
+  sudo_user: btl
+  command: /home/btl/.rbenv/versions/2.0.0-p0/bin/bundle install chdir=/home/btl/site creates=/home/btl/.rbenv/versions/2.0.0-p0/bin/haml
+
+- name: ensure nodejs PPA is present
+  apt_repository: repo="ppa:chris-lea/node.js" state=present
+- name: ensure nodejs is at latest
+  apt: pkg=nodejs state=latest update_cache=yes
+- name: ensure lessc is at latest
+  npm: name=less state=present global=yes
+
+- name: run first build of the site
+  sudo: true
+  sudo_user: btl
+  shell: LANG=en_US.UTF-8 PATH=/home/btl/.rbenv/versions/2.0.0-p0/bin:$PATH rake chdir=/home/btl/site creates=/home/btl/site/site
+
+- name: ensure nginx is at latest
+  apt: pkg=nginx state=latest
+- name: copy nginx configuration for belowtheline.org.au
+  copy: src=nginx-belowtheline.org.au dest=/etc/nginx/sites-available/belowtheline.org.au
+  notify:
+    - restart nginx
+- name: link nginx configuration for belowtheline.org.au
+  file: path=/etc/nginx/sites-enabled/belowtheline.org.au state=link src=/etc/nginx/sites-available/belowtheline.org.au
+  notify:
+    - restart nginx
+- name: ensure nginx is running
+  service: name=nginx state=started
