@@ -2,6 +2,7 @@
 
 import functools
 import os
+import os.path
 
 from datetime import timedelta
 from functools import update_wrapper
@@ -30,7 +31,8 @@ def setup_rollbar(environment):
 if not app.debug:
     import logging
     from logging.handlers import RotatingFileHandler
-    file_handler = RotatingFileHandler('/home/benno/logs/division.log')
+    logfile = os.path.expanduser('~/logs/division.log')
+    file_handler = RotatingFileHandler(logfile)
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
 
