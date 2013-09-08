@@ -1,0 +1,12 @@
+server {
+	listen 80;
+	server_name btl.tv;
+	root /nonexistent;
+	index index.html;
+
+	rewrite ^/b/(.*)$ http://belowtheline.org.au/ballot/$1 permanent;
+
+	rewrite ^/e/(.*)$ http://belowtheline.org.au/editor/$1 permanent;
+	rewrite ^/t/(.*)/(.*)$ http://belowtheline.org.au/viewer/$1#$2 permanent;
+	rewrite ^/t/(.*)$ http://belowtheline.org.au/viewer/$1 permanent;
+}

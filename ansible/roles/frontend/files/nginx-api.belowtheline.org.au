@@ -1,0 +1,32 @@
+upstream geo {
+	server unix:/home/btl/run/geo.sock;
+}
+
+upstream pdf {
+	server unix:/home/btl/run/pdf.sock;
+}
+
+upstream store {
+	server unix:/home/btl/run/store.sock;
+}
+
+server {
+	listen 80;
+	server_name api.belowtheline.org.au;
+
+	location /division {
+		proxy_pass http://geo;
+	}
+
+	location /pdf {
+		proxy_pass http://pdf;
+	}
+
+	location /store {
+		proxy_pass http://store;
+	}
+
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header Host $host;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}

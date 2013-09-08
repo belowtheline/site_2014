@@ -73,5 +73,64 @@
   file: path=/etc/nginx/sites-enabled/belowtheline.org.au state=link src=/etc/nginx/sites-available/belowtheline.org.au
   notify:
     - restart nginx
+- name: copy nginx configuration for api.belowtheline.org.au
+  copy: src=nginx-api.belowtheline.org.au dest=/etc/nginx/sites-available/api.belowtheline.org.au
+  notify:
+    - restart nginx
+- name: link nginx configuration for api.belowtheline.org.au
+  file: path=/etc/nginx/sites-enabled/api.belowtheline.org.au state=link src=/etc/nginx/sites-available/api.belowtheline.org.au
+  notify:
+    - restart nginx
+- name: copy nginx configuration for btl.tv
+  copy: src=nginx-btl.tv dest=/etc/nginx/sites-available/btl.tv
+  notify:
+    - restart nginx
+- name: link nginx configuration for btl.tv
+  file: path=/etc/nginx/sites-enabled/btl.tv state=link src=/etc/nginx/sites-available/btl.tv
+  notify:
+    - restart nginx
 - name: ensure nginx is running
   service: name=nginx state=started
+
+- name: ensure logs directory is created
+  file: path=/home/btl/logs state=directory owner=btl group=btl mode=0755
+- name: ensure run directory is created
+  file: path=/home/btl/run state=directory owner=btl group=btl mode=0755
+
+- name: ensure ballot daemon script is present
+  template: src=unicorn-ballot.sh.j2 dest=/home/btl/unicorn-ballot.sh owner=btl group=btl mode=0755
+- name: ensure ballot daemon configuration is present
+  copy: src=ballot.rb dest=/home/btl/ballot.rb
+- name: ensure ballot daemon init configuration is present
+  copy: src=btlballot.conf dest=/etc/init/btlballot.conf
+- name: ensure init.d link is present for btlballot
+  file: path=/etc/init.d/btlballot src=/lib/init/upstart-job state=link
+- name: ensure btlballot is running
+  service: name=btlballot state=started
+
+- name: ensure geo daemon script is present
+  copy: src=gunicorn-geo.sh dest=/home/btl/gunicorn-geo.sh owner=btl group=btl mode=0755
+- name: ensure geo daemon init configuration is present
+  copy: src=btlgeo.conf dest=/etc/init/btlgeo.conf
+- name: ensure init.d link is present for btlgeo
+  file: path=/etc/init.d/btlgeo src=/lib/init/upstart-job state=link
+- name: ensure btlgeo is running
+  service: name=btlgeo state=started
+
+- name: ensure pdf daemon script is present
+  copy: src=gunicorn-pdf.sh dest=/home/btl/gunicorn-pdf.sh owner=btl group=btl mode=0755
+- name: ensure pdf daemon init configuration is present
+  copy: src=btlpdf.conf dest=/etc/init/btlpdf.conf
+- name: ensure init.d link is present for btlpdf
+  file: path=/etc/init.d/btlpdf src=/lib/init/upstart-job state=link
+- name: ensure btlpdf is running
+  service: name=btlpdf state=started
+
+- name: ensure store daemon script is present
+  template: src=gunicorn-store.sh.j2 dest=/home/btl/gunicorn-store.sh owner=btl group=btl mode=0755
+- name: ensure store daemon init configuration is present
+  copy: src=btlstore.conf dest=/etc/init/btlstore.conf
+- name: ensure init.d link is present for btlstore
+  file: path=/etc/init.d/btlstore src=/lib/init/upstart-job state=link
+- name: ensure btlstore is running
+  service: name=btlstore state=started
