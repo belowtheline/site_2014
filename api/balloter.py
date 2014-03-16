@@ -189,17 +189,18 @@ def generate(state_only, division, div_ticket, state, sen_ticket):
     row_height = PAGE_HEIGHT - TOP_MARGIN
     first_page = True
 
-    def group_block_iterator(groups):
+    def group_block_iterator(groups, state_only):
         index = 0
-        while index < len(groups):
-            page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
-            if page_end:
-                break
-            index += GROUPS_PER_ROW - 2
+        if state_only:
+            while index < len(groups):
+                page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
+                if page_end:
+                    break
+                index += GROUPS_PER_ROW - 2
         for block in range(index, len(groups), GROUPS_PER_ROW):
             yield 0, groups[block:block + GROUPS_PER_ROW]
 
-    group_blocks = group_block_iterator(groups)
+    group_blocks = group_block_iterator(groups, state_only)
     for col_offset, block in group_blocks:
         max_candidates = max([len(g['candidates']) for g in block])
         group_height = max_candidates * (BOX_SIZE + BOX_GAP) + 2 * mm
