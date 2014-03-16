@@ -131,17 +131,22 @@ class WebBallot < Sinatra::Base
       state_ticket = ticket['senate_ticket'].split(',')
     end
 
-    locals[:body] = Ballot.render(Object.new, {
+    template_vars = {
       state_only: state_only,
       ballot_id: params[:ballot_id],
-      division_id: ticket['division'],
-      division_name: division['division']['name'],
       state_name: state['name'],
-      division_candidates: division_candidates,
       parties: Parties,
       state: States[state_id],
       state_ticket: state_ticket,
-    })
+    }
+
+    if not state_only
+      template_vars[:division_id] = ticket['division']
+      template_vars[:division_name] = division['division']['name']
+      template_vars[:division_candidates] = division_candidates
+    end
+
+    locals[:body] = Ballot.render(Object.new, template_vars)
 
     content = Layout.render(Object.new, locals)
     File.write(File.join(BALLOT_STORE, "#{params[:ballot_id]}.html"), content)
