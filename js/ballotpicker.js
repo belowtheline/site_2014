@@ -110,7 +110,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     $scope.downloadPDF = function () {
         if ($scope.orderByGroup) {
-          applyGroupOrdering();
+            applyGroupOrdering();
         }
 
         if (!$scope.stateOnly) {
@@ -238,7 +238,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     var applyGroupOrdering = function() {
         $scope.orders.state = _.sortBy($scope.orders.state, function(candidate) {
-            return _.indexOf($scope.orders.group, state.groups[candidate.group]);
+            return _.indexOf($scope.orders.group, $scope.groups[candidate.group]);
         });
     };
 
