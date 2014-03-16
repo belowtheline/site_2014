@@ -135,7 +135,7 @@ def draw_candidate(c, number, family, given, party, i, tl, br, box_gap):
 
     c.setFont(FONT, FONT_SIZE)
 
-def generate(division, div_ticket, state, sen_ticket):
+def generate(state_only, division, div_ticket, state, sen_ticket):
     container = cStringIO.StringIO()
     c = canvas.Canvas(container, A4R)
 
@@ -148,41 +148,43 @@ def generate(division, div_ticket, state, sen_ticket):
     font = pdfmetrics.getFont(FONT)
 
     groups = ballots[state]
-    division_name, candidates = ballots[division]
+    if not state_only:
+        division_name, candidates = ballots[division]
     row = 0
     col = 0
 
-    if len(candidates) > 13:
-        box_gap = DIVISION_BOX_GAP
-    else:
-        box_gap = BOX_GAP
-    division_height = len(candidates) * (BOX_SIZE + box_gap) + box_gap
-    tl = (LEFT_MARGIN + col * GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
-    br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
+    if not state_only:
+        if len(candidates) > 13:
+            box_gap = DIVISION_BOX_GAP
+        else:
+            box_gap = BOX_GAP
+        division_height = len(candidates) * (BOX_SIZE + box_gap) + box_gap
+        tl = (LEFT_MARGIN + col * GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
+        br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
 
-    width = font.stringWidth(division_name, FONT_SIZE)
-    offset = (GROUP_WIDTH - width) / 2
+        width = font.stringWidth(division_name, FONT_SIZE)
+        offset = (GROUP_WIDTH - width) / 2
 
-    c.setFillColorRGB(0.8745, 0.94117, 0.84705)
-    c.rect(tl[0], br[1], GROUP_WIDTH, division_height, fill=1)
-    c.setFillColor(black)
+        c.setFillColorRGB(0.8745, 0.94117, 0.84705)
+        c.rect(tl[0], br[1], GROUP_WIDTH, division_height, fill=1)
+        c.setFillColor(black)
 
-    for i in range(0, len(candidates)):
-        family, given, party = candidates[i]
-        number = div_ticket.pop(0)
-        draw_candidate(c, number, family, given, party, i, tl, br, box_gap)
+        for i in range(0, len(candidates)):
+            family, given, party = candidates[i]
+            number = div_ticket.pop(0)
+            draw_candidate(c, number, family, given, party, i, tl, br, box_gap)
 
-    tl = (LEFT_MARGIN + GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
-    br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
+        tl = (LEFT_MARGIN + GROUP_WIDTH, PAGE_HEIGHT - TOP_MARGIN)
+        br = (tl[0] + GROUP_WIDTH, tl[1] - division_height)
 
-    text = c.beginText(tl[0] + 2 * mm, tl[1] - 5 * mm)
-    draw_text(DIVISION_TEXT.format(division_name.upper()), text, FONT + '-Bold',
-              FONT_SIZE, GROUP_WIDTH - 4 * mm)
-    text.textLine('')
-    text.textLine('')
-    draw_text(STATE_TEXT.format(STATES[state].upper()), text, FONT + '-Bold',
-              FONT_SIZE, GROUP_WIDTH - 4 * mm)
-    c.drawText(text)
+        text = c.beginText(tl[0] + 2 * mm, tl[1] - 5 * mm)
+        draw_text(DIVISION_TEXT.format(division_name.upper()), text, FONT + '-Bold',
+                  FONT_SIZE, GROUP_WIDTH - 4 * mm)
+        text.textLine('')
+        text.textLine('')
+        draw_text(STATE_TEXT.format(STATES[state].upper()), text, FONT + '-Bold',
+                  FONT_SIZE, GROUP_WIDTH - 4 * mm)
+        c.drawText(text)
 
     row_height = PAGE_HEIGHT - TOP_MARGIN
     first_page = True
@@ -258,10 +260,18 @@ def setup_rollbar(environment):
 @app.route('/pdf', methods=['POST'])
 def pdf():
     try:
-        division_ticket = request.form['division_ticket'].split(',')
+        state_only = bool(int(request.form['state_only']))
         senate_ticket = request.form['senate_ticket'].split(',')
-        pdf = generate(request.form['division'], division_ticket,
-                       request.form['state'], senate_ticket)
+
+        if not state_only:
+            division = request.form['division']
+            division_ticket = request.form['division_ticket'].split(',')
+        else:
+            division = None
+            division_ticket = None
+
+        pdf = generate(division, division_ticket, request.form['state'],
+                       senate_ticket)
         response = make_response(pdf)
         response.headers['Content-Type'] = 'application/pdf'
         response.headers['Content-Disposition'] = \
