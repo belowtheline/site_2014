@@ -191,7 +191,7 @@ def generate(state_only, division, div_ticket, state, sen_ticket):
 
     def group_block_iterator(groups, state_only):
         index = 0
-        if state_only:
+        if not state_only:
             while index < len(groups):
                 page_end = yield 2, groups[index:index + GROUPS_PER_ROW - 2]
                 if page_end:
