@@ -207,12 +207,20 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             $http.get(storeURL + '/' + $location.hash(), {
                 headers: {'Accept': 'application/json'}
             }).success(function (data) {
-                if (divisionPath != '/' + data.division) {
+                $scope.stateOnly = data.state_only;
+
+                if (data.state_only) {
+                    if (divisionPath != '/' + data.state) {
+                        return;
+                    }
+                } else if (divisionPath != '/' + data.division) {
                     return;
                 }
 
-                $scope.orders.division = unmakeTicket(data.division_ticket,
-                                                      $scope.ballotOrders.division);
+                if (!data.state_only) {
+                    $scope.orders.division = unmakeTicket(data.division_ticket,
+                                                          $scope.ballotOrders.division);
+                }
 
                 $scope.orderByGroup = data.order_by_group;
                 if (data.order_by_group) {
