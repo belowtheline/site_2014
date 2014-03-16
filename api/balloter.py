@@ -270,8 +270,8 @@ def pdf():
             division = None
             division_ticket = None
 
-        pdf = generate(division, division_ticket, request.form['state'],
-                       senate_ticket)
+        pdf = generate(state_only, division, division_ticket,
+                       request.form['state'], senate_ticket)
         response = make_response(pdf)
         response.headers['Content-Type'] = 'application/pdf'
         response.headers['Content-Disposition'] = \
