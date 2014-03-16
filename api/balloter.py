@@ -260,7 +260,7 @@ def setup_rollbar(environment):
 @app.route('/pdf', methods=['POST'])
 def pdf():
     try:
-        state_only = bool(int(request.form['state_only']))
+        state_only = bool(int(request.form.get('state_only', 0)))
         senate_ticket = request.form['senate_ticket'].split(',')
 
         if not state_only:
