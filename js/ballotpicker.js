@@ -80,15 +80,17 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     $scope.saveBallot = function () {
         var ballot = {
-            state: division.division.state.split('/')[1],
             state_only: $scope.stateOnly,
             order_by_group: $scope.orderByGroup
         };
 
         if (!$scope.stateOnly) {
+            ballot.state = division.division.state.split('/')[1];
             ballot.division = divisionPath.slice(1);
             ballot.division_ticket = makeTicket($scope.orders.division,
                                                 $scope.ballotOrders.division);
+        } else {
+            ballot.state = divisionPath.slice(1);
         }
 
         if ($scope.orderByGroup) {
@@ -129,12 +131,14 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
         var form = '<form action="' + pdfURL + '" method="POST">' +
                     make_input('state_only', stateOnly) +
-                    make_input('state', division.division.state.split('/')[1]) +
                     make_input('senate_ticket', senate_ticket.join(','));
 
         if (!scope.stateOnly) {
             form += make_input('division', divisionPath.slice(1)) +
-                    make_input('division_ticket', division_ticket.join(','));
+                    make_input('division_ticket', division_ticket.join(',')),
+                    make_input('state', division.division.state.split('/')[1]);
+        } else {
+            form += make_input('state', divisionPath.slice(1));
         }
 
         form += '</form>';
