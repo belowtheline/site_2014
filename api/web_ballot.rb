@@ -21,7 +21,9 @@ RedisDb = (ENV['REDIS_DB'] || 5).to_i
 
 TemplateDir = path(File.join('..', 'templates'))
 Layout = Haml::Engine.new(File.read(File.join(TemplateDir, 'layout.haml')))
-Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')))
+Ballot = Haml::Engine.new(File.read(File.join(TemplateDir, 'ballot.haml')), {
+  :escape_html => true,
+})
 
 SiteDir = path(File.join('..', 'site'))
 
