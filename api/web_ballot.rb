@@ -145,6 +145,8 @@ class WebBallot < Sinatra::Base
       template_vars[:division_id] = ticket['division']
       template_vars[:division_name] = division['division']['name']
       template_vars[:division_candidates] = division_candidates
+    else
+      template_vars[:division_id] = state_id
     end
 
     locals[:body] = Ballot.render(Object.new, template_vars)
