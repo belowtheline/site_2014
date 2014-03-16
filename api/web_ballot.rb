@@ -81,13 +81,19 @@ class WebBallot < Sinatra::Base
     redis = Redis.new(:host => RedisHost, :db => RedisDb)
     ticket = redis.hgetall(params[:ballot_id])
 
-    division = Divisions[ticket['division']]
-    state_id = division['division']['state'].split('/')[1]
-    state = division['states'][state_id]
-    division_candidates = Array.new(division['candidates'])
-    division_ticket = ticket['division_ticket'].split(',')
-    division_candidates.zip(division_ticket).each do |candidate, preference|
-      candidate['preference'] = preference
+    state_only = ticket['state_only'].to_i
+
+    if not state_only
+      division = Divisions[ticket['division']]
+      state_id = division['division']['state'].split('/')[1]
+      state = division['states'][state_id]
+      division_candidates = Array.new(division['candidates'])
+      division_ticket = ticket['division_ticket'].split(',')
+      division_candidates.zip(division_ticket).each do |candidate, preference|
+        candidate['preference'] = preference
+      end
+    else
+      state = ticket['state']
     end
 
     if ticket['order_by_group'].to_i == 1
@@ -126,6 +132,7 @@ class WebBallot < Sinatra::Base
     end
 
     locals[:body] = Ballot.render(Object.new, {
+      state_only: state_only,
       ballot_id: params[:ballot_id],
       division_id: ticket['division'],
       division_name: division['division']['name'],

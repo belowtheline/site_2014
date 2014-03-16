@@ -65,7 +65,7 @@ def crossdomain(origin=None, methods=None, headers=None,
         return update_wrapper(wrapped_function, f)
     return decorator
 
-def store_at_random_id(ballot, start_length=3):
+def store_at_random_id(ballot, start_length=8):
     r = redis.StrictRedis(host=REDIS_HOST, db=REDIS_DB)
     candidate = None
     n = start_length
@@ -95,22 +95,40 @@ def store_at_random_id(ballot, start_length=3):
 def store_ballot():
     try:
         if request.json is not None:
-            division = request.json['division']
-            division_ticket = request.json['division_ticket']
+            state = request.json['state']
+            state_only = request.json['state_only']
+            if not state_only:
+                division = request.json['division']
+                division_ticket = request.json['division_ticket']
+            else:
+                division = None
+                division_ticket = None
             senate_ticket = request.json['senate_ticket']
             order_by_group = request.json['order_by_group']
         else:
-            division = request.form['division']
-            division_ticket = request.form['division_ticket'].split(',')
+            state = request.form['state']
+            state_only = request.form['state_only']
+            if not state_only:
+                division = request.form['division']
+                division_ticket = request.form['division_ticket'].split(',')
+            else:
+                division = None
+                division_ticket = None
             senate_ticket = request.form['senate_ticket'].split(',')
             order_by_group = bool(int(request.form['order_by_group']))
 
-        ballot_id = store_at_random_id({
-            'division': division,
-            'division_ticket': ','.join(str(x) for x in division_ticket),
+        ballot = {
+            'state': state,
+            'state_only': state_only,
             'senate_ticket': ','.join(str(x) for x in senate_ticket),
             'order_by_group': int(order_by_group),
-        })
+        }
+
+        if not state_only:
+            ballot['division'] = division
+            ballot['division_ticket'] = ','.join(str(x) for x in division_ticket)
+
+        ballot_id = store_at_random_id(ballot)
 
         return jsonify({'ballot_id': ballot_id})
     except:
@@ -143,9 +161,13 @@ def get_ballot(ballot_id):
             abort(404)
 
         ballot = r.hgetall(ballot_id)
-        for ticket in ('division_ticket', 'senate_ticket'):
-            ballot[ticket] = [int(x) for x in ballot[ticket].split(',')]
+        ballot['state_only'] = bool(int(ballot.get('state_only', 0)))
         ballot['order_by_group'] = bool(int(ballot['order_by_group']))
+        ballot['senate_ticket'] = \
+            [int(x) for x in ballot['senate_ticket'].split(',')]
+        if not ballot['state_only']:
+            ballot['division_ticket'] = \
+                [int(x) for x in ballot['division_ticket'].split(',')]
 
         return jsonify(ballot)
     except:

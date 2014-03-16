@@ -2,24 +2,26 @@
   .col-lg-12
     .pull-right
       %a.btn.btn-primary(href="/editor/#{division_id}##{ballot_id}") Edit Ballot
-    %h3
-      Your House of Representatives ballot for
-      %strong= division_name
-.row
-  .col-lg-3.col-md-3.col-sm-3
-    .ballot.lowerhouse
-      %table.ballotgroup
-        - division_candidates.each do |candidate|
-          %tr
-            %td.prefnumber
-              %div.prefnumber= candidate['preference']
-            %td.candidate
-              %span.lastname= candidate['last_name']
-              %br
-              %span.firstname= candidate['first_name']
-              - if candidate['party']
+    - if not state_only
+      %h3
+        Your House of Representatives ballot for
+        %strong= division_name
+- if not state_only
+  .row
+    .col-lg-3.col-md-3.col-sm-3
+      .ballot.lowerhouse
+        %table.ballotgroup
+          - division_candidates.each do |candidate|
+            %tr
+              %td.prefnumber
+                %div.prefnumber= candidate['preference']
+              %td.candidate
+                %span.lastname= candidate['last_name']
                 %br
-                %span.partyname= parties[candidate['party']]['name']
+                %span.firstname= candidate['first_name']
+                - if candidate['party']
+                  %br
+                  %span.partyname= parties[candidate['party']]['name']
 .row
   .col-lg-12
     %h3
