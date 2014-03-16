@@ -93,7 +93,7 @@ class WebBallot < Sinatra::Base
         candidate['preference'] = preference
       end
     else
-      state = ticket['state']
+      state_id = ticket['state']
     end
 
     if ticket['order_by_group'].to_i == 1
