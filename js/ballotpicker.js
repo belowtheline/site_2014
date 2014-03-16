@@ -135,7 +135,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
         if (!$scope.stateOnly) {
             form += make_input('division', divisionPath.slice(1)) +
-                    make_input('division_ticket', division_ticket.join(',')),
+                    make_input('division_ticket', division_ticket.join(',')) +
                     make_input('state', division.division.state.split('/')[1]);
         } else {
             form += make_input('state', divisionPath.slice(1));
