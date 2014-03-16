@@ -83,7 +83,11 @@ class WebBallot < Sinatra::Base
     redis = Redis.new(:host => RedisHost, :db => RedisDb)
     ticket = redis.hgetall(params[:ballot_id])
 
-    state_only = ticket['state_only'].to_i
+    if ticket['state_only'].to_i == 0
+      state_only = false
+    else
+      state_only = true
+    end
 
     if not state_only
       division = Divisions[ticket['division']]
