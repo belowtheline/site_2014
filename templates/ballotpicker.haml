@@ -3,8 +3,8 @@
     .col-lg-12
       .page-header
         .pull-right
-          %button.btn.btn-primary(ng-click="saveBallot()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#saveModal") Save
-          %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || !orders.division" data-toggle="modal" href="#downloadModal") Download PDF
+          %button.btn.btn-primary(ng-click="saveBallot()" ng-disabled="!orders.state || (!stateOnly && !orders.division)" data-toggle="modal" href="#saveModal") Save
+          %button.btn.btn-primary(ng-click="downloadPDF()" ng-disabled="!orders.state || (!stateOnly && !orders.division)" data-toggle="modal" href="#downloadModal") Download PDF
         %h1 Ballot Editor for {{divisionName}}
         %p.lead Click and drag items in the list to re-order them.
         %p
@@ -18,7 +18,7 @@
           have one or the other, please let us know.
 
   .row
-    .col-lg-6
+    .col-lg-6(ng-hide="stateOnly")
       %h3
         House of Representatives
         %small
@@ -41,7 +41,7 @@
               %span.partycode.party.party-ind(ng-hide="parties[c.party]" title="Independent")
                 Independent
 
-    .col-lg-6
+    %div(ng-class="{'col-lg-6': !stateOnly, 'col-lg-12': stateOnly}")
       %h3
         Senate
         .btn-group

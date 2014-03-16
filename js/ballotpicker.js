@@ -12,6 +12,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
     $scope.ballotOrders = {};
     $scope.parties = {};
     $scope.ticketList = [];
+    $scope.stateOnly = false;
 
     $scope.orderByGroup = true;
 
@@ -79,11 +80,16 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
 
     $scope.saveBallot = function () {
         var ballot = {
-            division: divisionPath.slice(1),
-            division_ticket: makeTicket($scope.orders.division,
-                                        $scope.ballotOrders.division),
+            state: division.division.state.split('/')[1],
+            state_only: $scope.stateOnly,
             order_by_group: $scope.orderByGroup
         };
+
+        if (!$scope.stateOnly) {
+            ballot.division = divisionPath.slice(1);
+            ballot.division_ticket = makeTicket($scope.orders.division,
+                                                $scope.ballotOrders.division);
+        }
 
         if ($scope.orderByGroup) {
             ballot.senate_ticket = makeTicket($scope.orders.group,
@@ -105,8 +111,10 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
           applyGroupOrdering();
         }
 
-        var division_ticket = makeTicket($scope.orders.division,
-                                         $scope.ballotOrders.division);
+        if (!$scope.stateOnly) {
+            var division_ticket = makeTicket($scope.orders.division,
+                                             $scope.ballotOrders.division);
+        }
         var senate_ticket = makeTicket($scope.orders.state,
                                        $scope.ballotOrders.state);
 
@@ -114,24 +122,49 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
             return '<input type="hidden" name="' + name + '" value="' + value + '"/>';
         }
 
+        var stateOnly = '0';
+        if ($scope.stateOnly) {
+            stateOnly = '1';
+        }
+
         var form = '<form action="' + pdfURL + '" method="POST">' +
-                    make_input('division', divisionPath.slice(1)) +
+                    make_input('state_only', stateOnly) +
                     make_input('state', division.division.state.split('/')[1]) +
-                    make_input('division_ticket', division_ticket.join(',')) +
-                    make_input('senate_ticket', senate_ticket.join(',')) +
-                    '</form>';
+                    make_input('senate_ticket', senate_ticket.join(','));
+
+        if (!scope.stateOnly)
+            form += make_input('division', divisionPath.slice(1)) +
+                    make_input('division_ticket', division_ticket.join(','));
+        }
+
+        form += '</form>';
+
         $(form).appendTo('body').submit().remove();
     }
 
     var initialize = function() {
         divisionPath = $location.path();
-        $http.get('/division' + divisionPath + '.json').success(function(data) {
-            division = data;
-            $scope.divisionName = data.division.name
-            $scope.orders.division = data.candidates;
-            $scope.ballotOrders.division = data.candidates.slice();
 
-            $http.get('/' + division.division.state + '.json').success(function(data) {
+        $http.get('/division' + divisionPath + '.json')
+            .success(function(data) {
+                division = data;
+                $scope.divisionName = data.division.name
+                $scope.orders.division = data.candidates;
+                $scope.ballotOrders.division = data.candidates.slice();
+
+                loadState(division.division.state);
+            })
+            .error(function (data) {
+                $scope.stateOnly = true;
+                loadState('state' + divisionPath);
+            });
+
+        $http.get('/parties.json').success(function(data) {
+            $scope.parties = data;
+        });
+
+        function loadState(state) {
+            $http.get('/' + state + '.json').success(function(data) {
                 state = data;
                 $scope.orders.state = _.map(data.ballot_order, function(id) {
                     var candidateWithId = data.candidates[id];
@@ -164,11 +197,7 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
                     loadBallot();
                 }
             });
-        });
-
-        $http.get('/parties.json').success(function(data) {
-            $scope.parties = data;
-        });
+        }
 
         function loadBallot() {
             $http.get(storeURL + '/' + $location.hash(), {
