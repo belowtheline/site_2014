@@ -103,7 +103,7 @@ class WebBallot < Sinatra::Base
       state = States[state_id]['state']
     end
 
-    if state_id != 'wa':
+    if state_id != 'wa'
       raise Sinatra::NotFound, "No ticket"
     end
 
