@@ -170,6 +170,11 @@ function BallotPickerCtrl($scope, $http, $location, $window) {
         function loadState(state) {
             $http.get('/' + state + '.json').success(function(data) {
                 state = data;
+
+                if ($scope.stateOnly) {
+                    $scope.divisionName = state.state.name;
+                }
+
                 $scope.orders.state = _.map(data.ballot_order, function(id) {
                     var candidateWithId = data.candidates[id];
                     candidateWithId.id = id;
