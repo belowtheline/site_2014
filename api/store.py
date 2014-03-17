@@ -117,10 +117,10 @@ def store_ballot():
             senate_ticket = request.form['senate_ticket'].split(',')
             order_by_group = bool(int(request.form['order_by_group']))
 
-        if state:
-            state = 1
+        if state_only:
+            state_only = 1
         else:
-            state = 0
+            state_only = 0
 
         ballot = {
             'state': state,
