@@ -210,7 +210,7 @@ def generate(state_only, division, div_ticket, state, sen_ticket):
         if row_height <= group_height + GROUP_ROW_GAP:
             end_page(c)
             row_height = PAGE_HEIGHT - TOP_MARGIN
-            if first_page:
+            if not state_only and first_page:
                 first_page = False
                 col_offset, block = group_blocks.send(True)
                 max_candidates = max([len(g['candidates']) for g in block])
