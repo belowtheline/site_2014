@@ -38,7 +38,7 @@ Dir.glob(File.join(SiteDir, 'division', '*.json')).each do |division_file|
   Divisions[division['division_id']] = division
 end
 
-Dir.glob(File.join(SiteDir, 'state', '*.json')).each do |state_file|
+Dir.glob(File.join(SiteDir, 'state', 'wa.json')).each do |state_file|
   state = JSON.parse(File.read(state_file))
   group_order = state['candidates'].values.map {|c| c['group']}
   group_order.uniq!
@@ -101,6 +101,10 @@ class WebBallot < Sinatra::Base
     else
       state_id = ticket['state']
       state = States[state_id]['state']
+    end
+
+    if state_id != 'wa':
+      raise Sinatra::NotFound, "No ticket"
     end
 
     if ticket['order_by_group'].to_i == 1
